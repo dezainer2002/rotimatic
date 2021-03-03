@@ -1,0 +1,25 @@
+{% for block in section.blocks %}
+    {% if block.type == 'product_specifications' %}
+      <div class="product-specifications-items">
+        <div class="product-specifications-image">
+          <img class="lazyload"
+            src="{{ block.settings.image | img_url: 'master' }}"
+            alt="{{ block.settings.image.alt | escape }}" />
+        </div>
+
+        <div class="specifications-description">
+          {% if block.settings.title != blank %}
+            <h3>{{ block.settings.title }}</h3>
+          {% endif %}
+
+          {% if block.settings.text != blank %}
+            {{ block.settings.text }}
+
+			{% if block.settings.see_all_flours %}
+				<div class="all-flours-popup">See all flours</div>
+			{% endif %}
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+{% endfor %}

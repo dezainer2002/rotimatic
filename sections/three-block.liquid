@@ -1,0 +1,39 @@
+<div class="page-width">
+	{% include 'three-blocks-grid' %}
+</div>
+
+{% schema %}
+{
+  "name": "Three Blocks",
+  "class": "index-section index-three-blocks",
+  "blocks": [
+    {
+      "type": "three_block",
+      "name": "Three Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three Blocks",
+      "category": "Three Blocks"
+    }
+  ]
+}
+{% endschema %}
