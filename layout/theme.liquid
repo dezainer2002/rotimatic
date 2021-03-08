@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_button }}">
   <link rel="canonical" href="{{ canonical_url }}">
- 
+
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
@@ -16,6 +16,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    const asset_url = "{{ 'space.gif' | asset_url | split: 'space.gif' | first }}";
+  </script>
 
   {%- capture seo_title -%}
     {%- if request.page_type == 'search' and search.performed == true -%}
@@ -44,6 +47,8 @@
   {{ 'jquery-ui.scss.css' | asset_url | stylesheet_tag }}
   {{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+  <script src="{{ 'jquery_3.5.1_.min.js' | asset_url }}"></script>
 
   <script>
     var theme = {
@@ -115,8 +120,8 @@
   <script src="{{ 'jquery.ui.touch-punch.min.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'datatables.mark.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'jquery.dataTables.min.js' | asset_url }}" defer="defer"></script>
-  
-  
+
+
   <script src="{{ 'loader.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'jquery.fancybox.min.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
@@ -126,7 +131,7 @@
 <script type="text/javascript"> gsProductByVariant = {}; {% if product.id > 1 %}{% for variant in product.variants %} gsProductByVariant[{{variant.id}}] = {% if variant.available %} 1 {% else %} 0 {% endif %}; {% endfor %}{% endif %}  gsProductCSID = "{{ product.id }}"; gsDefaultV = "{{ product.selected_or_first_available_variant.id }}"; </script><script type="text/javascript" src="https://gravity-software.com/js/shopify/pac_shop17295.js?v=0d3dde8989e8e64963121d8d6f7c369a"></script>
 <!-- Coming Soon code end. Do not change GSEND --><script src="https://shinedezign.tk/preorder/js/preorder.js"></script>
 
-  
+
   <script type='text/javascript'>
 window.__lo_site_id = 271843;
     (function() {
@@ -134,22 +139,22 @@ window.__lo_site_id = 271843;
         wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
       })();
-  
-  
+
+
   </script>
-  
-  
+
+
 <script>
 window.mlvedaShopCurrency = "{{ shop.currency }}";
 window.shopCurrency = "{{ shop.currency }}";
 window.supported_currencies = "{{ settings.mlvedaACS_supportedCurrencies }}";
 </script>
-  
-  
-  
-   
+
+
+
+
 {% include 'pagefly-header' %}
- </head> 
+ </head>
 
 <body class="template-{{ request.page_type | handle }}">
 
@@ -196,38 +201,36 @@ window.supported_currencies = "{{ settings.mlvedaACS_supportedCurrencies }}";
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
   {% if template == 'cart' %}
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
- <script type="text/javascript">
-   $(document).ready(function(){
-   $('.cart__submit').removeClass('sd_hide_check');
-     $('.cart__submit').removeAttr('disabled');
-   });
-  </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      $('.cart__submit').removeClass('sd_hide_check');
+        $('.cart__submit').removeAttr('disabled');
+      });
+    </script>
   {% endif %}
   {% if template contains 'index' %}
-  <script>
-    function validate(){
-     if($('#WaitlistName').val() == "" || $('#WaitlistEmail').val() == "" || $('#WaitlistPhone').val() == ""){
-      	$(".err_msg").html("Please fill out required fields.");
-        return false;
+    <script>
+      function validate(){
+      if($('#WaitlistName').val() == "" || $('#WaitlistEmail').val() == "" || $('#WaitlistPhone').val() == ""){
+          $(".err_msg").html("Please fill out required fields.");
+          return false;
+        }
+        else{
+          $("#contact_info").val("waitlist,"+$('#WaitlistPhone').val());
+          $("#Contact_waitlist").submit();
+        }
       }
-      else{
-        $("#contact_info").val("waitlist,"+$('#WaitlistPhone').val());
-      	$("#Contact_waitlist").submit();
-      }
-    }
- 
-</script>
+
+    </script>
   {% endif %}
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  
+
   {% if template contains 'product.roti' %}
   <script>
     async function load_home() {
     let url = 'https://rotimaticus.myshopify.com/browsing_context_suggestions.json';
     let obj = await (await fetch(url)).json();
-    var geo_country = obj.detected_values.country_name;      
-     
+    var geo_country = obj.detected_values.country_name;
+
      var fruits = ["United States", "Canada", "Denmark", "Norway", "Sweden", "Netherlands", "France", "Germany", "United Arab Emirates", "Saudi Arabia", "Bahrain", "Kuwait", "Oman", "Qatar", "Singapore", "United Kingdom", "Ireland", "Hong Kong", "Australia", "New Zealand"];
 	 var n = fruits.includes(geo_country);
       console.log(n);
@@ -235,16 +238,16 @@ window.supported_currencies = "{{ settings.mlvedaACS_supportedCurrencies }}";
      	window.location.href = '/pages/be-the-first-in-line';
      }
     }
-   load_home(); 
-    
-   </script> 
+   load_home();
+
+   </script>
   {% endif %}
   <script>
    async function load() {
     let url = 'https://rotimaticus.myshopify.com/browsing_context_suggestions.json';
     let obj = await (await fetch(url)).json();
-    var geo = obj.detected_values.country_name;      
-     
+    var geo = obj.detected_values.country_name;
+
          var fruits = ["United States", "Canada", "Denmark", "Norway", "Sweden", "Netherlands", "France", "Germany", "United Arab Emirates", "Saudi Arabia", "Bahrain", "Kuwait", "Oman", "Qatar", "Singapore", "United Kingdom", "Ireland", "Hong Kong", "Australia", "New Zealand"];
 	 var n = fruits.includes(geo);
       console.log(n);
@@ -252,14 +255,14 @@ window.supported_currencies = "{{ settings.mlvedaACS_supportedCurrencies }}";
      	$(".waitlist-popup").hide();
      }else{
      $(".waitlist-popup").show();
-     }                                                       
-	
+     }
+
      if(localStorage.getItem("country") === null){
     	localStorage.setItem("country", geo);
-     }  
+     }
 	var geo_country = localStorage.getItem("country");
      //alert(geo_country); return false;
-    
+
     if(geo_country == 'United States'){
       var curr = "USD";
     }
@@ -305,10 +308,10 @@ window.supported_currencies = "{{ settings.mlvedaACS_supportedCurrencies }}";
      else{
      var curr = '{{ cart.currency.iso_code }}';
      }
-    
+
     var curr = '{{ cart.currency.iso_code }}';
-    
-    
+
+
     if(curr == "USD"){
       $(".rotiproduct").hide();
       $(".roti_us").show();
@@ -382,9 +385,9 @@ window.supported_currencies = "{{ settings.mlvedaACS_supportedCurrencies }}";
 
 }
 
-load(); 
+load();
   $(document).ready(function(){
-    
+
      $("a.disclosure-list__option").click(function(e){
    //alert(1);
    var currency = $(this).attr("iso-code");
@@ -393,35 +396,35 @@ $.ajax({
             url: '/cart/clear.js',
             data: '',
             dataType: 'json',
-            success: function() { 
-setTimeout(function(){ 
-window.location.href = '/products/rotimatic?currency='+currency;              
+            success: function() {
+setTimeout(function(){
+window.location.href = '/products/rotimatic?currency='+currency;
       }, 1000);
-              
+
             },
             error: function(XMLHttpRequest, textStatus) {
               /* error code */
             }
           });
 });
-    
+
   $.ajax ({
         url: 'https://rotimaticus.myshopify.com/browsing_context_suggestions.json',
         dataType: 'json',
     success: function (data) {
-        console.log(data.detected_values.country_name);      
+        console.log(data.detected_values.country_name);
     }
   });
-    
-    
-    
+
+
+
     $(document).keyup(function(e) {
     if(e.key === "Escape") {
-      $(".waitlist-cancel").trigger("click");  
+      $(".waitlist-cancel").trigger("click");
     }
 });
-      
-                                                                 
+
+
 var curr = '{{ cart.currency.iso_code }}';
     if(curr == "USD"){
       $(".rotiproduct").hide();
@@ -480,7 +483,7 @@ var curr = '{{ cart.currency.iso_code }}';
       $(".roti_sweden").show();
     }
 
-    
+
     var settings = {
   "url": "https://6vy310rw78.execute-api.us-east-1.amazonaws.com/prod/georegion/roticount",
   "method": "GET",
@@ -491,17 +494,17 @@ var curr = '{{ cart.currency.iso_code }}';
 };
 
 $.ajax(settings).done(function (response) {
-   
+
   $(".map-count-country-count h3").html(numberWithCommas(response[0].roti_count));
-  
+
 });
-    
-    
-    
+
+
+
       $("#country").change(function(){
-      
-   
-    
+
+
+
 var settings = {
   "url": "https://6vy310rw78.execute-api.us-east-1.amazonaws.com/prod/georegion/roticount",
   "method": "GET",
@@ -516,42 +519,42 @@ $.ajax(settings).done(function (response) {
   console.log(response);
   if(georeg == "AUS"){
   $(".map-count-country-count h3").html(numberWithCommas(response[0].roti_count));
-  $(".fill").removeClass("active");    
-  $("#australia").addClass("active");  
+  $(".fill").removeClass("active");
+  $("#australia").addClass("active");
   }
   if(georeg == "CAN"){
   $(".map-count-country-count h3").html(numberWithCommas(response[1].roti_count));
-    $(".fill").removeClass("active");    
-  $("#canada").addClass("active"); 
+    $(".fill").removeClass("active");
+  $("#canada").addClass("active");
   }
   if(georeg == "EUROPE"){
   $(".map-count-country-count h3").html(numberWithCommas(response[2].roti_count));
-      $(".fill").removeClass("active");    
-  $("#europe").addClass("active"); 
+      $(".fill").removeClass("active");
+  $("#europe").addClass("active");
   }
   if(georeg == "ME"){
   $(".map-count-country-count h3").html(numberWithCommas(response[3].roti_count));
-        $(".fill").removeClass("active");    
-  $("#Middle_East").addClass("active"); 
+        $(".fill").removeClass("active");
+  $("#Middle_East").addClass("active");
   }
   if(georeg == "NZL"){
   $(".map-count-country-count h3").html(numberWithCommas(response[4].roti_count));
-         $(".fill").removeClass("active");    
-  $("#new_zealand").addClass("active"); 
+         $(".fill").removeClass("active");
+  $("#new_zealand").addClass("active");
   }
   if(georeg == "SGP"){
   $(".map-count-country-count h3").html(numberWithCommas(response[5].roti_count));
-             $(".fill").removeClass("active");    
-  $("#singapore").addClass("active"); 
+             $(".fill").removeClass("active");
+  $("#singapore").addClass("active");
   }
   if(georeg == "USA"){
   $(".map-count-country-count h3").html(numberWithCommas(response[6].roti_count));
-                $(".fill").removeClass("active");    
-  $("#USA").addClass("active"); 
+                $(".fill").removeClass("active");
+  $("#USA").addClass("active");
   }
-  
+
 });
-    });  
+    });
 setInterval(ajax_query, 5000);
 
 function ajax_query(){
@@ -566,11 +569,11 @@ function ajax_query(){
 };
 
 $.ajax(settings).done(function (response) {
-  console.log(response.total_roti_count);  
+  console.log(response.total_roti_count);
   $("h2.block_3").html(numberWithCommas(response.total_roti_count));
 });
 }
-    
+
     function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -579,16 +582,16 @@ $.ajax(settings).done(function (response) {
     	var randomval = Math.floor(Math.random() * 51) + 100;
       $("h2.block_2").fadeOut(2000);
       $("h2.block_2").fadeIn(3000);
-      
+
       $("h2.block_2").html(randomval);
     }
-    
+
     });
-   
+
 </script>
   <script>
   window.addEventListener('load', (event) => {
-    
+
   console.log('page is fully loaded');
      $("#Calculate").click(function(){
       var people = $("#people").val();
@@ -598,7 +601,7 @@ $.ajax(settings).done(function (response) {
          $("#people").val("4");
          return false;
        }
-       
+
        var roties = $("#roties").val();
        if(roties > 15){
        $(".err_msg2").html("Please enter value between 1 to 15");
@@ -609,10 +612,10 @@ $.ajax(settings).done(function (response) {
        var people = $("#people").val();
        var rotis = $("#rotis").val();
        var eat = $("#eat").val();
-       
+
        var numb = Math.round(Number(people) * Number(rotis) * Number(eat) * 52 * 3 * 0.53);
        $(".calculate-price").html(numb.toLocaleString()+"<br><span>USD</span>");
-       
+
        var days = Math.round((Number(people) * Number(rotis) * Number(eat) * 52 * 3 * 0.0604) / 24);
        $(".calculate-day").html(days.toLocaleString()+"<br><span>DAYS</span>");
 	});
@@ -640,7 +643,7 @@ $.ajax(settings).done(function (response) {
       	$(".err_msg2").hide();
       }
     });
-    
+
  });
   </script>
   <style>.err_msg1, .err_msg2{padding: 10px 0 0 15px;

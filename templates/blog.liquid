@@ -1,5 +1,13 @@
-{% comment %}
-  The contents of the blog.liquid template can be found in /sections/blog-template.liquid
-{% endcomment %}
+{%-liquid
+  comment
+    The contents of the blog.liquid template can be found in /sections/blog-template.liquid
+  endcomment
 
-{% section 'blog-template' %}
+  section 'blog-slider'
+
+  section 'blog-articles'
+
+  comment
+    section 'blog-template'
+  endcomment
+-%}
