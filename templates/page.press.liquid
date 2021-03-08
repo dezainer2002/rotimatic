@@ -1,0 +1,14 @@
+{%-liquid
+  assign sassFile     =   'press.scss.css' | asset_url
+
+  assign pressJsFile  =   'press.js' | asset_url
+
+  echo '<link rel="stylesheet" href="' | append: sassFile | append: '">'
+
+  section 'press_slider'
+  section 'press'
+
+
+  echo '<script src="' | append: pressJsFile | append: '"></script>'
+
+-%}

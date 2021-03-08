@@ -1,0 +1,68 @@
+.main-content {
+  padding-top: 0;
+}
+
+.pressCustomSlider {
+  .pressBannerImg {
+    img {
+      object-fit: cover;
+      height: 400px;
+      width: 100%;
+    }
+  }
+
+  .pressSlider {
+    max-width: 600px;
+    margin: 25px auto;
+
+    .item_slide {
+      text-align: center;
+
+      h3 {
+        font-size: 2.25rem;
+        font-weight: 400;
+
+        &::before,
+        &::after {
+          content: '"';
+          font-size: 1.25em;
+          position: relative;
+          top: 10px;
+        }
+
+      }
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    .slick-next::before,
+    .slick-prev::before {
+      content: "";
+      width: 22px;
+      height: 30px;
+      display: inline-block;
+      background-repeat: no-repeat;
+    }
+
+    .slick-prev::before {
+      background-image: url("//cdn.shopify.com/s/files/1/0517/5391/0426/t/9/assets/left-arrow.png");
+    }
+
+    .slick-next::before {
+      background-image: url("//cdn.shopify.com/s/files/1/0517/5391/0426/t/9/assets/right-arrow.png");
+    }
+
+    .slick-prev {
+      left: -50px;
+    }
+
+    .slick-next {
+      right: -50px;
+    }
+  }
+
+}
+
+

@@ -1,0 +1,53 @@
+{%-liquid
+  assign ss = section.settings
+
+  if ss.mainImage != blank
+    assign pressBannerImage = ss.mainImage | img_url: '1700x1700'
+
+    echo '<div class="pressBannerImg">'
+      echo '<img src="' | append: pressBannerImage | append: '" alt="Press Banner">'
+    echo '</div>'
+  endif
+-%}
+
+<div class="pressSlider">
+  {% for block in section.blocks %}
+    {% assign b = block.settings %}
+    <div class="item_slide">
+      <h3>{{ b.content }}</h3>
+      <img src="{{ b.icon | img_url: '36x36' }}" alt="{{ b.content | truncate: 20 }}">
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name"      :   "Press Release Slider",
+  "class"     :   "pressCustomSlider",
+  "settings"  :   [
+    {
+      "type"        :   "image_picker",
+      "id"          :   "mainImage",
+      "label"       :   "Upload Banner Image"
+    }
+  ],
+  "blocks"    :   [
+    {
+      "type"      :   "Slide",
+      "name"      :   "New Slide",
+      "settings"  :   [
+        {
+          "type"      :   "textarea",
+          "id"        :   "content",
+          "label"     :   "Content"
+        },
+        {
+          "type"      :   "image_picker",
+          "id"        :   "icon",
+          "label"     :   "Upload Icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
