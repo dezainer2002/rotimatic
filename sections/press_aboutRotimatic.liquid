@@ -6,36 +6,99 @@
       <h2>{{ ss.title }}</h2>
     {% endif %}
 
-    <div class="pressAboutRotimatic_wrapper">
+    <div class="pressAboutRotimatic_wrapper" state="hide">
       {% for block in section.blocks %}
         {% assign b = block.settings %}
-        <div class="pressAboutRotimatic_Item">
+        <div class="pressAboutRotimatic_Item" {% if forloop.index > 9 %}state="hide"{% endif %}>
           {% if b.link != blank %}
             <a href="{{ b.link }}" target="_blank">
               {% if b.image != blank %}
-                <img src="{{ b.image | img_url: '200x200' }}" alt="{{ b.content | truncate: 20 }}" style="width: {{ b.iconWidth | append: 'px' }}">
+                <img class="item_img" src="{{ b.image | img_url: '200x200' }}" alt="{{ b.content | truncate: 20 }}" style="width: {{ b.iconWidth | append: 'px' }}">
               {% endif %}
             </a>
             <a href="{{ b.link }}" target="_blank">
               {% if b.content != blank %}
-                <p class="tertiary-font-size">
+                <p class="item_content">
                   {{ b.content }}
                 </p>
               {% endif %}
             </a>
           {% else %}
             {% if b.image != blank %}
-              <img src="{{ b.image | img_url: '200x200' }}" alt="{{ b.content | truncate: 20 }}" style="width: {{ b.iconWidth | append: 'px' }}">
+              <img class="item_img" src="{{ b.image | img_url: '200x200' }}" alt="{{ b.content | truncate: 20 }}" style="width: {{ b.iconWidth | append: 'px' }}">
             {% endif %}
 
             {% if b.content != blank %}
-              <p class="tertiary-font-size">
+              <p class="item_content">
                 {{ b.content }}
               </p>
             {% endif %}
           {% endif %}
         </div>
       {% endfor %}
+    </div>
+
+    <div class="showMoreOrLess">
+      <a href="javascript://void(0);" class="showMoreOrLess_link">Show More</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-width">
+  <div class="press_releases">
+    <h2 class="press_releases__title">Get your hands on our Press Kit here.</h2>
+    <p class="press_releases_content">
+      Member of the press and can’t find something you need? Or if you’d like to speak with someone from Rotimatic, you
+      can contact us at <a href="mailto:media@zimplistic.com">media@zimplistic.com</a>.
+    </p>
+    <div class="kit-download">
+      <img src="{{ 'downloadIcon.png' | asset_url }}" class="downLoadIcon">
+      <a href="{{ 'presskit.pdf' | asset_url }}" title="Download Press Kit" target="_blank">
+        Download Press Kit
+      </a>
+    </div>
+
+
+    <h2 class="press_releases__title">Press Releases</h2>
+    <div class="item_grid">
+      <div class="item_grid__date"> Feb 2017</div>
+      <div class="item_grid__linkWrap">
+        <a href="{{ 'February-2017-Rotimatic-starts-deliveries.pdf' | asset_url }}" target="_blank">
+          Rotimatic starts deliveries
+        </a>
+      </div>
+    </div>
+    <div class="item_grid">
+      <div class="item_grid__date"> Oct 2017</div>
+      <div class="item_grid__linkWrap">
+        <a href="{{ 'October-2017-Rotimatic-launches-in-four-new-markets-U.K.-Canada-Australia-New-Zealand.pdf' | asset_url }}" target="_blank">
+          Rotimatic launches in four new markets - U.K., Canada, Australia, New Zealand
+        </a>
+      </div>
+    </div>
+    <div class="item_grid">
+      <div class="item_grid__date"> Nov 2017</div>
+      <div class="item_grid__linkWrap">
+        <a href="{{ 'November2017-Rotimatic-earns-US20million-revenue-in-the-first-year-of-sales.pdf' | asset_url }}" target="_blank">
+          Rotimatic earns US$20 million revenue in the first year of sales
+        </a>
+      </div>
+    </div>
+    <div class="item_grid">
+      <div class="item_grid__date"> Feb 2018</div>
+      <div class="item_grid__linkWrap">
+        <a href="{{ 'February-2018-Rotimatic-launches-in-GCC-.pdf' | asset_url }}" target="_blank">
+          Rotimatic launches in GCC
+        </a>
+      </div>
+    </div>
+    <div class="item_grid">
+      <div class="item_grid__date"> Apr 2018</div>
+      <div class="item_grid__linkWrap">
+        <a href="{{ 'April-2018-Zimplistic-raises-US30-million-in-Series-C-fundraise.pdf' | asset_url }}" target="_blank">
+          Zimplistic raises US$30 million in Series C fundraise
+        </a>
+      </div>
     </div>
   </div>
 </div>

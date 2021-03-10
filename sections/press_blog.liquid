@@ -1,0 +1,132 @@
+{% assign ss = section.settings %}
+
+<div class="press_blogs">
+  <h4 class="heading">What's new at Rotimatic Blog</h4>
+
+  <div id="rtp-press-blog-warrp" class="rtp-press-blog-warrp default-dots clearfix">
+    <div class="rtp-press-blog">
+      <div class="rtp-blog-img">
+        <a href="http://blog.rotimatic.com/brian-laras-rotimatic-experience/" target="_blank" tabindex="-1">
+          <img src="https://ik.imagekit.io/rotimatic/wp-content/uploads/2013/10/Brian-Lara-image-1-e1491832237684.jpg" alt="Blog Images">
+        </a>
+      </div>
+      <div class="rtp-blog-details">
+        <h4 class="rtp-blog-headding">
+          <a href="http://blog.rotimatic.com/brian-laras-rotimatic-experience/" target="_blank">
+            Brian Lara’s Rotimatic Experience
+          </a>
+        </h4>
+        <div class="rtp-blog-desc">
+          On a seemingly regular Saturday, Zimplistic office was brimming with excitement. The most unfla…
+        </div>
+        <a class="rtp-blog-view-more" href="http://blog.rotimatic.com/brian-laras-rotimatic-experience/" target="_blank">
+          View More
+        </a>
+      </div>
+    </div>
+    <div class="rtp-press-blog slick-current slick-active">
+      <div class="rtp-blog-img">
+        <a href="http://blog.rotimatic.com/roti-recipes-pizza-roti/" target="_blank">
+          <img src="https://ik.imagekit.io/rotimatic/wp-content/uploads/2013/10/IMG_1585-e1491832406196.jpg" alt="Blog Images">
+        </a>
+      </div>
+      <div class="rtp-blog-details">
+        <h4 class="rtp-blog-headding">
+          <a href="http://blog.rotimatic.com/roti-recipes-pizza-roti/" target="_blank">
+            Margheroti Pizza And More Roti Recipes
+          </a>
+        </h4>
+        <div class="rtp-blog-desc">
+          Planning a party can seem like a daunting task and if it’s a party with kids, the challenges do…
+        </div>
+
+        <a class="rtp-blog-view-more" href="http://blog.rotimatic.com/roti-recipes-pizza-roti/" target="_blank">
+          View More
+        </a>
+      </div>
+    </div>
+    <div class="rtp-press-blog">
+      <div class="rtp-blog-img">
+        <a href="http://blog.rotimatic.com/national-day-rally-speech-prime-minister-lee/" target="_blank">
+          <img src="https://ik.imagekit.io/rotimatic/wp-content/uploads/2013/10/Screen-Shot-2017-04-05-at-3.43.35-pm.png" alt="Blog Images">
+        </a>
+      </div>
+
+      <div class="rtp-blog-details">
+        <h4 class="rtp-blog-headding">
+          <a href="http://blog.rotimatic.com/national-day-rally-speech-prime-minister-lee/" target="_blank">
+            PM Lee Highlights Rotimatic
+          </a>
+        </h4>
+
+        <div class="rtp-blog-desc">
+          We are humbled and delighted to have crossed another landmark in the short history of Zimplisti…
+        </div>
+        <a class="rtp-blog-view-more" href="http://blog.rotimatic.com/national-day-rally-speech-prime-minister-lee/" target="_blank">
+          View More
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="rtp-more-blog clearfix">
+    <a href="http://blog.rotimatic.com/" title="View More Blog" target="_blank">
+      Read more articles
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name"      :   "Press",
+  "class"     :   "faqCustomSection",
+  "max_blocks":   3,
+  "settings"  :   [
+    {
+      "type"        :   "text",
+      "id"          :   "title",
+      "label"       :   "Add Heading"
+    },
+    {
+      "type"        :   "richtext",
+      "id"          :   "content",
+      "label"       :   "Main content"
+    }
+  ],
+  "blocks"    :   [
+    {
+      "type"      :   "titleIs",
+      "name"      :   "Title",
+      "settings"  :   [
+        {
+          "type"      :   "text",
+          "id"        :   "title",
+          "label"     :   "Heading"
+        }
+      ]
+    },
+    {
+      "type"      :   "question",
+      "name"      :   "Question and Answer",
+      "settings"  :   [
+        {
+          "type"      :   "text",
+          "id"        :   "title",
+          "label"     :   "Question"
+        },
+        {
+          "type"      :   "richtext",
+          "id"        :   "anwser",
+          "label"     :   "Anwser"
+        },
+        {
+          "type"      :   "checkbox",
+          "id"        :   "borderBottom",
+          "label"     :   "Remove bottom border",
+          "default"   :   false
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

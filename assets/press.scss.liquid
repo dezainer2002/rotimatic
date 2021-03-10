@@ -77,5 +77,134 @@
     text-align: center;
     font-size: 16px;
   }
+
+  .pressAboutRotimatic_wrapper {
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    max-width: 800px;
+    gap: 0 40px;
+
+    .pressAboutRotimatic_Item {
+      max-width: 30%;
+      width: 100%;
+      border-top: .25rem solid #d8d8d8;
+      margin-bottom: 3.75rem;
+      transition: 0.3s all ease-in-out;
+
+      &[state="hide"] {
+        display: none;
+      }
+      &[state="show"] {
+        display: block;
+      }
+
+      .item_img {
+        margin: 1.125rem 0 1.875rem;
+        object-fit: contain;
+      }
+
+      .item_content {
+        margin: 0;
+        color: #3d4247;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
+
+  .showMoreOrLess {
+    text-align: center;
+
+    .showMoreOrLess_link {
+      color: #52c7ff;
+      font-size: 1.125rem;
+      line-height: 1.375rem;
+    }
+  }
 }
+
+.press_releases {
+  border-top: 1px solid #d8d8d8;
+  padding: 3rem;
+  margin: 3rem auto;
+  border-bottom: 1px solid #d8d8d8;
+  text-align: center;
+  max-width: 800px;
+
+  .press_releases__title {
+    font-weight: 300;
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+    margin-bottom: .5rem;
+    margin-top: .2rem;
+  }
+
+  .press_releases_content {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    text-rendering: optimizeLegibility;
+    max-width: 33.75rem;
+    margin: 1.875rem auto 1.25rem;
+
+    a {
+      color: #f68945;
+    }
+  }
+
+  .kit-download {
+    position: relative;
+    margin-bottom: 3.125rem;
+
+    .downLoadIcon {
+      position: relative;
+      top: 4px;
+      margin-right: 5px;
+    }
+
+    a {
+      text-transform: uppercase;
+      text-decoration: underline;
+      position: relative;
+      line-height: 1.875rem;
+      color: #00aff0;
+      transition: 0.3s all ease-in-out;
+
+      &:hover {
+        color: #f68945;
+      }
+    }
+  }
+
+  .item_grid {
+    display: grid;
+    grid-template-columns: 33% auto;
+    grid-gap: 1.25rem;
+    margin-bottom: .9375rem;
+    font-size: 1rem;
+
+    .item_grid__date {
+      color: #f68945;
+      font-weight: 500;
+    }
+
+    .item_grid__linkWrap {
+      text-align: left;
+
+      a {
+        color: #3d4247;
+        text-decoration: underline;
+        transition: 0.3s all ease-in-out;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
 
