@@ -4,6 +4,7 @@ window.addEventListener('load', function() {
       $('.pressSlider').not('.slick-initialized').slick({
         dots          :   false,
         infinite      :   true,
+        autoplay      :   true,
         speed         :   300,
         slidesToShow  :   1,
         slidesToScroll:   1,

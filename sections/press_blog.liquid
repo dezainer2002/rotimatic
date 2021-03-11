@@ -1,128 +1,102 @@
 {% assign ss = section.settings %}
 
 <div class="press_blogs">
-  <h4 class="heading">What's new at Rotimatic Blog</h4>
+  {% if ss.title != blank %}
+    <h4 class="heading">
+      {{ ss.title }}
+    </h4>
+  {% endif %}
 
-  <div id="rtp-press-blog-warrp" class="rtp-press-blog-warrp default-dots clearfix">
-    <div class="rtp-press-blog">
-      <div class="rtp-blog-img">
-        <a href="http://blog.rotimatic.com/brian-laras-rotimatic-experience/" target="_blank" tabindex="-1">
-          <img src="https://ik.imagekit.io/rotimatic/wp-content/uploads/2013/10/Brian-Lara-image-1-e1491832237684.jpg" alt="Blog Images">
-        </a>
-      </div>
-      <div class="rtp-blog-details">
-        <h4 class="rtp-blog-headding">
-          <a href="http://blog.rotimatic.com/brian-laras-rotimatic-experience/" target="_blank">
-            Brian Lara’s Rotimatic Experience
+  <div class="press-articles-wrap">
+
+    {% for block in section.blocks %}
+      {% assign b         =   block.settings %}
+      {% assign article   =   articles[b.articleIs] %}
+      <div class="artcleIs_ is_{{ forloop.index }}">
+        <div class="blog-img">
+          <a href="{{ article.url }}" target="_blank" tabindex="-1">
+            <img src="{{ article.image.src | img_url: '700x700' }}" class="blogImageIs" alt="{{ article.title }}">
           </a>
-        </h4>
-        <div class="rtp-blog-desc">
-          On a seemingly regular Saturday, Zimplistic office was brimming with excitement. The most unfla…
         </div>
-        <a class="rtp-blog-view-more" href="http://blog.rotimatic.com/brian-laras-rotimatic-experience/" target="_blank">
-          View More
-        </a>
-      </div>
-    </div>
-    <div class="rtp-press-blog slick-current slick-active">
-      <div class="rtp-blog-img">
-        <a href="http://blog.rotimatic.com/roti-recipes-pizza-roti/" target="_blank">
-          <img src="https://ik.imagekit.io/rotimatic/wp-content/uploads/2013/10/IMG_1585-e1491832406196.jpg" alt="Blog Images">
-        </a>
-      </div>
-      <div class="rtp-blog-details">
-        <h4 class="rtp-blog-headding">
-          <a href="http://blog.rotimatic.com/roti-recipes-pizza-roti/" target="_blank">
-            Margheroti Pizza And More Roti Recipes
+        <div class="blog-details">
+          <h4 class="blog-headding">
+            <a href="{{ article.url }}" target="_blank">
+              {{ article.title | truncatewords: 5, '' }}
+            </a>
+          </h4>
+          <div class="blog-desc">
+            {{ article.content | strip_html | truncatewords: 20, '...' }}
+          </div>
+          <a class="blog-view-more" href="{{ article.url }}" target="_blank">
+            View More
           </a>
-        </h4>
-        <div class="rtp-blog-desc">
-          Planning a party can seem like a daunting task and if it’s a party with kids, the challenges do…
         </div>
-
-        <a class="rtp-blog-view-more" href="http://blog.rotimatic.com/roti-recipes-pizza-roti/" target="_blank">
-          View More
-        </a>
       </div>
-    </div>
-    <div class="rtp-press-blog">
-      <div class="rtp-blog-img">
-        <a href="http://blog.rotimatic.com/national-day-rally-speech-prime-minister-lee/" target="_blank">
-          <img src="https://ik.imagekit.io/rotimatic/wp-content/uploads/2013/10/Screen-Shot-2017-04-05-at-3.43.35-pm.png" alt="Blog Images">
-        </a>
-      </div>
-
-      <div class="rtp-blog-details">
-        <h4 class="rtp-blog-headding">
-          <a href="http://blog.rotimatic.com/national-day-rally-speech-prime-minister-lee/" target="_blank">
-            PM Lee Highlights Rotimatic
-          </a>
-        </h4>
-
-        <div class="rtp-blog-desc">
-          We are humbled and delighted to have crossed another landmark in the short history of Zimplisti…
-        </div>
-        <a class="rtp-blog-view-more" href="http://blog.rotimatic.com/national-day-rally-speech-prime-minister-lee/" target="_blank">
-          View More
-        </a>
-      </div>
-    </div>
+    {% endfor %}
   </div>
-  <div class="rtp-more-blog clearfix">
-    <a href="http://blog.rotimatic.com/" title="View More Blog" target="_blank">
-      Read more articles
+
+  {% if ss.readAllArticle != blank and ss.textLabel != blank %}
+    <div class="page-width linkAllArticles">
+      <a href="{{ ss.readAllArticle }}" title="View More Blog" target="_blank">
+        {{ ss.textLabel }}
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+{% if ss.buyNowLink != blank and ss.buyNowLable != blank %}
+  <div class="buyNowStrip">
+    <a href="{{ ss.buyNowLink }}" class="pressBlog_buy-now" title="{{ ss.buyNowLable }}">
+      {{ ss.buyNowLable }}
     </a>
   </div>
-</div>
+{% endif %}
+
 
 {% schema %}
 {
-  "name"      :   "Press",
-  "class"     :   "faqCustomSection",
+  "name"      :   "Articles",
+  "class"     :   "press_Articles",
   "max_blocks":   3,
   "settings"  :   [
     {
       "type"        :   "text",
       "id"          :   "title",
-      "label"       :   "Add Heading"
+      "label"       :   "Add Heading",
+      "default"     :   "What's new at Rotimatic Blog"
     },
     {
-      "type"        :   "richtext",
-      "id"          :   "content",
-      "label"       :   "Main content"
+      "type"        :   "url",
+      "id"          :   "readAllArticle",
+      "label"       :   "Link"
+    },
+    {
+      "type"        :   "text",
+      "id"          :   "textLabel",
+      "label"       :   "Label of Link",
+      "default"     :   "Read more articles"
+    },
+    {
+      "type"        :   "url",
+      "id"          :   "buyNowLink",
+      "label"       :   "Buy Now Link"
+    },
+    {
+      "type"        :   "text",
+      "id"          :   "buyNowLable",
+      "label"       :   "Label of buy now",
+      "default"     :   "Buy Now"
     }
   ],
   "blocks"    :   [
     {
-      "type"      :   "titleIs",
+      "type"      :   "articles",
       "name"      :   "Title",
       "settings"  :   [
         {
-          "type"      :   "text",
-          "id"        :   "title",
-          "label"     :   "Heading"
-        }
-      ]
-    },
-    {
-      "type"      :   "question",
-      "name"      :   "Question and Answer",
-      "settings"  :   [
-        {
-          "type"      :   "text",
-          "id"        :   "title",
-          "label"     :   "Question"
-        },
-        {
-          "type"      :   "richtext",
-          "id"        :   "anwser",
-          "label"     :   "Anwser"
-        },
-        {
-          "type"      :   "checkbox",
-          "id"        :   "borderBottom",
-          "label"     :   "Remove bottom border",
-          "default"   :   false
+          "type"      :   "article",
+          "id"        :   "articleIs",
+          "label"     :   "Select Article to display"
         }
       ]
     }
