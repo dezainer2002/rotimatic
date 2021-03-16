@@ -1,0 +1,97 @@
+/* DONT MAKE CHANGES IN CSS FILE ALWAYS MAKE CHANGES IN SCSS FILE*/
+.main-content {
+	padding-top: 0px;
+}
+
+.about_slider {
+  .my_slider {
+    .article {
+      width: 230px!important;
+      background: white;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 5px 1px rgb(96 96 96 / 10%);
+      height: 260px;
+      margin: .3rem;
+      /* border-radius: 4px; */
+    }
+
+    .top-section {
+      max-width: 230px;
+    }
+
+    iframe {
+      width: 230px;
+      height: 150px;
+    }
+
+    img {
+      width: 230px;
+      height: 150px;
+    }
+    .content{
+      padding: .3rem;
+      width: 230px;
+      font-size:.9rem
+    }
+
+    .title {
+      font-weight: bold;
+      margin: .6rem 0;
+    }
+
+    .description {}
+  }
+}
+
+.about_title {
+  &__heading {
+    text-align: center;
+    color: #4a4a4a;
+    margin: 0 0 2.5rem;
+    padding: 5.375rem 0 0;
+    letter-spacing: 1px;
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+
+    font-style: normal;
+    font-weight: 200;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+    margin-top: .2rem;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+
+.about_weAreRotimatic_dynamic {
+  background: #fff6f1;
+
+  &__title {
+    font-weight: 400;
+    text-align: center;
+    color: #4a4a4a;
+    margin: 0 0 0.5rem;
+    padding: 3.125rem 0 .625rem;
+    letter-spacing: 1px;
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+  }
+
+  &__content {
+    text-align: center;
+    color: #525252;
+    width: 60.625rem;
+    max-width: 90%;
+    padding-bottom: 1px;
+
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1.625rem;
+    margin: 0 auto 1.25rem;
+    text-rendering: optimizeLegibility;
+  }
+
+  &__grid {
+    display: grid;
+  }
+}

@@ -1,0 +1,93 @@
+{% assign ss    =     section.settings %}
+
+<div class="about_weAreRotimatic_dynamic">
+  <div class="page-width">
+    {% if ss.title != blank %}
+      <h2 class="about_weAreRotimatic_dynamic__title">{{ ss.title }}</h2>
+    {% endif %}
+
+    {% if ss.content != blank %}
+      <p class="about_weAreRotimatic_dynamic__content">
+        {{ ss.content }}
+      </p>
+    {% endif %}
+    {% if ss.blocks.size > 0 %}
+      <div class="about_weAreRotimatic_dynamic__grid">
+        {% for block in section.blocks %}
+          {% assign b = block.settings %}
+          {% if b.image != blank %}
+            <img src="{{ b.image | img_url: '100x100' }}" alt="{{ b.title }}">
+          {% endif %}
+
+          {% if b.title != blank %}
+            <div class="grid__counterContent">
+              {{ b.title }}
+            </div>
+          {% endif %}
+
+          {% if b.underTitle != blank %}
+            <div class="grid__subContent">
+              {{ b.underTitle }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name"    :   {
+    "en"      :   "About Rotimatic"
+  },
+  "settings"    :   [
+    {
+      "type"      :   "checkbox",
+      "id"        :   "showHide_Slider",
+      "label"     :   {
+        "en"      :   "Show Hide Section"
+      },
+      "default"   :   true
+    },
+    {
+      "type"      :   "text",
+      "id"        :   "title",
+      "label"     :   "Heading",
+      "default"   :   "We are Rotimatic"
+    },
+    {
+      "type"      :   "textarea",
+      "id"        :   "content",
+      "label"     :   "Content of this section"
+    }
+  ],
+  "max_blocks"    :   6,
+  "blocks"        :   [
+    {
+      "type"      :   "text",
+      "name"      :   "block",
+      "settings"  :   [
+        {
+          "type"      :   "image_picker",
+          "id"        :   "image",
+          "label"     :   "Upload Icon in png",
+          "info"      :   "Icon dimension must be square"
+        },
+        {
+          "type"      :   "text",
+          "id"        :   "title",
+          "label"     :   "Heading",
+          "info"      :   "If want to add counter then use this format [1000]+"
+        },
+        {
+          "type"      :   "text",
+          "id"        :   "underTitle",
+          "label"     :   "Under Title Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
