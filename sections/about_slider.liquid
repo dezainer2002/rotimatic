@@ -3,7 +3,7 @@
 
 
 <div class="about_slider">
-  <div class="my_slider">
+  <div class="my_slider loading page-width">
     <div class="article">
       <div class="top-section">
         <iframe
@@ -40,7 +40,7 @@
 
     <div class="article">
       <div class="top-section">
-        <img src="./The-storu-of-an-invention_pranoti.jpeg" alt="" />
+        <img src="{{ 'The-storu-of-an-invention_pranoti.jpeg' | asset_url }}" alt="" />
       </div>
       <div class="content">
         <div class="title">The Story of an Invention</div>
@@ -69,7 +69,7 @@
 
     <div class="article">
       <div class="top-section">
-        <img src="./Future-Of-Kitchens_rishi.jpeg" alt="" />
+        <img src="{{ 'Future-Of-Kitchens_rishi.jpeg' | asset_url }}" alt="" />
       </div>
       <div class="content">
         <div class="title">Future of Kitchen</div>
@@ -98,7 +98,7 @@
 
     <div class="article">
       <div class="top-section">
-        <img src="./A-trillion-dollar_rishi.jpeg" alt="" />
+        <img src="{{ 'A-trillion-dollar_rishi.jpeg' | asset_url }}" alt="" />
       </div>
       <div class="content">
         <div class="title">A Trillion Dollar</div>
@@ -127,7 +127,7 @@
 
     <div class="article">
       <div class="top-section">
-        <img src="./RM-on-tracj-to-saving-300-yrs_pranoti.jpeg" alt="" />
+        <img src="{{ 'RM-on-tracj-to-saving-300-yrs_pranoti.jpeg' | asset_url }}" alt="" />
       </div>
       <div class="content">
         <div class="title">Rotimatic on track to save 300</div>
@@ -159,7 +159,7 @@
 
     <div class="article">
       <div class="top-section">
-        <img src="./How-we-got-here_rishi.jpeg" alt="" />
+        <img src="{{ 'How-we-got-here_rishi.jpeg' | asset_url }}" alt="" />
       </div>
       <div class="content">
         <div class="title">How we got here?</div>
@@ -238,9 +238,10 @@ window.addEventListener('load', function() {
         $('.my_slider').slick({
           slidesToShow: 4,
           slidesToScroll: 1,
-          autoplay: true,
+          // autoplay: true,
+          speed   : 300,
         //   focusOnSelect: true,
-          pauseOnHover: false,
+          pauseOnHover: true,
           arrow: true,
           autoplaySpeed: 900,
           responsive: [
@@ -266,11 +267,10 @@ window.addEventListener('load', function() {
                 slidesToScroll: 1
               }
             }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
           ]
         });
+
+        $('.my_slider').removeClass( 'loading' );
 
       });
     });
