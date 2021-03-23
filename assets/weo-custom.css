@@ -299,6 +299,12 @@ ul li ul {
     margin-bottom: 0
 }
 
+h1,
+h2,
+h3 {
+	font-weight: 700;
+}
+
 @media only screen and (min-width:41.75em) {
     h1,
     h2,
@@ -737,7 +743,9 @@ ul li ul {
 .robot-with-human-touch video {
 	position: relative;
 	vertical-align: top;
-	z-index: 1
+	z-index: 1;
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -973,7 +981,7 @@ ul li ul {
 	color: transparent;
 	font-size: 3rem;
 	font-weight: 700;
-	height: 2.1875rem;
+	height: 48px;
 	line-height: 2rem;
 	overflow: hidden;
 	padding: 0;
@@ -992,7 +1000,8 @@ ul li ul {
 	display: block;
 	font-family: fontawesome;
 	text-indent: 0;
-	transition: all .3s
+	transition: all .3s;
+	font-size: 3rem;
 }
 
 .designed-to-delight .slick-arrow:hover::before,
@@ -1054,7 +1063,10 @@ ul li ul {
 .designed-to-delight .slick-dots li {
 	cursor: pointer;
 	display: inline-block;
-	vertical-align: top
+	vertical-align: top;
+	width: auto;
+	height: auto;
+	margin: 0;
 }
 
 .designed-to-delight .slick-dots li+li {

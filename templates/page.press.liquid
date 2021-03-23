@@ -1,14 +1,13 @@
-{%-liquid
-  assign sassFile     =   'press.scss.css' | asset_url
+<div class="page-width">
+  <div class="grid" style="margin:0 !important;">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
 
-  assign pressJsFile  =   'press.js' | asset_url
-
-  echo '<link rel="stylesheet" href="' | append: sassFile | append: '">'
-
-  section 'press_slider'
-  section 'press_aboutRotimatic'
-  section 'press_blog'
-
-  echo '<script src="' | append: pressJsFile | append: '"></script>'
-
--%}
+      <div class="rte">
+        {{ page.content }}
+      </div>
+    </div>
+  </div>
+</div>
