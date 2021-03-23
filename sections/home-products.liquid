@@ -142,7 +142,7 @@
         {% endunless %}
         <h3 class="h1 product-single__title">
           {% unless product == empty %}
-            {{ product.title }}
+            Rotimatic
           {% else %}
             {{ 'homepage.onboarding.product_title' | t }}
           {% endunless %}
@@ -276,7 +276,7 @@
               <img src="{{ "icon-warranty-gray.png" | asset_url }}" />
             </div>
             <div class="usp-text">
-              <p>12 months warranty included</p>
+              <p>12 months warranty</p>
             </div>
           </div>
           <div class="product-usp-item">
@@ -301,7 +301,7 @@
 			<div class="product-links">
 				<a class="waitlist-popup" href="#">Join Waitlist</a>
 			</div>
-			<div class="product-links">
+			<div class="product-links" style="display:none;">
 				<a href="/pages/terms-of-use">Terms & Conditions</a>
 			</div>
 		</div>
