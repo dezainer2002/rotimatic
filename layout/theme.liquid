@@ -11,6 +11,10 @@
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
+  
+  <script>
+    const asset_url = "{{ 'space.gif' | asset_url | split: 'space.gif' | first }}";
+  </script>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -45,6 +49,8 @@
   {{ 'jquery-ui.scss.css' | asset_url | stylesheet_tag }}
   {{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  
+  <script src="{{ 'jquery_3.5.1_.min.js' | asset_url }}"></script>
 
   <script>
     var theme = {

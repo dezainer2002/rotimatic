@@ -1,7 +1,7 @@
 {% assign ss = section.settings %}
 <link rel="stylesheet" href="{{ 'faq.scss.css' | asset_url }}">
 
-<div class="faqTopSection">
+<div class="faqTopSection" section-id="{{ section.id }}">
   <div class="page-width">
     {% if ss.title != blank %}
       <h1>{{ ss.title }}</h1>
