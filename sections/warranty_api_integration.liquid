@@ -1,0 +1,183 @@
+<section class="warranty_api_integration">
+  <div class="setWidth simple">
+    <div class="warranty_api_integration__title">
+      Check Your Service & Support Coverage
+    </div>
+
+    <div class="warranty_api_integration__detail">
+      Review your Rotimatic warranty status and eligibility to purchase<br>
+      and extend your coverage.
+    </div>
+
+    <div class="warranty_api_integration__inputGrid not_valid">
+      <input type="text" class="emailorRef" placeholder="Enter email address / Machine number">
+      <button class="warranty_api_integration__btn">Continue</button>
+
+      <div class="msg">
+        This machine has already been replaced.Please use current serial number.
+      </div>
+    </div>
+
+    <div class="warranty_api_integration__findRotimaticNumber">
+      <a href="javascript://void(0);">
+        Find your Rotimatic machine number
+      </a>
+    </div>
+  </div>
+
+  <div class="warranty_api_integration__modal">
+    <div class="centerCenter_">
+      <a href="javascript://void('close');" class="_closeIt_ closeModal">
+        <img src="{{ 'close.png' | asset_url }}" alt="close">
+      </a>
+      <div class="_title_">
+        How To Find Your Rotimatic Machine Number
+      </div>
+      <div class="_detail_">
+        Look at the sticker behind your Rotimatic, you will find the machine numer just below the barcode. The machine number looks like ‘ZMXXXXXXXXXXX’
+      </div>
+      <div class="_img_">
+        <img src="{{ 'machineno.png' | asset_url }}" alt="Machine Number">
+      </div>
+
+      <a href="javascript://void('close');" class="_closeBtn_ closeModal">Got it!</a>
+    </div>
+  </div>
+
+  <div class="apiResponseLayer">
+    <div class="page-width gotResponse">
+      <div class="_title_">
+        Your Rotimatic Service & Support Coverage
+      </div>
+
+      <div class="_machineNoText_">
+        Your Rotimatic machine number
+      </div>
+
+      <div class="_machineCode_">
+        ZMA0XXXXX
+      </div>
+
+      <div class="_checkAnotherMachine_">
+        <a href="javascript://void('another');">
+          Check another machine number
+        </a>
+      </div>
+
+      <div class="_statusGrid_">
+        <div class="_item_ active">
+          <div class="_item__img">
+            <img src="{{ 'warranty_active.png' | asset_url }}">
+          </div>
+
+          <div class="_item__status">
+            Inactive
+          </div>
+
+          <div class="_item__title">
+            Rotimatic Warranty Coverage
+          </div>
+
+          <div class="_item__dates">
+            Starts on <span class="startsOn">22-07-2020</span><br>
+            Expires on <span class="expiresOn">22-08-2021</span>
+          </div>
+        </div>
+
+        <div class="_item_ extendable">
+          <div class="_item__img">
+            <img src="{{ 'eligible.png' | asset_url }}">
+          </div>
+
+          <div class="_item__status">
+            extendable
+          </div>
+
+          <div class="_item__title">
+            Rotimatic Care+ Extended Coverage
+          </div>
+
+          <div class="_item__dates">
+            Extends your coverage up to 2-years beyond current expiry date
+          </div>
+        </div>
+      </div>
+
+      <div class="_conclusionMsg_">
+        <div class="noteligible__">
+          <div class="noteligible__title">
+            You are not eligible to purchase extended warranty.
+          </div>
+
+          <div class="noteligible__detail">
+            We are still here for you! If you have a software issue, rest assured that you are eligible for troubleshooting throughout the lifetime of your machine via our <a href="#">support channels</a>. For hardware issues, repair or replacement is available at additional cost.
+          </div>
+
+          <div class="noteligible__terms">
+            <a href="#">
+              Please refer to our warranty terms & conditions.
+            </a>
+          </div>
+        </div>
+
+        <div class="buyWarranty">
+          <div class="buyWarranty__title">
+            Buy Rotimatic Care+ Coverage & Extend Your Warranty
+          </div>
+
+          <div class="buyWarranty__packages">
+            <div class="buyWarranty__item">
+              <div class="buyWarranty__yearTitle">
+                1 year
+              </div>
+
+              <div class="buyWarranty__detail">
+                International Warranty
+              </div>
+
+              <div class="buyWarranty__price">
+                USD 149.99
+              </div>
+
+              <div class="buyWarranty__addToCart">
+                <a href="javascript://void('add to cart');">
+                  ADD TO CART
+                </a>
+              </div>
+            </div>
+
+            <div class="buyWarranty__item">
+              <div class="buyWarranty__yearTitle">
+                2 year
+              </div>
+
+              <div class="buyWarranty__detail">
+                International Warranty
+              </div>
+
+              <div class="buyWarranty__price">
+                USD 229.99
+              </div>
+
+              <div class="buyWarranty__addToCart">
+                <a href="javascript://void('add to cart');">
+                  ADD TO CART
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="buyWarranty__msg">
+            Your extended warranty will start from the expiry date of your current warranty
+          </div>
+
+          <div class="buyWarranty__terms">
+            <a href="#">
+              Warranty terms & conditions
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
