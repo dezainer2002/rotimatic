@@ -184,7 +184,7 @@
 
 .warranty_api_integration__inputGrid input {
   outline: none;
-  border: 2px solid #DDE3E9;
+  border: 2px solid #F68945;
   border-radius: 28px 0 0 28px;
   background-color: #FFFFFF;
   -webkit-transition: 0.3s all ease-in-out;
@@ -192,6 +192,15 @@
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
+}
+
+.warranty_api_integration__inputGrid input[value=""] {
+  border: 2px solid #DDE3E9;
+}
+
+.warranty_api_integration__inputGrid input[value=""] + .warranty_api_integration__btn {
+  border: 2px solid #DDE3E9;
+  background-color: #DDE3E9;
 }
 
 @media (max-width: 768px) {
@@ -212,9 +221,9 @@
 .warranty_api_integration__inputGrid .warranty_api_integration__btn {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 2px solid #DDE3E9;
+  border: 2px solid #F68945;
+  background-color: #F68945;
   border-radius: 0 24px 24px 0;
-  background-color: #DDE3E9;
   color: #fff;
   -webkit-transition: 0.3s all ease-in-out;
   transition: 0.3s all ease-in-out;
@@ -386,6 +395,7 @@
 
 .warranty_api_integration .apiResponseLayer {
   padding: 100px 15px 100px;
+  display: none;
   text-align: center;
   -webkit-transition: 0.3s all ease-in-out;
   transition: 0.3s all ease-in-out;

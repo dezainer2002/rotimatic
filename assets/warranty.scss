@@ -165,11 +165,20 @@ $errorColor: #FF3C3C;
 
     input {
       outline: none;
-      border: 2px solid #DDE3E9;
+      border: 2px solid $colorOrange;
       border-radius: 28px 0 0 28px;
       background-color: #FFFFFF;
       @include tran();
       order: 1;
+
+      &[value=""] {
+        border: 2px solid #DDE3E9;
+
+        + .warranty_api_integration__btn {
+          border: 2px solid #DDE3E9;
+          background-color: #DDE3E9;
+        }
+      }
 
       @media ( max-width: 768px ) {
         border-radius: 28px;
@@ -187,9 +196,9 @@ $errorColor: #FF3C3C;
 
     .warranty_api_integration__btn {
       box-sizing: border-box;
-      border: 2px solid #DDE3E9;
+      border: 2px solid $colorOrange;
+      background-color: $colorOrange;
       border-radius: 0 24px 24px 0;
-      background-color: #DDE3E9;
       color: #fff;
       @include tran();
       order: 2;
@@ -335,6 +344,7 @@ $errorColor: #FF3C3C;
 
   .apiResponseLayer {
     padding: 100px 15px 100px;
+    display: none;
     text-align: center;
     @include tran();
 
