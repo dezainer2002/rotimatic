@@ -1,7 +1,7 @@
 
 
-async function requireOnce(file, functionName, args) {
-  const checkFooterEle = $('footer').length;
+async function requireOnce( file, functionName, args = '' ) {
+  const checkFooterEle = $( 'footer' ).length;
   if (checkFooterEle == 0) {
     await $('body').append('<footer><div id="extraJS"></div></footer>');
   } else {
@@ -13,9 +13,12 @@ async function requireOnce(file, functionName, args) {
   const rand_ = Math.floor(Math.random() * (1000000 - 10000)) + 10000;
   const checkFile = await $(`#extraJS script[componentis="${functionName}"]`).length;
   if (checkFile == 0) {
-    await $.get(`${file}?${rand_}`, (data) => {
+    if ( file.includes( '.js' ) == false ) {
+      file    =   `${ file }.js`;
+    }
+    await $.get(`${ file }?${ rand_ }`, ( data ) => {
       $('#extraJS').append(`
-        <script componentis="${functionName}">${data}</script>
+        <script componentis="${ functionName }">${ data }</script>
       `);
     });
   }
