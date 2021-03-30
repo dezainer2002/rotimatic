@@ -13,6 +13,7 @@ $( document )
     e.stopImmediatePropagation();
 
     $( this ).closest( '.warranty_moreAbout_rotimatic__blocks__item' ).addClass( 'active' );
+
   })
   .on('click', '.warranty_moreAbout_rotimatic__blocks__item__actions .showLess', function( e ) {
     e.stopImmediatePropagation();
@@ -25,14 +26,23 @@ $( document )
     const parentWrapper   =   $( this ).closest( '.warranty_moreAbout_rotimatic__innerWrap' );
 
     if ( parentWrapper.hasClass( 'open' ) ) {
+
       parentWrapper.removeClass( 'open' );
       $( '.warranty_moreAbout_rotimatic__blocks .warranty_moreAbout_rotimatic__blocks__item' ).removeClass( 'active' );
       $( this ).find( '.showLess_text' ).text( 'Show more' );
+
     } else {
+
       parentWrapper.addClass( 'open' );
       $( '.warranty_moreAbout_rotimatic__blocks .warranty_moreAbout_rotimatic__blocks__item' ).addClass( 'active' );
       $( this ).find( '.showLess_text' ).text( 'Show less' );
+
     }
+  })
+  .on('keyup', '.emailorRef', function( e ) {
+    e.stopImmediatePropagation();
+
+    $( this ).attr( 'value', $( this ).val() );
   })
   .on('click', '.warranty_faqs .warranty_faqs__question', function( e ) {
     e.stopImmediatePropagation();
@@ -41,9 +51,278 @@ $( document )
     const classNametoCheck  =   'active';
 
     if ( isActive.hasClass( classNametoCheck ) ) {
+
       isActive.removeClass( classNametoCheck );
+
     } else {
+
       isActive.addClass( classNametoCheck );
+
+    }
+  })
+
+  .on('click', '.warranty_api_integration .warranty_api_integration__inputGrid .warranty_api_integration__btn', async function( e ) {
+    e.stopImmediatePropagation();
+
+    $( '.warranty_api_integration .warranty_api_integration__loader' ).show();
+
+    $( '.warranty_api_integration__modal__ordersList .showSelectedDetail' ).removeClass( 'active' );
+
+    await fetchAndManipulate( this );
+
+    $( '.warranty_api_integration .warranty_api_integration__loader' ).hide();
+
+  })
+
+  .on('click', '.warranty_api_integration__modal__ordersList ._ordersList_ ._item_:not(.selected)', function( e ) {
+    e.stopImmediatePropagation();
+
+    $( this ).closest( '._ordersList_' ).find( '._item_' ).removeClass( 'selected' );
+
+    $( this ).addClass( 'selected' );
+
+    $( this ).closest( '.warranty_api_integration__modal__ordersList' ).find( '.showSelectedDetail' ).addClass( 'active' );
+
+  })
+
+  .on('click', '.warranty_api_integration__modal__ordersList ._closeIt_', function( e ) {
+    e.stopImmediatePropagation();
+
+    $( this ).closest( '.warranty_api_integration__modal__ordersList' ).removeClass( 'active' );
+
+  })
+
+  .on('click', '.warranty_api_integration__modal__ordersList .showSelectedDetail.active', async function( e ) {
+    e.stopImmediatePropagation();
+
+    let warrantyDetail    =   $( this ).closest( '.centerCenter_' ).find( '._ordersList_ ._item_.selected' ).attr( 'warranty-detail' );
+
+    if ( warrantyDetail != undefined && warrantyDetail != '' ) {
+
+      warrantyDetail      =   JSON.parse( warrantyDetail );
+      warrantyDetail.clickedBtn   =   this;
+
+      await requireOnce( `${ asset_url }__warrantyDetail`, `warrantyManipulate`, warrantyDetail );
+
+    }
+
+  })
+
+  .on('click', '.apiResponseLayer ._checkAnotherMachine_', function( e ) {
+    e.stopImmediatePropagation();
+
+    $( '.warranty_api_integration .simpleForm' ).fadeIn();
+    $( this ).closest( '.apiResponseLayer' ).fadeOut();
+
+    $('html, body').animate({
+      scrollTop: $( '.warranty_api_integration' ).offset().top
+    }, 500);
+  })
+
+  .on('click', '.buyWarranty .buyWarranty__addToCart:not([cart-status="added"]) .add2Cart', function( e ) {
+    e.stopImmediatePropagation();
+
+    const btnWrapper        =   $( this ).closest( '.buyWarranty__addToCart' );
+    const getVariantID      =   $( this ).attr( 'vid' );
+    let getMachineNumber    =   $( '.apiResponseLayer ._machineCode_' ).text().trim();
+    let getWarrantyPlan     =   $( this ).attr( 'warranty-plan' );
+
+    if ( getVariantID != undefined && getVariantID != '' ) {
+
+      console.log ( 'getMachineNumber', getMachineNumber );
+      console.log ( 'getVariantID', getVariantID );
+
+      const cartObject    =     {
+        items: [
+          {
+            quantity    :   1,
+            id          :   getVariantID * 1,
+            properties  :   {
+              'Warranty Plan'   : `${ getWarrantyPlan }`,
+              'Machine Number'  : `${ getMachineNumber }`
+            }
+          }
+        ]
+      };
+      $.post('/cart/add.js', cartObject, function ( r ) {
+
+        $.get('/cart.js', function ( cart ) {
+
+          console.log ( 'cart', cart );
+          if ( cart.item_count != undefined ) {
+
+            $( '#CartCount' )
+              .removeClass( 'hide' )
+              .find( 'span[data-cart-count]' )
+              .text( cart.item_count );
+
+            btnWrapper.attr( 'cart-status', 'added' );
+
+          }
+
+        }, "json");
+
+      }, "json");
     }
   })
   ;
+
+async function fetchAndManipulate( this_ ) {
+
+  const inputWrapper    =   $( this_ ).closest( '.warranty_api_integration__inputGrid' );
+
+  const emailOrRef      =   inputWrapper.find( '.emailorRef' ).val();
+
+  const reqObj          =   {
+    url       :   'https://60aqpll7ak.execute-api.us-east-1.amazonaws.com/prod/warranty/check',
+    headers   :   {
+      'Content-Type'  :   'application/json',
+      'x-api-key'     :   'JwoRNqsOLG5D2djeGip5E7bEpEgcQg0w9olkf5n8'
+    },
+    data      :   {}
+  };
+
+  if ( emailOrRef != '' && emailOrRef.length > 3 ) {
+
+    if ( emailOrRef.includes( '@' ) ) {
+      console.log ( 'email is', emailOrRef );
+      reqObj.data.email          =   emailOrRef;
+    } else {
+      reqObj.data.machine_number =   emailOrRef;
+    }
+
+  }
+
+  console.log ( 'reqObj', reqObj );
+
+  let getResponse     =   await requireOnce(`${ asset_url }__fetchRequest`, 'fetchReq_POST', reqObj);
+
+  // THIS IS DEMO PART ONCE GET ORIGINAL RESPONSE THEN WILL UPDATE THIS PART.
+
+  delete getResponse.error;
+  delete getResponse.message;
+
+  if ( getResponse.error === true || getResponse.message != undefined ) {
+
+    handleError( this_, getResponse );
+
+  } else {
+    // THIS IS DEMO PART ONCE GET ORIGINAL RESPONSE THEN WILL UPDATE THIS PART.
+
+    if ( reqObj.data.email != undefined ) {
+
+      apiResponse   =   {
+        success: true,
+        data: [
+          {
+            "machine_number": 'ZMA0XXXX1',
+            "warranty_start_date": '22-07-2020',
+            "warranty_end_date": '22-08-2021',
+            "warranty_extension_period": [
+              'NO_ACTIVE_WARRANTY'
+            ]
+          },
+          {
+            "machine_number": 'ZMA0XXXX2',
+            "warranty_start_date": '22-07-2020',
+            "warranty_end_date": '22-08-2021',
+            "warranty_extension_period": [
+              'REGULAR_1_YEAR', 'REGULAR_2_YEAR'
+            ]
+          },
+          {
+            "machine_number": 'ZMA0XXXX3',
+            "warranty_start_date": '22-07-2020',
+            "warranty_end_date": '22-08-2021',
+            "warranty_extension_period": [
+              'PREMIUM_1_YEAR', 'PREMIUM_2_YEAR'
+            ]
+          },
+          {
+            "machine_number": 'ZMA0XXXX4',
+            "warranty_start_date": '22-07-2020',
+            "warranty_end_date": '22-08-2021',
+            "warranty_extension_period": [
+              'CAN_NOT_EXTEND_WARRANTY'
+            ]
+          }
+        ]
+      };
+
+    } else if ( reqObj.data.machine_number != undefined ) {
+
+      apiResponse     =   {
+        success: true,
+        data: [
+          {
+            "machine_number": "ZM12345xxx",
+            "warranty_start_date": "2021-03-16",
+            "warranty_end_date": "2022-03-16",
+            "warranty_extension_period": ['REGULAR_1_YEAR', 'REGULAR_2_YEAR']
+          }
+        ]
+      };
+
+    }
+
+    await popupManipulate( reqObj );
+
+  }
+
+}
+
+function handleError( this_, err ) {
+  const wrapper   =   $( this_ ).closest( '.warranty_api_integration__inputGrid' );
+  wrapper.find( '.msg' ).text( `${ err.message }` );
+  wrapper.addClass( 'not_valid' );
+}
+
+async function popupManipulate( reqObj ) {
+  console.log ( 'apiResponse', apiResponse );
+
+  if ( typeof apiResponse.data != 'undefined' ) {
+    const totalObjects    =   apiResponse.data.length;
+
+    if ( totalObjects > 0 ) {
+
+      $( '.warranty_api_integration__modal__ordersList ._ordersList_' ).empty();
+
+      for ( let i = 0; i < totalObjects; i++ ) {
+
+        const r             =   apiResponse.data[i];
+        const stringify__   =   JSON.stringify( r );
+
+        $( '.warranty_api_integration__modal__ordersList ._ordersList_' )
+          .append( `
+            <div class="_item_" warranty-detail='${ stringify__ }'>${ r.machine_number }</div>
+          ` );
+
+      }
+
+      if ( totalObjects > 1 ) {
+
+        $( '.warranty_api_integration__modal__ordersList' )
+          .addClass( 'active' )
+          .find( '._detail_ .totalOrders' )
+          .text( totalObjects )
+          .closest( '._detail_' )
+          .find( '.orderEmail' )
+          .text( reqObj.data.email );
+
+      } else if ( totalObjects == 1 ) {
+
+        $( '.warranty_api_integration__modal__ordersList' )
+          .addClass( 'active' )
+          .find( '._detail_ .totalOrders' )
+          .text( totalObjects )
+          .closest( '._detail_' )
+          .find( '.orderEmail' )
+          .text( reqObj.data.email );
+
+      }
+
+    }
+
+  }
+}
+
