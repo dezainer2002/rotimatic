@@ -193,77 +193,81 @@ async function fetchAndManipulate( this_ ) {
 
   }
 
+  console.clear();
+
   console.log ( 'reqObj', reqObj );
 
   let getResponse     =   await requireOnce(`${ asset_url }__fetchRequest`, 'fetchReq_POST', reqObj);
 
   // THIS IS DEMO PART ONCE GET ORIGINAL RESPONSE THEN WILL UPDATE THIS PART.
 
-  delete getResponse.error;
-  delete getResponse.message;
+  // delete getResponse.error;
+  // delete getResponse.message;
 
   if ( getResponse.error === true || getResponse.message != undefined ) {
 
     handleError( this_, getResponse );
 
   } else {
+
+    apiResponse   =   getResponse;
     // THIS IS DEMO PART ONCE GET ORIGINAL RESPONSE THEN WILL UPDATE THIS PART.
 
-    if ( reqObj.data.email != undefined ) {
+    // if ( reqObj.data.email != undefined ) {
 
-      apiResponse   =   {
-        success: true,
-        data: [
-          {
-            "machine_number": 'ZMA0XXXX1',
-            "warranty_start_date": '22-07-2020',
-            "warranty_end_date": '22-08-2021',
-            "warranty_extension_period": [
-              'NO_ACTIVE_WARRANTY'
-            ]
-          },
-          {
-            "machine_number": 'ZMA0XXXX2',
-            "warranty_start_date": '22-07-2020',
-            "warranty_end_date": '22-08-2021',
-            "warranty_extension_period": [
-              'REGULAR_1_YEAR', 'REGULAR_2_YEAR'
-            ]
-          },
-          {
-            "machine_number": 'ZMA0XXXX3',
-            "warranty_start_date": '22-07-2020',
-            "warranty_end_date": '22-08-2021',
-            "warranty_extension_period": [
-              'PREMIUM_1_YEAR', 'PREMIUM_2_YEAR'
-            ]
-          },
-          {
-            "machine_number": 'ZMA0XXXX4',
-            "warranty_start_date": '22-07-2020',
-            "warranty_end_date": '22-08-2021',
-            "warranty_extension_period": [
-              'CAN_NOT_EXTEND_WARRANTY'
-            ]
-          }
-        ]
-      };
+    //   apiResponse   =   {
+    //     success: true,
+    //     data: [
+    //       {
+    //         "machine_number": 'ZMA0XXXX1',
+    //         "warranty_start_date": '22-07-2020',
+    //         "warranty_end_date": '22-08-2021',
+    //         "warranty_extension_period": [
+    //           'NO_ACTIVE_WARRANTY'
+    //         ]
+    //       },
+    //       {
+    //         "machine_number": 'ZMA0XXXX2',
+    //         "warranty_start_date": '22-07-2020',
+    //         "warranty_end_date": '22-08-2021',
+    //         "warranty_extension_period": [
+    //           'REGULAR_1_YEAR', 'REGULAR_2_YEAR'
+    //         ]
+    //       },
+    //       {
+    //         "machine_number": 'ZMA0XXXX3',
+    //         "warranty_start_date": '22-07-2020',
+    //         "warranty_end_date": '22-08-2021',
+    //         "warranty_extension_period": [
+    //           'PREMIUM_1_YEAR', 'PREMIUM_2_YEAR'
+    //         ]
+    //       },
+    //       {
+    //         "machine_number": 'ZMA0XXXX4',
+    //         "warranty_start_date": '22-07-2020',
+    //         "warranty_end_date": '22-08-2021',
+    //         "warranty_extension_period": [
+    //           'CAN_NOT_EXTEND_WARRANTY'
+    //         ]
+    //       }
+    //     ]
+    //   };
 
-    } else if ( reqObj.data.machine_number != undefined ) {
+    // } else if ( reqObj.data.machine_number != undefined ) {
 
-      apiResponse     =   {
-        success: true,
-        data: [
-          {
-            "machine_number": "ZM12345xxx",
-            "warranty_start_date": "2021-03-16",
-            "warranty_end_date": "2022-03-16",
-            "warranty_extension_period": ['REGULAR_1_YEAR', 'REGULAR_2_YEAR']
-          }
-        ]
-      };
+    //   apiResponse     =   {
+    //     success: true,
+    //     data: [
+    //       {
+    //         "machine_number": "ZM12345xxx",
+    //         "warranty_start_date": "2021-03-16",
+    //         "warranty_end_date": "2022-03-16",
+    //         "warranty_extension_period": ['REGULAR_1_YEAR', 'REGULAR_2_YEAR']
+    //       }
+    //     ]
+    //   };
 
-    }
+    // }
 
     await popupManipulate( reqObj );
 

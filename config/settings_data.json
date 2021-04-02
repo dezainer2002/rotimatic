@@ -1920,6 +1920,88 @@
           "title": "Frequently Asked Questions",
           "content": "<p>Rotimatic.com is the only authorized retail channel for Rotimatic. We are not associated with any third party distributors.<\/p><p>If you were contacted by a third party claiming to be a Zimplistic representative offering you Rotimatic for sale, please contact us immediately as these are fraudulent claims and we take your safety very seriously.<\/p>"
         }
+      },
+      "warranty_header": {
+        "type": "warranty_header",
+        "settings": {}
+      },
+      "warranty_api_integration": {
+        "type": "warranty_api_integration",
+        "settings": {}
+      },
+      "warranty_moreAbout_rotimatic": {
+        "type": "warranty_moreAbout_rotimatic",
+        "settings": {}
+      },
+      "warranty_steps": {
+        "type": "warranty_steps",
+        "settings": {}
+      },
+      "warranty_faqs": {
+        "type": "warranty_faqs",
+        "blocks": {
+          "1a41189c-6e6a-427f-a0ce-c1ed46cc4141": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "How long is the Rotimatic warranty?",
+              "anwser": "Every Rotimatic comes with 1-year base warranty. You can extend your base warranty coverage with RotimaticCare+ for another 1-year and continue enjoying your Rotimatic worry-free."
+            }
+          },
+          "f72ddc56-bc9c-4aec-aede-520b1974eff1": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "When can I purchase Rotimatic  extended warranty?",
+              "anwser": ""
+            }
+          },
+          "263ef0df-aeab-4a85-a4f3-d6188c8d5923": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "Who is using it right now?",
+              "anwser": ""
+            }
+          },
+          "73b6528f-b046-4eae-b690-df585dfaa8b9": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "How much is it?",
+              "anwser": ""
+            }
+          },
+          "4cf2bbce-4e19-4615-95fc-244ccc5121cb": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "Can I pay in installments?",
+              "anwser": ""
+            }
+          },
+          "dd18951f-25c3-4aa5-9f35-9c4034cea674": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "How and when can I get",
+              "anwser": ""
+            }
+          },
+          "e82b80a9-20ca-4c05-9c3b-d9965794fd09": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "What’s the return policy?",
+              "anwser": ""
+            }
+          }
+        },
+        "block_order": [
+          "1a41189c-6e6a-427f-a0ce-c1ed46cc4141",
+          "f72ddc56-bc9c-4aec-aede-520b1974eff1",
+          "263ef0df-aeab-4a85-a4f3-d6188c8d5923",
+          "73b6528f-b046-4eae-b690-df585dfaa8b9",
+          "4cf2bbce-4e19-4615-95fc-244ccc5121cb",
+          "dd18951f-25c3-4aa5-9f35-9c4034cea674",
+          "e82b80a9-20ca-4c05-9c3b-d9965794fd09"
+        ],
+        "settings": {
+          "title": "FAQs"
+        }
       }
     },
     "content_for_index": [
