@@ -558,8 +558,10 @@ $.ajax(settings).done(function (response) {
   }
   
 });
-    });  
-setInterval(ajax_query, 5000);
+    });
+{% if template == 'index' %}
+  setInterval(ajax_query, 5000);
+{% endif %}
 
 function ajax_query(){
     var settings = {
