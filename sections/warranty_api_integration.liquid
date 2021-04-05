@@ -4,24 +4,23 @@
   </div>
   <div class="setWidth simpleForm">
     <div class="warranty_api_integration__title">
-      Check Your Service & Support Coverage
+      {{ 'pages.warranty.t3' | t }}
     </div>
 
     <div class="warranty_api_integration__detail">
-      Review your Rotimatic warranty status and eligibility to purchase<br>
-      and extend your coverage.
+      {{ 'pages.warranty.t4_html' | t }}
     </div>
 
     <div class="warranty_api_integration__inputGrid">
-      <input type="text" class="emailorRef" placeholder="Enter email address / Machine number" value="test@email.com">
-      <button class="warranty_api_integration__btn">Continue</button>
+      <input type="text" class="emailorRef" placeholder="Enter email address / Machine number" value="">
+      <button class="warranty_api_integration__btn">{{ 'pages.warranty.t5' | t }}</button>
 
       <div class="msg"></div>
     </div>
 
     <div class="warranty_api_integration__findRotimaticNumber">
       <a href="javascript://void(0);">
-        Find your Rotimatic machine number
+        {{ 'pages.warranty.t6' | t }}
       </a>
     </div>
   </div>
@@ -32,16 +31,16 @@
         <img src="{{ 'close.png' | asset_url }}" alt="close">
       </a>
       <div class="_title_">
-        How To Find Your Rotimatic Machine Number
+        {{ 'pages.warranty.t7' | t }}
       </div>
       <div class="_detail_">
-        Look at the sticker behind your Rotimatic, you will find the machine numer just below the barcode. The machine number looks like ‘ZMXXXXXXXXXXX’
+        {{ 'pages.warranty.t8' | t }}
       </div>
       <div class="_img_">
         <img src="{{ 'machineno.png' | asset_url }}" alt="Machine Number">
       </div>
 
-      <a href="javascript://void('close');" class="_closeBtn_ closeModal">Got it!</a>
+      <a href="javascript://void('close');" class="_closeBtn_ closeModal">{{ 'pages.warranty.t9' | t }}</a>
     </div>
   </div>
 
@@ -51,33 +50,33 @@
         <img src="{{ 'close.png' | asset_url }}" alt="close">
       </a>
       <div class="_title_">
-        Which Rotimatic do you want to check?
+        {{ 'pages.warranty.t10' | t }}
       </div>
       <div class="_detail_">
-        <span class="totalOrders"></span> Rotimatics registered to <span class="orderEmail"></span>
+        <span class="totalOrders"></span> {{ 'pages.warranty.t11' | t }} <span class="orderEmail"></span>
       </div>
 
       <div class="_ordersList_"></div>
 
-      <a href="javascript://void('show detail');" class="_closeBtn_ showSelectedDetail">Check Warranty</a>
+      <a href="javascript://void('show detail');" class="_closeBtn_ showSelectedDetail">{{ 'pages.warranty.t12' | t }}</a>
     </div>
   </div>
 
   <div class="apiResponseLayer">
     <div class="page-width gotResponse">
       <div class="_title_">
-        Your Rotimatic Service & Support Coverage
+        {{ 'pages.warranty.t13' | t }}
       </div>
 
       <div class="_machineNoText_">
-        Your Rotimatic machine number
+        {{ 'pages.warranty.t14' | t }}
       </div>
 
-      <div class="_machineCode_">xxxxx</div>
+      <div class="_machineCode_">{{ 'pages.warranty.t15' | t }}</div>
 
       <div class="_checkAnotherMachine_">
         <a href="javascript://void('another');">
-          Check another machine number
+          {{ 'pages.warranty.t16' | t }}
         </a>
       </div>
 
@@ -91,16 +90,16 @@
           </div>
 
           <div class="_item__status">
-            Inactive
+            {{ 'pages.warranty.t17' | t }}
           </div>
 
           <div class="_item__title">
-            Rotimatic Warranty Coverage
+            {{ 'pages.warranty.t18' | t }}
           </div>
 
           <div class="_item__dates">
-            Starts on <span class="startsOn">22-07-2020</span><br>
-            Expires on <span class="expiresOn">22-08-2021</span>
+            {{ 'pages.warranty.t19' | t }} <span class="startsOn">22-07-2020</span><br>
+            {{ 'pages.warranty.t20' | t }} <span class="expiresOn">22-08-2021</span>
           </div>
         </div>
 
@@ -113,15 +112,15 @@
           </div>
 
           <div class="_item__status">
-            extendable
+            {{ 'pages.warranty.t21' | t }}
           </div>
 
           <div class="_item__title">
-            Rotimatic Care+ Extended Coverage
+            {{ 'pages.warranty.t22' | t }}
           </div>
 
           <div class="_item__dates">
-            Extends your coverage up to 2-years beyond current expiry date
+            {{ 'pages.warranty.t23' | t }}
           </div>
         </div>
       </div>
@@ -129,23 +128,23 @@
       <div class="_conclusionMsg_">
         <div class="noteligible__">
           <div class="noteligible__title">
-            You are not eligible to purchase extended warranty.
+            {{ 'pages.warranty.t24' | t }}
           </div>
 
           <div class="noteligible__detail">
-            We are still here for you! If you have a software issue, rest assured that you are eligible for troubleshooting throughout the lifetime of your machine via our <a href="#">support channels</a>. For hardware issues, repair or replacement is available at additional cost.
+            {{ 'pages.warranty.t25_html' | t:link:'#__' }}
           </div>
 
           <div class="noteligible__terms">
             <a href="#">
-              Please refer to our warranty terms & conditions.
+              {{ 'pages.warranty.t26' | t }}
             </a>
           </div>
         </div>
 
         <div class="buyWarranty">
           <div class="buyWarranty__title">
-            Buy Rotimatic Care+ Coverage & Extend Your Warranty
+            {{ 'pages.warranty.t27' | t }}
           </div>
 
           <div class="buyWarranty__packages">
@@ -162,13 +161,13 @@
             {% for variant in product.variants %}
               {% assign priceIs   =   variant.price | divided_by: 100 %}
 
-              <div class="buyWarranty__item">
+              <div class="buyWarranty__item" vid="{{ variant.id }}" i="{{ forloop.index }}">
                 <div class="buyWarranty__yearTitle">
-                  {{ variant.title }}
+                  {{ variant.title | remove: ' - R' | remove: ' - P' }}
                 </div>
 
                 <div class="buyWarranty__detail">
-                  International Warranty
+                  {{ 'pages.warranty.international_warranty' | t }}
                 </div>
 
                 <div class="buyWarranty__price">
@@ -176,8 +175,8 @@
                 </div>
 
                 <div class="buyWarranty__addToCart" cart-status="">
-                  <a href="javascript://void('add to cart');" class="add2Cart" vid="{{ variant.id }}" warranty-plan="{{ variant.title }}">
-                    ADD TO CART
+                  <a href="javascript://void('add to cart');" class="add2Cart" vid="{{ variant.id }}" warranty-plan="{{ variant.title | remove: ' - R' | remove: ' - P' }}">
+                    {{ 'pages.warranty.addToCart' | t }}
                   </a>
                 </div>
               </div>
@@ -226,12 +225,12 @@
           </div>
 
           <div class="buyWarranty__msg">
-            Your extended warranty will start from the expiry date of your current warranty
+            {{ 'pages.warranty.t28' | t }}
           </div>
 
           <div class="buyWarranty__terms">
             <a href="#">
-              Warranty terms & conditions
+              {{ 'pages.warranty.t29' | t }}
             </a>
           </div>
         </div>

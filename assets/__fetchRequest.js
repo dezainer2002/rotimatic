@@ -1,14 +1,21 @@
 async function fetchReq_POST( obj ) {
   if ( obj.url != '' ) {
-    const response = await fetch(obj.url, {
-      method          :   'POST',
-      mode            :   'cors',
-      cache           :   'no-cache',
-      headers         :   (obj.headers != undefined ? obj.headers : "{'Content-Type'  :   'application/json'}"),
-      body            :   JSON.stringify( obj.data != undefined ? obj.data : {} )
-    });
-    // console.log ( 'response.json()', response.json() );
-    return await response.json();
+    try {
+      const response = await fetch(obj.url, {
+        method          :   'POST',
+        mode            :   'cors',
+        cache           :   'no-cache',
+        headers         :   (obj.headers != undefined ? obj.headers : "{'Content-Type'  :   'application/json'}"),
+        body            :   JSON.stringify( obj.data != undefined ? obj.data : {} )
+      });
+      // console.log ( 'response.json()', response.json() );
+      return await response.json();
+    }
+    catch(err) {
+      console.log('API ERROR RESPONSE', err.message);
+      $( '.warranty_api_integration .warranty_api_integration__loader' ).hide();
+      alert( 'something went wrong, please try again.' );
+    }
   }
 }
 

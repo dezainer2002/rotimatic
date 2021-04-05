@@ -1,4 +1,9 @@
 $( document )
+  .ready(function() {
+    $('html, body').animate({
+      scrollTop: $( '#PageContainer' ).offset().top
+    }, 500);
+  })
   .on('click', '.warranty_api_integration__findRotimaticNumber > a', function( e ) {
     e.stopImmediatePropagation();
 
@@ -102,6 +107,8 @@ $( document )
       warrantyDetail      =   JSON.parse( warrantyDetail );
       warrantyDetail.clickedBtn   =   this;
 
+      // console.log ( 'warrantyDetail', warrantyDetail );
+
       await requireOnce( `${ asset_url }__warrantyDetail`, `warrantyManipulate`, warrantyDetail );
 
     }
@@ -185,10 +192,13 @@ async function fetchAndManipulate( this_ ) {
   if ( emailOrRef != '' && emailOrRef.length > 3 ) {
 
     if ( emailOrRef.includes( '@' ) ) {
-      console.log ( 'email is', emailOrRef );
-      reqObj.data.email          =   emailOrRef;
+      // console.log ( 'email is', emailOrRef );
+      reqObj.data.email          =   emailOrRef.trim();
+
     } else {
-      reqObj.data.machine_number =   emailOrRef;
+
+      reqObj.data.machine_number =   emailOrRef.trim();
+
     }
 
   }
@@ -199,11 +209,6 @@ async function fetchAndManipulate( this_ ) {
 
   let getResponse     =   await requireOnce(`${ asset_url }__fetchRequest`, 'fetchReq_POST', reqObj);
 
-  // THIS IS DEMO PART ONCE GET ORIGINAL RESPONSE THEN WILL UPDATE THIS PART.
-
-  // delete getResponse.error;
-  // delete getResponse.message;
-
   if ( getResponse.error === true || getResponse.message != undefined ) {
 
     handleError( this_, getResponse );
@@ -211,63 +216,6 @@ async function fetchAndManipulate( this_ ) {
   } else {
 
     apiResponse   =   getResponse;
-    // THIS IS DEMO PART ONCE GET ORIGINAL RESPONSE THEN WILL UPDATE THIS PART.
-
-    // if ( reqObj.data.email != undefined ) {
-
-    //   apiResponse   =   {
-    //     success: true,
-    //     data: [
-    //       {
-    //         "machine_number": 'ZMA0XXXX1',
-    //         "warranty_start_date": '22-07-2020',
-    //         "warranty_end_date": '22-08-2021',
-    //         "warranty_extension_period": [
-    //           'NO_ACTIVE_WARRANTY'
-    //         ]
-    //       },
-    //       {
-    //         "machine_number": 'ZMA0XXXX2',
-    //         "warranty_start_date": '22-07-2020',
-    //         "warranty_end_date": '22-08-2021',
-    //         "warranty_extension_period": [
-    //           'REGULAR_1_YEAR', 'REGULAR_2_YEAR'
-    //         ]
-    //       },
-    //       {
-    //         "machine_number": 'ZMA0XXXX3',
-    //         "warranty_start_date": '22-07-2020',
-    //         "warranty_end_date": '22-08-2021',
-    //         "warranty_extension_period": [
-    //           'PREMIUM_1_YEAR', 'PREMIUM_2_YEAR'
-    //         ]
-    //       },
-    //       {
-    //         "machine_number": 'ZMA0XXXX4',
-    //         "warranty_start_date": '22-07-2020',
-    //         "warranty_end_date": '22-08-2021',
-    //         "warranty_extension_period": [
-    //           'CAN_NOT_EXTEND_WARRANTY'
-    //         ]
-    //       }
-    //     ]
-    //   };
-
-    // } else if ( reqObj.data.machine_number != undefined ) {
-
-    //   apiResponse     =   {
-    //     success: true,
-    //     data: [
-    //       {
-    //         "machine_number": "ZM12345xxx",
-    //         "warranty_start_date": "2021-03-16",
-    //         "warranty_end_date": "2022-03-16",
-    //         "warranty_extension_period": ['REGULAR_1_YEAR', 'REGULAR_2_YEAR']
-    //       }
-    //     ]
-    //   };
-
-    // }
 
     await popupManipulate( reqObj );
 
@@ -303,25 +251,27 @@ async function popupManipulate( reqObj ) {
 
       }
 
-      if ( totalObjects > 1 ) {
+      if ( totalObjects > 0 && reqObj.data.email != undefined && reqObj.data.email != '') {
 
         $( '.warranty_api_integration__modal__ordersList' )
           .addClass( 'active' )
           .find( '._detail_ .totalOrders' )
           .text( totalObjects )
           .closest( '._detail_' )
+          .show()
           .find( '.orderEmail' )
           .text( reqObj.data.email );
 
-      } else if ( totalObjects == 1 ) {
+      } else if ( totalObjects > 0 && reqObj.data.machine_number != undefined && reqObj.data.machine_number != '' ) {
 
         $( '.warranty_api_integration__modal__ordersList' )
-          .addClass( 'active' )
-          .find( '._detail_ .totalOrders' )
-          .text( totalObjects )
-          .closest( '._detail_' )
-          .find( '.orderEmail' )
-          .text( reqObj.data.email );
+          .find( '._ordersList_ > ._item_' )
+          .addClass( 'selected' )
+          .closest( '.warranty_api_integration__modal__ordersList' )
+          .find( '.showSelectedDetail' )
+          .addClass( 'active' );
+
+        await manipulateSelectedItem( $( '.warranty_api_integration__modal__ordersList .showSelectedDetail.active' ) );
 
       }
 
@@ -330,3 +280,15 @@ async function popupManipulate( reqObj ) {
   }
 }
 
+async function manipulateSelectedItem( this_ ) {
+  let warrantyDetail    =   $( this_ ).closest( '.centerCenter_' ).find( '._ordersList_ ._item_.selected' ).attr( 'warranty-detail' );
+
+  if ( warrantyDetail != undefined && warrantyDetail != '' ) {
+
+    warrantyDetail      =   JSON.parse( warrantyDetail );
+    warrantyDetail.clickedBtn   =   this_;
+
+    await requireOnce( `${ asset_url }__warrantyDetail`, `warrantyManipulate`, warrantyDetail );
+
+  }
+}
