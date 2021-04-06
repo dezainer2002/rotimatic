@@ -124,6 +124,12 @@ $( document )
     $('html, body').animate({
       scrollTop: $( '.warranty_api_integration' ).offset().top
     }, 500);
+
+    $( '.warranty_api_integration__inputGrid' )
+      .removeClass( 'not_valid' )
+      .find( '.emailorRef' )
+      .val( '' )
+      .focus();
   })
 
   .on('click', '.buyWarranty .buyWarranty__addToCart:not([cart-status="added"]) .add2Cart', function( e ) {
