@@ -1419,7 +1419,7 @@ $errorColor: #FF3C3C;
         }
 
         a {
-          color: #00aff0;
+          color: $colorOrange;
           @include tran();
 
           &:hover {

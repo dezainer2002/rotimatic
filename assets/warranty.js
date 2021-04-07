@@ -180,6 +180,38 @@ $( document )
   })
   ;
 
+  var rtime;
+  var timeout = false;
+  var delta = 200;
+  $(window).resize(function() {
+    rtime = new Date();
+    if (timeout === false) {
+      timeout = true;
+      setTimeout(resizeend, delta);
+    }
+  });
+
+  function resizeend() {
+    if (new Date() - rtime < delta) {
+      setTimeout(resizeend, delta);
+    } else {
+      timeout = false;
+      // console.log ( 'resize finish' );
+
+      afterResizingAdjustCards();
+    }
+  }
+
+  function afterResizingAdjustCards() {
+    const getWidth    =   $( window ).width();
+
+    if ( getWidth > 768 ) {
+      $( '.warranty_moreAbout_rotimatic__innerWrap' ).removeClass( 'open' );
+      $( '.warranty_moreAbout_rotimatic__innerWrap .warranty_moreAbout_rotimatic__blocks .warranty_moreAbout_rotimatic__blocks__item' ).removeClass( 'active' );
+      console.log ( 'desktop screen' );
+    }
+  }
+
 async function fetchAndManipulate( this_ ) {
 
   const inputWrapper    =   $( this_ ).closest( '.warranty_api_integration__inputGrid' );
