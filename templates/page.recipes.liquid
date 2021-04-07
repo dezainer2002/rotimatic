@@ -1,0 +1,14 @@
+{%-liquid
+  assign cssFile        =   'recipes.css' | asset_url
+  assign globalJsFile   =   'global.js' | asset_url
+  assign JsFile         =   'recipes.js' | asset_url
+
+  echo '<link rel="stylesheet" href="' | append: cssFile | append: '">'
+
+  section 'recipes_slider'
+  section 'recipes_api'
+
+  echo '<script src="' | append: globalJsFile | append: '"></script>'
+  echo '<script src="' | append: JsFile | append: '"></script>'
+-%}
+
