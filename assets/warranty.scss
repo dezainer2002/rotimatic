@@ -1168,6 +1168,7 @@ $errorColor: #FF3C3C;
 
       img {
         max-width: 64px;
+        max-height: 64px;
         margin: auto auto 16px;
       }
 
@@ -1419,7 +1420,7 @@ $errorColor: #FF3C3C;
         }
 
         a {
-          color: #00aff0;
+          color: $colorOrange;
           @include tran();
 
           &:hover {

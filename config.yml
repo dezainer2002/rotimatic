@@ -5,7 +5,8 @@ development:
   # live + dev merge theme
   # theme_id: "121036963994"
   # V 1.1 DEV
-  theme_id: "121072877722"
+  # theme_id: "121072877722"
+  theme_id: "121569706138"
   store: rotimaticus.myshopify.com
 production:
   password: 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

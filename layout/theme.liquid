@@ -126,12 +126,16 @@
   
   <script src="{{ 'loader.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'jquery.fancybox.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'global.js' | asset_url }}"></script>
   <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
 
   {{ content_for_header }}
-<!-- GSSTART Coming Soon code start. Do not change -->
-<script type="text/javascript"> gsProductByVariant = {}; {% if product.id > 1 %}{% for variant in product.variants %} gsProductByVariant[{{variant.id}}] = {% if variant.available %} 1 {% else %} 0 {% endif %}; {% endfor %}{% endif %}  gsProductCSID = "{{ product.id }}"; gsDefaultV = "{{ product.selected_or_first_available_variant.id }}"; </script><script type="text/javascript" src="https://gravity-software.com/js/shopify/pac_shop17295.js?v=0d3dde8989e8e64963121d8d6f7c369a"></script>
-<!-- Coming Soon code end. Do not change GSEND --><script src="https://shinedezign.tk/preorder/js/preorder.js"></script>
+
+{% if template == 'product' %}
+  <!-- GSSTART Coming Soon code start. Do not change -->
+  <script type="text/javascript"> gsProductByVariant = {}; {% if product.id > 1 %}{% for variant in product.variants %} gsProductByVariant[{{variant.id}}] = {% if variant.available %} 1 {% else %} 0 {% endif %}; {% endfor %}{% endif %}  gsProductCSID = "{{ product.id }}"; gsDefaultV = "{{ product.selected_or_first_available_variant.id }}"; </script><script type="text/javascript" src="https://gravity-software.com/js/shopify/pac_shop17295.js?v=0d3dde8989e8e64963121d8d6f7c369a"></script>
+  <!-- Coming Soon code end. Do not change GSEND --><script src="https://shinedezign.tk/preorder/js/preorder.js"></script>
+{% endif %}
 
   
   <script type='text/javascript'>

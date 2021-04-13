@@ -1,6 +1,5 @@
 {%-liquid
   assign sassFile       =   'warranty.css' | asset_url
-  assign globalJsFile   =   'global.js' | asset_url
   assign jsFile         =   'warranty.js' | asset_url
 
   echo '<link rel="stylesheet" href="' | append: sassFile | append: '">'
@@ -11,6 +10,5 @@
   section 'warranty_steps'
   section 'warranty_faqs'
 
-  echo '<script src="' | append: globalJsFile | append: '"></script>'
   echo '<script src="' | append: jsFile | append: '"></script>'
 -%}

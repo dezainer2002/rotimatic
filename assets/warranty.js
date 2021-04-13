@@ -135,50 +135,98 @@ $( document )
   .on('click', '.buyWarranty .buyWarranty__addToCart:not([cart-status="added"]) .add2Cart', function( e ) {
     e.stopImmediatePropagation();
 
-    const btnWrapper        =   $( this ).closest( '.buyWarranty__addToCart' );
-    const getVariantID      =   $( this ).attr( 'vid' );
-    let getMachineNumber    =   $( '.apiResponseLayer ._machineCode_' ).text().trim();
-    let getWarrantyPlan     =   $( this ).attr( 'warranty-plan' );
+    const buyWarranty__packagesDiv  =   $( this ).closest( '.buyWarranty__packages' );
 
-    if ( getVariantID != undefined && getVariantID != '' ) {
+    const checkAlreadyAddedInCart   =   buyWarranty__packagesDiv.attr( 'product-added' );
 
-      console.log ( 'getMachineNumber', getMachineNumber );
-      console.log ( 'getVariantID', getVariantID );
+    if ( checkAlreadyAddedInCart == 'false' ) {
 
-      const cartObject    =     {
-        items: [
-          {
-            quantity    :   1,
-            id          :   getVariantID * 1,
-            properties  :   {
-              'Warranty Plan'   : `${ getWarrantyPlan }`,
-              'Machine Number'  : `${ getMachineNumber }`
+      const btnWrapper                =   $( this ).closest( '.buyWarranty__addToCart' );
+      const getVariantID              =   $( this ).attr( 'vid' );
+      let getMachineNumber            =   $( '.apiResponseLayer ._machineCode_' ).text().trim();
+      let getWarrantyPlan             =   $( this ).attr( 'warranty-plan' );
+
+      if ( getVariantID != undefined && getVariantID != '' ) {
+
+        console.log ( 'getMachineNumber', getMachineNumber );
+        console.log ( 'getVariantID', getVariantID );
+
+        const cartObject    =     {
+          items: [
+            {
+              quantity    :   1,
+              id          :   getVariantID * 1,
+              properties  :   {
+                'Warranty Plan'   : `${ getWarrantyPlan }`,
+                'Machine Number'  : `${ getMachineNumber }`
+              }
             }
-          }
-        ]
-      };
-      $.post('/cart/add.js', cartObject, function ( r ) {
+          ]
+        };
+        $.post('/cart/add.js', cartObject, function ( r ) {
 
-        $.get('/cart.js', function ( cart ) {
+          productAddedInCart( 'Added in cart', '_green_', r.items[0].title );
 
-          console.log ( 'cart', cart );
-          if ( cart.item_count != undefined ) {
+          buyWarranty__packagesDiv.attr( 'product-added', 'true' );
 
-            $( '#CartCount' )
-              .removeClass( 'hide' )
-              .find( 'span[data-cart-count]' )
-              .text( cart.item_count );
+          $.get('/cart.js', function ( cart ) {
 
-            btnWrapper.attr( 'cart-status', 'added' );
+            if ( cart.item_count != undefined ) {
 
-          }
+              $( '#CartCount' )
+                .removeClass( 'hide' )
+                .find( 'span[data-cart-count]' )
+                .text( cart.item_count );
+
+              btnWrapper.attr( 'cart-status', 'added' );
+
+            }
+
+          }, "json");
 
         }, "json");
+      }
 
-      }, "json");
+    } else {
+
+      productAddedInCart( 'Warning', '_red_', 'You already added warranty into cart' );
+
     }
+
   })
   ;
+
+  var rtime;
+  var timeout = false;
+  var delta = 200;
+  $(window).resize(function() {
+    rtime = new Date();
+    if (timeout === false) {
+      timeout = true;
+      setTimeout(resizeend, delta);
+    }
+  });
+
+  function resizeend() {
+    if (new Date() - rtime < delta) {
+      setTimeout(resizeend, delta);
+    } else {
+      timeout = false;
+      // console.log ( 'resize finish' );
+
+      afterResizingAdjustCards();
+    }
+  }
+
+  function afterResizingAdjustCards() {
+    const getWidth    =   $( window ).width();
+
+    if ( getWidth > 768 ) {
+      $( '.warranty_moreAbout_rotimatic__innerWrap' ).removeClass( 'open' );
+      $( '.warranty_moreAbout_rotimatic__innerWrap .warranty_moreAbout_rotimatic__blocks .warranty_moreAbout_rotimatic__blocks__item' ).removeClass( 'active' );
+      console.log ( 'desktop screen' );
+    }
+  }
 
 async function fetchAndManipulate( this_ ) {
 
