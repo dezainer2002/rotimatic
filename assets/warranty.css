@@ -1343,6 +1343,7 @@
 
 .warranty_moreAbout_rotimatic .warranty_moreAbout_rotimatic__blocks__item img {
   max-width: 64px;
+  max-height: 64px;
   margin: auto auto 16px;
 }
 

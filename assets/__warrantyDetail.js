@@ -32,15 +32,17 @@ async function warrantyManipulate( obj ) {
 
     if ( obj.warranty_extension_period[1] != undefined && obj.warranty_extension_period[1] == 'REGULAR_2_YEAR' ) {
       el.find( '.buyWarranty__packages .buyWarranty__item[i="3"], .buyWarranty__packages .buyWarranty__item[i="4"]' ).fadeOut();
+      el.find( '.buyWarranty__packages .buyWarranty__item[i="1"], .buyWarranty__packages .buyWarranty__item[i="2"]' ).fadeIn();
     } else {
       el.find( '.buyWarranty__packages .buyWarranty__item[i="2"], .buyWarranty__packages .buyWarranty__item[i="3"], .buyWarranty__packages .buyWarranty__item[i="4"]' ).fadeOut();
+      el.find( '.buyWarranty__packages .buyWarranty__item[i="1"]' ).fadeIn();
     }
 
     el.find( '._statusGrid_ ._item_._first_' )
       .removeClass( 'active inactive extendable unavailable' )
-      .addClass( 'active' )
+      .addClass( obj.warranty_active ? 'active' : 'inactive' )
       .find( '._item__status' )
-      .text( 'Active' );
+      .text( obj.warranty_active ? 'Active' : 'Inactive' );
 
     el.find( '._statusGrid_ ._item_._second_' )
       .removeClass( 'active inactive extendable unavailable' )
@@ -55,15 +57,17 @@ async function warrantyManipulate( obj ) {
 
     if ( obj.warranty_extension_period[1] != undefined && obj.warranty_extension_period[1] == 'PREMIUM_2_YEAR' ) {
       el.find( '.buyWarranty__packages .buyWarranty__item[i="1"], .buyWarranty__packages .buyWarranty__item[i="2"]' ).fadeOut();
+      el.find( '.buyWarranty__packages .buyWarranty__item[i="3"], .buyWarranty__packages .buyWarranty__item[i="4"]' ).fadeIn();
     } else {
       el.find( '.buyWarranty__packages .buyWarranty__item[i="1"], .buyWarranty__packages .buyWarranty__item[i="2"], .buyWarranty__packages .buyWarranty__item[i="4"]' ).fadeOut();
+      el.find( '.buyWarranty__packages .buyWarranty__item[i="3"]' ).fadeIn();
     }
 
     el.find( '._statusGrid_ ._item_._first_' )
       .removeClass( 'active inactive extendable unavailable' )
-      .addClass( 'active' )
+      .addClass( obj.warranty_active ? 'active' : 'inactive' )
       .find( '._item__status' )
-      .text( 'Active' );
+      .text( obj.warranty_active ? 'Active' : 'Inactive' );
 
     el.find( '._statusGrid_ ._item_._second_' )
       .removeClass( 'active inactive extendable unavailable' )
@@ -78,9 +82,9 @@ async function warrantyManipulate( obj ) {
 
     el.find( '._statusGrid_ ._item_._first_' )
       .removeClass( 'active inactive extendable unavailable' )
-      .addClass( 'inactive' )
+      .addClass( obj.warranty_active ? 'active' : 'inactive' )
       .find( '._item__status' )
-      .text( 'Inactive' );
+      .text( obj.warranty_active ? 'Active' : 'Inactive' );
 
     el.find( '._statusGrid_ ._item_._second_' )
       .removeClass( 'active inactive extendable unavailable' )

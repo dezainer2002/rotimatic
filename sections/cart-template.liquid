@@ -181,10 +181,21 @@
                   <span class="cart__qty-error-message" data-cart-quantity-error-message></span>
                 </div>
               </td>
+
               <td class="cart__quantity-td text-right small--hide">
+                {%-liquid
+                  assign qtyField   =   ''
+
+                  for tag in item.product.tags
+                    if tag == 'warranty_can_buy_once'
+                      assign qtyField   =   'readonly'
+                      break
+                    endif
+                  endfor
+                -%}
                 <div class="cart__qty">
                   <label for="updates_large_{{ item.key }}" class="cart__qty-label" data-quantity-label-desktop>{{ 'cart.label.quantity' | t }}</label>
-                  <input id="updates_large_{{ item.key }}" class="cart__qty-input" type="number"
+                  <input id="updates_large_{{ item.key }}" class="cart__qty-input" type="number" {{ qtyField }}
                     name="updates[]" value="{{ item.quantity }}" min="0" pattern="[0-9]*"
                     data-quantity-input data-quantity-item="{{ forloop.index }}" data-quantity-input-desktop>
                 </div>

@@ -147,7 +147,21 @@
             {{ 'pages.warranty.t27' | t }}
           </div>
 
-          <div class="buyWarranty__packages">
+          {%-liquid
+            assign product   =   all_products['warranty']
+
+            assign isAvailableInCart    =   false
+
+            for variant in product.variants
+              for item in cart.items
+                if item.variant_id == variant.id
+                  assign isAvailableInCart    =   true
+                endif
+              endfor
+            endfor
+          -%}
+
+          <div class="buyWarranty__packages" product-added="{{ isAvailableInCart }}">
             {%-liquid
               capture aaa
                 form 'localization'
@@ -156,10 +170,17 @@
                 endform
               endcapture
             -%}
-            {% assign product   =   all_products['warranty'] %}
 
             {% for variant in product.variants %}
-              {% assign priceIs   =   variant.price | divided_by: 100 %}
+              {%-liquid
+                assign priceIs    =   variant.price | divided_by: 100
+                assign cartStatus =   ''
+                for item in cart.items
+                  if item.variant_id == variant.id
+                    assign cartStatus =   'added'
+                  endif
+                endfor
+              -%}
 
               <div class="buyWarranty__item" vid="{{ variant.id }}" i="{{ forloop.index }}">
                 <div class="buyWarranty__yearTitle">
@@ -174,7 +195,7 @@
                   {{ variant.price | money_with_currency }}
                 </div>
 
-                <div class="buyWarranty__addToCart" cart-status="">
+                <div class="buyWarranty__addToCart" cart-status="{{ cartStatus }}">
                   <a href="javascript://void('add to cart');" class="add2Cart" vid="{{ variant.id }}" warranty-plan="{{ variant.title | remove: ' - R' | remove: ' - P' }}">
                     {{ 'pages.warranty.addToCart' | t }}
                   </a>

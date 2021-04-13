@@ -22,7 +22,11 @@ async function fetchReq_POST( obj ) {
 async function fetchReq_GET( obj ) {
   if ( obj.url != '' ) {
     try {
-      const res = await fetch( `${ obj.url }` );
+      const res = await fetch( `${ obj.url }`, {
+        method  : 'GET',
+        headers : obj.headers != undefined ? obj.headers : ''
+      });
+      // console.log ( 'res', res );
       return await res.json();
     } catch (err) {
       console.log('API ERROR RESPONSE', err);
