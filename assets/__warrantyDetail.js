@@ -28,6 +28,9 @@ async function warrantyManipulate( obj ) {
     el.find( '._conclusionMsg_ .noteligible__' ).fadeIn();
     el.find( '._conclusionMsg_ .buyWarranty' ).fadeOut();
 
+    $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeIn();
+    $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeOut();
+
   } else if ( obj.warranty_extension_period[0] == 'REGULAR_1_YEAR' ) {
 
     if ( obj.warranty_extension_period[1] != undefined && obj.warranty_extension_period[1] == 'REGULAR_2_YEAR' ) {
@@ -52,6 +55,9 @@ async function warrantyManipulate( obj ) {
 
     el.find( '._conclusionMsg_ .noteligible__' ).fadeOut();
     el.find( '._conclusionMsg_ .buyWarranty' ).fadeIn();
+
+    $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeIn();
+    $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeOut();
 
   } else if ( obj.warranty_extension_period[0] == 'PREMIUM_1_YEAR' ) {
 
@@ -78,6 +84,9 @@ async function warrantyManipulate( obj ) {
     el.find( '._conclusionMsg_ .noteligible__' ).fadeOut();
     el.find( '._conclusionMsg_ .buyWarranty' ).fadeIn();
 
+    $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeIn();
+    $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeOut();
+
   } else if ( obj.warranty_extension_period[0] == 'CAN_NOT_EXTEND_WARRANTY' ) {
 
     el.find( '._statusGrid_ ._item_._first_' )
@@ -94,6 +103,14 @@ async function warrantyManipulate( obj ) {
 
     el.find( '._conclusionMsg_ .noteligible__' ).fadeIn();
     el.find( '._conclusionMsg_ .buyWarranty' ).fadeOut();
+
+    if ( obj.warranty_active === true ) {
+      $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeOut();
+      $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeIn();
+    } else {
+      $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeIn();
+      $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeOut();
+    }
 
   } else if ( obj.warranty_extension_period[0] == 'MACHINE_REPLACED' ) {
 

@@ -69,13 +69,19 @@ $( document )
   .on('click', '.warranty_api_integration .warranty_api_integration__inputGrid .warranty_api_integration__btn', async function( e ) {
     e.stopImmediatePropagation();
 
-    $( '.warranty_api_integration .warranty_api_integration__loader' ).show();
+    const getValue    =   $( '.warranty_api_integration__inputGrid .emailorRef' ).val();
 
-    $( '.warranty_api_integration__modal__ordersList .showSelectedDetail' ).removeClass( 'active' );
+    if ( getValue != undefined && getValue.length > 5 ) {
 
-    await fetchAndManipulate( this );
+      $( '#preloader' ).show();
 
-    $( '.warranty_api_integration .warranty_api_integration__loader' ).hide();
+      $( '.warranty_api_integration__modal__ordersList .showSelectedDetail' ).removeClass( 'active' );
+
+      await fetchAndManipulate( this );
+
+      $( '#preloader' ).hide();
+
+    }
 
   })
 

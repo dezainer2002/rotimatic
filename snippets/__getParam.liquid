@@ -1,0 +1,13 @@
+{%-liquid
+  if paramStart != blank and paramEnd != blank
+    if content_for_header contains '?param='
+      capture getParam___
+        assign a__      =   content_for_header | split: '?param='
+        assign b__      =   a__[1] | split: 'g____'
+
+        echo b__[0]
+      endcapture
+    endif
+    echo getParam___
+  endif
+-%}

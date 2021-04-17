@@ -394,7 +394,13 @@
       "unit_price_label": "Unit price",
       "view_cart": "View cart",
       "view_in_space": "View in your space",
-      "view_in_space_label": "View in your space, loads item in augmented reality window"
+      "view_in_space_label": "View in your space, loads item in augmented reality window",
+      "popup": {
+        "heading": "Sign up to get notified when Rotimatic is available",
+        "rotimaticIsCurrently_html": "Rotimatic is currently <strong>{{ text }}</strong>",
+        "acceptTermsAndConditions_html": "I have read and accept the <a href=\"{{ link }}\">{{ linkText }}</a>",
+        "success": "Successfully submitted"
+      }
     }
   },
   "gift_cards": {
@@ -484,6 +490,7 @@
       "t22": "Rotimatic Care+ Extended Coverage",
       "t23": "Extends your coverage up to 2-years beyond current expiry date",
       "t24": "You are not eligible to purchase extended warranty.",
+      "t24_1": "You already have the maximum coverage on your machine",
       "t25_html": "We are still here for you! If you have a software issue, rest assured that you are eligible for troubleshooting throughout the lifetime of your machine via our <a href=\"{{ link }}\">support channels</a>. For hardware issues, repair or replacement is available at additional cost.",
       "t26": "Please refer to our warranty terms & conditions.",
       "t27": "Buy Rotimatic Care+ Coverage & Extend Your Warranty",

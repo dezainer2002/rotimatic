@@ -122,8 +122,7 @@
   <script src="{{ 'jquery.ui.touch-punch.min.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'datatables.mark.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'jquery.dataTables.min.js' | asset_url }}" defer="defer"></script>
-  
-  
+
   <script src="{{ 'loader.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'jquery.fancybox.min.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'global.js' | asset_url }}"></script>
@@ -137,7 +136,6 @@
   <!-- Coming Soon code end. Do not change GSEND --><script src="https://shinedezign.tk/preorder/js/preorder.js"></script>
 {% endif %}
 
-  
   <script type='text/javascript'>
 window.__lo_site_id = 271843;
     (function() {
@@ -155,14 +153,12 @@ window.mlvedaShopCurrency = "{{ shop.currency }}";
 window.shopCurrency = "{{ shop.currency }}";
 window.supported_currencies = "{{ settings.mlvedaACS_supportedCurrencies }}";
 </script>
-  
-  
-  
-   
-{% include 'pagefly-header' %}
- </head> 
+
+  {% include 'pagefly-header' %}
+ </head>
 
 <body class="template-{{ request.page_type | handle }}">
+  {% render '__loading' %}
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 

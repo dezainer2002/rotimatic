@@ -1,18 +1,23 @@
 window.addEventListener('load', function() {
   $(() => {
-    $.getScript(`${ asset_url }slick.min.js`, function ( r ) {
-      $('.recipes_slider .sliderWrapper').not('.slick-initialized').slick({
-        dots          :   true,
-        infinite      :   true,
-        autoplay      :   true,
-        speed         :   300,
-        slidesToShow  :   1,
-        slidesToScroll:   1,
-        arrows        :   false
-      });
+    const pageurl   =   location.href;
 
-      $('.recipes_slider').attr( 'loading', 'false' );
-    });
+    if ( pageurl.includes( '#' ) == false ) {
+      $.getScript(`${ asset_url }slick.min.js`, function ( r ) {
+        $('.recipes_slider .sliderWrapper').not('.slick-initialized').slick({
+          dots          :   true,
+          infinite      :   true,
+          autoplay      :   true,
+          speed         :   300,
+          slidesToShow  :   1,
+          slidesToScroll:   1,
+          arrows        :   false
+        });
+
+        $('.recipes_slider').attr( 'loading', 'false' );
+      });
+    }
+
   });
 });
 
@@ -55,7 +60,7 @@ $(document).ready(function () {
 .on('click', '.recipesBlocks .item.active a.recipeLink', async function( e ) {
   e.stopImmediatePropagation();
 
-  $( '._loader_' ).fadeIn();
+  $( '#preloader' ).show();
 
   let getJson   =   $( this ).closest( '.item' ).attr( 'json' );
   getJson       =   JSON.parse( getJson );
@@ -72,8 +77,9 @@ $(document).ready(function () {
   $('html, body').animate({
     scrollTop: $( '#shopify-section-recipes_slider' ).offset().top
   }, 500);
+
   setTimeout(() => {
-    $( '._loader_' ).fadeOut();
+    $( '#preloader' ).hide();
   }, 2000);
 })
 
@@ -92,19 +98,87 @@ $(document).ready(function () {
 .on('click', '.recipeShowPage .heroImageWrap .backToRecipe', function( e ) {
   e.stopImmediatePropagation();
 
-  $( '._loader_' ).fadeIn();
+  $( '#preloader' ).show();
 
   $( '.recipes_slider, .recipes_api' ).slideDown( 'slow' );
 
   $( '.recipeShowPage' ).slideUp( 'slow' );
 
   setTimeout(() => {
-    $( '._loader_' ).fadeOut();
+    $( '#preloader' ).hide();
   }, 1500);
+})
+
+.on('click', '.recipesBlocks .socialShare .whatsApp, .recipesBlocks .socialShare .twitter, .recipesBlocks .socialShare .facebook', function( e ) {
+  e.stopImmediatePropagation();
+
+  const isWhatsApp    =   $( this ).hasClass( 'whatsApp' );
+  const isTwitter     =   $( this ).hasClass( 'twitter' );
+  const isFacebook    =   $( this ).hasClass( 'facebook' );
+
+  const item          =   $( this ).closest( '.item' );
+  const getHash       =   item.attr( 'url' );
+  const recipeName    =   item.find( '.recipes-name' ).text();
+
+  if ( isWhatsApp ) {
+
+    const shareAbleContent    =   encodeURI( `${ recipeName } ${ pageurl }#${ getHash }` );
+    window.open( `https://web.whatsapp.com/send?text=${ shareAbleContent }`, '_blank').focus();
+
+  } else if ( isTwitter ) {
+    const shareAbleContent    =   `${ pageurl }#${ getHash }`;
+
+    popupCenter({url: `http://twitter.com/intent/tweet?text=${ encodeURI( recipeName ) }&url=${ encodeURI( shareAbleContent ) }`, title: `${ recipeName }`, w: 900, h: 500});
+
+  } else if ( isFacebook ) {
+
+    const shareAbleContent    =   encodeURI( `${ pageurl }#${ getHash }` );
+
+    popupCenter({url: `https://www.facebook.com/sharer/sharer.php?u=${ shareAbleContent }`, title: `${ recipeName }`, w: 900, h: 500});
+
+  }
+
+})
+
+.on('click', '.tags .socialShare .whatsApp, .tags .socialShare .twitter, .tags .socialShare .facebook', function( e ) {
+  e.stopImmediatePropagation();
+
+  const isWhatsApp      =   $( this ).hasClass( 'whatsApp' );
+  const isTwitter       =   $( this ).hasClass( 'twitter' );
+  const isFacebook      =   $( this ).hasClass( 'facebook' );
+
+  const item            =   $( this ).closest( '.recipeShowPage' );
+  const currentPageUrl  =   location.href;
+  let recipeName        =   item.find( '.onImageContent .recipeName' ).text();
+  recipeName            =   recipeName.trim();
+
+  console.log ( 'recipeName', recipeName );
+
+  if ( isWhatsApp ) {
+
+    const shareAbleContent    =   encodeURI( `${ recipeName } ${ currentPageUrl }` );
+    // console.log ( 'shareAbleContent', shareAbleContent );
+    window.open( `https://web.whatsapp.com/send?text=${ shareAbleContent }`, '_blank').focus();
+
+  } else if ( isTwitter ) {
+    const shareAbleContent    =   `${ currentPageUrl }`;
+
+    // console.log ( 'twitter', {url: `http://twitter.com/intent/tweet?text=${ encodeURI( recipeName ) }&url=${ encodeURI( shareAbleContent ) }`, title: `${ recipeName }`, w: 900, h: 500} );
+
+    popupCenter({url: `http://twitter.com/intent/tweet?text=${ encodeURI( recipeName ) }&url=${ encodeURI( shareAbleContent ) }`, title: `${ recipeName }`, w: 900, h: 500});
+
+  } else if ( isFacebook ) {
+
+    const shareAbleContent    =   encodeURI( `${ currentPageUrl }` );
+
+    // console.log ( 'facebook', {url: `https://www.facebook.com/sharer/sharer.php?u=${ shareAbleContent }`, title: `${ recipeName }`, w: 900, h: 500} );
+    popupCenter({url: `https://www.facebook.com/sharer/sharer.php?u=${ shareAbleContent }`, title: `${ recipeName }`, w: 900, h: 500});
+
+  }
 })
 ;
 
-async function makeShowPage( r ) {
+async function makeShowPage( r, directLand = false ) {
 
   let machineSettings   =   '';
   if ( r.RotimaticSettings != undefined ) {
@@ -185,7 +259,7 @@ async function makeShowPage( r ) {
 
   let collectData = `
     <div class="heroImageWrap">
-      <span class="backToRecipe">Back</span>
+      ${ directLand ? `<a href="${ pageurl }" class="ssr_backToRecipe">Back</a>` : `<span class="backToRecipe">Back</span>` }
       <div class="onImageContent">
         <div class="recipeCategory">
           ${ r.Categories[0] }
@@ -253,6 +327,12 @@ async function makeShowPage( r ) {
         <ul>
           ${ tags }
         </ul>
+
+        <div class="socialShare">
+          <a href="javascript:void('whatsapp');" class="whatsApp"></a>
+          <a href="javascript:void('twitter');" class="twitter"></a>
+          <a href="javascript:void('facebook');" class="facebook"></a>
+        </div>
       </div>
     </div>
   `;
@@ -261,6 +341,7 @@ async function makeShowPage( r ) {
 }
 
 async function onloadEvent() {
+  $( '#preloader' ).show();
   const reqObj          =   {
     url       :   'https://hwpth0eczl.execute-api.us-east-1.amazonaws.com/prod/recipelist',
     headers   :   {
@@ -270,15 +351,46 @@ async function onloadEvent() {
   };
   const getResponse     =   await requireOnce( `${ asset_url }__fetchRequest`, 'fetchReq_GET', reqObj );
 
-  await manipulateTabList( getResponse );
+  const pageurl     =   location.href;
 
-  await manipulateCards( getResponse );
+  if ( pageurl.includes( '#' ) == false ) {
+    await manipulateTabList( getResponse );
 
-  $( '._loader_' ).fadeOut();
+    await manipulateCards( getResponse );
+  } else {
+    $( '.recipes_slider, .recipes_api' ).hide();
+
+    const urlSlug   =   pageurl.split( '#' )[1];
+    await matchAndShowPage( getResponse, urlSlug );
+
+  }
+
+  $( '#preloader' ).hide();
 
   // console.log ( 'getResponse', getResponse );
 }
 
+async function matchAndShowPage( res, urlSlug ) {
+
+  if ( res.recipes != undefined ) {
+    const totalRecipes    =   res.recipes.length;
+
+    for ( let i = 0; i < totalRecipes; i++ ) {
+      const r   =   res.recipes[i];
+
+      const slug    =   makeSlug( r.Title );
+
+      if ( urlSlug == slug ) {
+
+        makeShowPage( r, true );
+        // console.log ( 'r', r );
+      }
+    }
+
+    $( '.recipeShowPage' ).show();
+  }
+  // console.log ( 'red', res );
+}
 async function manipulateCards( getResponse ) {
   if ( getResponse.recipes != undefined ) {
     const totalCards    =   getResponse.recipes.length;
@@ -313,19 +425,25 @@ async function cardHTML( r ) {
     <div class="item active" url="${ cardLink }" cats="${ categories_ }" json='${ JSON.stringify( r ) }'>
       <a href="#${ cardLink }" class="recipeLink">
         <div class="recipes-details">
-          <div class="recipes-tag">Snack</div>
+          <div class="recipes-tag">${ r.Categories[0] }</div>
           <div class="recipes-name">${ r.Title != undefined ? r.Title : '' }</div>
         </div>
         <div class="imgWrapper">
           <img src="${ imgSrc }" alt="${ r.Title != undefined ? r.Title : '' }">
         </div>
       </a>
+      <div class="socialShare">
+        <a href="javascript:void('whatsapp');" class="whatsApp"></a>
+        <a href="javascript:void('twitter');" class="twitter"></a>
+        <a href="javascript:void('facebook');" class="facebook"></a>
+      </div>
     </div>
   `;
 }
 
 function makeSlug( t ) {
   let link  =   t;
+  // console.log ( 'link', link );
   if ( link != '' ) {
     link    =   link.toLowerCase();
     link    =   link.split('+').join('');
@@ -359,3 +477,29 @@ async function manipulateTabList( getResponse ) {
   }
 
 }
+
+const popupCenter = ({url, title, w, h}) => {
+  // Fixes dual-screen position                             Most browsers      Firefox
+  const dualScreenLeft  =   window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
+  const dualScreenTop   =   window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
+
+  const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+  const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+  const systemZoom = width / window.screen.availWidth;
+  const left = (width - w) / 2 / systemZoom + dualScreenLeft;
+  const top = (height - h) / 2 / systemZoom + dualScreenTop;
+  const newWindow = window.open(url, title,
+    `
+    scrollbars  =   yes,
+    width       =   ${ w / systemZoom },
+    height      =   ${ h / systemZoom },
+    top         =   ${ top },
+    left        =   ${ left }
+    `
+  );
+
+  if (window.focus) newWindow.focus();
+
+  // popupCenter({url: 'http://www.xtf.dk', title: 'xtf', w: 900, h: 500});
+};

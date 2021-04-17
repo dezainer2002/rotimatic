@@ -165,10 +165,16 @@
   position: relative;
 }
 
+.recipes_api .apiData .recipesBlocks .item .recipeLink {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
 .recipes_api .apiData .recipesBlocks .item .recipes-details {
   position: absolute;
   left: 10px;
-  bottom: 10px;
+  bottom: 20px;
   color: #fff;
   z-index: 2;
 }
@@ -200,6 +206,38 @@
   background: linear-gradient(180deg, rgba(15, 26, 38, 0) 0%, rgba(15, 26, 38, 0.7) 100%);
 }
 
+.recipes_api .apiData .recipesBlocks .item .socialShare {
+  padding-top: 10px;
+}
+
+.recipes_api .apiData .recipesBlocks .item .socialShare .whatsApp,
+.recipes_api .apiData .recipesBlocks .item .socialShare .twitter,
+.recipes_api .apiData .recipesBlocks .item .socialShare .facebook {
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+
+.recipes_api .apiData .recipesBlocks .item .socialShare .whatsApp {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%22-5%20-5%2040%2040%22%3E%3Cpath%20id%3D%22arc1%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20d%3D%22M%2011.579798566743314%2024.396926207859085%20A%2010%2010%200%201%200%206.808479557110079%2020.73576436351046%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M%207%2019%20l%20-1%206%20l%206%20-1%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20fill%3D%22none%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M%2010%2010%20q%20-1%208%208%2011%20c%205%20-1%200%20-6%20-1%20-3%20q%20-4%20-3%20-5%20-5%20c%204%20-2%20-1%20-5%20-1%20-4%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+  background-color: #55eb4c;
+}
+
+.recipes_api .apiData .recipesBlocks .item .socialShare .twitter {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%22-4%20-4%2039%2039%22%3E%0A%3Cpath%20d%3D%22M28%208.557a9.913%209.913%200%200%201-2.828.775%204.93%204.93%200%200%200%202.166-2.725%209.738%209.738%200%200%201-3.13%201.194%204.92%204.92%200%200%200-3.593-1.55%204.924%204.924%200%200%200-4.794%206.049c-4.09-.21-7.72-2.17-10.15-5.15a4.942%204.942%200%200%200-.665%202.477c0%201.71.87%203.214%202.19%204.1a4.968%204.968%200%200%201-2.23-.616v.06c0%202.39%201.7%204.38%203.952%204.83-.414.115-.85.174-1.297.174-.318%200-.626-.03-.928-.086a4.935%204.935%200%200%200%204.6%203.42%209.893%209.893%200%200%201-6.114%202.107c-.398%200-.79-.023-1.175-.068a13.953%2013.953%200%200%200%207.55%202.213c9.056%200%2014.01-7.507%2014.01-14.013%200-.213-.005-.426-.015-.637.96-.695%201.795-1.56%202.455-2.55z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E");
+  background-color: #55acee;
+}
+
+.recipes_api .apiData .recipesBlocks .item .socialShare .facebook {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%22-5%20-5%2042%2042%22%3E%3Cpath%20d%3D%22M17.78%2027.5V17.008h3.522l.527-4.09h-4.05v-2.61c0-1.182.33-1.99%202.023-1.99h2.166V4.66c-.375-.05-1.66-.16-3.155-.16-3.123%200-5.26%201.905-5.26%205.405v3.016h-3.53v4.09h3.53V27.5h4.223z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+  background-color: #3c589a;
+}
+
 .recipeShowPage {
   display: none;
 }
@@ -208,7 +246,8 @@
   position: relative;
 }
 
-.recipeShowPage .heroImageWrap .backToRecipe {
+.recipeShowPage .heroImageWrap .backToRecipe,
+.recipeShowPage .heroImageWrap .ssr_backToRecipe {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -222,7 +261,8 @@
   transition: 0.3s all ease-in-out;
 }
 
-.recipeShowPage .heroImageWrap .backToRecipe:hover {
+.recipeShowPage .heroImageWrap .backToRecipe:hover,
+.recipeShowPage .heroImageWrap .ssr_backToRecipe:hover {
   -webkit-box-shadow: 0 0 10px #838D97;
           box-shadow: 0 0 10px #838D97;
 }
@@ -709,10 +749,17 @@
   border-bottom: 1px solid rgba(15, 26, 38, 0.1);
   width: 80%;
   margin: 25px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 60% 30%;
+      grid-template-columns: 10% 60% 30%;
 }
 
 .recipeShowPage .tags ._title_ {
   display: inline-block;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .recipeShowPage .tags ul {
@@ -727,5 +774,38 @@
   margin: 5px 0.25rem;
   border-radius: 0.625rem;
   display: inline-block;
+}
+
+.recipeShowPage .tags .socialShare {
+  padding-top: 10px;
+  text-align: right;
+}
+
+.recipeShowPage .tags .socialShare .whatsApp,
+.recipeShowPage .tags .socialShare .twitter,
+.recipeShowPage .tags .socialShare .facebook {
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+
+.recipeShowPage .tags .socialShare .whatsApp {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%22-5%20-5%2040%2040%22%3E%3Cpath%20id%3D%22arc1%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20d%3D%22M%2011.579798566743314%2024.396926207859085%20A%2010%2010%200%201%200%206.808479557110079%2020.73576436351046%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M%207%2019%20l%20-1%206%20l%206%20-1%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20fill%3D%22none%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M%2010%2010%20q%20-1%208%208%2011%20c%205%20-1%200%20-6%20-1%20-3%20q%20-4%20-3%20-5%20-5%20c%204%20-2%20-1%20-5%20-1%20-4%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+  background-color: #55eb4c;
+}
+
+.recipeShowPage .tags .socialShare .twitter {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%22-4%20-4%2039%2039%22%3E%0A%3Cpath%20d%3D%22M28%208.557a9.913%209.913%200%200%201-2.828.775%204.93%204.93%200%200%200%202.166-2.725%209.738%209.738%200%200%201-3.13%201.194%204.92%204.92%200%200%200-3.593-1.55%204.924%204.924%200%200%200-4.794%206.049c-4.09-.21-7.72-2.17-10.15-5.15a4.942%204.942%200%200%200-.665%202.477c0%201.71.87%203.214%202.19%204.1a4.968%204.968%200%200%201-2.23-.616v.06c0%202.39%201.7%204.38%203.952%204.83-.414.115-.85.174-1.297.174-.318%200-.626-.03-.928-.086a4.935%204.935%200%200%200%204.6%203.42%209.893%209.893%200%200%201-6.114%202.107c-.398%200-.79-.023-1.175-.068a13.953%2013.953%200%200%200%207.55%202.213c9.056%200%2014.01-7.507%2014.01-14.013%200-.213-.005-.426-.015-.637.96-.695%201.795-1.56%202.455-2.55z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E");
+  background-color: #55acee;
+}
+
+.recipeShowPage .tags .socialShare .facebook {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%22-5%20-5%2042%2042%22%3E%3Cpath%20d%3D%22M17.78%2027.5V17.008h3.522l.527-4.09h-4.05v-2.61c0-1.182.33-1.99%202.023-1.99h2.166V4.66c-.375-.05-1.66-.16-3.155-.16-3.123%200-5.26%201.905-5.26%205.405v3.016h-3.53v4.09h3.53V27.5h4.223z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+  background-color: #3c589a;
 }
 /*# sourceMappingURL=recipes.css.map */

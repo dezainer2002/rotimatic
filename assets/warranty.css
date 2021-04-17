@@ -900,6 +900,10 @@
   transition: 0.3s all ease-in-out;
 }
 
+.warranty_api_integration .apiResponseLayer ._conclusionMsg_ .noteligible__title span[msg-type="maxCoverage"] {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .warranty_api_integration .apiResponseLayer ._conclusionMsg_ .noteligible__title {
     font-size: 14px;
@@ -1726,6 +1730,11 @@
   .warranty_faqs__item.active .warranty_faqs__answer {
     margin-top: 12px;
   }
+}
+
+.warranty_faqs__item.active .warranty_faqs__answer a {
+  color: #F68945;
+  text-decoration: underline;
 }
 
 .warranty_faqs__item.active .warranty_faqs__symbol::after {
