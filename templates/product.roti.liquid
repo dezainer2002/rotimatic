@@ -1,38 +1,82 @@
+{%-liquid
+  assign cssFile    =   'product.css' | asset_url
+  assign jsFile     =   'product.js' | asset_url
+  echo '<link rel="stylesheet" href="' | append: cssFile | append: '">'
+-%}
+
 {% comment %}
   The contents of the product.liquid template can be found in /sections/product-template.liquid
 {% endcomment %}
-<div style="border: 1px solid red;">
-  {% form 'customer' %}
-    {{ form.errors | default_errors }}
-    {% if form.posted_successfully? %}
-      <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
-    {% else %}
-      <div class="input-group password__input-group">
-        <input type="hidden" name="contact[tags]" value="newsletter, SKU123456789, Testing">
-        <input type="email"
-          name="contact[email]"
-          id="Email"
-          class="input-group__field newsletter__input"
-          value="{% if customer %}{{ customer.email }}{% endif %}"
-          placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
-          autocorrect="off"
-          autocapitalize="off">
-          <input type="name" name="contact[first_name]"
-        id="Name"
-        class="input-group__field newsletter__input input-large"
-        value="{% if customer %}{{ customer.first_name }}{% endif %}"
-        placeholder="first name"
-        autocorrect="off"
-        autocapitalize="off" required
-       value="newsletter">
-        <span class="input-group__btn">
-          <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
-            <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
-          </button>
-        </span>
+<div class="_modal_">
+  <div class="centerCenter">
+    <div class="_close_">
+      <img src="{{ 'close.png' | asset_img_url: 'medium' }}" alt="close">
+    </div>
+    <div class="heading_Mobile">
+      {{ 'products.product.popup.heading' | t }}
+    </div>
+    <div class="imgPart_">
+      <img src="{{ 'out-of-stock.png' | asset_url }}" class="desktop">
+      <img src="{{ 'out-of-stock-mobile.png' | asset_url }}" class="mobile">
+    </div>
+    <div class="formPart_">
+      <div class="heading_">
+        {{ 'products.product.popup.heading' | t }}
       </div>
-    {% endif %}
-  {% endform %}
+      <p class="sub_">
+        {{ 'products.product.popup.rotimaticIsCurrently_html' | t: text: 'out-of-stock' }}
+      </p>
+      {% form 'customer', id: 'popupForm' %}
+        <div class="error">
+          {{ form.errors | default_errors }}
+        </div>
+        {% if form.posted_successfully? %}
+          <p class="success">
+            {{ 'products.product.popup.success' | t }}
+          </p>
+        {% else %}
+          <div class="">
+            <input type="hidden" name="contact[tags]" value="Out of stock, SKU123456789, ipAddress">
+            <input type="email"
+              name="contact[email]"
+              id="Email"
+              class="input-group__field newsletter__input"
+              value="{% if customer %}{{ customer.email }}{% endif %}"
+              placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+              autocorrect="off"
+              autocapitalize="off"
+              required
+            >
+            <input
+              type="name" name="contact[first_name]"
+              id="Name"
+              class="input-group__field newsletter__input input-large"
+              value="{% if customer %}{{ customer.first_name }}{% endif %}"
+              placeholder="Name"
+              autocorrect="off"
+              autocapitalize="off" required
+              value="newsletter"
+            >
+
+            <div class="haveReadTerms">
+              <div class="fakeCheckbox">
+                <input type="checkbox" name="terms" id="terms" required value="accepted">
+                <div class="ifChecked"></div>
+              </div>
+              <label for="terms">
+                {{ 'products.product.popup.acceptTermsAndConditions_html' | t: link: '/pages/terms-of-use', linkText: 'Privacy policy' }}
+              </label>
+            </div>
+            <span class="input-group__btn">
+              <button type="submit" class="btn createUserBtn" name="commit" id="Subscribe" disabled>
+                <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+              </button>
+            </span>
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
 </div>
 
 {% section 'product-template-roti' %}
@@ -102,3 +146,5 @@
   ]
 }
 </script>
+
+<script src="{{ jsFile }}"></script>

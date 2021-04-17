@@ -775,6 +775,10 @@ $errorColor: #FF3C3C;
           margin-bottom: 20px;
           @include tran();
 
+          span[msg-type="maxCoverage"] {
+            display: none;
+          }
+
           @media ( max-width: 768px ) {
             font-size: 14px;
             letter-spacing: 0.11px;
@@ -1506,6 +1510,11 @@ $errorColor: #FF3C3C;
 
         @media ( max-width: 768px ) {
           margin-top: 12px;
+        }
+
+        a {
+          color: $colorOrange;
+          text-decoration: underline;
         }
       }
 

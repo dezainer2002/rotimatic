@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{ 'notifications.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'header.css' | asset_url }}">
 <div class="notification"></div>
 {%- assign currency_selector = false -%}
 {%- if section.settings.show_currency_selector and shop.enabled_currencies.size > 1 -%}
@@ -216,7 +217,7 @@
                       </li></ul>
                   <input type="hidden" name="currency_code" id="CurrencySelector" value="USD" data-disclosure-input="">
                 </div>
-                
+
                 <div class="disclosure disclosure-currency" data-disclosure-currency>
                   <button type="button" class="disclosure__toggle" aria-expanded="false" aria-controls="currency-list" aria-describedby="currency-heading" data-disclosure-toggle>
                     <span class="flag {{ form.current_currency.iso_code }}"></span>
@@ -242,19 +243,28 @@
           {% if shop.customer_accounts_enabled %}
             {% if customer %}
               <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
+                {% render '__icons' with { icon: 'avatar' } %}
+                {%- comment -%}
                 {% include 'icon-login' %}
+                {%- endcomment -%}
                 <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
               </a>
             {% else %}
               <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
+                {% render '__icons' with { icon: 'avatar' } %}
+                {%- comment -%}
                 {% include 'icon-login' %}
+                {%- endcomment -%}
                 <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
               </a>
             {% endif %}
           {% endif %}
         </div>
         <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
+          {%- comment -%}
           <img src="{{ "cart-icon.png" | asset_url }}" alt="{{ 'layout.cart.title' | t }}">
+          {%- endcomment -%}
+          {% render '__icons' with { icon: 'cart' } %}
           <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
           <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
             <span data-cart-count>{{ cart.item_count }}</span>

@@ -126,7 +126,7 @@
       <div class="group-product-section">
 
 <div class="group-product-items" style="display:flex !important">
-                                                                
+
  			 {% for product in collections.all-rotimatic-products.products %}
                <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}">
             <div class="group-product-inner">
@@ -161,24 +161,22 @@
               </div>
 
               <div class="add-to-cart">
-{% if product.available %}
-                <button class="product-add btn" onclick="location.href='/cart/add?id={{ product.first_available_variant.id }}';">
-                  <span class='product-single__view-in-space-text'>Add To Cart</span>
-				
-                </button>
-{% else %}
-<button class="product-add btn">
-                  <span class='product-single__view-in-space-text'>OUT OF STOCK</span>
-				
-                </button>
-				{% endif %}	
+                {% if product.available %}
+                  <button class="product-add btn" onclick="location.href='/cart/add?id={{ product.first_available_variant.id }}';">
+                    <span class='product-single__view-in-space-text'>Add To Cart</span>
+                  </button>
+                {% else %}
+                  <button class="product-add btn outOfStock__" pid="{{ product.id }}">
+                    <span class='product-single__view-in-space-text'>OUT OF STOCK</span>
+                  </button>
+	        			{% endif %}
               </div>
             </div>
-			<div class="estimate-delivery">Estimated delivery 3-4 months</div>
+			      <div class="estimate-delivery">Estimated delivery 3-4 months</div>
           </div>
-         {% endfor %}    
-                               
-                               
+         {% endfor %}
+
+
 {% for product in collections.all-rotimatic-products-2.products %}
                <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}">
             <div class="group-product-inner">
@@ -213,27 +211,25 @@
               </div>
 
               <div class="add-to-cart">
-{% if product.available %}
-                <button class="product-add btn" onclick="location.href='/cart/add?id={{ product.first_available_variant.id }}';">
-                  <span class='product-single__view-in-space-text'>Add To Cart</span>
-				
-                </button>
-{% else %}
-<button class="product-add btn">
-                  <span class='product-single__view-in-space-text'>OUT OF STOCK</span>
-				
-                </button>
-				{% endif %}	
+                {% if product.available %}
+                  <button class="product-add btn" onclick="location.href='/cart/add?id={{ product.first_available_variant.id }}';">
+                    <span class='product-single__view-in-space-text'>Add To Cart</span>
+                  </button>
+                {% else %}
+                  <button class="product-add btn outOfStock__">
+                    <span class='product-single__view-in-space-text'>OUT OF STOCK</span>
+                  </button>
+	        			{% endif %}
               </div>
             </div>
-			<div class="estimate-delivery">Estimated delivery 3-4 months</div>
+			      <div class="estimate-delivery">Estimated delivery 3-4 months</div>
           </div>
-         {% endfor %} 
+         {% endfor %}
         </div>
 
 
-                                                                                              
-                                               
+
+
       </div>
 
       <div class="product-other-section">
@@ -296,7 +292,6 @@
 
 <style>.group-product-items{display:none;}</style>
 
-                                                                 
 {% schema %}
 {
   "name": {
