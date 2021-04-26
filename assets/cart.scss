@@ -1,0 +1,21 @@
+@import 'global.scss';
+
+.terms {
+  margin-top: 10px;
+
+  &__block {
+    display: inline-block;
+    border: 1px solid $colorOrange;
+    padding: 10px;
+    width: 250px;
+    border-radius: $radius_5;
+    text-align: center;
+    line-height: 22px;
+
+    a {
+      text-decoration: underline;
+      color: $colorOrange;
+      white-space: nowrap;
+    }
+  }
+}

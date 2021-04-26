@@ -8,7 +8,7 @@ development:
   # theme_id: "121072877722"
   # V 1.2 DEV
   # theme_id: "121569706138"
-  # V 1.1 DEV
+  # V 1.3 DEV
   theme_id: "121845973146"
   store: rotimaticus.myshopify.com
 production:
