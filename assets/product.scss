@@ -1,5 +1,9 @@
 $colorOrange: #f68945;
 
+#shopify-section-product-reviews {
+  display: none;
+}
+
 @mixin tran( $time ) {
   transition: $time all ease-in-out;
 }

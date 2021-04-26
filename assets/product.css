@@ -1,3 +1,7 @@
+#shopify-section-product-reviews {
+  display: none;
+}
+
 .bodyDisableScroll {
   overflow: hidden;
 }

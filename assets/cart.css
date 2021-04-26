@@ -1,0 +1,20 @@
+.terms {
+  margin-top: 10px;
+}
+
+.terms__block {
+  display: inline-block;
+  border: 1px solid #f68945;
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.terms__block a {
+  text-decoration: underline;
+  color: #f68945;
+  white-space: nowrap;
+}
+/*# sourceMappingURL=cart.css.map */

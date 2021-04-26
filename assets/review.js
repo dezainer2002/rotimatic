@@ -1,3 +1,12 @@
+window.addEventListener('load', function() {
+  setTimeout(() => {
+    $( '#shopify-product-reviews' ).css({
+      'opacity': '1',
+      'visibility': 'visible'
+    });
+  }, 3000);
+});
+
 $(document).ready(function () {
   onLoadPage();
 });
@@ -7,7 +16,8 @@ function onLoadPage() {
 
   if ( getSectionId != undefined && getSectionId != '' ) {
     $.get(`/?section_id=${ getSectionId }`, function ( data ) {
-      $( '.loadSection[sid]' ).html( data );
+      $( '.loadSection[sid]' )
+        .html( data );
     });
   }
 
@@ -19,3 +29,4 @@ function onLoadPage() {
     });
   }
 }
+

@@ -120,15 +120,15 @@
     </div>
 
     <div class="product-single-content">
-      <h1>Prices starting from $999</h1>
+      <h1>Choose what suits you the best!</h1>
       <p class="product-description">Rotimatic is designed as a platform to make any type of flatbread. It connects to the internet and upgrades with features that add more variety to your table and parties.</p>
 
       <div class="group-product-section">
 
-<div class="group-product-items" style="display:flex !important">
+      <div class="group-product-items" style="display:flex !important">
 
  			 {% for product in collections.all-rotimatic-products.products %}
-               <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}">
+          <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}">
             <div class="group-product-inner">
                {% if product.tags contains 'recommended' %}<div class="recommended-label">Recommended</div>{% endif %}
               <h2>{{ product.title }}</h2>
@@ -139,7 +139,15 @@
                     <img src="{{ "icon-warranty-gray.png" | asset_url }}" />
                   </div>
                   <div class="usp-text">
-                    <p>1-year warranty</p>
+                    {%-liquid
+                      assign yearCount    =   1
+                      assign year_        =   'year'
+                      if product.tags contains "plus"
+                        assign yearCount    =   yearCount | plus: 1
+                        assign year_        =   'years'
+                      endif
+                    -%}
+                    <p>{{ yearCount }}-{{ year_ }} warranty</p>
                   </div>
                 </div>
                 <div class="product-usp-item">
@@ -177,8 +185,8 @@
          {% endfor %}
 
 
-{% for product in collections.all-rotimatic-products-2.products %}
-               <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}">
+        {% for product in collections.all-rotimatic-products-2.products %}
+          <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}">
             <div class="group-product-inner">
                {% if product.tags contains 'recommended' %}<div class="recommended-label">Recommended</div>{% endif %}
               <h2>{{ product.title }}</h2>
@@ -189,7 +197,15 @@
                     <img src="{{ "icon-warranty-gray.png" | asset_url }}" />
                   </div>
                   <div class="usp-text">
-                    <p>1-year warranty</p>
+                    {%-liquid
+                      assign yearCount    =   1
+                      assign year_        =   'year'
+                      if product.tags contains "plus"
+                        assign yearCount    =   yearCount | plus: 1
+                        assign year_        =   'years'
+                      endif
+                    -%}
+                    <p>{{ yearCount }}-{{ year_ }} warranty</p>
                   </div>
                 </div>
                 <div class="product-usp-item">
