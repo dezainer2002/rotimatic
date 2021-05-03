@@ -29,6 +29,12 @@
                       <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title>
                         {{ item.product.title }}
                       </a>
+                      {% if item.product.type == 'Machine' %}
+                        <div class="productTypeMachine">
+                          {{ 'cart.general.productTypeMachine' | t }}
+                        </div>
+                      {% endif %}
+
                       <span class="sku" style="display:none">
                         {{ item.sku }}
                       </span>
@@ -267,7 +273,11 @@
               <span class="cart-subtotal__title">{{ 'cart.general.subtotal' | t }}</span>
               <span class="cart-subtotal__price" data-cart-subtotal>{{ cart.total_price | money_with_currency }}</span>
             </div>
-
+    		<div class="terms">
+              <div class="terms__block">
+                {{ 'cart.general.agreeWithTermsAndPolicies_html' | t : termsLink: '/pages/terms-of-use', policyLink: '/pages/privacy-policy' }}
+              </div>
+            </div>
             {%- capture taxes_shipping_checkout -%}
               {%- if shop.taxes_included and shop.shipping_policy.body != blank -%}
                 {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
@@ -303,19 +313,44 @@
               {%- endif -%}
             </div>
 
-            <div class="terms">
-              <div class="terms__block">
-                {{ 'cart.general.agreeWithTermsAndPolicies_html' | t : termsLink: '#__terms', policyLink: '#__policy' }}
-              </div>
-            </div>
+        
           </div>
         </div>
       </div>
       <p class="cart-attribute__field">
-  <label for="machine-id">Machine ID</label>
-  <input id="machine-id" type="text" name="attributes[Machine ID]" value="{{ cart.attributes["Machine ID"] }}">
-</p>
+        <label for="machine-id">Machine ID</label>
+        <input id="machine-id" type="text" name="attributes[Machine ID]" value="{{ cart.attributes["Machine ID"] }}">
+      </p>
     </form>
+
+    {%-liquid
+      capture dontUse
+        form 'localization'
+          assign currencyIs       =   form.current_currency.iso_code
+          assign currencySymbol   =   form.current_currency.symbol
+        endform
+      endcapture
+    -%}
+
+    <div class="estimateShipping" currency-symbol="{{ currencySymbol }}" currency-is="{{ currencyIs }}">
+      <span class="_title_">Estimated shipping</span>
+      <select name="country" class="countryName">
+        {{ country_option_tags }}
+      </select>
+
+      <input type="text" name="zip" class="zip" placeholder="Zip code">
+
+      <input type="text" name="state" class="state" placeholder="State">
+
+      <div class="estimateShippingBtnWrapper">
+        <a href="javascript://void('estimateShipping');" class="btn estimateBtn">
+          Estimate
+        </a>
+      </div>
+
+      <div class="getShippingResponse"></div>
+      <div class="getShippingResponseErr"></div>
+    </div>
 
     <p class="visually-hidden" data-cart-status
       aria-live="polite"

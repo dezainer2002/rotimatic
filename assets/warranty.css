@@ -719,6 +719,14 @@
   border-radius: 10px;
   background-color: #fff;
   padding-bottom: 30px;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}
+
+.warranty_api_integration .apiResponseLayer ._statusGrid_ ._item_:hover {
+  padding-bottom: 30px;
+  -webkit-box-shadow: 0 0 15px #c6c6c6;
+          box-shadow: 0 0 15px #c6c6c6;
 }
 
 @media (max-width: 768px) {
@@ -761,6 +769,10 @@
 
 .warranty_api_integration .apiResponseLayer ._statusGrid_ ._item_.unavailable img.ifUnavailable {
   display: block;
+}
+
+.warranty_api_integration .apiResponseLayer ._statusGrid_ ._item_.extendable {
+  cursor: pointer;
 }
 
 .warranty_api_integration .apiResponseLayer ._statusGrid_ ._item_.extendable ._item__status {
@@ -848,6 +860,12 @@
   line-height: 28px;
   -webkit-transition: 0.3s all ease-in-out;
   transition: 0.3s all ease-in-out;
+}
+
+.warranty_api_integration .apiResponseLayer ._statusGrid_ ._item__dates._spacialNote_ {
+  display: none;
+  font-size: 18px;
+  max-width: calc(100% - 20px);
 }
 
 @media (max-width: 768px) {

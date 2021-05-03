@@ -200,6 +200,16 @@ $( document )
     }
 
   })
+
+  .on('click', '._statusGrid_ ._item_._second_.extendable', function( e ) {
+    e.stopImmediatePropagation();
+
+    const scrollTo    =   $( '.buyWarranty__packages' ).offset().top;
+
+    $('html, body').animate({
+      scrollTop: scrollTo - 100
+    }, 500);
+  })
   ;
 
   var rtime;

@@ -4,6 +4,75 @@ $radius_7: 7px;
 $radius_10: 10px;
 $tranisition: 0.3s all ease-in-out;
 
-@mixin tran() {
+$breakPoint_1920: 1920px;
+$breakPoint_1900: 1900px;
+$breakPoint_1850: 1850px;
+$breakPoint_1800: 1800px;
+$breakPoint_1750: 1750px;
+$breakPoint_1700: 1700px;
+$breakPoint_1650: 1650px;
+$breakPoint_1600: 1600px;
+$breakPoint_1550: 1550px;
+$breakPoint_1500: 1500px;
+$breakPoint_1450: 1450px;
+$breakPoint_1400: 1400px;
+$breakPoint_1350: 1350px;
+$breakPoint_1300: 1300px;
+$breakPoint_1250: 1250px;
+$breakPoint_1200: 1200px;
+$breakPoint_1150: 1150px;
+$breakPoint_1100: 1100px;
+$breakPoint_1050: 1050px;
+$breakPoint_1000: 1000px;
+$breakPoint_950: 950px;
+$breakPoint_900: 900px;
+$breakPoint_850: 850px;
+$breakPoint_800: 800px;
+$breakPoint_768: 768px;
+$breakPoint_750: 750px;
+$breakPoint_700: 700px;
+$breakPoint_650: 650px;
+$breakPoint_600: 600px;
+$breakPoint_550: 550px;
+$breakPoint_500: 500px;
+$breakPoint_450: 450px;
+$breakPoint_400: 400px;
+$breakPoint_375: 375px;
+$breakPoint_350: 350px;
+$breakPoint_320: 320px;
+
+@mixin tran( $time ) {
   transition: $tranisition;
+}
+
+@mixin scrollBar( $type ) {
+  scrollbar-width: $type;
+  overflow: auto;
+
+  @if $type == 'thin' {
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+}
+
+@mixin Gap( $measure, $type ) {
+  @if $type == 'gg' {
+    grid-gap: $measure;
+  } @else if $type == 'rg' {
+    row-gap: $measure;
+  } @else if $type == 'cg' {
+    column-gap: $measure;
+  } @else if $type == 'g' {
+    gap: $measure;
+  }
 }

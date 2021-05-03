@@ -36,8 +36,8 @@
     "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/zimplistic-inventions",
     "favicon": "shopify:\/\/shop_images\/favicon.png",
     "enable_ajax": true,
-    "flour_data": "Aashirvaad Atta with Multi Grains|Aarshirvaad Multi-G,Aashirvaad Select Whole Wheat Atta|Aashirvaad Select,Aashirvaad Whole Wheat Atta|Aashirvaad,Pillsbury Atta with Multi Grains|Pillsbury Multi-G,Aashirvaad Atta with Multi Grains|Aarshirvaad Multi-G,Aashirvaad Select Whole Wheat Atta|Aashirvaad Select,Aashirvaad Whole Wheat Atta|Aashirvaad,Pillsbury Atta with Multi Grains|Pillsbury Multi-G",
-    "flour_alternative_data": "Aashirvaad Atta with Multi Grains|Aarshirvaad Multi-G,Aashirvaad Select Whole Wheat Atta|Aashirvaad Select,Aashirvaad Whole Wheat Atta|Aashirvaad,Pillsbury Atta with Multi Grains|Pillsbury Multi-G,Aashirvaad Atta with Multi Grains|Aarshirvaad Multi-G,Aashirvaad Select Whole Wheat Atta|Aashirvaad Select,Aashirvaad Whole Wheat Atta|Aashirvaad,Pillsbury Atta with Multi Grains|Pillsbury Multi-G",
+    "flour_data": "Aashirvaad Atta with Multi Grains|Aarshirvaad Multi-G,Aashirvaad Select Whole Wheat Atta|Aashirvaad Select,Aashirvaad Whole Wheat Atta|Aashirvaad,Pillsbury Atta with Multi Grains|Pillsbury Multi-G,Pillsbury Chaki Whole Wheat Atta|Pillsbury,Pillsbury Gold Whole Wheat Atta|Pillsbury Gold,Sujata Chaki Whole Wheat Atta|Sujata,Sujata Gold Whole Wheat Atta|Sujata Gold,Al Baker Chapatti|Al Baker Chapatti,Al Baker Gold|Al Baker Gold,Al Baker Fresh|Al Baker Fresh",
+    "flour_alternative_data": "24Mantra Organic MultiGrain Atta|Pillsbury Multi-G,Arrowhead Mills Organic Spelt Flour|Pillsbury Multi-G,Augason Farms Hard Red Wheat Flour|Aarshirvaad Multi-G,Baker's Roses Enriched Flour|Pillsbury,Berlin Natural Bakery Unbleached White Spelt Flour|Pillsbury,Deep Chakki Whole Wheat Atta|Aarshirvaad Multi-G,Deep Chapatti Flour (Dhrum Atta)|Pillsbury,Nature's Supplement 100% Organic Biologique Spelt|Al Baker Fresh,Nirav Durum Atta|Pillsbury Gold,One Degree Organic Sprouted Spelt|Aarshirvaad Multi-G,Organic Larder Organic Whole Grain Spelt|Pillsbury Multi-G,QFM (Qatar Flour Mills) Chakki Atta|Pillsbury,QFM (Qatar Flour Mills) Chappati|Pillsbury,QFM (Qatar Flour Mills) Whole Wheat|Pillsbury,Royal Gold Chakki Fresh Atta Whole Wheat|Pillsbury Multi-G,Sanjeevani Organics Organic Tandoori|Aarshirvaad Multi-G,Suraj Durum Atta|Pillsbury,Swad Bhalia Chapatti|Aarshirvaad Multi-G,Swad Sharbati Gold Whole Wheat|Aarshirvaad Multi-G,Swad Whole Wheat Atta|Aarshirvaad Multi-G,Swadi Homemade Chakki Fresh Atta Medium|Aarshirvaad Multi-G",
     "checkout_header_image": "",
     "checkout_logo_image": "",
     "checkout_logo_position": "left",
@@ -100,7 +100,8 @@
             "settings": {
               "other_image": "shopify:\/\/shop_images\/pc-logo.png",
               "text": "<p>A potential game changer <br\/>for roti-loving households<\/p>",
-              "color": "#363636"
+              "color": "#363636",
+              "link": "shopify:\/\/pages\/press"
             }
           },
           "1cd2ef45-5819-45b3-8590-fda15cb682e0": {
@@ -108,7 +109,8 @@
             "settings": {
               "other_image": "shopify:\/\/shop_images\/nbc-logo_62234930-f333-4d73-89bf-6935053ec8cb.png",
               "text": "<p>Long wait, but Rotimatic’s <br\/>a hit with everyone.<\/p>",
-              "color": "#222222"
+              "color": "#222222",
+              "link": "shopify:\/\/pages\/press"
             }
           },
           "b06d0c9b-a289-41bc-9b7b-2b5469a675ca": {
@@ -116,7 +118,8 @@
             "settings": {
               "other_image": "shopify:\/\/shop_images\/wsj-logo_1b51864d-3e46-47eb-a06b-67ded8429bf8.png",
               "text": "<p>Best thing since sliced bread.<br\/> A roti making machine<\/p>",
-              "color": "#222222"
+              "color": "#222222",
+              "link": "shopify:\/\/pages\/press"
             }
           },
           "c2d75081-3a42-4ae6-be00-8c2478a08e38": {
@@ -124,7 +127,8 @@
             "settings": {
               "other_image": "shopify:\/\/shop_images\/ztv-logo.png",
               "text": "<p>8 years of stubborness to give <br\/>birth to their Roti making robot<\/p>",
-              "color": "#363636"
+              "color": "#363636",
+              "link": "shopify:\/\/pages\/press"
             }
           }
         },
@@ -213,7 +217,7 @@
       "16065924975dfe3451": {
         "type": "home-products",
         "settings": {
-          "featured_product": "rotimatic",
+          "featured_product": "rotimatic-no",
           "show_mobile": true,
           "show_quantity_selector": false,
           "show_variant_labels": false,
@@ -331,7 +335,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/icon_voltagea.png",
               "title": "Voltage",
-              "text": "<p>110V (Canada, USA) 220V (Singapore, UK, Australia)<\/p>",
+              "text": "<p>110V (Canada, USA) 220V (Singapore, UK, Australia, Singapore, Hong Kong, Europe and Middle East)<\/p>",
               "see_all_flours": false
             }
           },
@@ -458,7 +462,7 @@
             "type": "question",
             "settings": {
               "question": "Who is using it right now?",
-              "anwser": "<p>Thousands of proud owners make a million rotis with Rotimatic everyday! <br\/>Health-conscious homes, fussy kids, time-starved couples, foodies, techies, roti-lovers, progressive families and many more. From time to health to convenience to wonder, everyone loves Rotimatic for a different reason. Take a look <a href=\"https:\/\/explore.rotimatic.com\/reviews\/\" title=\"https:\/\/explore.rotimatic.com\/reviews\/\">here<\/a><\/p>"
+              "anwser": "<p>Thousands of proud owners make a million rotis with Rotimatic everyday! <br\/>Health-conscious homes, fussy kids, time-starved couples, foodies, techies, roti-lovers, progressive families and many more. From time to health to convenience to wonder, everyone loves Rotimatic for a different reason. Take a look <a href=\"\/pages\/reviews\" title=\"\/pages\/reviews\">here<\/a><\/p>"
             }
           },
           "6af6908c-136f-482a-a29a-7c1f060ac336": {
@@ -514,14 +518,14 @@
             "type": "question",
             "settings": {
               "question": "Does the warranty cover everything?",
-              "anwser": "<p>Rotimatic comes with a 1-year free warranty valid in the country that the Rotimatic is shipped to. You also enjoy Rotimatic Care for longer if you take an extended warranty on your unit, <a href=\"https:\/\/rotimatic.com\/warranty\">details here<\/a>.<\/p>"
+              "anwser": "<p>Rotimatic comes with a 1-year free warranty valid in the country that the Rotimatic is shipped to. You also enjoy Rotimatic Care for longer if you take an extended warranty on your unit, <a href=\"\/pages\/warranty\" title=\"Warranty\">details here<\/a>.<\/p>"
             }
           },
           "5bc2ab2a-c923-484c-94d4-b3bd7ce2d666": {
             "type": "question",
             "settings": {
               "question": "What if I change my mind and want to cancel my order?",
-              "anwser": "<p>We’ll be sad, but we’ll understand. You’re free to cancel the order before the unit reaches you for any reason, and get a full refund.<br\/>Rotimatic also comes with a 30-day money back guarantee.So after you receive your Rotimatic, if you are unhappy with your Rotimatic experience, you can return it within 30 days and we’ll refund the retail price of the product after deducting the return shipping price of U$199<\/p>"
+              "anwser": "<p>We’ll be sad, but we’ll understand. You’re free to cancel the order before the unit reaches you for any reason, and get a full refund.<br\/>Rotimatic also comes with a 30-day money back guarantee.So after you receive your Rotimatic, if you are unhappy with your Rotimatic experience, you can return it within 30 days and we’ll refund the retail price of the product after deducting the return shipping price of US$199<\/p>"
             }
           },
           "28bcd9aa-5bf9-418f-a08f-d489422d2b3b": {
@@ -626,12 +630,31 @@
       "16062410432c8fa238": {
         "type": "recipes-slider",
         "blocks": {
+          "1ee2e336-dd37-494d-a5a8-d59b89d7a4b3": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/circle-cropped_3.png",
+              "title": "Puri Ladoo",
+              "text": "<p>Make these impressive Ladoos from leftover Puris. Combine them with Jaggery, Ghee, spices and nut powders, which are good fats, to make it a healthy ladoo for kids.<\/p><p><a href=\"https:\/\/web.whatsapp.com\/send?text=Puri%20Ladoo%20https%3A%2F%2Frotimatic.com%2Frecipe%2Fpuri-ladoo%2F\" target=\"_blank\"><br\/><\/a><\/p>",
+              "link": "\/pages\/recipes#puri-ladoo"
+            }
+          },
           "1d1168df-f9ce-4461-91a8-a38bbd5affdd": {
             "type": "recipes_item",
             "settings": {
               "image": "shopify:\/\/shop_images\/Chaat-Puri.png",
               "title": "Chaat Puri",
-              "text": "<p>A Medley of fried Puri’s, Potatoes, beans, sweet and spicy chutneys, yoghurt, raw onions, spices etc.<\/p>"
+              "text": "<p><a href=\"https:\/\/rotimaticus.myshopify.com\/pages\/recipes#chaat-puri\" title=\"https:\/\/rotimaticus.myshopify.com\/pages\/recipes#chaat-puri\">A Medley of fried Puri’s, Potatoes, beans, sweet and spicy chutneys, yoghurt, raw onions, spices etc.<\/a><\/p>",
+              "link": "\/pages\/recipes#chaat-puri"
+            }
+          },
+          "942c3f45-f243-471d-b628-661ad31c9868": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/circle-cropped_4.png",
+              "title": "Puran Poli",
+              "text": "<p>Puran Poli is an Indian sweet flatbread, made differently across different states. It goes by different names like Vedmi, Holige, Obbattu, Poli etc<\/p>",
+              "link": "\/pages\/recipes#puran-poli"
             }
           },
           "40b79fda-a468-4dd3-98ae-c6099562ceb3": {
@@ -639,7 +662,17 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Egg-Roti-wrap.png",
               "title": "Egg Roti wrap",
-              "text": "<p>Roti wrap with fresh veggie salad or  grilled meat and enjoy it with your favourite dip.<\/p>"
+              "text": "<p>Roti wrap with fresh veggie salad or  grilled meat and enjoy it with your favourite dip.<\/p>",
+              "link": "\/pages\/recipes#egg-roti-wrap"
+            }
+          },
+          "b3b5d7d0-8138-405e-addb-ff0032610e4b": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/circle-cropped_1.png",
+              "title": "Roti + Burger",
+              "text": "<p>Enjoy this creative Burger made from Rotis, with any stuffing you like to make it a wholesome meal.<\/p>",
+              "link": "\/pages\/recipes#roti-burger"
             }
           },
           "c45204b6-462b-4f2b-80f8-4fa149af382a": {
@@ -647,38 +680,34 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Pumpkin-Pie.png",
               "title": "Pumpkin Pie",
-              "text": "<p>A yummy dessert with coconut cream and pumpkin pie spices<\/p>"
+              "text": "<p>A yummy dessert with coconut cream and pumpkin pie spices<\/p>",
+              "link": "\/pages\/recipes#pumpkin-pie-cups"
             }
           },
           "84ef0802-bcc6-49c1-ac03-52f8c101e9a3": {
             "type": "recipes_item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Chaat-Puri.png",
-              "title": "Chaat Puri",
-              "text": "<p>A Medley of fried Puri’s, Potatoes, beans, sweet and spicy chutneys, yoghurt, raw onions, spices etc.<\/p>"
-            }
-          },
-          "b3b5d7d0-8138-405e-addb-ff0032610e4b": {
-            "type": "recipes_item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Egg-Roti-wrap.png",
-              "title": "Egg Roti wrap",
-              "text": "<p>A Medley of fried Puri’s, Potatoes, beans, sweet and spicy chutneys, yoghurt, raw onions, spices etc.<\/p>"
+              "image": "shopify:\/\/shop_images\/circle-cropped.png",
+              "title": "Samosa",
+              "text": "<p>Say “Samosa”, a triangular snack pops up in one’s mind and you are salivating. This popular snack has travelled from Egypt to Libya to Central Asia to India.<\/p>",
+              "link": "\/pages\/recipes#samosa"
             }
           }
         },
         "block_order": [
+          "1ee2e336-dd37-494d-a5a8-d59b89d7a4b3",
           "1d1168df-f9ce-4461-91a8-a38bbd5affdd",
+          "942c3f45-f243-471d-b628-661ad31c9868",
           "40b79fda-a468-4dd3-98ae-c6099562ceb3",
+          "b3b5d7d0-8138-405e-addb-ff0032610e4b",
           "c45204b6-462b-4f2b-80f8-4fa149af382a",
-          "84ef0802-bcc6-49c1-ac03-52f8c101e9a3",
-          "b3b5d7d0-8138-405e-addb-ff0032610e4b"
+          "84ef0802-bcc6-49c1-ac03-52f8c101e9a3"
         ],
         "settings": {
           "title": "Happiness is homemade",
           "text": "<p>Rotimatic is designed to make any type of flatbread. It connects to the <br\/>internet and upgrades with features that add more variety to your table and parties.<\/p>",
           "button_label": "See recipes",
-          "button_link": "https:\/\/explore.rotimatic.com\/recipes\/"
+          "button_link": "shopify:\/\/pages\/recipes"
         }
       },
       "product-rotimatic": {
@@ -708,7 +737,7 @@
           "8bf071cd-b439-4b96-83f4-0743c00e9487": {
             "type": "product_rotimatic",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Cleaning-kit_1a39cd0b-c5d4-4305-a985-df05da635091.png",
+              "image": "shopify:\/\/shop_images\/cleankit_shadow.png",
               "title": "Cleaning kit"
             }
           }
@@ -809,7 +838,7 @@
               "image": "shopify:\/\/shop_images\/callendar.png",
               "text": "<p>30-day money <br\/>back guarantee<\/p>",
               "terms": true,
-              "terms_text": "<p>Return charges of *price* included<\/p>"
+              "terms_text": "<p>Restocking fee of $199 USD will be applied for returns<\/p>"
             }
           },
           "ae24403e-1baf-4a84-825f-20e9fc50712a": {
@@ -1008,7 +1037,7 @@
         "type": "cart-products",
         "settings": {
           "title": "Featured collection",
-          "collection": "accessories",
+          "collection": "cartpage-accessories",
           "grid": 5
         }
       },
@@ -1039,7 +1068,7 @@
             "type": "text_block",
             "settings": {
               "enable_image": true,
-              "image": "shopify:\/\/shop_images\/Puff.jpg",
+              "image": "shopify:\/\/shop_images\/puff_31c4e16b-9aae-49b9-b643-59f79098eda8.gif",
               "title": "PUFF",
               "text": "<p>hot &amp; fresh rotis<\/p>",
               "button_label": ""
@@ -1065,7 +1094,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Family.jpg",
               "title": "46,574",
-              "text": "<p>happy families are tasting hot, puffed rotimatic rotis<\/p>"
+              "text": "<p>Happy families are tasting hot, puffed rotimatic rotis<\/p>"
             }
           },
           "f771c391-8cd7-41b1-b42b-ae8b25454165": {
@@ -1111,6 +1140,7 @@
       },
       "16132344718331c6ec": {
         "type": "home-product-reviews",
+        "disabled": true,
         "blocks": {
           "aea38958-c822-4138-9746-c7d78dc356b7": {
             "type": "reviews",
@@ -1202,7 +1232,7 @@
         "settings": {
           "title": "Taste the endless possibilities",
           "content": "<p>Unlimited new features at no additional cost<\/p>",
-          "image": "shopify:\/\/shop_images\/taste-roti-main-image.png"
+          "image": "shopify:\/\/shop_images\/roti_4e4b032e-4bc3-4c1f-94dd-9cf9fea08a07.png"
         }
       },
       "161401225321145879": {
@@ -1215,7 +1245,7 @@
               "grid_image": "shopify:\/\/shop_images\/IMG_fastfresh.png",
               "icon_image": "shopify:\/\/shop_images\/Icons-freshroti.png",
               "cta_label": "Fast & fresh",
-              "caption_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+              "caption_text": "<p>Puffy rotis in a jiffy are a thing! Gone are the days when it took 40 minutes to prepare a simple meal.Now you can just tap a button and taste the magic<\/p>"
             }
           },
           "f9ab7d60-0b1c-430e-a998-143afe4f15d1": {
@@ -1225,7 +1255,7 @@
               "grid_image": "shopify:\/\/shop_images\/IMG_anycanroti.png",
               "icon_image": "shopify:\/\/shop_images\/Icons-people.png",
               "cta_label": "Anyone <br>can roti",
-              "caption_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+              "caption_text": "<p>Did you know that everyone from kids to the visually-impaired are using Rotimatic to make thousands of rotis as we speak?That&#x27;s how easy it is to use.<\/p>"
             }
           },
           "9836fd49-c61c-4d26-a194-9d7404620afc": {
@@ -1235,7 +1265,7 @@
               "grid_image": "shopify:\/\/shop_images\/IMG_uptodate.png",
               "icon_image": "shopify:\/\/shop_images\/Icons-food.png",
               "cta_label": "Always up <br>to date",
-              "caption_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+              "caption_text": "<p>Rotimatic never stops learning! It connects to the Cloud for new recipes, software updates and remote troubleshooting.It&#x27;s like a new machine each time!<\/p>"
             }
           },
           "69d6f8da-fb4c-4a63-b29d-5013d35589b8": {
@@ -1245,7 +1275,7 @@
               "grid_image": "shopify:\/\/shop_images\/IMG_lessmess.png",
               "icon_image": "shopify:\/\/shop_images\/Icons-cloud.png",
               "cta_label": "Less mess, <br>more food",
-              "caption_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+              "caption_text": "<p>Think a chaotic Kitchen is an inevitable consequence of cooking? Think again! Rotimatic keeps your tabletop as clean as your eating habits.<\/p>"
             }
           }
         },
@@ -1275,6 +1305,7 @@
       },
       "161457957370b680b4": {
         "type": "custom-content",
+        "disabled": true,
         "blocks": {
           "72fdeb36-3c66-4c16-ad55-e256b39172dc": {
             "type": "html",
@@ -1293,6 +1324,7 @@
       },
       "1614593151f271d31b": {
         "type": "faq",
+        "disabled": true,
         "blocks": {
           "3eaf702b-ca53-4894-8b75-6752ed09701b": {
             "type": "category",
@@ -1344,7 +1376,7 @@
           "ba1dfb27-0c27-456c-b30d-c783b3b13fb0"
         ],
         "settings": {
-          "title": "Flocker Snippet"
+          "title": "#RotimaticLife"
         }
       },
       "blog-slider": {
@@ -1732,7 +1764,7 @@
             "type": "question",
             "settings": {
               "title": "What are the rotis made by Rotimatic like?",
-              "anwser": "<p>Roti quality is the biggest thing we obsessed about when designing Rotimatic. We wanted every single roti from Rotimatic to meet the 5 criteria: 1. Every roti puffs 2. Every roti is fully cooked both outside and inside 3. Every roti is a perfectly round 4. Every roti feels fresh, soft and homemade. 5. Rotis remain soft when packed for lunch.<br\/>Put rotimatic rotis through this test when you see it in person, or <a href=\"https:\/\/rotimatic.com\/reviews\">hear directly from our users who are living with Rotimatic<\/a>.<\/p>",
+              "anwser": "<p>Roti quality is the biggest thing we obsessed about when designing Rotimatic. We wanted every single roti from Rotimatic to meet the 5 criteria: 1. Every roti puffs 2. Every roti is fully cooked both outside and inside 3. Every roti is a perfectly round 4. Every roti feels fresh, soft and homemade. 5. Rotis remain soft when packed for lunch.<br\/>Put rotimatic rotis through this test when you see it in person, or <a href=\"\/pages\/reviews\" title=\"Reviews\">hear directly from our users who are living with Rotimatic<\/a>.<\/p>",
               "borderBottom": false
             }
           },
@@ -1840,7 +1872,7 @@
             "type": "question",
             "settings": {
               "title": "What if I'm in a country where Rotimatic is not available?",
-              "anwser": "<p>If you’re currently residing in a country where Rotimatic is not yet available, please do sign up on our waitlist at <a href=\"https:\/\/rotimatic.com\/list\">www.rotimatic.com\/list<\/a>. You will be the first to know when Rotimatic becomes available in your country.<\/p>",
+              "anwser": "<p>If you’re currently residing in a country where Rotimatic is not yet available, please do sign up on our waitlist at <a href=\"\/pages\/be-the-first-in-line\" title=\"\/pages\/be-the-first-in-line\">https:\/\/rotimatic.com\/pages\/be-the-first-in-line<\/a>. You will be the first to know when Rotimatic becomes available in your country.<\/p>",
               "borderBottom": false
             }
           },
@@ -1856,7 +1888,7 @@
             "type": "question",
             "settings": {
               "title": "I saw Rotimatic advertised by a 3rd party. Is it real?",
-              "anwser": "<p>Rotimatic is the exclusive registered trademark of Zimplistic Pte. Ltd. <a href=\"https:\/\/rotimatic.com\/order\/\">Rotimatic.com<\/a> and <a href=\"https:\/\/www.amazon.com\/Rotimatic-Automatic-Machine-Official-Listing\/dp\/B079P5SS2W\/ref=sr_1_1?keywords=rotimatic&amp;qid=1567153145&amp;s=gateway&amp;sr=8-1\">our official listing on Amazon<\/a> is the only authorized retail channel for Rotimatic. We are not associated with any third party distributors.<\/p><p>If you were contacted by a third party claiming to be a Zimplistic representative offering you Rotimatic for sale, please contact us immediately as these are fraudulent claims and we take your safety very seriously. You can write to us at moreinfo@zimplistic.com.<\/p>",
+              "anwser": "<p>Rotimatic is the exclusive registered trademark of Zimplistic Pte. Ltd. <a href=\"\/\" title=\"\/\">Rotimatic.com<\/a> and <a href=\"https:\/\/www.amazon.com\/Rotimatic-Automatic-Machine-Official-Listing\/dp\/B079P5SS2W\/ref=sr_1_1?keywords=rotimatic&amp;qid=1567153145&amp;s=gateway&amp;sr=8-1\">our official listing on Amazon<\/a> is the only authorized retail channel for Rotimatic. We are not associated with any third party distributors.<\/p><p>If you were contacted by a third party claiming to be a Zimplistic representative offering you Rotimatic for sale, please contact us immediately as these are fraudulent claims and we take your safety very seriously. You can write to us at moreinfo@zimplistic.com.<\/p>",
               "borderBottom": false
             }
           },
@@ -1870,7 +1902,7 @@
             "type": "question",
             "settings": {
               "title": "How long is the warranty?",
-              "anwser": "<p>Each Rotimatic comes with a free 1-year base warranty valid in the country where your machine was purchased to support you in case of breakage related to regular use.<br\/>Please refer to our <a href=\"https:\/\/rotimatic.com\/Warranty-policy\/\">warranty policy<\/a> for more queries.<\/p><p><br\/><\/p>",
+              "anwser": "<p>Each Rotimatic comes with a free 1-year base warranty valid in the country where your machine was purchased to support you in case of breakage related to regular use.<br\/>Please refer to our <a href=\"\/pages\/warranty\" title=\"Warranty\">warranty policy<\/a> for more queries.<\/p><p><br\/><\/p>",
               "borderBottom": false
             }
           },
@@ -1944,49 +1976,49 @@
             "type": "q_n_a",
             "settings": {
               "title": "How long is the Rotimatic warranty?",
-              "anwser": "Every Rotimatic comes with 1-year base warranty. You can extend your base warranty coverage with RotimaticCare+ for another 1-year and continue enjoying your Rotimatic worry-free."
+              "anwser": "<p>Every Rotimatic comes with 1-year base warranty. You can extend your base warranty coverage with RotimaticCare+ for another 1-year and continue enjoying your Rotimatic worry-free.<\/p>"
             }
           },
           "f72ddc56-bc9c-4aec-aede-520b1974eff1": {
             "type": "q_n_a",
             "settings": {
               "title": "When can I purchase Rotimatic  extended warranty?",
-              "anwser": ""
+              "anwser": "<p>You may choose to purchase an <a href=\"\/pages\/extended-warranty-policy\" title=\"\/pages\/extended-warranty-policy\">extended warranty<\/a> within six (6) month’s from the date of delivery of the Product, which shall be subject to our Extended Warranty Terms and Conditions.<\/p>"
             }
           },
           "263ef0df-aeab-4a85-a4f3-d6188c8d5923": {
             "type": "q_n_a",
             "settings": {
               "title": "Who is using it right now?",
-              "anwser": ""
+              "anwser": "<p>Thousands of proud owners make a million rotis with Rotimatic everyday!\nHealth-conscious homes, fussy kids, time-starved couples, foodies, techies, roti-lovers, progressive families and many more. From time to health to convenience to wonder, everyone loves Rotimatic for a different reason. Take a look here<\/p>"
             }
           },
           "73b6528f-b046-4eae-b690-df585dfaa8b9": {
             "type": "q_n_a",
             "settings": {
               "title": "How much is it?",
-              "anwser": ""
+              "anwser": "<p>The retail base price of Rotimatic is USD 1299, or it’s equivalent in your local currency excluding any applicable taxes which may\/may not be a part of the price quoted. Shipping and delivery charges are exclusive and may vary depending upon your country location. Scroll to the top of this page for detailed pricing, discounts, and offers. You can also check EMI and express delivery options<\/p>"
             }
           },
           "4cf2bbce-4e19-4615-95fc-244ccc5121cb": {
             "type": "q_n_a",
             "settings": {
               "title": "Can I pay in installments?",
-              "anwser": ""
+              "anwser": "<p>Yes<\/p>"
             }
           },
           "dd18951f-25c3-4aa5-9f35-9c4034cea674": {
             "type": "q_n_a",
             "settings": {
               "title": "How and when can I get",
-              "anwser": ""
+              "anwser": "<p>Rotimatic is available for purchase only on the official Rotimatic website. Currently, we do not encourage you to buy Rotimatic from other e-commerce websites.<\/p>"
             }
           },
           "e82b80a9-20ca-4c05-9c3b-d9965794fd09": {
             "type": "q_n_a",
             "settings": {
               "title": "What’s the return policy?",
-              "anwser": ""
+              "anwser": "<p>Rotimatic comes with a 30-day money back guarantee. So after you receive your Rotimatic, if you are unhappy with your Rotimatic experience, you can return it within 30 days and we’ll refund the full retail price<\/p>"
             }
           }
         },
@@ -2002,6 +2034,34 @@
         "settings": {
           "title": "FAQs"
         }
+      },
+      "reviews_blocks": {
+        "type": "reviews_blocks",
+        "blocks": {
+          "1c553fe5-5745-4e67-842d-9c717f10db82": {
+            "type": "review",
+            "settings": {
+              "reviewSnippet": "<div id=\"shopify-product-reviews\" data-id=\"6006117302426\">{{ product.metafields.spr.reviews }}<\/div>"
+            }
+          },
+          "fca708d3-7afc-4be5-b27f-9c7d7a811253": {
+            "type": "sectionID",
+            "settings": {
+              "sectionID": "161484569471dd3499"
+            }
+          }
+        },
+        "block_order": [
+          "1c553fe5-5745-4e67-842d-9c717f10db82",
+          "fca708d3-7afc-4be5-b27f-9c7d7a811253"
+        ],
+        "settings": {
+          "showHideSection": true
+        }
+      },
+      "seo": {
+        "type": "seo",
+        "settings": {}
       }
     },
     "content_for_index": [
@@ -2013,15 +2073,15 @@
       "16132252003984e5ef",
       "1613226939a380d59b",
       "161401225321145879",
-      "1588003724094",
       "16062410432c8fa238",
-      "16132344718331c6ec",
       "160640852886e7a191",
+      "161484569471dd3499",
+      "1588003724094",
+      "16132344718331c6ec",
       "160654454373407275",
       "1606561270dbda9e44",
       "161457957370b680b4",
-      "1614593151f271d31b",
-      "161484569471dd3499"
+      "1614593151f271d31b"
     ]
   },
   "presets": {

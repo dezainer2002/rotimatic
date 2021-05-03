@@ -3,7 +3,7 @@
     "id": "dGt2YY",
     "name": "Wishlist",
     "handle": "wishlist",
-    "theme_id": "116670169242",
+    "theme_id": "121845973146",
     "settings": {
       "locales": {
         "back": "Back",
@@ -33,7 +33,7 @@
       "redirectAfterSubmit": true,
       "goBackAfterSubmission": false,
       "cancelButtonRedirectUrl": "\/account\/login",
-      "postSubmissionRedirectUrl": "\/account",
+      "postSubmissionRedirectUrl": "\/",
       "showSuccessStepAfterSubmit": false,
       "goBackAfterCancelButtonClick": false
     },
@@ -41,34 +41,48 @@
       "manual"
     ],
     "created_at": "2021-01-12T15:41:18Z",
-    "updated_at": "2021-01-12T16:33:52Z",
+    "updated_at": "2021-04-23T05:41:27Z",
     "revision_ids": [
       "8oTn15",
-      "qYT3b3",
+      "B5TVXK",
       "kdTOLx",
+      "1wTg87",
       "mLT9yb",
-      "8oTnem",
+      "evTDl3",
+      "PnTwX7",
+      "nRTqdD",
+      "znT70b",
       "VNTvbR",
+      "MDTLvl",
+      "qYT3b3",
+      "boTzlP",
+      "l5TPRL",
+      "AdTNy9",
+      "Y9T03v",
+      "LbTO7E",
+      "p4Tq5O",
+      "orTnp9",
+      "akT0pz",
+      "ErTYyo",
+      "akT0az",
+      "wDTX0O",
+      "6XT492",
+      "8oTnem",
       "akTmG1",
       "qYTy6K",
       "xMTdRd",
-      "evTDl3",
       "1wTPzn",
-      "akT0pz",
-      "B5TVXK",
-      "1wTg87",
       "akT0wm",
-      "akT0az",
       "p4TXBm",
       "ErT6y7"
     ]
   },
   "revision": {
-    "id": "akTmG1",
-    "created_at": "2021-01-18T18:10:07Z",
-    "updated_at": "2021-01-18T18:11:56Z",
-    "embed_version": "4.3.2",
-    "published_at": "2021-01-18T18:11:56Z",
+    "id": "PnTwX7",
+    "created_at": "2021-04-23T05:30:27Z",
+    "updated_at": "2021-04-23T05:41:29Z",
+    "embed_version": "4.5.6",
+    "published_at": "2021-04-23T05:41:29Z",
     "fields": [
       {
         "id": 422391,
@@ -316,48 +330,53 @@
           "width": 12
         },
         "settings": {
-          "isCountryField": true
+          "isCountryField": true,
+          "useAllCountries": true
         },
-        "validations": [],
+        "validations": [
+          {
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Please select the country"
+          }
+        ],
         "sensitive": null,
         "preset": "country",
         "autotag": null
       },
       {
-        "id": 407789,
+        "id": 186328,
         "dataColumn": {
-          "key": "city",
+          "key": "city_2",
           "label": "City",
           "dataType": "text"
         },
         "parentId": null,
         "position": 5,
-        "type": "dropdown",
+        "type": "text",
         "stepId": 189152,
-        "default": null,
+        "default": "",
         "label": "City",
-        "placeholder": "Select city",
+        "placeholder": "Your City",
         "description": "",
-        "enum": [
-          {
-            "label": "California",
-            "value": "California"
-          },
-          {
-            "label": "New York",
-            "value": "New York"
-          }
-        ],
+        "enum": [],
         "appearance": {
           "width": 12
         },
-        "settings": {
-          "end": 10,
-          "start": 1,
-          "enumType": "list",
-          "separateValues": false
-        },
-        "validations": [],
+        "settings": {},
+        "validations": [
+          {
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Please enter your city name"
+          }
+        ],
         "sensitive": null,
         "preset": null,
         "autotag": null
@@ -379,12 +398,20 @@
         "description": "",
         "enum": [
           {
-            "label": "Email",
-            "value": "Email"
+            "label": "I make them myself",
+            "value": "I make them myself"
           },
           {
-            "label": "Newsletter",
-            "value": "Newsletter"
+            "label": "My mom\/wife makes them",
+            "value": "My mom\/wife makes them"
+          },
+          {
+            "label": "My helper makes them",
+            "value": "My helper makes them"
+          },
+          {
+            "label": "I buy them at the supermarket ready made",
+            "value": "I buy them at the supermarket ready made"
           }
         ],
         "appearance": {

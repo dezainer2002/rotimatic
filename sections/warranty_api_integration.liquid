@@ -122,6 +122,10 @@
           <div class="_item__dates">
             {{ 'pages.warranty.t23' | t }}
           </div>
+
+          <div class="_item__dates _spacialNote_">
+            {{ 'pages.warranty.t30_html' | t }}
+          </div>
         </div>
       </div>
 
@@ -203,55 +207,19 @@
                 </div>
               </div>
             {% endfor %}
-            {%- comment -%}
-              <div class="buyWarranty__item">
-                <div class="buyWarranty__yearTitle">
-                  1 year
-                </div>
 
-                <div class="buyWarranty__detail">
-                  International Warranty
-                </div>
-
-                <div class="buyWarranty__price">
-                  USD 149.99
-                </div>
-
-                <div class="buyWarranty__addToCart">
-                  <a href="javascript://void('add to cart');">
-                    ADD TO CART
-                  </a>
-                </div>
-              </div>
-
-              <div class="buyWarranty__item">
-                <div class="buyWarranty__yearTitle">
-                  2 year
-                </div>
-
-                <div class="buyWarranty__detail">
-                  International Warranty
-                </div>
-
-                <div class="buyWarranty__price">
-                  USD 229.99
-                </div>
-
-                <div class="buyWarranty__addToCart">
-                  <a href="javascript://void('add to cart');">
-                    ADD TO CART
-                  </a>
-                </div>
-              </div>
-            {%- endcomment -%}
           </div>
 
           <div class="buyWarranty__msg">
             {{ 'pages.warranty.t28' | t }}
           </div>
 
+          <div class="buyWarranty__msg premium">
+            {{ 'pages.warranty.t28_html' | t }}
+          </div>
+
           <div class="buyWarranty__terms">
-            <a href="#">
+            <a href="/pages/extended-warranty-policy">
               {{ 'pages.warranty.t29' | t }}
             </a>
           </div>

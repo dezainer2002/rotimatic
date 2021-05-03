@@ -1,3 +1,28 @@
+#shopify-section-product-template-roti .product-single {
+  position: relative;
+  height: 530px;
+}
+
+@media (max-width: 768px) {
+  #shopify-section-product-template-roti .product-single {
+    height: 100%;
+  }
+}
+
+#shopify-section-product-template-roti .product-single .thumbnails-wrapper {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  #shopify-section-product-template-roti .product-single .thumbnails-wrapper {
+    position: relative;
+  }
+}
+
 #shopify-section-product-reviews {
   display: none;
 }

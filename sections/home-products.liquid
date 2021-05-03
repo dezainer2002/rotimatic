@@ -147,80 +147,94 @@
             {{ 'homepage.onboarding.product_title' | t }}
           {% endunless %}
         </h3>
-		{% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
-              {% unless section_onboarding %}
-                {% unless product.has_only_default_variant %}
-                  <div class="product-form__controls-group">
-                    {% for option in product.options_with_values %}
-                      <div class="selector-wrapper js product-form__item">
-                        <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}">
-                          {{ option.name }}
-                        </label>
-                        <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
-                          {% for value in option.values %}
-                            <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
-                          {% endfor %}
-                        </select>
-                      </div>
-                    {% endfor %}
-                  </div>
-                {% endunless %}
 
-                <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
-                  {% for variant in product.variants %}
-                    <option value="{{ variant.id }}"
-                      {%- if variant == current_variant %} selected="selected" {%- endif -%}
-                    >
-                      {{ variant.title }}  {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
-                    </option>
-                  {% endfor %}
-                </select>
-              {% endunless %}
-              {% if section.settings.show_quantity_selector %}
-                <div class="product-form__controls-group">
-                  <div class="product-form__item">
-                    <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-                    <input type="number" id="Quantity-{{ section.id }}"
-                      name="quantity" value="1" min="1" pattern="[0-9]*"
-                      class="product-form__input product-form__input--quantity"
-                      data-quantity-input>
+        {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+          {% unless section_onboarding %}
+            {% unless product.has_only_default_variant %}
+              <div class="product-form__controls-group">
+                {% for option in product.options_with_values %}
+                  <div class="selector-wrapper js product-form__item">
+                    <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}">
+                      {{ option.name }}
+                    </label>
+                    <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                      {% for value in option.values %}
+                        <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
                   </div>
-                </div>
-              {% endif %}
-
-              <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}" data-error-message-wrapper role="alert">
-                <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                {% include 'icon-error' %}
-                <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
+                {% endfor %}
               </div>
+            {% endunless %}
 
-              <div class="product-form__controls-group product-form__controls-group--submit">
-                <div class="product-form__item product-form__item--submit
-                      {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
-                      {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
+            <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}"
+                  {%- if variant == current_variant %} selected="selected" {%- endif -%}
                 >
-                  <button type="submit" name="add"
-                    {% unless current_variant.available %} aria-disabled="true"{% endunless %}
-                    aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                    class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
-                    data-add-to-cart>
-                    <span data-add-to-cart-text>
-                      {% unless current_variant.available %}
-                        {{ 'products.product.sold_out' | t }}
-                      {% else %}
-                        {{ 'products.product.get_today' | t }}
-                      {% endunless %}
-                    </span>
-                    <span class="hide" data-loader>
-                      {% include 'icon-spinner' %}
-                    </span>
-                  </button>
-                  {% if section.settings.enable_payment_button %}
-                    {{ form | payment_button }}
-                  {% endif %}
-                </div>
+                  {{ variant.title }}  {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                </option>
+              {% endfor %}
+            </select>
+          {% endunless %}
+
+          {% if section.settings.show_quantity_selector %}
+            <div class="product-form__controls-group">
+              <div class="product-form__item">
+                <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" id="Quantity-{{ section.id }}"
+                  name="quantity" value="1" min="1" pattern="[0-9]*"
+                  class="product-form__input product-form__input--quantity"
+                  data-quantity-input>
               </div>
-		{% endform %}
+            </div>
+          {% endif %}
+
+          <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}" data-error-message-wrapper role="alert">
+            <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+            {% include 'icon-error' %}
+            <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
+          </div>
+
+          <a href="/products/rotimatic" class="btn getYoursTodayBtn" data-add-to-cart-text>
+            {{ 'products.product.get_today' | t }}
+            {%- comment -%}
+            {% unless current_variant.available %}
+              {{ 'products.product.sold_out' | t }}
+            {% else %}
+              {{ 'products.product.get_today' | t }}
+            {% endunless %}
+            {%- endcomment -%}
+          </a>
+          {%- comment -%}
+          <div class="product-form__controls-group product-form__controls-group--submit">
+            <div class="product-form__item product-form__item--submit
+                  {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
+                  {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
+            >
+              <button type="submit" name="add"
+                {% unless current_variant.available %} aria-disabled="true"{% endunless %}
+                aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
+                class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
+                data-add-to-cart>
+                <span data-add-to-cart-text>
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {{ 'products.product.get_today' | t }}
+                  {% endunless %}
+                </span>
+                <span class="hide" data-loader>
+                  {% include 'icon-spinner' %}
+                </span>
+              </button>
+              {% if section.settings.enable_payment_button %}
+                {{ form | payment_button }}
+              {% endif %}
+            </div>
+          </div>
+          {%- endcomment -%}
+		    {% endform %}
       </div>
     {% endif %}
 
@@ -273,7 +287,7 @@
         <div class="product-usp">
           <div class="product-usp-item">
             <div class="usp-image">
-              <img src="{{ "icon-warranty-gray.png" | asset_url }}" />
+              <img src="{{ "homeSideBar_01.png" | asset_url }}" />
             </div>
             <div class="usp-text">
               <p>12 months warranty</p>
@@ -281,7 +295,7 @@
           </div>
           <div class="product-usp-item">
             <div class="usp-image">
-              <img src="{{ "icon-warranty-recipe.png" | asset_url }}" />
+              <img src="{{ "homeSideBar_02.png" | asset_url }}" />
             </div>
             <div class="usp-text">
               <p>Remote troubleshooting & Service at your doorstep</p>
@@ -289,14 +303,22 @@
           </div>
           <div class="product-usp-item">
             <div class="usp-image">
-              <img src="{{ "icon-cloud-gray.png" | asset_url }}" />
+              <img src="{{ "homeSideBar_03.png" | asset_url }}" />
             </div>
             <div class="usp-text">
               <p>Free unlimited software upgrades</p>
             </div>
           </div>
+		      <div class="product-usp-item">
+            <div class="usp-image">
+              <img src="{{ "homeSideBar_04.png" | asset_url }}" />
+            </div>
+            <div class="usp-text">
+              <p>Affordable Installment Plans</p>
+            </div>
+          </div>
         </div>
-		
+
 		<div class="product-other-links">
 			<div class="product-links">
 				<a class="waitlist-popup" href="#">Join Waitlist</a>

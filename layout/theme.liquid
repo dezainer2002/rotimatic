@@ -1,3 +1,19 @@
+{% comment %}
+{% if request.page_type != 'page' %}
+  {%  if request.path != '/pages/maintenance' %}
+    <script>
+      location.href = '/pages/maintenance';
+    </script>
+  {% endif %}
+{% else %}
+  {%  if request.path != '/pages/maintenance' %}
+    <script>
+      location.href = '/pages/maintenance';
+    </script>
+  {% endif %}
+{% endif %}
+{% endcomment %}
+
 {% if template contains 'article' and blog.metafields.blogfeeder.use_canonical == 'yes' %}{% assign canonical_url = article.metafields.blogfeeder.canonical %}{% endif %}
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
@@ -7,6 +23,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_button }}">
   <link rel="canonical" href="{{ canonical_url }}">
+  <script>
+    (function(i,s,o,g,r,a,m){i['SplititObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window, document, 'script', '//upstream.production.splitit.com/v1/dist/upstream-messaging.js?v='+(Math.ceil(new Date().getTime()/100000)), 'splitit');
+
+	splitit('init', { apiKey: '3b3f8687-8328-48f2-a572-e746a668a964', lang: '{{ shop.locale }}', currency: '{{ cart.currency.iso_code }}', currencySymbol: '{{ cart.currency.symbol }}', debug: false });
+  </script>
 
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
@@ -149,11 +173,14 @@
     window.supported_currencies = "{{ settings.mlvedaACS_supportedCurrencies }}";
   </script>
 
+  {% section 'seo' %}
+
   {% include 'pagefly-header' %}
  </head>
 
 <body class="template-{{ request.page_type | handle }}">
   {% render '__loading' %}
+  {% render '__langJson' %}
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
@@ -226,15 +253,19 @@
   {% if template contains 'product.roti' %}
     <script>
       async function load_home() {
-        let url = 'https://rotimaticus.myshopify.com/browsing_context_suggestions.json';
+        let url = '/browsing_context_suggestions.json';
         let obj = await (await fetch(url)).json();
         var geo_country = obj.detected_values.country_name;
 
         var fruits = ["United States", "Canada", "Denmark", "Norway", "Sweden", "Netherlands", "France", "Germany", "United Arab Emirates", "Saudi Arabia", "Bahrain", "Kuwait", "Oman", "Qatar", "Singapore", "United Kingdom", "Ireland", "Hong Kong", "Australia", "New Zealand"];
         var n = fruits.includes(geo_country);
-        console.log(n);
+        console.log( 'adfasdddddddd', n);
         if(n == false){
-          window.location.href = '/pages/be-the-first-in-line';
+
+          {% if settings.pdpPage %}
+            window.location.href = '/pages/be-the-first-in-line';
+          {% endif %}
+
         }
       }
       load_home();
@@ -242,17 +273,22 @@
   {% endif %}
   <script>
    async function load() {
-    let url = 'https://rotimaticus.myshopify.com/browsing_context_suggestions.json';
+    console.log( 'load function' );
+    let url = '/browsing_context_suggestions.json';
     let obj = await (await fetch(url)).json();
     var geo = obj.detected_values.country_name;
 
-         var fruits = ["United States", "Canada", "Denmark", "Norway", "Sweden", "Netherlands", "France", "Germany", "United Arab Emirates", "Saudi Arabia", "Bahrain", "Kuwait", "Oman", "Qatar", "Singapore", "United Kingdom", "Ireland", "Hong Kong", "Australia", "New Zealand"];
+     var fruits = ["United States", "Canada", "Denmark", "Norway", "Sweden", "Netherlands", "France", "Germany", "United Arab Emirates", "Saudi Arabia", "Bahrain", "Kuwait", "Oman", "Qatar", "Singapore", "United Kingdom", "Ireland", "Hong Kong", "Australia", "New Zealand"];
 	 var n = fruits.includes(geo);
-      console.log(n);
-     if(n == true){
+     console.log( 'chaaaaaaaaa__n', n);
+     if (n == true){
+
      	$(".waitlist-popup").hide();
-     }else{
-     $(".waitlist-popup").show();
+
+     } else {
+
+     	$(".waitlist-popup").hide();
+
      }
 
      if(localStorage.getItem("country") === null){
@@ -385,29 +421,28 @@
 load();
   $(document).ready(function(){
 
-     $("a.disclosure-list__option").click(function(e){
-   //alert(1);
-   var currency = $(this).attr("iso-code");
-$.ajax({
-            type: "POST",
-            url: '/cart/clear.js',
-            data: '',
-            dataType: 'json',
-            success: function() {
-setTimeout(function(){
-window.location.href = '/products/rotimatic?currency='+currency;
-      }, 1000);
-
-            },
-            error: function(XMLHttpRequest, textStatus) {
-              /* error code */
-            }
-          });
-});
+    $("a.disclosure-list__option").click(function(e){
+      //alert(1);
+      var currency = $(this).attr("iso-code");
+      $.ajax({
+        type: "POST",
+        url: '/cart/clear.js',
+        data: '',
+        dataType: 'json',
+        success: function() {
+          setTimeout(function(){
+            window.location.href = '/products/rotimatic?currency='+currency;
+          }, 1000);
+        },
+        error: function(XMLHttpRequest, textStatus) {
+          /* error code */
+        }
+      });
+    });
 
   $.ajax ({
-        url: 'https://rotimaticus.myshopify.com/browsing_context_suggestions.json',
-        dataType: 'json',
+    url: '/browsing_context_suggestions.json',
+    dataType: 'json',
     success: function (data) {
         console.log(data.detected_values.country_name);
     }

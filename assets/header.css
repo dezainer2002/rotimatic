@@ -16,4 +16,21 @@
   width: 24px;
   height: 24px;
 }
+
+.site-header__logo-image {
+  max-width: 140px;
+}
+
+.spr-summary-actions-newreview {
+  padding: 7px 15px;
+  border-radius: 100px;
+  background-color: #f68945;
+  color: #fff;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.spr-summary-actions-newreview:hover {
+  color: #fff !important;
+}
 /*# sourceMappingURL=header.css.map */

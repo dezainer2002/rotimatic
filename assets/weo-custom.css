@@ -933,7 +933,9 @@ h3 {
 @media screen and (max-width:767px) {
 	.designed-to-delight .figure img {
 		max-height: 18.75rem;
-		width: auto
+		width: auto;
+		object-fit: contain;
+		height: 100%;
 	}
 }
 
@@ -4345,4 +4347,8 @@ a.btn:hover {
     margin: 1.25rem 0 0;
     padding: 0;
     text-align: center;
+}
+
+.icon-close::before {
+	display: none;
 }
