@@ -2,10 +2,10 @@
   ---
   Author: Helium
   Documentation: https://customerfields.com/help
-  Version: 4.3.2
+  Version: 4.5.6
   The following snippet exists to serve forms for the Customer Fields app.
   YOU SHOULD NOT BE EDITING THIS FILE. CHANGES MAY BE OVERWRITTEN!
-  Instead, you should read our documentation and see how you can create
+  Instead, you should read our documentation and see how you can create 
   custom forms or reach out to our support team for help.
   ---
 {% endcomment %}
@@ -41,6 +41,7 @@
   "baseApiUrl": "https://app.customerfields.com",
   "proxyPath": {{ shop.metafields.customer_fields.options.proxy_path | default: "/tools/customr" | json }},
   "countries": {{ shop.metafields.customer_fields.countries | json }},
+  "locale": {{ request.locale.iso_code | json }},
   "theme": {
     "name": "Debut",
     "version": "16.5.3"
@@ -271,6 +272,6 @@
   </style>
 
   
-    <script async src="https://assets.customerfields.com/releases/{{ version | default: '4.3.2' }}/cf-api.js"></script>
+    <script async src="https://assets.customerfields.com/releases/{{ version | default: '4.5.6' }}/cf-api.js"></script>
   
 {% endunless %}

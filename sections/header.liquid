@@ -88,9 +88,9 @@
           Site name gets precedence with H1 tag on homepage, div on other pages.
         {% endcomment %}
         {% if request.page_type == 'index' %}
-          <h1 class="h2 site-header__logo">
+          <h1 class="site-header__logo">
         {% else %}
-          <div class="h2 site-header__logo">
+          <div class="site-header__logo">
         {% endif %}
           {% if section.settings.logo %}
             {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
@@ -130,7 +130,7 @@
           {% include 'site-nav', linklist: section.settings.main_linklist %}
         </nav>
       {% endif %}
-		
+
       <div class="grid__item text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}"> 
         <div class="site-header__icons-wrapper">
         {%- if show_selectors -%}

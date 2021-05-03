@@ -1,5 +1,27 @@
 $colorOrange: #f68945;
 
+#shopify-section-product-template-roti {
+  .product-single {
+    position: relative;
+    height: 530px;
+
+    @media ( max-width: 768px ) {
+      height: 100%;
+    }
+
+    .thumbnails-wrapper {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media ( max-width: 768px ) {
+        position: relative;
+      }
+    }
+  }
+}
+
 #shopify-section-product-reviews {
   display: none;
 }

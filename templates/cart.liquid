@@ -10,3 +10,5 @@
   {{ settings.mlvedaACS_messageContent | replace: "<<shop.name>>", shop.name | replace:"<<shop.currency>>",shop.currency|replace:"<<shop.selected_currency>>","<span class='selected-currency'></span>"}}
 </p>
 {% endif %}
+
+<script src="{{ 'cart.js' | asset_url }}"></script>

@@ -1,4 +1,4 @@
-<div class="gallery-wrapper">
+<div href="https://google.com" class="gallery-wrapper">
   <div class="gallery">
     {% for block in section.blocks %}
         {% if block.type == 'main_block' %}
@@ -35,21 +35,39 @@
 
     <div class="gallery-others">
       {% for block in section.blocks %}
+        {% assign b = block.settings %}
         {% if block.type == 'other_block' %}
-          <div class="gallery-other-block" style="background-color: {{ block.settings.color }};">
-            {% if block.settings.other_image != blank %}
-              <div class="gallery-image">
-                <img class="lazyload"
-                  src="{{ block.settings.other_image | img_url: 'master' }}"
-                  alt="{{ block.settings.other_image.alt | escape }}" />
-              </div>
-            {% endif %}
-            {% if block.settings.text != blank %}
-              <div class="gallery-description">
-                {{ block.settings.text }}
-              </div>
-            {% endif %}
-          </div>
+          {% if b.link != blank %}
+            <a href="{{ b.link }}" class="gallery-other-block jsLInkEvent" style="background-color: {{ block.settings.color }};">
+              {% if block.settings.other_image != blank %}
+                <div class="gallery-image">
+                  <img class="lazyload"
+                    src="{{ block.settings.other_image | img_url: 'master' }}"
+                    alt="{{ block.settings.other_image.alt | escape }}" />
+                </div>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="gallery-description">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+            </a>
+          {% else %}
+            <div class="gallery-other-block jsLInkEvent" style="background-color: {{ block.settings.color }};">
+              {% if block.settings.other_image != blank %}
+                <div class="gallery-image">
+                  <img class="lazyload"
+                    src="{{ block.settings.other_image | img_url: 'master' }}"
+                    alt="{{ block.settings.other_image.alt | escape }}" />
+                </div>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="gallery-description">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
         {% endif %}
       {% endfor %}
     </div>

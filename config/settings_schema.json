@@ -9,6 +9,25 @@
   },
   {
     "name": {
+      "en": "Redirect"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": "Text"
+        }
+      },
+      {
+        "type"    :   "checkbox",
+        "id"      :   "pdpPage",
+        "label"   :   "PDP Page Redirect to form",
+        "default" :   true
+      }
+    ]
+  },
+  {
+    "name": {
       "da": "Farver",
       "de": "Farben",
       "en": "Colors",

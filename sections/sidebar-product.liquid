@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ 'sidebar-product.css' | asset_url }}">
 {%- assign product = all_products[section.settings.featured_product] -%}
 
 {% if product == empty %}
@@ -179,7 +180,7 @@
         <div class="product-usp">
           <div class="product-usp-item">
             <div class="usp-image">
-              <img src="{{ "icon-warranty-gray.png" | asset_url }}" />
+              <img src="{{ "homeSideBar_01.png" | asset_url }}" />
             </div>
             <div class="usp-text">
               <p>12 months warranty</p>
@@ -187,7 +188,7 @@
           </div>
           <div class="product-usp-item">
             <div class="usp-image">
-              <img src="{{ "icon-warranty-recipe.png" | asset_url }}" />
+              <img src="{{ "homeSideBar_02.png" | asset_url }}" />
             </div>
             <div class="usp-text">
               <p>Remote troubleshooting & Service at your doorstep</p>
@@ -195,15 +196,23 @@
           </div>
           <div class="product-usp-item">
             <div class="usp-image">
-              <img src="{{ "icon-cloud-gray.png" | asset_url }}" />
+              <img src="{{ "homeSideBar_03.png" | asset_url }}" />
             </div>
             <div class="usp-text">
               <p>Free unlimited software upgrades</p>
             </div>
           </div>
+		      <div class="product-usp-item">
+            <div class="usp-image">
+              <img src="{{ "homeSideBar_04.png" | asset_url }}" />
+            </div>
+            <div class="usp-text">
+              <p>Affordable Installment Plans</p>
+            </div>
+          </div>
         </div>
 
-		<div class="product-other-links">
+		    <div class="product-other-links">
           <div class="product-links">
             <a class="waitlist-popup" href="#">Join Waitlist</a>
           </div>

@@ -31,6 +31,11 @@ async function warrantyManipulate( obj ) {
     $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeIn();
     $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeOut();
 
+    $( '._item_._second_ ._item__title, ._item_._second_ ._item__dates:not( ._spacialNote_ )' ).show();
+    $( '._item_._second_ ._spacialNote_' ).hide();
+
+    $( '.buyWarranty__msg.premium' ).fadeOut();
+
   } else if ( obj.warranty_extension_period[0] == 'REGULAR_1_YEAR' ) {
 
     if ( obj.warranty_extension_period[1] != undefined && obj.warranty_extension_period[1] == 'REGULAR_2_YEAR' ) {
@@ -58,6 +63,11 @@ async function warrantyManipulate( obj ) {
 
     $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeIn();
     $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeOut();
+
+    $( '._item_._second_ ._item__title, ._item_._second_ ._item__dates:not( ._spacialNote_ )' ).show();
+    $( '._item_._second_ ._spacialNote_' ).hide();
+
+    $( '.buyWarranty__msg.premium' ).fadeOut();
 
   } else if ( obj.warranty_extension_period[0] == 'PREMIUM_1_YEAR' ) {
 
@@ -87,6 +97,11 @@ async function warrantyManipulate( obj ) {
     $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeIn();
     $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeOut();
 
+    $( '._item_._second_ ._item__title, ._item_._second_ ._item__dates:not( ._spacialNote_ )' ).show();
+    $( '._item_._second_ ._spacialNote_' ).hide();
+
+    $( '.buyWarranty__msg.premium' ).fadeIn();
+
   } else if ( obj.warranty_extension_period[0] == 'CAN_NOT_EXTEND_WARRANTY' ) {
 
     el.find( '._statusGrid_ ._item_._first_' )
@@ -107,10 +122,18 @@ async function warrantyManipulate( obj ) {
     if ( obj.warranty_active === true ) {
       $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeOut();
       $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeIn();
+
+      $( '._item_._second_ ._item__title, ._item_._second_ ._item__dates:not( ._spacialNote_ )' ).hide();
+      $( '._item_._second_ ._spacialNote_' ).show();
     } else {
       $( '.noteligible__ .noteligible__title span[msg-type="default"]' ).fadeIn();
       $( '.noteligible__ .noteligible__title span[msg-type="maxCoverage"]' ).fadeOut();
+
+      $( '._item_._second_ ._item__title, ._item_._second_ ._item__dates:not( ._spacialNote_ )' ).show();
+      $( '._item_._second_ ._spacialNote_' ).hide();
     }
+
+    $( '.buyWarranty__msg.premium' ).fadeOut();
 
   } else if ( obj.warranty_extension_period[0] == 'MACHINE_REPLACED' ) {
 

@@ -128,20 +128,39 @@
       <div class="group-product-items" style="display:flex !important">
 
  			 {% for product in collections.all-rotimatic-products.products %}
-          <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}">
+          <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}" pid="{{ product.id }}">
             <div class="group-product-inner">
-               {% if product.tags contains 'recommended' %}<div class="recommended-label">Recommended</div>{% endif %}
+              {% if product.tags contains 'recommended' %}
+      					<div class="recommended-label">Recommended</div>
+
+                {%-liquid
+                  if productPriceRecommended == blank
+                    capture productPriceRecommended
+                      capture getSymbol
+                        render '__getCurrencyDetail' with { getTypeIs: 'currencySymbol' }
+                      endcapture
+                      assign priceIs__      =   product.price | money
+
+                      assign priceIs__      =   priceIs__ | remove: getSymbol | remove: ',' | remove: ' '
+
+                      echo priceIs__
+                    endcapture
+                  endif
+                -%}
+              {% endif %}
               <h2>{{ product.title }}</h2>
-              <div class="price"><span class="currency"></span>{{ product.price | money | remove: '.00' }}</div>
+
+              <div class="price" price="{{ productPriceRecommended }}"><span class="currency"></span>{{ product.price | money | remove: '.00' }}</div>
               <div class="product-usp">
                 <div class="product-usp-item">
                   <div class="usp-image">
+
                     <img src="{{ "icon-warranty-gray.png" | asset_url }}" />
                   </div>
                   <div class="usp-text">
                     {%-liquid
-                      assign yearCount    =   1
-                      assign year_        =   'year'
+                      assign yearCount      =   1
+                      assign year_          =   'year'
                       if product.tags contains "plus"
                         assign yearCount    =   yearCount | plus: 1
                         assign year_        =   'years'
@@ -186,7 +205,7 @@
 
 
         {% for product in collections.all-rotimatic-products-2.products %}
-          <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}">
+          <div style="display:none" class="rotiproduct group-product-item {% for tag in product.tags %} roti_{{ tag | handleize }} {% endfor %}" pid="{{ product.id }}">
             <div class="group-product-inner">
                {% if product.tags contains 'recommended' %}<div class="recommended-label">Recommended</div>{% endif %}
               <h2>{{ product.title }}</h2>
@@ -198,8 +217,8 @@
                   </div>
                   <div class="usp-text">
                     {%-liquid
-                      assign yearCount    =   1
-                      assign year_        =   'year'
+                      assign yearCount      =   1
+                      assign year_          =   'year'
                       if product.tags contains "plus"
                         assign yearCount    =   yearCount | plus: 1
                         assign year_        =   'years'
@@ -257,7 +276,7 @@
             <p>Next day & other express options available at extra charge</p>
           </div>
         </div>
-		<div class="other-info">
+    		<div class="other-info">
           <div class="other-info-image">
             <img src="{{ "tax-included.jpg" | asset_url }}" />
           </div>
@@ -271,6 +290,23 @@
           </div>
           <div class="other-info-content">
             <p>30 day money back</p>
+          </div>
+        </div>
+
+		    <div>
+		      <div class="other-info">
+		        <div class="other-info-image">
+              <img src="{{ "black.png" | asset_url }}" />
+            </div>
+		        <div class="other-info-content">
+		          <div data-splitit="true"
+    		        data-splitit-amount="{{ productPriceRecommended }}"
+    		        data-splitit-content="custom" class="other-info-splitit"
+              >
+                <span class="other-info-splitit">Affordable installment plans</span> <img width="80" height="auto" data-splitit-custom="logo" style="vertical-align:middle" />
+    		        <a data-splitit-custom="learn-more">see more</a>
+		          </div>
+            </div>
           </div>
         </div>
       </div>
