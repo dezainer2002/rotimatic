@@ -1,0 +1,904 @@
+<link rel="stylesheet" href="{{ 'notifications.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'header.css' | asset_url }}">
+<div class="notification"></div>
+{%- assign currency_selector = false -%}
+{%- if section.settings.show_currency_selector and shop.enabled_currencies.size > 1 -%}
+  {%- assign currency_selector = true -%}
+{%- endif -%}
+{%- if currency_selector or locale_selector -%}
+  {%- assign show_selectors = true -%}
+{%- endif -%}
+
+{% if section.settings.message %}
+  <style>
+    {% if section.settings.logo != blank %}
+      .site-header__logo-image {
+        max-width: {{ section.settings.logo_max_width | escape }}px;
+      }
+    {% endif %}
+
+    {% if section.settings.align_logo == 'left' %}
+      .site-header__logo-image {
+        margin: 0;
+      }
+    {% endif %}
+  </style>
+{% endif %}
+
+<div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
+  {% if section.settings.message %}
+    {% if section.settings.home_page_only == false or request.page_type == 'index' %}
+      <style>
+        .announcement-bar {
+          background-color: {{ section.settings.color_bg }};
+        }
+
+        .announcement-bar--link:hover {
+          {% assign brightness = section.settings.color_bg | color_brightness %}
+
+          {% if brightness <= 192 %}
+            {% assign lightenAmount = 255 | minus: brightness | divided_by: 255 | times: 16 %}
+            background-color: {{ section.settings.color_bg | color_lighten: lightenAmount }};
+          {% else %}
+            {% assign darkenAmount = 255 | divided_by: brightness | times: 8 %}
+            background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
+          {% endif %}
+        }
+
+        .announcement-bar__message {
+          color: {{ section.settings.color_text }};
+        }
+      </style>
+
+      {% if section.settings.message_link == blank %}
+        <div class="announcement-bar">
+      {% else %}
+        <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
+      {% endif %}
+
+        <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+
+      {% if section.settings.message_link == blank %}
+        </div>
+      {% else %}
+        </a>
+      {% endif %}
+
+    {% endif %}
+  {% endif %}
+
+  <header class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %}" role="banner">
+    <div class="grid grid--no-gutters site-header__mobile-nav">
+      {% if section.settings.align_logo == 'center' %}
+        {%- assign logo_classes = 'medium-up--one-third medium-up--push-one-third logo-align--center' -%}
+      {% else %}
+        {%- assign logo_classes = 'logo-align--left' -%}
+      {% endif %}
+
+      {% unless linklists[section.settings.main_linklist] == blank %}
+        <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+          <span class="icon-hamburger"><img src="{{ "Menu-Icon.png" | asset_url }}" alt="{{ 'layout.navigation.menu' | t }}"></span>
+          <span class="icon-close"><img src="{{ "Close-Icon.png" | asset_url }}" alt="{{ 'layout.navigation.menu' | t }}"></span>
+        </button>
+      {% endunless %}
+
+      <div class="grid__item {{ logo_classes }}">
+        {% comment %}
+          Use the uploaded logo from theme settings if enabled.
+          Site name gets precedence with H1 tag on homepage, div on other pages.
+        {% endcomment %}
+        {% if request.page_type == 'index' %}
+          <h1 class="site-header__logo">
+        {% else %}
+          <div class="site-header__logo">
+        {% endif %}
+          {% if section.settings.logo %}
+            {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
+              <svg viewBox="0 365.827 595.279 110.197"><g><path d="M22.505,398.037h0.005c-4.026,2.716-7.483,6.551-10.372,11.503v-14.477H0v79.563h12.016v-42.571 c0-7.768,2.28-14.258,6.84-19.471s10.048-7.818,16.466-7.815c2.51,0,5.405,0.361,8.688,1.084l1.663-11.146 c-3.125-0.608-6.303-0.899-9.485-0.867C31.305,393.812,26.531,395.277,22.505,398.037z"/><path d="M322.627,393.839c-5.741,0-10.853,1.207-15.334,3.618c-4.488,2.414-8.493,5.694-10.856,9.845 c-3.813-8.977-11.921-13.465-24.321-13.463c-5.112,0-9.732,1.085-13.861,3.257c-4.124,2.171-7.611,5.188-9.881,9.047l-2.242-10.856 h-9.778v79.34h12.014v-41.629c0-10.279,1.75-17.675,5.248-22.187c3.499-4.512,9.011-6.768,16.536-6.768 c5.741,0,9.964,1.581,12.665,4.742c2.701,3.162,4.053,7.903,4.055,14.224v51.617h12.016v-44.309c0-8.924,1.786-15.535,5.356-19.833 s9.095-6.444,16.573-6.441c5.694,0,9.893,1.581,12.594,4.742c2.702,3.162,4.054,7.903,4.055,14.224v51.617h12.016v-51.764 c0-10.132-2.231-17.503-6.695-22.112C338.321,396.142,331.602,393.837,322.627,393.839z"/><path d="M423.25,400.271v0.01c-4.562-4.198-11.57-6.298-21.026-6.298c-4.724,0.004-9.427,0.609-13.998,1.8 c-4.47,1.134-8.784,2.812-12.848,4.994l3.693,9.193c8.346-4.054,15.825-6.08,22.438-6.08c5.886,0,10.168,1.484,12.847,4.452 c2.68,2.969,4.016,7.569,4.007,13.802v4.922l-13.463,0.434c-25.623,0.775-38.435,9.172-38.435,25.189 c0,7.481,2.232,13.249,6.696,17.3c4.463,4.052,10.628,6.077,18.493,6.075c5.886,0,10.795-0.879,14.729-2.636 c3.934-1.758,7.879-5.124,11.836-10.099l2.967,11.297h8.903v-54.16C430.09,411.199,427.81,404.468,423.25,400.271z M418.073,442.768c0,7.383-2.135,13.125-6.405,17.228s-10.146,6.153-17.624,6.152c-4.73,0-8.409-1.134-11.038-3.401 c-2.628-2.267-3.942-5.572-3.944-9.916c0-5.551,2.11-9.641,6.332-12.27c4.221-2.63,11.109-4.113,20.667-4.451l12.013-0.508V442.768 z"/><path d="M556.289,457.75h0.013c-3.933-5.205-5.898-12.681-5.898-22.426c0-20.554,8.059-30.832,24.176-30.833 c2.411,0,5.186,0.35,8.323,1.05c2.961,0.645,5.866,1.525,8.687,2.636l3.69-10.214c-2.171-1.107-5.162-2.072-8.975-2.895 c-3.758-0.814-7.591-1.226-11.436-1.229c-11.822,0-20.929,3.618-27.319,10.855s-9.586,17.492-9.586,30.764 c0,12.932,3.148,22.932,9.444,30.001c6.296,7.07,15.184,10.604,26.663,10.604c8.06,0,14.743-1.375,20.051-4.127v-10.638 c-6.949,2.848-13.729,4.27-20.339,4.269C566.063,465.567,560.231,462.961,556.289,457.75z"/><path d="M158.519,376.685h-12.043v17.789h-11.385v10.844h11.386v46.491c0,16.167,7.668,24.249,23.006,24.248 c2.292-0.024,4.579-0.229,6.839-0.616c2.534-0.409,4.451-0.928,5.752-1.556v-9.186c-1.547,0.421-3.118,0.747-4.704,0.979 c-2.035,0.32-4.092,0.481-6.152,0.479c-3.959,0-7.074-1.277-9.346-3.834c-2.272-2.557-3.398-6.228-3.379-11.014v-45.991h41.286 v69.309h12.014v-80.152h-53.273V376.685z"/><path d="M466.83,376.685h-12.045v17.789h-11.537v10.844h11.537v46.491c0,16.167,7.669,24.249,23.006,24.248 c2.293-0.024,4.579-0.229,6.84-0.616c2.533-0.409,4.451-0.928,5.751-1.556v-9.186c-1.547,0.421-3.118,0.747-4.704,0.979 c-2.035,0.32-4.092,0.48-6.151,0.479c-3.959,0-7.074-1.277-9.347-3.834c-2.271-2.557-3.405-6.224-3.4-11.002v-46.003h41.284v69.309 h12.016v-69.309v-10.844H466.83V376.685z"/><path d="M205.856,365.827c-3.92-0.003-7.101,3.173-7.104,7.093c-0.002,3.92,3.174,7.101,7.094,7.103 c3.921,0.003,7.101-3.173,7.104-7.093c0-0.001,0-0.003,0-0.005C212.949,369.006,209.775,365.829,205.856,365.827z"/><path d="M514.172,365.827c-3.921-0.001-7.1,3.175-7.101,7.096c-0.002,3.92,3.176,7.1,7.096,7.101c3.92,0.001,7.1-3.175,7.101-7.096 c0-0.001,0-0.001,0-0.002C521.268,369.005,518.091,365.828,514.172,365.827z"/></g><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="62.1819" y1="406.1201" x2="115.5829" y2="459.5212"><stop  offset="0" style="stop-color:#F68945"/><stop  offset="1" style="stop-color:#FFBE27"/></linearGradient><path fill="url(#SVGID_1_)" enable-background="new " d="M88.882,395.061c-20.854,0-37.76,16.905-37.76,37.76 s16.906,37.76,37.76,37.76c20.854,0,37.76-16.905,37.76-37.76S109.736,395.061,88.882,395.061z M88.882,456.982 c-13.344,0-24.162-10.817-24.162-24.162c0-13.344,10.818-24.162,24.162-24.162c13.344,0,24.162,10.818,24.162,24.162 C113.044,446.165,102.226,456.982,88.882,456.982z"/></svg>
+              {%- comment -%}
+              {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
+              <img class="lazyload js"
+                   src="{{ section.settings.logo | img_url: '300x300' }}"
+                   data-src="{{ img_url }}"
+                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                   data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
+                   data-sizes="auto"
+                   alt="{{ logo_alt | escape }}"
+                   style="max-width: {{ section.settings.logo_max_width }}px">
+              <noscript>
+                {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
+                <img src="{{ section.settings.logo | img_url: image_size }}"
+                     srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                     alt="{{ section.settings.logo.alt | default: shop.name }}"
+                     style="max-width: {{ section.settings.logo_max_width }}px;">
+              </noscript>
+              {%- endcomment -%}
+            </a>
+          {% else %}
+            <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
+          {% endif %}
+        {% if request.page_type == 'index' %}
+          </h1>
+        {% else %}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.settings.align_logo == 'left' %}
+        <nav class="grid__item small--hide site-main-nav" id="AccessibleNav" role="navigation">
+          {% include 'site-nav', linklist: section.settings.main_linklist %}
+        </nav>
+      {% endif %}
+
+      <div class="grid__item text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}"> 
+        <div class="site-header__icons-wrapper">
+        {%- if show_selectors -%}
+       		 <div class="header-currency-switch" data-section-type="footer-section">
+          {%- form 'localization', class: 'selectors-form' -%}
+            {%- if currency_selector -%}
+              <div class="selectors-form__item">
+                <h2 class="visually-hidden" id="currency-heading">
+                  {{ 'general.currency.dropdown_label' | t }}
+                </h2>
+
+                <div class="disclosure country-dropdown">
+                  <button type="button" class="disclosure__toggle" style="display:none">
+                    <span class="flag USD"></span>
+                    USD$
+                  </button>
+                  <ul id="currency-list" class="disclosure-list" style="display:none">
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option AED" href="#" data-value="AED" data-disclosure-option="">
+                          <span class="flag AED"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option AUD" href="#" data-value="AUD" data-disclosure-option="">
+                          <span class="flag AUD"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option CAD" href="#" data-value="CAD" data-disclosure-option="">
+                          <span class="flag CAD"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option DKK" href="#" data-value="DKK" data-disclosure-option="">
+                          <span class="flag DKK"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option EUR" href="#" data-value="EUR" data-disclosure-option="">
+                          <span class="flag EUR"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option GBP" href="#" data-value="GBP" data-disclosure-option="">
+                          <span class="flag GBP"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option HKD" href="#" data-value="HKD" data-disclosure-option="">
+                          <span class="flag HKD"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option NOK" href="#" data-value="NOK" data-disclosure-option="">
+                          <span class="flag NOK"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option NZD" href="#" data-value="NZD" data-disclosure-option="">
+                          <span class="flag NZD"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option QAR" href="#" data-value="QAR" data-disclosure-option="">
+                          <span class="flag QAR"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option SAR" href="#" data-value="SAR" data-disclosure-option="">
+                          <span class="flag SAR"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option SEK" href="#" data-value="SEK" data-disclosure-option="">
+                          <span class="flag SEK"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item ">
+                        <a class="disclosure-list__option SGD" href="#" data-value="SGD" data-disclosure-option="">
+                          <span class="flag SGD"></span>
+                        </a>
+                      </li>
+                      <li class="disclosure-list__item disclosure-list__item--current">
+                        <a class="disclosure-list__option USD" href="#" aria-current="true" data-value="USD" data-disclosure-option="">
+                          <span class="flag USD"></span>
+                        </a>
+                      </li></ul>
+                  <input type="hidden" name="currency_code" id="CurrencySelector" value="USD" data-disclosure-input="">
+                </div>
+
+                <div class="disclosure disclosure-currency" data-disclosure-currency>
+                  <button type="button" class="disclosure__toggle" aria-expanded="false" aria-controls="currency-list" aria-describedby="currency-heading" data-disclosure-toggle>
+                    <span class="flag {{ form.current_currency.iso_code }}"></span>
+                    {{ form.current_currency.iso_code }}{%- if form.current_currency.symbol -%}{{ form.current_currency.symbol }}{%- endif -%}
+                  </button>
+                  <ul id="currency-list" class="disclosure-list" data-disclosure-list>
+                    {% for currency in form.available_currencies %}
+                      <li class="disclosure-list__item {% if currency.iso_code == form.current_currency.iso_code %}disclosure-list__item--current{% endif %}">
+                        <a class="disclosure-list__option {{ currency.iso_code }}" href="javascript:;" iso-code="{{ currency.iso_code }}" {% if currency.iso_code == form.current_currency.iso_code %}aria-current="true"{% endif %}>
+                          <span class="flag {{ currency.iso_code }}"></span>
+                          {{ currency.iso_code }}{%- if currency.symbol -%}{{ currency.symbol }}{%- endif -%}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                  <input type="hidden" name="currency_code" id="CurrencySelector" value="{{ form.current_currency.iso_code }}" data-disclosure-input/>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endform -%}
+     		 </div>
+     	 {%- endif -%}
+          {% if shop.customer_accounts_enabled %}
+            {% if customer %}
+              <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
+                {% render '__icons' with { icon: 'avatar' } %}
+                {%- comment -%}
+                {% include 'icon-login' %}
+                {%- endcomment -%}
+                <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+              </a>
+            {% else %}
+              <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
+                {% render '__icons' with { icon: 'avatar' } %}
+                {%- comment -%}
+                {% include 'icon-login' %}
+                {%- endcomment -%}
+                <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
+              </a>
+            {% endif %}
+          {% endif %}
+        </div>
+        <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
+          {%- comment -%}
+          <img src="{{ "cart-icon.png" | asset_url }}" alt="{{ 'layout.cart.title' | t }}">
+          {%- endcomment -%}
+          {% render '__icons' with { icon: 'cart' } %}
+          <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+          <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
+            <span data-cart-count>{{ cart.item_count }}</span>
+            <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+          </div>
+        </a>
+
+        {% if template != 'index' %}
+          {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+            <a href="{{ section.settings.button_link }}"
+            class="header-buy-now btn-link"
+            aria-label="{{ ariaLabel | escape }}">
+            {{- section.settings.button_label | escape -}}
+            </a>
+          {% endif %}
+        {%- endif -%}
+      </div>
+    </div>
+
+    <nav class="mobile-nav-wrapper medium-up--hide" role="navigation">
+      <ul id="MobileNav" class="mobile-nav">
+        {% for link in linklists[section.settings.main_linklist].links %}
+          {%- assign outerLoopIndex = forloop.index -%}
+
+          <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
+            {% if link.links != blank %}
+              {% capture child_list_handle %}{{ link.handle }}-{{ outerLoopIndex }}{% endcapture %}
+              <button type="button" class="btn--link js-toggle-submenu mobile-nav__link{% if link.child_active %} mobile-nav__link--active{% endif %}" data-target="{{ child_list_handle }}" data-level="1" aria-expanded="false">
+                <span class="mobile-nav__label">{{ link.title | escape }}</span>
+                <div class="mobile-nav__icon">
+                  {% include 'icon-chevron-right' %}
+                </div>
+              </button>
+              <ul class="mobile-nav__dropdown" data-parent="{{ child_list_handle }}" data-level="2">
+                <li class="visually-hidden" tabindex="-1" data-menu-title="2">
+                  {{- link.title }} {{ 'layout.navigation.menu' | t -}}
+                </li>
+                <li class="mobile-nav__item border-bottom">
+                  <div class="mobile-nav__table">
+                    <div class="mobile-nav__table-cell mobile-nav__return">
+                      <button class="btn--link js-toggle-submenu mobile-nav__return-btn" type="button" aria-expanded="true" aria-label="{{ link.title }}">
+                        {% include 'icon-chevron-left' %}
+                      </button>
+                    </div>
+                    <span class="mobile-nav__sublist-link mobile-nav__sublist-header mobile-nav__sublist-header--main-nav-parent">
+                      <span class="mobile-nav__label">{{ link.title | escape }}</span>
+                    </span>
+                  </div>
+                </li>
+
+                {% for childlink in link.links %}
+                  <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
+                    {% if childlink.links != blank %}
+                      {% capture grandchild_list_handle %}{{ childlink.handle }}-{{ outerLoopIndex }}-{{ forloop.index }}{% endcapture %}
+                      <button type="button" class="btn--link js-toggle-submenu mobile-nav__link mobile-nav__sublist-link" data-target="{{ grandchild_list_handle }}" aria-expanded="false">
+                        <span class="mobile-nav__label">{{ childlink.title | escape }}</span>
+                        <div class="mobile-nav__icon">
+                          {% include 'icon-chevron-right' %}
+                        </div>
+                      </button>
+                      <ul class="mobile-nav__dropdown" data-parent="{{ grandchild_list_handle }}" data-level="3">
+                        <li class="visually-hidden" tabindex="-1" data-menu-title="3">
+                          {{- childlink.title }} {{ 'layout.navigation.menu' | t -}}
+                        </li>
+                        <li class="mobile-nav__item border-bottom">
+                          <div class="mobile-nav__table">
+                            <div class="mobile-nav__table-cell mobile-nav__return">
+                              <button type="button" class="btn--link js-toggle-submenu mobile-nav__return-btn" data-target="{{ child_list_handle }}" aria-expanded="true" aria-label="{{ childlink.title }}">
+                                {% include 'icon-chevron-left' %}
+                              </button>
+                            </div>
+                            <a href="{{ childlink.url }}"
+                              class="mobile-nav__sublist-link mobile-nav__sublist-header"
+                              {% if childlink.current %} aria-current="page"{% endif %}
+                            >
+                              <span class="mobile-nav__label">{{ childlink.title | escape }}</span>
+                            </a>
+                          </div>
+                        </li>
+                        {% for grandchildlink in childlink.links %}
+                          <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
+                            <a href="{{ grandchildlink.url }}"
+                              class="mobile-nav__sublist-link"
+                              {% if grandchildlink.current %} aria-current="page"{% endif %}
+                            >
+                              <span class="mobile-nav__label">{{ grandchildlink.title | escape }}</span>
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      <a href="{{ childlink.url }}"
+                        class="mobile-nav__sublist-link"
+                        {% if childlink.current %} aria-current="page"{% endif %}
+                      >
+                        <span class="mobile-nav__label">{{ childlink.title | escape }}</span>
+                      </a>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <a href="{{ link.url }}"
+                class="mobile-nav__link{% if link.active %} mobile-nav__link--active{% endif %}"
+                {% if link.current %} aria-current="page"{% endif %}
+              >
+                <span class="mobile-nav__label">{{ link.title | escape }}</span>
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+
+  {% if section.settings.align_logo == 'center' %}
+  <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
+    {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
+  </nav>
+  {% endif %}
+</div>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": {{ shop.name | json }},
+  {% if section.settings.logo %}
+    {% assign image_size = section.settings.logo.width | append:'x' %}
+    "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
+  {% endif %}
+  "sameAs": [
+    {{ settings.social_twitter_link | json }},
+    {{ settings.social_facebook_link | json }},
+    {{ settings.social_pinterest_link | json }},
+    {{ settings.social_instagram_link | json }},
+    {{ settings.social_tumblr_link | json }},
+    {{ settings.social_snapchat_link | json }},
+    {{ settings.social_youtube_link | json }},
+    {{ settings.social_vimeo_link | json }}
+    {{ settings.social_linkedin_link | json }}
+  ],
+  "url": {{ shop.url | append: page.url | json }}
+}
+</script>
+
+{% if request.page_type == 'index' %}
+  {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ shop.url | append: page.url | json }}
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": {
+    "da": "Overskrift",
+    "de": "Titel",
+    "en": "Header",
+    "es": "Encabezado",
+    "fi": "Ylätunniste",
+    "fr": "En-tête",
+    "hi": "हैडर",
+    "it": "Header",
+    "ja": "ヘッダー",
+    "ko": "머리글",
+    "nb": "Header",
+    "nl": "Koptekst",
+    "pt-BR": "Cabeçalho",
+    "pt-PT": "Cabeçalho",
+    "sv": "Rubrik",
+    "th": "ส่วนหัว",
+    "zh-CN": "标头",
+    "zh-TW": "標頭"
+  },
+  "settings": [
+    {
+      "type": "radio",
+      "id": "align_logo",
+      "label": {
+        "da": "Logojustering",
+        "de": "Logo-Ausrichtung",
+        "en": "Logo alignment",
+        "es": "Alineación de logo",
+        "fi": "Logon tasaus",
+        "fr": "Alignement du logo",
+        "hi": "लोगो संरेखण",
+        "it": "Allineamento logo",
+        "ja": "ロゴアラインメント",
+        "ko": "로고 정렬",
+        "nb": "Logojustering",
+        "nl": "Logo-uitlijning",
+        "pt-BR": "Alinhamento do logotipo",
+        "pt-PT": "Alinhamento do logótipo",
+        "sv": "Logojustering",
+        "th": "การจัดวางโลโก้",
+        "zh-CN": "logo 对齐方式",
+        "zh-TW": "商標對齊"
+      },
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": {
+            "da": "Venstre",
+            "de": "Links",
+            "en": "Left",
+            "es": "Izquierda",
+            "fi": "Vasen",
+            "fr": "Gauche",
+            "hi": "बाएँ",
+            "it": "Sinistra",
+            "ja": "左",
+            "ko": "왼쪽",
+            "nb": "Venstre",
+            "nl": "Links",
+            "pt-BR": "Esquerda",
+            "pt-PT": "Esquerda",
+            "sv": "Vänster",
+            "th": "ด้านซ้าย",
+            "zh-CN": "左侧",
+            "zh-TW": "左方"
+          }
+        },
+        {
+          "value": "center",
+          "label": {
+            "da": "Centreret",
+            "de": "Mittig",
+            "en": "Centered",
+            "es": "Centrada",
+            "fi": "Keskitetty",
+            "fr": "Centré",
+            "hi": "केंद्र",
+            "it": "Centrato",
+            "ja": "中央揃え",
+            "ko": "센터 맞추기",
+            "nb": "Sentrert",
+            "nl": "Gecentreerd",
+            "pt-BR": "Centralizado",
+            "pt-PT": "Centrado",
+            "sv": "Centrera",
+            "th": "ตรงกลาง",
+            "zh-CN": "居中",
+            "zh-TW": "置中"
+          }
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": {
+        "da": "Logobillede",
+        "de": "Logo-Foto",
+        "en": "Logo image",
+        "es": "Logo",
+        "fi": "Logokuva",
+        "fr": "Image du logo",
+        "hi": "लोगो इमेज",
+        "it": "Immagine del logo",
+        "ja": "ロゴ画像",
+        "ko": "로고 이미지",
+        "nb": "Logobilde",
+        "nl": "Afbeelding van logo",
+        "pt-BR": "Imagem do logotipo",
+        "pt-PT": "Imagem do logótipo",
+        "sv": "Logobild",
+        "th": "รูปภาพโลโก้",
+        "zh-CN": "logo 图片",
+        "zh-TW": "標誌圖片"
+      }
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "label": {
+        "da": "Tilpasset logobredde",
+        "de": "Logobreite",
+        "en": "Custom logo width",
+        "es": "Ancho del logo personalizado",
+        "fi": "Mukautetun logon leveys",
+        "fr": "Largeur personnalisée du logo",
+        "hi": "कस्टम लोगो की चौड़ाई",
+        "it": "Larghezza logo personalizzato",
+        "ja": "ロゴの幅をカスタマイズする",
+        "ko": "사용자 지정 로고 폭",
+        "nb": "Tilpasset logobredde",
+        "nl": "Aangepaste logo-breedte",
+        "pt-BR": "Largura do logotipo personalizado",
+        "pt-PT": "Largura de logótipo personalizada",
+        "sv": "Anpassad logotypsbredd",
+        "th": "ความกว้างของโลโก้แบบกำหนดเอง",
+        "zh-CN": "自定义 logo 宽度",
+        "zh-TW": "自訂商標寬度"
+      },
+      "min": 50,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": {
+        "da": "Menu",
+        "de": "Menü",
+        "en": "Menu",
+        "es": "Menú",
+        "fi": "Valikko",
+        "fr": "Menu",
+        "hi": "मेनू",
+        "it": "Menu",
+        "ja": "メニュー",
+        "ko": "메뉴",
+        "nb": "Meny",
+        "nl": "Menu",
+        "pt-BR": "Menu",
+        "pt-PT": "Menu",
+        "sv": "Meny",
+        "th": "เมนู",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      },
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": {
+        "da": "Meddelelseslinje",
+        "de": "Ankündigungsbereich",
+        "en": "Announcement bar",
+        "es": "Barra de anuncios",
+        "fi": "Ilmoituspalkki",
+        "fr": "Barre d'annonces",
+        "hi": "घोषणा बार",
+        "it": "Barra degli annunci",
+        "ja": "告知バー",
+        "ko": "공지 표시줄",
+        "nb": "Kunngjøringslinje",
+        "nl": "Aankondigingsbalk",
+        "pt-BR": "Barra de avisos",
+        "pt-PT": "Barra de comunicado",
+        "sv": "Meddelandefält",
+        "th": "แถบประกาศ",
+        "zh-CN": "公告栏",
+        "zh-TW": "公告列"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "message",
+      "label": {
+        "da": "Vis meddelelse",
+        "de": "Ankündigung anzeigen",
+        "en": "Show announcement",
+        "es": "Mostrar anuncio",
+        "fi": "Näytä ilmoitus",
+        "fr": "Afficher l'annonce",
+        "hi": "घोषणा डिखाएं",
+        "it": "Mostra annuncio",
+        "ja": "告知を表示する",
+        "ko": "공지 표시",
+        "nb": "Vis kunngjøring",
+        "nl": "Aankondiging weergeven",
+        "pt-BR": "Exibir anúncio",
+        "pt-PT": "Mostrar comunicado",
+        "sv": "Visa tillkännagivande",
+        "th": "แสดงประกาศ",
+        "zh-CN": "显示公告",
+        "zh-TW": "顯示公告"
+      },
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": {
+        "da": "Kun startside",
+        "de": "Nur Startseite",
+        "en": "Home page only",
+        "es": "Solo página de inicio",
+        "fi": "Vain etusivu",
+        "fr": "Page d'accueil uniquement",
+        "hi": "केवल होमपेज",
+        "it": "Solo home page",
+        "ja": "ホームページのみ",
+        "ko": "홈페이지만",
+        "nb": "Kun på startsiden",
+        "nl": "Alleen homepage",
+        "pt-BR": "Apenas na página inicial",
+        "pt-PT": "Apenas a página inicial",
+        "sv": "Endast hemsida",
+        "th": "หน้าแรกเท่านั้น",
+        "zh-CN": "仅主页",
+        "zh-TW": "僅限首頁"
+      },
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "default": {
+        "da": "Meddel noget her",
+        "de": "Hier etwas ankündigen",
+        "en": "Announce something here",
+        "es": "Anuncia algo aquí",
+        "fi": "Ilmoita jotakin tässä",
+        "fr": "Annoncez quelque chose ici",
+        "hi": "यहां कुछ घोषित करें",
+        "it": "Annuncia qualcosa qui",
+        "ja": "ここで告知してください",
+        "ko": "여기에 공지하십시오",
+        "nb": "Kunngjør noe her",
+        "nl": "Kondig hier iets aan",
+        "pt-BR": "Anuncie algo aqui",
+        "pt-PT": "Anunciar algo aqui",
+        "sv": "Meddela något här",
+        "th": "ประกาศข้อความที่นี่",
+        "zh-CN": "在此处进行公告",
+        "zh-TW": "在此公告資訊"
+      }
+    },
+    {
+      "type": "url",
+      "id": "message_link",
+      "label": {
+        "da": "Link",
+        "de": "Link",
+        "en": "Link",
+        "es": "Enlace",
+        "fi": "Linkki",
+        "fr": "Lien",
+        "hi": "लिंक",
+        "it": "Link",
+        "ja": "リンク",
+        "ko": "링크",
+        "nb": "Kobling",
+        "nl": "Link",
+        "pt-BR": "Link",
+        "pt-PT": "Ligação",
+        "sv": "Länk",
+        "th": "ลิงก์",
+        "zh-CN": "链接",
+        "zh-TW": "連結"
+      },
+      "info": {
+        "da": "Valgfri",
+        "de": "Optional",
+        "en": "Optional",
+        "es": "Opcional",
+        "fi": "Valinnainen",
+        "fr": "Facultatif",
+        "hi": "वैकल्पिक",
+        "it": "Facoltativo",
+        "ja": "オプション",
+        "ko": "선택 사항",
+        "nb": "Valgfritt",
+        "nl": "Optioneel",
+        "pt-BR": "Opcional",
+        "pt-PT": "Opcional",
+        "sv": "Valfritt",
+        "th": "ไม่จำเป็น",
+        "zh-CN": "可选",
+        "zh-TW": "(選填)"
+      }
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": {
+        "da": "Bjælke",
+        "de": "Zeile",
+        "en": "Bar",
+        "es": "Barra",
+        "fi": "Palkki",
+        "fr": "Barre",
+        "hi": "बार",
+        "it": "Barra",
+        "ja": "バー",
+        "ko": "바",
+        "nb": "Felt",
+        "nl": "Balk",
+        "pt-BR": "Barra",
+        "pt-PT": "Barra",
+        "sv": "Fält",
+        "th": "แถบ",
+        "zh-CN": "栏",
+        "zh-TW": "橫條"
+      },
+      "default": "#3a3a3a"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "default": "#ffffff"
+    },{
+      "type": "header",
+      "content": {
+        "da": "Valutavælger",
+        "de": "Währungsauswahl",
+        "en": "Currency Selector",
+        "es": "Selector de moneda",
+        "fi": "Valuutanvalitsin",
+        "fr": "Sélecteur de devise",
+        "hi": "मुद्रा चयनकर्ता",
+        "it": "Selettore di valuta",
+        "ja": "通貨セレクター",
+        "ko": "통화 선택기",
+        "nb": "Valutavelger",
+        "nl": "Valutakiezer",
+        "pt-BR": "Seletor de moeda",
+        "pt-PT": "Seletor de Moeda",
+        "sv": "Valutaväljare",
+        "th": "เครื่องมือเลือกสกุลเงิน",
+        "zh-CN": "货币选择器",
+        "zh-TW": "幣別選擇器"
+      },
+      "info": {
+        "da": "Du kan tilføje en valuta ved at gå til dine [betalingsindstillinger.](/admin/settings/payments)",
+        "de": "Gehen Sie zu Ihren [Zahlungseinstellungen](/admin/settings/payments), um eine Währung hinzuzufügen.",
+        "en": "To add a currency, go to your [payment settings.](/admin/settings/payments)",
+        "es": "Para agregar una moneda, ve a tu [configuración de pago.](/admin/settings/payments)",
+        "fi": "Lisää valuutta siirtymällä [maksuasetuksiisi.](/admin/settings/payments)",
+        "fr": "Pour ajouter une devise, allez dans vos [paramètres de paiement.](/admin/settings/payments)",
+        "hi": "कोई मुद्रा जोड़ने के लिए, अपनी [payment settings.](/admin/settings/payments) में जाएं",
+        "it": "Per aggiungere una valuta, vai su [impostazioni pagamento.](/admin/settings/payments)",
+        "ja": "通貨を追加するには、[決済設定](/admin/settings/payments) に移動します。",
+        "ko": "통화를 추가하려면 [결제 설정](/admin/settings/payments)(으)로 이동하십시오.",
+        "nb": "For å legge til en valuta, går du til [betalingsinnstillingene.](/admin/settings/payments)",
+        "nl": "Ga naar je [betaalinstellingen.](/admin/settings/payments) om een valuta toe te voegen.",
+        "pt-BR": "Para adicionar uma moeda, acesse as [configurações de pagamento.](/admin/settings/payments)",
+        "pt-PT": "Para adicionar uma moeda, aceda às suas [definições de pagamento.](/admin/settings/payments)",
+        "sv": "Gå till [payment settings ](/admin/settings/payments) för att lägga till en valuta.",
+        "th": "หากต้องการเพิ่มสกุลเงิน ให้ไปที่ [การตั้งค่าการชำระเงิน ](/admin/settings/payments)",
+        "zh-CN": "若要添加货币，请转到 [支付设置。](/admin/settings/payments)",
+        "zh-TW": "若要新增幣別，請前往 [付款設定。](/admin/settings/payments)"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "show_currency_selector",
+      "label": {
+        "da": "Vis valutavælger",
+        "de": "Währungsauswahl anzeigen",
+        "en": "Show currency selector",
+        "es": "Mostrar el selector de moneda",
+        "fi": "Näytä valuutanvalitsin",
+        "fr": "Afficher le sélecteur de devise",
+        "hi": "मुद्रा चयनकर्ता दिखाएं",
+        "it": "Mostra selettore valuta",
+        "ja": "通貨セレクターを表示する",
+        "ko": "통화 선택기 표시",
+        "nb": "Vis valutavelger",
+        "nl": "Valutakiezer weergeven",
+        "pt-BR": "Mostrar seletor de moeda",
+        "pt-PT": "Mostrar seletor de moeda",
+        "sv": "Visa valutaväljare",
+        "th": "แสดงเครื่องมือเลือกสกุลเงิน",
+        "zh-CN": "货币选择器显示",
+        "zh-TW": "顯示幣別選擇器"
+      },
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Buy Now Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}

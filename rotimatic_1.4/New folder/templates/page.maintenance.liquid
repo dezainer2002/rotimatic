@@ -1,0 +1,25 @@
+{% layout none %}
+
+{% if request.page_type != 'page' %}
+  {%  if request.path != '/pages/maintenance' %}
+    <script>
+      location.href = '/pages/maintenance';
+    </script>
+  {% endif %}
+{% else %}
+  {%  if request.path != '/pages/maintenance' %}
+    <script>
+      location.href = '/pages/maintenance';
+    </script>
+  {% endif %}
+{% endif %}
+
+<div class="page-width">
+  <div class="grid" style="margin:0 !important;">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="rte">
+        {{ page.content }}
+      </div>
+    </div>
+  </div>
+</div>

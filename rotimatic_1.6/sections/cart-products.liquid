@@ -1,0 +1,146 @@
+<div class="page-width">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {%- assign collection = collections[section.settings.collection] -%}
+
+  {%- assign product_limit = section.settings.grid -%}
+
+  <ul class="grid grid--uniform cart-slider-collection">
+    {% for product in collection.products limit: product_limit %}
+    {% if product.available %}
+      <li class="grid__item grid__item--{{section.id}}">
+        {% include 'product-card-grid', max_height: max_height, product: product %}
+      </li>{% endif %}
+    {% else %}
+
+      {% for i in (1..product_limit) %}
+        <li class="grid__item grid__item--{{section.id}}">
+          <div class="grid-view-item product-card">
+            <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
+              <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
+            </a>
+            <div class="grid-view-item__image-wrapper">
+              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+              {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+            <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
+            {% include 'product-price' %}
+          </div>
+        </li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+{% schema %}
+{
+  "name": {
+    "da": "Udvalgt kollektion",
+    "de": "Vorgestellte Kategorie",
+    "en": "Featured collection",
+    "es": "Colección destacada",
+    "fi": "Esittelyssä oleva kokoelma",
+    "fr": "Collection en vedette",
+    "hi": "फ़ीचर्ड कलेक्शन",
+    "it": "Collezione in evidenza",
+    "ja": "特集コレクション",
+    "ko": "추천 컬렉션",
+    "nb": "Utvalgt samling",
+    "nl": "Uitgelichte collectie",
+    "pt-BR": "Coleção em destaque",
+    "pt-PT": "Coleção em destaque",
+    "sv": "Utvald kollektion",
+    "th": "คอลเลกชันแนะนำ",
+    "zh-CN": "特色产品系列",
+    "zh-TW": "精選商品系列"
+  },
+  "class": "cart-products-collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "hi": "शीर्षक",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "da": "Udvalgt kollektion",
+        "de": "Vorgestellte Kategorie",
+        "en": "Featured collection",
+        "es": "Colección destacada",
+        "fi": "Esittelyssä oleva kokoelma",
+        "fr": "Collection en vedette",
+        "hi": "फ़ीचर्ड कलेक्शन",
+        "it": "Collezione in evidenza",
+        "ja": "特集コレクション",
+        "ko": "추천 컬렉션",
+        "nb": "Fremhevet samling",
+        "nl": "Uitgelichte collectie",
+        "pt-BR": "Coleção em destaque",
+        "pt-PT": "Coleção em destaque",
+        "sv": "Utvald kollektion",
+        "th": "คอลเลกชันแนะนำ",
+        "zh-CN": "特色产品系列",
+        "zh-TW": "精選商品系列"
+      }
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": {
+        "da": "Kollektion",
+        "de": "Kategorie",
+        "en": "Collection",
+        "es": "Colección",
+        "fi": "Kokoelma",
+        "fr": "Collection",
+        "hi": "कलेक्शन",
+        "it": "Collezione",
+        "ja": "コレクション",
+        "ko": "컬렉션",
+        "nb": "Samling",
+        "nl": "Collectie",
+        "pt-BR": "Coleção",
+        "pt-PT": "Coleção",
+        "sv": "Produktserie",
+        "th": "คอลเลกชัน",
+        "zh-CN": "收藏",
+        "zh-TW": "商品系列"
+      }
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "en": "Products"
+      },
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "default": 3
+    }
+  ]
+}
+{% endschema %}
