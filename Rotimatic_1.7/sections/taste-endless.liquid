@@ -1,0 +1,97 @@
+<div class="taste-endless-section">
+	<div class="taste-heading-section">
+		{% if section.settings.title != blank and section.settings.content != blank %}
+			<div class="heading-section">
+				<h2>{{ section.settings.title | escape }}</h2>
+				<div class="heading-content">{{ section.settings.content }}</div>
+			</div>
+		{% endif %}
+
+		<div class="taste-roti-items-mobile">
+			{% for block in section.blocks %}
+				{% if block.type == 'roti_item' %}
+					<div class="taste-roti-item-mobile">
+						{% if block.settings.item_image != blank %}
+						<div class="image">
+							<img class="lazyload"
+							  src="{{ block.settings.item_image | img_url: 'master' }}"
+							  alt="{{ block.settings.item_image.alt | escape }}" />
+						</div>
+						{% endif %}
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	
+	<div class="taste-roti-item-section">
+		<div class="taste-roti-items">
+		{% for block in section.blocks %}
+			{% if block.type == 'roti_item' %}
+				<div class="taste-roti-item">
+					{% if block.settings.item_image != blank %}
+					<div class="image">
+						<img class="lazyload"
+						  src="{{ block.settings.item_image | img_url: 'master' }}"
+						  alt="{{ block.settings.item_image.alt | escape }}" />
+					</div>
+					{% endif %}
+				</div>
+			{% endif %}
+		{% endfor %}
+		</div>
+
+		{% if section.settings.image != blank %}
+			<div class="taste-roti-main-image">
+				<img class="lazyload"
+				  src="{{ section.settings.image | img_url: 'master' }}"
+				  alt="{{ section.settings.image.alt | escape }}" />
+			</div>
+		{% endif %}
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Taste Endless",
+  "class": "index-section taste-endless",
+  "settings": [
+    {
+      "type": "text",
+	  "id": "title",
+	  "label": "Heading",
+	  "default": "Taste the endless possibilities"
+	},
+	{
+      "type": "richtext",
+	  "id": "content",
+	  "label": "Content",
+	  "default": "<p>Unlimited new features at no additional cost</p>"
+	},
+	{
+      "type": "image_picker",
+	  "id": "image",
+	  "label": "Image"
+	}
+  ],
+  "blocks": [
+    {
+      "type": "roti_item",
+	  "name": "Roti Item",
+	  "settings": [
+        {
+          "type": "image_picker",
+		  "id": "item_image",
+		  "label": "Image"
+		}
+	  ]
+	}
+  ],
+  "presets": [
+    {
+      "name": "Taste Endless",
+      "category": "Custom Block"
+    }
+  ]
+}
+{% endschema %}
