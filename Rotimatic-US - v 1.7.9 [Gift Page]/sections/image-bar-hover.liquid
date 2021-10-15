@@ -1,0 +1,241 @@
+{%-liquid
+	assign ss			    =			section.settings
+	assign sb			    =			section.blocks
+
+  assign scssFile   =     'image-bar-hover.scss.css' | asset_url
+
+	capture section_image_bar_hover
+		render '__getParam' with { paramStart: 'section_id=' }
+	endcapture
+-%}
+
+{% capture sectionHTML %}
+  <link rel="stylesheet" href="{{ scssFile }}">
+	<div class="bg-img-wrap">
+		<div class="listing-bg-img">
+			<ul>
+				{% for block in section.blocks %}
+					{% if block.settings.hover_image != blank %}
+					<li id="img_{{ forloop.index }}">
+						<img src="{{ block.settings.hover_image | img_url: '1200x1200' }}"
+							alt="{{ block.settings.hover_image.alt | escape }}" />
+					</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="first-listing">
+			<ul class="img-gird-flex">
+				{% for block in section.blocks %}
+					<li data-id="img_{{ forloop.index }}">
+						{% if block.settings.grid_image != blank %}
+						<div class="img-li">
+							<img src="{{ block.settings.grid_image | img_url: '650x650' }}"
+								alt="{{ block.settings.grid_image.alt | escape }}" />
+						</div>
+						{% endif %}
+						{% if block.settings.hover_image != blank %}
+						<div class="mobile-img-li">
+							<img src="{{ block.settings.hover_image | img_url: '500x500' }}"
+								alt="{{ block.settings.hover_image.alt | escape }}" class="mobileMainImg" />
+
+							{% if block.settings.icon_image != blank %}
+								<img class="icon-image" src="{{ block.settings.icon_image | img_url: 'master' }}"
+									alt="{{ block.settings.icon_image.alt | escape }}"
+								>
+							{% endif %}
+						</div>
+						{% endif %}
+						<div class="overly">
+							<div class="overly-content">
+								{% if block.settings.icon_image != blank %}
+									<img
+										src="{{ block.settings.icon_image | img_url: 'master' }}"
+										alt="{{ block.settings.icon_image.alt | escape }}"
+									>
+								{% endif %}
+
+								{% if block.settings.cta_label != blank %}
+									<h3>{{ block.settings.cta_label }}</h3>
+								{% endif %}
+
+								{% if block.settings.caption_text != blank %}
+									{{ block.settings.caption_text }}
+								{% endif %}
+							</div>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<style>
+		.first-listing ul li .img-li img {
+			width: 100%;
+			image-rendering: pixelated;
+		}
+		.first-listing .mobile-img-li img.mobileMainImg {
+			width: 100%;
+			image-rendering: pixelated;
+		}
+		.listing-bg-img li[id] img {
+			width: 100%;
+			image-rendering: pixelated;
+		}
+	</style>
+{% endcapture %}
+
+{% if ss.onViewLoad %}
+	{% if section_image_bar_hover == section.id %}
+		{{ sectionHTML }}
+		<script>
+			$( `.onViewLoadSection.image_bar_hover.sectionLoaded .img-gird-flex li[data-id]` ).hover(function() {
+					const dataId		=		$( this ).attr( 'data-id' );
+					$( this ).closest( '.bg-img-wrap' ).find( `.listing-bg-img li[id="${ dataId }"]` ).css('opacity', 1);
+					$( this ).addClass( 'active' );
+				}, function() {
+					const dataId		=		$( this ).attr( 'data-id' );
+					$( this ).closest( '.bg-img-wrap' ).find( `.listing-bg-img li[id="${ dataId }"]` ).removeAttr( 'style' );
+					$( this ).removeClass( 'active' );
+				}
+			);
+		</script>
+		<style>
+			.onViewLoadSection.image_bar_hover.sectionLoaded .first-listing li[data-id].active .img-li {
+				opacity: 0;
+			}
+		</style>
+	{% else %}
+
+		<div class="onViewLoadSection image_bar_hover" sec-id="{{ section.id }}"></div>
+
+		<script>
+			window.addEventListener('load', function() {
+
+				require( `${ asset_url }__isInViewport.js` );
+
+				setTimeout(()=>{
+					onViewLoad__image_bar_hover( 'onload' );
+				}, {{ ss.loadAfter | times: 1000 }});
+			});
+
+			function onViewLoad__image_bar_hover( typeIs = '' ) {
+				const sectionIs             =   `.onViewLoadSection.image_bar_hover`;
+				const checkSectionLoaded    =   $( sectionIs ).hasClass( `sectionLoaded` );
+				const sectionID             =   $( sectionIs ).attr( `sec-id` );
+
+				if ( checkSectionLoaded == false ) {
+
+					const isVisible     =   isInViewport( sectionIs );
+
+					if ( isVisible || typeIs == 'onload' ) {
+
+						$( sectionIs ).addClass( 'sectionLoaded' );
+
+						$.get( `/?section_id=${ sectionID }` , function ( r ) {
+
+							$( sectionIs ).html( r );
+
+						});
+
+					}
+				}
+
+			}
+
+			let wheeldelta_image_bar_hover = {
+				x: 0,
+				y: 0
+			};
+			let wheeling_image_bar_hover;
+			$( window ).on('scroll', async function() {
+				try {
+					clearTimeout( wheeling_image_bar_hover );
+					wheeling_image_bar_hover        =   setTimeout(async function() {
+						wheeling_image_bar_hover      =   undefined;
+
+						wheeldelta_image_bar_hover.x  =   0;
+						wheeldelta_image_bar_hover.y  =   0;
+
+						onViewLoad__image_bar_hover();
+
+					}, 250);
+
+				}
+				catch ( err ) {
+					console.log ( 'Error Scroll', err.message );
+				}
+			});
+		</script>
+
+	{% endif %}
+
+{% else %}
+	{{ sectionHTML }}
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Image Bar Hover",
+  "class": "index-section image-bar-hover",
+	"settings": [
+		{
+			"type"      :   "checkbox",
+			"id"        :   "onViewLoad",
+			"label"     :   "On View Load this section",
+			"default"   :   true
+		},
+		{
+      "type"      :   "range",
+      "id"        :   "loadAfter",
+      "label"     :   "Self Load after",
+      "unit"      :   "sec",
+      "min"       :   1,
+      "max"       :   20,
+      "step"      :   1,
+      "default"   :   5
+    }
+	],
+  "blocks": [
+    {
+      "type": "image_grid_item",
+			"name": "Image Grid Item",
+			"settings": [
+        {
+          "type": "image_picker",
+		  		"id": "hover_image",
+		  		"label": "Hover Image"
+				},
+				{
+          "type": "image_picker",
+		  		"id": "grid_image",
+		  		"label": "Grid Image"
+				},
+				{
+          "type": "image_picker",
+		  		"id": "icon_image",
+		  		"label": "Icon Image"
+				},
+				{
+          "type": "textarea",
+		  		"id": "cta_label",
+		  		"label": "Caption"
+				},
+				{
+          "type": "richtext",
+		  		"id": "caption_text",
+		  		"label": "Caption text"
+				}
+	  	]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Bar Hover",
+      "category": "Custom Block"
+    }
+  ]
+}
+{% endschema %}

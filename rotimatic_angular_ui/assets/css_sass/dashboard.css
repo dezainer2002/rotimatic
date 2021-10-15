@@ -1,0 +1,20 @@
+.innerPage {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(0, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 24px;
+}
+
+@media (max-width: 700px) {
+  .innerPage {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+
+.innerPage > div {
+  background-color: #fff;
+  padding: 24px;
+}
+/*# sourceMappingURL=dashboard.css.map */

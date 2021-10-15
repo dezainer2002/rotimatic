@@ -1,0 +1,17 @@
+<section class="warranty_header">
+  <div class="warranty_header__content">
+    <h1 class="warranty_header__h1">
+      {{ 'pages.warranty.t1' | t }}
+    </h1>
+
+    <p class="warranty_header__detail">
+      {{ 'pages.warranty.t2_html' | t }}
+    </p>
+
+  </div>
+  <picture>
+    <source media="(max-width: 699px)" srcset="{{ 'warranty_Banner_Mobile.png' | asset_url }}">
+    <source media="(min-width: 700px)" srcset="{{ 'warranty_Banner.png' | asset_url }}">
+    <img src="{{ 'warranty_Banner.png' | asset_url }}" class="warranty_header__banner" alt="{{ 'pages.warranty.t1' | t }}">
+  </picture>
+</section>

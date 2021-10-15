@@ -1,0 +1,141 @@
+
+{%-liquid
+  assign ss     =   section.settings
+  assign sb     =   section.blocks
+
+  echo '<div class="socialBanner">'
+
+    if ss.bannerImg != blank
+      assign mainBanner   =   ss.bannerImg | img_url: '1920x'
+      echo '<img src="' | append: mainBanner | append: '" alt="' | append: ss.bannerText | append: '" class="mainBanner">'
+    endif
+
+    if ss.bannerText != blank
+      echo '<div class="_content_">'
+        echo ss.bannerText
+      echo '</div>'
+    endif
+
+    echo '<div class="_color_"></div>'
+
+  echo '</div>'
+
+  echo '<div class="setPageWidth">'
+
+    echo '<div class="_grid_">'
+
+      assign whereCondition   =   sb | where: 'type', 'socialItem'
+
+        for block in whereCondition
+
+          assign b    =   block.settings
+          if b.img != blank
+            assign img_         =   b.img | img_url: '400x', scale: 2
+            assign postLinkIs   =   b.postLink | default: '#'
+            echo '<a href="' | append: postLinkIs | append: '" class="_grid-item_">'
+              echo '<img src="' | append: img_ | append: '" class="_img_" alt="' | append: b.img.alt | append: '">'
+            echo '</a>'
+          endif
+
+        endfor
+
+    echo '</div>'
+
+  echo '</div>'
+
+  assign d_margin                         =   ss.desktopMargins
+  assign desktopMarginSettings            =   d_margin | divided_by: 10
+  assign mobileMarginSettings             =   ss.mobileMargins | divided_by: 3
+  assign mobileMarginSettings_width500    =   ss.mobileMargins | divided_by: 2
+-%}
+
+<style>
+  .setPageWidth{background-image: linear-gradient(to bottom, {{ ss.bgColor }}, #fff);}
+  ._grid_ ._grid-item_ {
+    width: calc(33.333333% - {{ d_margin | plus: desktopMarginSettings | append: 'px' }});
+  }
+
+  @media ( max-width:768px ) {
+    ._grid_ ._grid-item_ {
+      width: calc(50% - {{ ss.mobileMargins | plus: mobileMarginSettings | append: 'px' }});
+    }
+  }
+
+  @media ( max-width:500px ) {
+    ._grid_ ._grid-item_ {
+      width: calc(100% - {{ ss.mobileMargins | plus: mobileMarginSettings_width500 | append: 'px' }});
+    }
+  }
+</style>
+<script>
+  const desktopMargins__gutter    =   {{ ss.desktopMargins }};
+  const mobileMargins__gutter     =   {{ ss.mobileMargins }};
+</script>
+
+{% schema %}
+{
+  "name"      :   "Social Wall",
+  "class"     :   "socialWall_sec",
+  "settings"  :   [
+    {
+      "type"    :   "header",
+      "content" :   "Header Banner"
+    },
+    {
+      "type"    :   "image_picker",
+      "id"      :   "bannerImg",
+      "label"   :   "Upload Banner Image"
+    },
+    {
+      "type"    :   "textarea",
+      "id"      :   "bannerText",
+      "label"   :   "Banner Text",
+      "default" :   "See what people are saying about Rotimatic"
+    },
+    {
+      "type"    :   "color",
+      "id"      :   "bgColor",
+      "label"   :   "Background Color",
+      "default" :   "#FFD5B5"
+    },
+    {
+      "type"    :   "range",
+      "id"      :   "desktopMargins",
+      "label"   :   "Each card margin for Desktop",
+      "unit"    :   "px",
+      "min"     :   4,
+      "max"     :   100,
+      "step"    :   2,
+      "default" :   40
+    },
+    {
+      "type"    :   "range",
+      "id"      :   "mobileMargins",
+      "label"   :   "Each card margin for Mobile",
+      "unit"    :   "px",
+      "min"     :   2,
+      "max"     :   100,
+      "step"    :   2,
+      "default" :   32
+    }
+  ],
+  "blocks"    :   [
+    {
+      "type"      :   "socialItem",
+      "name"      :   "Post",
+      "settings"  :   [
+        {
+          "type"      :   "image_picker",
+          "id"        :   "img",
+          "label"     :   "Upload post Image"
+        },
+        {
+          "type"      :   "url",
+          "id"        :   "postLink",
+          "label"     :   "Post Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

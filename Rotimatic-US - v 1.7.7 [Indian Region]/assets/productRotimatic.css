@@ -1,0 +1,119 @@
+.product-rotimatic-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+@media only screen and (max-width: 991px) {
+  .product-rotimatic-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #E6E6E6;
+  }
+}
+
+.product-rotimatic-section h2 {
+  font-size: 36px;
+  color: #222222;
+  padding-bottom: 45px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+@media only screen and (max-width: 991px) {
+  .product-rotimatic-section h2 {
+    font-size: 22px;
+    padding-bottom: 30px;
+  }
+}
+
+.product-rotimatic-section .section-rotimatic {
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+.product-rotimatic-section .section-rotimatic .product-section-rotimatic-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+@media only screen and (max-width: 640px) {
+  .product-rotimatic-section .section-rotimatic .product-section-rotimatic-item {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+
+.product-rotimatic-section .section-rotimatic .product-rotimatic-items {
+  padding: 0 25px;
+  width: 25%;
+}
+
+@media only screen and (max-width: 991px) {
+  .product-rotimatic-section .section-rotimatic .product-rotimatic-items {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .product-rotimatic-section .section-rotimatic .product-rotimatic-items {
+    padding: 0 10px;
+  }
+}
+
+.product-rotimatic-section .section-rotimatic .product-rotimatic-image {
+  text-align: center;
+  height: 158px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 991px) {
+  .product-rotimatic-section .section-rotimatic .product-rotimatic-image {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .product-rotimatic-section .section-rotimatic .product-rotimatic-image img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 991px) and (max-width: 600px) {
+  .product-rotimatic-section .section-rotimatic .product-rotimatic-image img {
+    max-width: 100%;
+  }
+}
+
+.product-rotimatic-section .section-rotimatic h3 {
+  margin: 0;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+  padding-top: 20px;
+  color: #6C6C6C;
+}
+
+@media only screen and (max-width: 991px) {
+  .product-rotimatic-section .section-rotimatic h3 {
+    font-size: 16px;
+    padding-top: 10px;
+  }
+}
+/*# sourceMappingURL=productRotimatic.css.map */

@@ -1,0 +1,154 @@
+{%-liquid
+  assign scssFile     =   'form-calculate.scss.css' | asset_url
+-%}
+
+<link rel="stylesheet" href="{{ scssFile }}">
+
+<div class="page-width">
+	<div class="form-calculate-section">
+		<div class="section-heading">
+			{% if section.settings.title != blank  %}
+				<h2>{{ section.settings.title }}</h2>
+			{% endif %}
+			{% if section.settings.text != blank  %}
+				{{ section.settings.text }}
+			{% endif %}
+		</div>
+
+		<div class="form-calculate">
+			<div class="form-calculate-left">
+				<div class="input-filed">
+					<label for="people">How many people are in your family?</label>
+					<input type="number" min="1" size="2" max="15" id="people" required="" name="" value="4" >
+                  <span class="err_msg1"></span>
+				</div>
+				<div class="input-filed">
+					<label for="rotis">How many rotis does each person in your family eat?</label>
+					<input type="number" min="1" max="15" size="2" id="rotis" required="" name="" value="3">
+                  <span class="err_msg2"></span>
+				</div>
+				<div class="input-filed select-filed">
+					<label for="eat">How often do you eat at home per week?</label>
+					<select id="eat">
+						<option value="7">Everyday</option>
+						<option value="5" selected>Only on weekday's</option>
+						<option value="3">Thrice a week</option>
+						<option value="1">Once a week</option>
+					</select>
+				</div>
+				<div class="input-button">
+					<button class="btn" type="button" id="Calculate">Calculate</button>
+				</div>
+			</div>
+			<div class="form-calculate-right">
+				<div class="save-calculate">In the next 3 years <br/>you could save…</div>
+				<div class="calculate-price">
+					4,961<br/><span>USD</span>
+				</div>
+				<div class="calculate-day">
+					24<br/><span>DAYS</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+  $( document )
+  .on('click', '#Calculate', function( e ) {
+    try {
+      e.stopImmediatePropagation();
+      const people    =   $( "#people" ).val();
+      if ( people > 15 || people < 0 ) {
+        $(".err_msg1").html("Please enter value between 1 to 15");
+        $("#people").focus().val("4");
+        return false;
+      }
+
+      const roties    =   $("#roties").val();
+      if ( roties > 15 || roties < 0 ) {
+        $(".err_msg2").html("Please enter value between 1 to 15");
+        $("#roties").focus().val("3");
+        return false;
+      }
+
+      const rotis   =   $("#rotis").val();
+      const eat     =   $("#eat").val();
+
+      const numb    =   Math.round(Number(people) * Number(rotis) * Number(eat) * 52 * 3 * 0.53);
+      $(".calculate-price").html(numb.toLocaleString()+"<br><span>USD</span>");
+
+      const days    =   Math.round((Number(people) * Number(rotis) * Number(eat) * 52 * 3 * 0.0604) / 24);
+      $(".calculate-day").html(days.toLocaleString()+"<br><span>DAYS</span>");
+    }
+    catch ( err ) {
+      console.log ( 'ERROR #Calculate', err.message );
+    }
+  })
+
+  .on('keyup', '#people', function() {
+    try {
+      if ( $(this).val() > 15 ) {
+        $(".err_msg1")
+          .html("Please enter value between 1 to 15")
+          .show();
+
+        $( this )
+          .focus()
+          .val("4");
+        return false;
+      } else {
+        $(".err_msg1").hide();
+      }
+    }
+    catch ( err ) {
+      console.log ( 'ERROR #people', err.message );
+    }
+  })
+
+  .on('keyup', '#rotis', function() {
+    try {
+      if ( $(this).val() > 15 ) {
+        $(".err_msg2")
+          .html("Please enter value between 1 to 15")
+          .show();
+        $( this )
+          .focus()
+          .val("3");
+        return false;
+      } else {
+      	$(".err_msg2").hide();
+      }
+    }
+    catch ( err ) {
+      console.log ( 'ERROR #rotis', err.message );
+    }
+  });
+
+</script>
+
+{% schema %}
+{
+  "name": "Form Calculate",
+  "class": "index-section index-form-calculate",
+  "settings": [
+	{
+      "type": "text",
+	  "id": "title",
+	  "label": "Heading"
+	},
+	{
+      "type": "richtext",
+      "id": "text",
+      "label": "Description"
+	}
+  ],
+  "presets": [
+    {
+      "name": "Custom Calculator",
+      "category": "Custom Block"
+    }
+  ]
+}
+{% endschema %}

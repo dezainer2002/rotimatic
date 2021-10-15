@@ -1,0 +1,48 @@
+<div class="symphony-of-speed text-center">
+  <div class="row text-center"> 
+    <div class="page-width">
+<h2>{{ section.settings.main-heading}}</h2>
+<p>{{ section.settings.content-speed}}</p>
+<ul>
+  {% for block in section.blocks %}
+<li> <i class="icon-motor"></i> <span>{{block.settings.title}}</span></li>
+   {% endfor %}
+</ul>
+</div>
+  </div>
+</div>
+{% schema %}
+{
+"name": "Symphony of Speed",
+"class": "symphony-of-speed",
+"settings": [
+{
+"type": "text",
+"id": "main-heading",
+"label": "Heading"
+},
+{
+"type": "richtext",
+"id": "content-speed",
+"label": "Content"
+}
+],
+"blocks":[
+{
+"type": "icon-repeter",
+"name": "icon-repeter",
+"settings":[
+{
+"type": "text",
+"id": "title",
+"label": "Title"
+},{
+"type": "image_picker",
+"id": "iconimage",
+"label": "Icon"
+}
+]
+}
+]
+}
+{% endschema %}

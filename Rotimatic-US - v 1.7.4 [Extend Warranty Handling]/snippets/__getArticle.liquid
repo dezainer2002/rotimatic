@@ -1,0 +1,51 @@
+{% if type == 'main' %}
+  <article class="articleMain__">
+    <div class="blog__inwrap">
+      <div class="title-header">
+        <h2 class="blog__title">
+          <a href="{{ article.url }}" title="{{ article.title }}">
+            {{ article.title }}
+          </a>
+        </h2>
+      </div>
+      <div class="blog__media">
+        <a href="{{ article.url }}" title="{{ article.title }}">
+          <img src="{{ article.image.src | img_url: '700x700' }}" class="blogImageIs" alt="{{ article.title }}">
+        </a>
+      </div>
+
+      <div class="blog__content">
+        <p>
+          {% if article.excerpt != blank %}
+            {{ article.excerpt }}
+          {% else %}
+            {{ article.content }}
+          {% endif %}
+        </p>
+
+        {% if article.excerpt_or_content contains 'Continue Reading' %}
+        {% else %}
+          <div>
+            <a class="blog-more-link" href="{{ article.url }}">Continue Reading</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+{% elsif type == 'sideBar' %}
+  <article class="sideBar_item">
+    <a href="{{ article.url }}" title="{{ article.title }}" class="sideBar_item_Img">
+      <img src="{{ article.image.src | img_url: '150x150' }}" alt="{{ article.title }}">
+    </a>
+    <div class="post__text">
+      <h5>
+        <a href="{{ article.url }}" title="{{ article.title }}">
+          {{ article.title }}
+        </a>
+      </h5>
+      <div class="postPublishedAt">
+        {{ article.published_at | date: "%B %d, %Y" }}
+      </div>
+    </div>
+  </article>
+{% endif %}

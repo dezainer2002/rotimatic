@@ -1,0 +1,134 @@
+$colorOrange: #F68945;
+$errorColor: #FF3C3C;
+
+
+@mixin tran() {
+  transition: 0.2s all ease-in-out;
+}
+
+.trackOrder {
+  &__inputGrid {
+    max-width: 590px;
+    display: grid;
+    grid-template-columns: auto 153px;
+    margin-bottom: 29px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    @include tran();
+
+    @media ( max-width: 768px ) {
+      grid-template-columns: 100%;
+    }
+
+    .msg {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      text-align: center;
+      color: $errorColor;
+      grid-column: 1/3;
+      order: 3;
+
+      @media ( max-width: 768px ) {
+        order: 2;
+        margin-top: 12px;
+        margin-bottom: 20px;
+      }
+    }
+
+    &.not_valid {
+      input {
+        color: $errorColor;
+      }
+
+      .msg {
+        opacity: 1;
+        height: 100%;
+        overflow: unset;
+        margin-top: 14px;
+        font-size: 12px;
+        font-style: italic;
+        letter-spacing: 0.22px;
+        line-height: 16px;
+      }
+    }
+
+    &.active {
+
+      .trackOrder__btn {
+        box-sizing: border-box;
+        border: 1px solid #DDE3E9;
+        border-radius: 0 24px 24px 0;
+        background-color: #DDE3E9;
+      }
+    }
+
+    input {
+      outline: none;
+      border: 2px solid $colorOrange;
+      border-radius: 28px 0 0 28px;
+      background-color: #FFFFFF;
+      @include tran();
+      order: 1;
+
+      &[value=""] {
+        border: 2px solid #DDE3E9;
+
+        + .trackOrder__btn {
+          border: 2px solid #DDE3E9;
+          background-color: #DDE3E9;
+        }
+      }
+
+      @media ( max-width: 768px ) {
+        border-radius: 28px;
+      }
+
+      &:active, &:focus {
+        border: 2px solid $colorOrange;
+
+        + .trackOrder__btn {
+          border: 2px solid $colorOrange;
+          background-color: $colorOrange;
+        }
+      }
+    }
+
+    .trackOrder__btn {
+      box-sizing: border-box;
+      border: 2px solid $colorOrange;
+      background-color: $colorOrange;
+      border-radius: 0 24px 24px 0;
+      color: #fff;
+      @include tran();
+      order: 2;
+
+      @media ( max-width: 768px ) {
+        border-radius: 24px;
+        order: 3;
+        padding: 6px;
+      }
+    }
+  }
+}
+
+.showTrackingResult {
+  margin-top: 30px;
+  text-align: center;
+
+  .trackingFrame {
+    border: 0;
+    width: 100%;
+    min-height: 900px;
+    scrollbar-width: thin;
+    margin-bottom: 50px;
+  }
+}
+
+.secondPage {
+  .as-track-button {
+    width: 300px;
+    margin: auto;
+  }
+}

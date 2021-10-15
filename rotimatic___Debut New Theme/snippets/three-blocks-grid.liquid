@@ -1,0 +1,21 @@
+<div class="three-blocks-grid">
+	{% for block in sb %}
+    {% assign b     =   block.settings %}
+		{% if block.type == 'three_block' %}
+			<div class="block-grid-item">
+				<div class="block-image">
+					<img class="lazyload"
+						src="{{ b.image | img_url: '70x70' }}"
+						alt="{{ b.image.alt | escape }}" width="66" height="66" />
+				</div>
+				{% if b.title != blank or b.text != blank  %}
+					<div class="block-description">
+						<h2 class="block_{{ forloop.index }}">{{ b.title }}</h2>
+						{{ b.text }}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>
+<div class="three-blocks-border"></div>

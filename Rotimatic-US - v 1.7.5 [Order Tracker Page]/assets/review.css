@@ -1,0 +1,10 @@
+.reviewsPage #shopify-product-reviews {
+  opacity: 1;
+  visibility: hidden;
+}
+
+.reviewsPage .loadSection {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/*# sourceMappingURL=review.css.map */

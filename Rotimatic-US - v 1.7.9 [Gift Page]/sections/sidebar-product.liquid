@@ -1,0 +1,245 @@
+{%-liquid
+  assign scssFile =   'sidebar-product.scss.css' | asset_url
+  assign ss       =   section.settings
+  assign sb       =   section.blocks
+
+  assign product  =   all_products[section.settings.featured_product]
+
+  echo '<link rel="stylesheet" href="' | append: scssFile | append: '">'
+
+  if product == empty
+    assign section_onboarding     =   true
+  endif
+
+  echo '<div class="sideProducts" id="ProductSection-' | append: section.id | append: '" data-section-id="' | append: section.id | append: '" data-section-type="product" data-ajax-enabled="' | append: settings.enable_ajax | append: '">'
+
+    assign featuredImg            =     product.selected_or_first_available_variant.featured_media | default: product.featured_media
+    assign imgSize                =     ss.imgSize | append: 'x'
+    assign featuredImgWithSize    =     featuredImg | img_url: imgSize
+
+    echo '<div class="imgContentBtn_wrapper">'
+
+      if featuredImgWithSize != blank
+
+        echo '<img src="' | append: featuredImgWithSize | append: '" alt="' | append: featured_media.alt | append: '" width="' | append: imgSize | append: '" class="mainImg">'
+
+      endif
+
+      echo '<div class="contentBtn_wrapper">'
+        echo '<h3 class="productSingle__title">' | append: product.title | append: '</h3>'
+
+        if ss.btnContent
+          assign linkBtn    =   ss.btnLink | default: '#'
+          echo '<a href="' | append: linkBtn | append: '" class="sideBar__link">'
+            echo ss.btnContent
+          echo '</a>'
+        endif
+      echo '</div>'
+
+    echo '</div>'
+
+    assign bulletArr    =   sb | where: 'type', 'bullets'
+    if bulletArr.size > 0
+      echo '<div class="productBullets">'
+        for block in bulletArr
+          assign b    =   block.settings
+
+          if b.image != blank
+            echo '<div class="productBullets-item">'
+              echo '<div class="productBullets-icon">'
+                assign img__    =   b.image | img_url: '100x100'
+                echo '<img src="' | append: img__ | append: '" width="24" height="24" alt="' | append: b.title | append: '">'
+              echo '</div>'
+              echo '<div class="productBullets-content">'
+                echo '<p>' | append: b.title | append: '</p>'
+              echo '</div>'
+            echo '</div>'
+          endif
+        endfor
+      echo '</div>'
+    endif
+
+  echo '</div>'
+
+-%}
+
+{% unless product == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+  <script type="application/json" id="ModelJson-{{ section.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+{% endunless %}
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "url": {{ shop.url | append: product.url | json }},
+  {%- if product.featured_media -%}
+    {%- assign media_size = product.featured_media.preview_image.width | append: 'x' -%}
+    "image": [
+      {{ product.featured_media | img_url: media_size | prepend: "https:" | json }}
+    ],
+  {%- endif -%}
+  "description": {{ product.description | strip_html | json }},
+  {%- if current_variant.sku != blank -%}
+    "sku": {{ current_variant.sku | json }},
+  {%- endif -%}
+  "brand": {
+    "@type": "Thing",
+    "name": {{ product.vendor | json }}
+  },
+  "offers": [
+    {%- for variant in product.variants -%}
+      {
+        "@type" : "Offer",
+        {%- if variant.sku != blank -%}
+          "sku": {{ variant.sku | json }},
+        {%- endif -%}
+        "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+        "price" : {{ variant.price | divided_by: 100.00 | json }},
+        "priceCurrency" : {{ cart.currency.iso_code | json }},
+        "url" : {{ shop.url | append: variant.url | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+
+<script>
+  $(document).ready(function () {
+    afterResizing_sideBar();
+  });
+  var rtime;
+  var timeout   =   false;
+  var delta     =   200;
+  $( window ).resize(function() {
+    try {
+      rtime     =   new Date();
+      if ( timeout === false ) {
+        timeout =   true;
+        setTimeout( resizeEnd, delta );
+      }
+    }
+    catch ( err ) {
+      console.log ( 'Error Resize', err.message );
+    }
+  });
+
+  function resizeEnd() {
+    try {
+      if ( new Date() - rtime < delta ) {
+        setTimeout( resizeEnd, delta );
+      } else {
+        timeout = false;
+
+        if ( typeof afterResizing_sideBar === 'function' ) {
+          afterResizing_sideBar();
+        } else {
+          console.log ( 'NOT FOUND afterResizing_sideBar() FUNCTION' );
+        }
+      }
+    }
+    catch ( err ) {
+      console.log ( 'Error resizeEnd', err.message );
+    }
+  }
+
+  function afterResizing_sideBar() {
+    try {
+      const screenWidth   =     $( window ).width();
+
+      if ( screenWidth <= 1200 ) {
+        const isAvailableSectionUnderHeroSec    =   $( '#shopify-section-hero-1' ).next( '#shopify-section-sidebar-product' ).length;
+
+        if ( isAvailableSectionUnderHeroSec == 0 ) {
+          const getHTML   =   $( '.page-main-side' ).html();
+
+          $( '#shopify-section-hero-1' ).after( getHTML );
+
+          $( '.page-main-side' ).html( '' );
+
+        }
+
+      } else {
+        const isAvailableSection      =   $( '.page-main-side #shopify-section-sidebar-product' ).length;
+
+        if ( isAvailableSection == 0 ) {
+          const getHTML   =   $( '#shopify-section-hero-1' ).next( '#shopify-section-sidebar-product' ).clone();
+
+          $( '.page-main-side' ).html( getHTML );
+
+          $( '#shopify-section-hero-1' ).next( '#shopify-section-sidebar-product' ).detach();
+
+        }
+      }
+    }
+    catch ( err ) {
+      console.log ( 'ERROR afterResizing_sideBar', err.message );
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name"      :   "Sidebar product",
+  "class"     :   "index-section index-section--featured-product",
+  "settings"  :   [
+    {
+      "type"    :   "product",
+      "id"      :   "featured_product",
+      "label"   :   "Product"
+    },
+    {
+      "type"    :   "text",
+      "id"      :   "btnContent",
+      "label"   :   "Button Text",
+      "default" :   "Get yours today"
+    },
+    {
+		  "type"    :   "url",
+		  "id"      :   "btnLink",
+		  "label"   :   "Button Link"
+    },
+    {
+      "type"    :   "range",
+      "id"      :   "imgSize",
+      "label"   :   "Image Size",
+      "unit"    :   "px",
+      "min"     :   50,
+      "max"     :   300,
+      "step"    :   5,
+      "default" :   250
+    }
+  ],
+  "blocks"    :   [
+    {
+      "type"      :   "bullets",
+      "name"      :   "Bullet",
+      "settings"  :   [
+        {
+          "type"    :   "image_picker",
+          "id"      :   "image",
+          "label"   :   "Upload Icon"
+        },
+        {
+          "type"    :   "text",
+          "id"      :   "title",
+          "label"   :   "Content"
+        }
+      ]
+    }
+  ],
+  "presets"   :   [
+    {
+      "name"      :   "Sidebar Featured product",
+      "category"  :   "Product"
+    }
+  ]
+}
+{% endschema %}

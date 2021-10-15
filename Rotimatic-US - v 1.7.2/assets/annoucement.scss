@@ -1,0 +1,29 @@
+.annoucementBar {
+  padding: 8px;
+  position: relative;
+
+  ._close_ {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  ._announcementContent_ {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}

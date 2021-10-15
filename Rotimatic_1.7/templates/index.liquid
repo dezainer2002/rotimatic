@@ -1,0 +1,15 @@
+{{ content_for_index }}
+
+<script>
+  $(document).ready(function () {
+    try {
+      console.clear();
+    }
+    catch ( err ) {
+      console.log ( 'ERROR READY', err.message );
+    }
+  });
+  window.addEventListener('load', function() {
+    console.clear();
+  });
+</script>
