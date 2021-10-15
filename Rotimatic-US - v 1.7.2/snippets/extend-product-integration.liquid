@@ -1,0 +1,75 @@
+<script defer="defer">
+
+  if (window.Extend && window.ExtendShopify && window.Shopify.currency.active === "USD") {
+
+    //initial variables
+    var productForm = document.querySelector('form[action="/cart/add"]');
+    var addToCartButton = productForm.querySelector('[data-checkout="same"]');
+    var extendOffer = productForm.querySelector('#extend-offer');
+
+    function initProductOffer() {
+
+      //fail safes
+      if(!productForm || !addToCartButton || !extendOffer) return;
+
+      function isExtend() {
+        if(meta.product && meta.product.vendor == "Extend"){
+          addToCartButton.disabled = true;
+        }
+      }
+
+      //Checks if product is an Extend warranty and if so disables
+      isExtend();
+
+      productForm.addEventListener('change', function () {
+        var variantId = productForm.id.value
+        if (variantId) {
+          Extend.setActiveProduct('#extend-offer', variantId);
+          isExtend();
+        }
+      });
+
+      var firstVariant = {{vid}};
+      Extend.buttons.render(extendOffer, {referenceId: firstVariant });
+
+      function handleAddToCart(e) {
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        var quantityEl = productForm.querySelector('[name="quantity"]');
+        var quantity = quantityEl && quantityEl.value;
+
+        ExtendShopify.handleAddToCart("#extend-offer", {
+          quantity: quantity,
+          modal: true,
+          done: function () {
+            // select the form where the add to cart button is in.
+            addToCartButton.removeEventListener("click", handleAddToCart, true);
+            addToCartButton.click();
+            addToCartButton.addEventListener("click", handleAddToCart, true);
+          },
+        });
+
+      }
+
+      //adds the event listener to the add to cart button and maps it to handleAddToCart()
+      addToCartButton.addEventListener("click", handleAddToCart, true);
+
+    }
+
+    //initial product offer render
+    window.addEventListener('DOMContentLoaded', function() {
+      initProductOffer();
+    })
+  }
+
+</script>
+
+<style>
+
+  #extend-offer {
+    padding-bottom: 5px;
+  }
+
+</style>

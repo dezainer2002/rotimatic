@@ -1,0 +1,147 @@
+.trackOrder__inputGrid {
+  max-width: 590px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 153px;
+      grid-template-columns: auto 153px;
+  margin-bottom: 29px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .trackOrder__inputGrid {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+
+.trackOrder__inputGrid .msg {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+  color: #FF3C3C;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+@media (max-width: 768px) {
+  .trackOrder__inputGrid .msg {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+}
+
+.trackOrder__inputGrid.not_valid input {
+  color: #FF3C3C;
+}
+
+.trackOrder__inputGrid.not_valid .msg {
+  opacity: 1;
+  height: 100%;
+  overflow: unset;
+  margin-top: 14px;
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.22px;
+  line-height: 16px;
+}
+
+.trackOrder__inputGrid.active .trackOrder__btn {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #DDE3E9;
+  border-radius: 0 24px 24px 0;
+  background-color: #DDE3E9;
+}
+
+.trackOrder__inputGrid input {
+  outline: none;
+  border: 2px solid #F68945;
+  border-radius: 28px 0 0 28px;
+  background-color: #FFFFFF;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.trackOrder__inputGrid input[value=""] {
+  border: 2px solid #DDE3E9;
+}
+
+.trackOrder__inputGrid input[value=""] + .trackOrder__btn {
+  border: 2px solid #DDE3E9;
+  background-color: #DDE3E9;
+}
+
+@media (max-width: 768px) {
+  .trackOrder__inputGrid input {
+    border-radius: 28px;
+  }
+}
+
+.trackOrder__inputGrid input:active, .trackOrder__inputGrid input:focus {
+  border: 2px solid #F68945;
+}
+
+.trackOrder__inputGrid input:active + .trackOrder__btn, .trackOrder__inputGrid input:focus + .trackOrder__btn {
+  border: 2px solid #F68945;
+  background-color: #F68945;
+}
+
+.trackOrder__inputGrid .trackOrder__btn {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #F68945;
+  background-color: #F68945;
+  border-radius: 0 24px 24px 0;
+  color: #fff;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+@media (max-width: 768px) {
+  .trackOrder__inputGrid .trackOrder__btn {
+    border-radius: 24px;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    padding: 6px;
+  }
+}
+
+.showTrackingResult {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.showTrackingResult .trackingFrame {
+  border: 0;
+  width: 100%;
+  min-height: 900px;
+  scrollbar-width: thin;
+  margin-bottom: 50px;
+}
+
+.secondPage .as-track-button {
+  width: 300px;
+  margin: auto;
+}
+/*# sourceMappingURL=trackYourOrder.css.map */

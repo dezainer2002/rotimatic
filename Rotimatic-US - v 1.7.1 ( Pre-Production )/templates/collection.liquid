@@ -1,0 +1,13 @@
+{{ 'theme_previous.scss.css' | asset_url | stylesheet_tag }}
+{% comment %}
+  The contents of the collection.liquid template can be found in /sections/collection-template.liquid
+{% endcomment %}
+
+{% section 'collection-template' %}
+
+
+<style>
+  .product-card:focus-within .product-card__title, .product-card:hover .product-card__title {
+    border-bottom-color: transparent;
+  }
+</style>

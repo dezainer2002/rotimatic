@@ -1,0 +1,476 @@
+{
+  "form": {
+    "id": "dGt2YY",
+    "name": "Wishlist",
+    "handle": "wishlist",
+    "theme_id": "121845973146",
+    "settings": {
+      "locales": {
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "edit_link": "Edit account",
+        "fix_errors": "Please fix errors before continuing",
+        "is_invalid": "{{label}} is invalid",
+        "email_taken": "Email has already been taken",
+        "phone_taken": "Phone number has already been taken",
+        "server_error": "Could not save form, please try again later",
+        "step_counter": "Step {{current}} of {{total}}",
+        "verify_email": "Check your email for a verification link to activate your account.",
+        "not_available": "An error occurred while saving your account, please try again in a few minutes.",
+        "create_account": "Join Waitlist",
+        "update_account": "Update account",
+        "recaptcha_error": "Challenge verification failed, please try again",
+        "creating_account": "Join Waitlist",
+        "updating_account": "Updating account...",
+        "invalid_email_domain": "Email contains an invalid domain name"
+      },
+      "enableRecaptcha": false,
+      "whitelistedTags": "",
+      "recaptchaSiteKey": "",
+      "markRequiredFields": false,
+      "displayCancelButton": false,
+      "redirectAfterSubmit": true,
+      "goBackAfterSubmission": false,
+      "cancelButtonRedirectUrl": "\/account\/login",
+      "postSubmissionRedirectUrl": "\/",
+      "showSuccessStepAfterSubmit": false,
+      "goBackAfterCancelButtonClick": false
+    },
+    "install_locations": [
+      "manual"
+    ],
+    "created_at": "2021-01-12T15:41:18Z",
+    "updated_at": "2021-04-23T05:41:27Z",
+    "revision_ids": [
+      "8oTn15",
+      "B5TVXK",
+      "kdTOLx",
+      "1wTg87",
+      "mLT9yb",
+      "evTDl3",
+      "PnTwX7",
+      "nRTqdD",
+      "znT70b",
+      "VNTvbR",
+      "MDTLvl",
+      "qYT3b3",
+      "boTzlP",
+      "l5TPRL",
+      "AdTNy9",
+      "Y9T03v",
+      "LbTO7E",
+      "p4Tq5O",
+      "orTnp9",
+      "akT0pz",
+      "ErTYyo",
+      "akT0az",
+      "wDTX0O",
+      "6XT492",
+      "8oTnem",
+      "akTmG1",
+      "qYTy6K",
+      "xMTdRd",
+      "1wTPzn",
+      "akT0wm",
+      "p4TXBm",
+      "ErT6y7"
+    ]
+  },
+  "revision": {
+    "id": "PnTwX7",
+    "created_at": "2021-04-23T05:30:27Z",
+    "updated_at": "2021-04-23T05:41:29Z",
+    "embed_version": "4.5.6",
+    "published_at": "2021-04-23T05:41:29Z",
+    "fields": [
+      {
+        "id": 422391,
+        "dataColumn": null,
+        "parentId": null,
+        "position": 0,
+        "type": "heading",
+        "stepId": 145449,
+        "default": "",
+        "label": "Account request sent heading",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "alignment": "center"
+        },
+        "settings": {
+          "size": 1,
+          "content": "Success!",
+          "hideLabel": true,
+          "fontWeight": "bold"
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 165728,
+        "dataColumn": null,
+        "parentId": null,
+        "position": 1,
+        "type": "paragraph",
+        "stepId": 145449,
+        "default": "",
+        "label": "Reviewing submission explanation",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "content": "<p style=\"text-align: center;\">The form has been successfully submitted.<\/p>",
+          "fontSize": 14,
+          "hideLabel": true
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 149122,
+        "dataColumn": null,
+        "parentId": null,
+        "position": 2,
+        "type": "link",
+        "stepId": 145449,
+        "default": "",
+        "label": "Back to home link",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "alignment": "center"
+        },
+        "settings": {
+          "url": "\/",
+          "content": "Back to home",
+          "fontSize": 14,
+          "hideLabel": true,
+          "fontWeight": "normal",
+          "openInNewTab": false
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 126966,
+        "dataColumn": {
+          "key": "first_name",
+          "label": "First name",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 0,
+        "type": "text",
+        "stepId": 189152,
+        "default": "",
+        "label": "Name",
+        "placeholder": "Name",
+        "description": null,
+        "enum": null,
+        "appearance": {
+          "width": 12
+        },
+        "settings": {},
+        "validations": [
+          {
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank"
+          }
+        ],
+        "sensitive": null,
+        "preset": "first_name",
+        "autotag": null
+      },
+      {
+        "id": 145711,
+        "dataColumn": {
+          "key": "email",
+          "label": "Email address",
+          "dataType": "email"
+        },
+        "parentId": null,
+        "position": 1,
+        "type": "email",
+        "stepId": 189152,
+        "default": "",
+        "label": "Email address",
+        "placeholder": "Email address",
+        "description": null,
+        "enum": null,
+        "appearance": {
+          "width": 12
+        },
+        "settings": {},
+        "validations": [
+          {
+            "operator": "is_valid_email",
+            "comparand": null,
+            "errorMessage": "Please provide a valid email address"
+          },
+          {
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank"
+          }
+        ],
+        "sensitive": null,
+        "preset": "email_address",
+        "autotag": null
+      },
+      {
+        "id": 128723,
+        "dataColumn": {
+          "key": "gender",
+          "label": "Gender",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 2,
+        "type": "dropdown",
+        "stepId": 189152,
+        "default": "",
+        "label": "Gender",
+        "placeholder": "Gender",
+        "description": "",
+        "enum": [
+          {
+            "label": "Male",
+            "value": "Male"
+          },
+          {
+            "label": "Female",
+            "value": "Female"
+          }
+        ],
+        "appearance": {
+          "width": 3
+        },
+        "settings": {
+          "end": 10,
+          "start": 1,
+          "enumType": "list",
+          "separateValues": false
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 165313,
+        "dataColumn": {
+          "key": "phone",
+          "label": "Phone number",
+          "dataType": "phone"
+        },
+        "parentId": null,
+        "position": 3,
+        "type": "phone",
+        "stepId": 189152,
+        "default": "",
+        "label": "Phone number",
+        "placeholder": "Phone number",
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 9,
+          "cssClass": "col-9"
+        },
+        "settings": {
+          "defaultCountryCode": "US"
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": "phone_number",
+        "autotag": null
+      },
+      {
+        "id": 882321,
+        "dataColumn": {
+          "key": "default_address.country",
+          "label": "Country",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 4,
+        "type": "dropdown",
+        "stepId": 189152,
+        "default": "",
+        "label": "Country",
+        "placeholder": "Select country",
+        "description": "",
+        "enum": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "isCountryField": true,
+          "useAllCountries": true
+        },
+        "validations": [
+          {
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Please select the country"
+          }
+        ],
+        "sensitive": null,
+        "preset": "country",
+        "autotag": null
+      },
+      {
+        "id": 186328,
+        "dataColumn": {
+          "key": "city_2",
+          "label": "City",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 5,
+        "type": "text",
+        "stepId": 189152,
+        "default": "",
+        "label": "City",
+        "placeholder": "Your City",
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {},
+        "validations": [
+          {
+            "metadata": {
+              "hiddenInApp": true
+            },
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Please enter your city name"
+          }
+        ],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 144794,
+        "dataColumn": {
+          "key": "how_do_you_get_your_roti_f",
+          "label": "How do you get your roti fix now?",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 6,
+        "type": "dropdown",
+        "stepId": 189152,
+        "default": null,
+        "label": "How do you get your roti fix now?",
+        "placeholder": "How do you get your roti fix now?",
+        "description": "",
+        "enum": [
+          {
+            "label": "I make them myself",
+            "value": "I make them myself"
+          },
+          {
+            "label": "My mom\/wife makes them",
+            "value": "My mom\/wife makes them"
+          },
+          {
+            "label": "My helper makes them",
+            "value": "My helper makes them"
+          },
+          {
+            "label": "I buy them at the supermarket ready made",
+            "value": "I buy them at the supermarket ready made"
+          }
+        ],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "end": 10,
+          "start": 1,
+          "enumType": "list",
+          "separateValues": false
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 169794,
+        "dataColumn": {
+          "key": "you_want_a_rotimatic_becau",
+          "label": "You want a Rotimatic because…",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 7,
+        "type": "textarea",
+        "stepId": 189152,
+        "default": "",
+        "label": "You want a Rotimatic because…",
+        "placeholder": "You want a Rotimatic because…",
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "rows": 5
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      }
+    ],
+    "steps": [
+      {
+        "id": 189152,
+        "title": "Step 1",
+        "description": ""
+      },
+      {
+        "id": 145449,
+        "title": "Submission success",
+        "metadata": {
+          "isSuccessStep": true
+        },
+        "description": ""
+      }
+    ],
+    "rules": []
+  }
+}

@@ -1,0 +1,57 @@
+<div class="section-usp">
+  <div class="text-center">
+    {% if section.settings.title != blank %}
+      <h2 class="h2">{{ section.settings.title | escape }}</h2>
+    {% endif %}
+  </div>
+
+  <div class="product-section-usp-item">
+    {% include 'product-usp' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product USP",
+  "class": "products-section products-gradient product-usp-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "One Rotimatic. Endlgess Possibilities."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_usp",
+      "name": "Product USP",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "USP Image"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "USP Description",
+          "default": "<p>Fresh rotis in 90 seconds</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "terms",
+          "label": "Terms Apply",
+          "default": false
+        },
+        {
+          "type": "richtext",
+          "id": "terms_text",
+          "label": "Terms Description",
+          "default": "<p>Return charges of *price* included</p>"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

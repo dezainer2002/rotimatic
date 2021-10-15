@@ -1,0 +1,6 @@
+<svg id="Icons_Info_Outline_Orange_1_" data-name="Icons/Info/Outline/Orange (1)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Page_1" data-name="Page 1" transform="translate(1 1)">
+    <path id="Fill_1" data-name="Fill 1" d="M7,14a7,7,0,1,1,7-7A7.007,7.007,0,0,1,7,14Z" transform="translate(0 0)" fill="#f68945" stroke="#f68945" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Fill_3" data-name="Fill 3" d="M1,9A1,1,0,0,1,0,8V4A1,1,0,0,1,2,4V8A1,1,0,0,1,1,9ZM1,2A.971.971,0,0,1,0,1,.968.968,0,0,1,1,0,.968.968,0,0,1,2,1,.971.971,0,0,1,1,2Z" transform="translate(6 2)" fill="#fff"/>
+  </g>
+</svg>

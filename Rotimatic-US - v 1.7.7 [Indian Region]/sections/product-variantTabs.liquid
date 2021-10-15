@@ -1,0 +1,136 @@
+{%-liquid
+  assign ss       =     section.settings
+  assign sb       =     section.blocks
+
+  capture dontUse
+    form 'localization'
+      assign currentCurrency   =   form.current_currency.iso_code
+    endform
+  endcapture
+
+  capture viewParam
+    render '__getParam' with { paramStart: 'view=' }
+  endcapture
+-%}
+
+{%-liquid
+  comment
+    for variant in product.variants
+      assign metaCurrency =   variant.metafields.global.Currency
+
+      if currentCurrency == metaCurrency
+        echo variant.title | append: '<br>'
+      endif
+    endfor
+  endcomment
+
+  assign collection__             =   collections[ss.rotiCollection]
+  assign string__currency__code   =   'currency__' | append: currentCurrency
+  assign vCurrency_Count          =   0
+  assign isSelected               =   ''
+  assign collectionProducts       =   collection__.products | sort: 'title-ascending'
+
+  paginate collection__.products by 250
+    for pro in collectionProducts
+
+      for tag in pro.tags
+        if tag contains string__currency__code
+
+          if vCurrency_Count == 0
+            assign product__        =   pro
+            assign v                =   pro.selected_or_first_available_variant
+            assign isSelected       =   ' selected'
+
+            assign vCurrency_Count  =   vCurrency_Count | plus: 1
+
+            capture tab1
+              echo '<div class="_item_' | append: isSelected | append: '" vid="' | append: v.id | append: '" handle="' | append: pro.handle | append: '">'
+                echo '<div class="_title_">'
+
+                  assign productTile  =   pro.title | remove: ' / ' | remove: currentCurrency
+
+                  echo productTile
+
+                echo '</div>'
+
+                echo '<div class="_price_">'
+                  echo currentCurrency | append: ' '
+                  echo v.price | money_without_currency
+                  assign selectedVariantPrice   =   v.price | money_without_currency
+                echo '</div>'
+
+              echo '</div>'
+            endcapture
+
+          elsif vCurrency_Count == 1
+            assign v                =   pro.selected_or_first_available_variant
+
+            assign vCurrency_Count  =   vCurrency_Count | plus: 1
+
+            capture tab2
+              echo '<div class="_item_" vid="' | append: v.id | append: '" handle="' | append: pro.handle | append: '">'
+                echo '<div class="_title_">'
+                  echo pro.title | remove: ' / ' | remove: currentCurrency
+                echo '</div>'
+
+                echo '<div class="_price_">'
+                  echo currentCurrency | append: ' '
+                  echo v.price | money_without_currency
+                echo '</div>'
+
+              echo '</div>'
+            endcapture
+          endif
+        endif
+      endfor
+    endfor
+  endpaginate
+
+  echo '<div class="_variants_">'
+    echo tab1
+    echo tab2
+  echo '</div>'
+
+  echo '<div class="prodInfo">'
+    echo '<h1 loading>'
+      echo 'Rotimatic'
+    echo '</h1>'
+
+    echo '<div class="_price_" loading>'
+
+      echo '<span class="isoCode" loading>'
+        echo currentCurrency
+      echo '</span>'
+
+      echo '<span class="money" loading>'
+        echo selectedVariantPrice
+      echo '</span>'
+
+    echo '</div>'
+
+    if currentCurrency == 'INR'
+      echo '<div class="_taxIncluded_" loading>'
+        echo 'Local taxes included'
+      echo '</div>'
+    endif
+
+  echo '</div>'
+
+  echo '<div class="produtSchema">'
+    assign p___price    =   selectedVariantPrice | remove: ',' | json
+    include '__productSchema', product: product__, variant: v, currentCurrency: currentCurrency, price: p___price, productTile: productTile
+  echo '</div>'
+
+%}
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type"    :   "collection",
+      "id"      :   "rotiCollection",
+      "label"   :   "Select Collection"
+    }
+  ]
+}
+{% endschema %}

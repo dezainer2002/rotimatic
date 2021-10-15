@@ -1,0 +1,45 @@
+<style>
+  #preloader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+  }
+  #preloader > img {
+    opacity: 1;
+    width: 100px;
+    animation: preload 2s infinite ease-in-out;
+  }
+  @keyframes preload {
+    0%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 0.1;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+</style>
+
+<div id="preloader">
+  <img src="{{ 'preLoader.svg' | asset_url }}" alt="loading">
+</div>
+
+<script>
+  {% if loadType == 'domReady' %}
+    $(document).ready(function () {
+      document.getElementById( 'preloader' ).style.display = 'none';
+    });
+  {% else %}
+    window.addEventListener('load', function() {
+      document.getElementById( 'preloader' ).style.display = 'none';
+    });
+  {% endif %}
+</script>

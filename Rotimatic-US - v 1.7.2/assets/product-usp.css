@@ -1,0 +1,100 @@
+.product-usp-section {
+  margin-top: 45px;
+  padding-top: 50px;
+  padding-bottom: 15px;
+}
+
+.product-usp-section .sectionUsp .tac {
+  text-align: center;
+}
+
+.product-usp-section .sectionUsp .h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1;
+  padding-bottom: 45px;
+}
+
+.product-usp-section .sectionUsp ._makeGrid_ {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(0, 1fr))[4];
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 0px;
+}
+
+@media (max-width: 700px) {
+  .product-usp-section .sectionUsp ._makeGrid_ {
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .product-usp-section .sectionUsp ._makeGrid_ ._item_ {
+    padding-bottom: 10px;
+  }
+  .product-usp-section .sectionUsp ._makeGrid_ ._item_:first-child {
+    border-right: 1px solid #979797;
+  }
+  .product-usp-section .sectionUsp ._makeGrid_ ._item_:nth-child(1), .product-usp-section .sectionUsp ._makeGrid_ ._item_:nth-child(2) {
+    border-bottom: 1px solid #979797;
+  }
+  .product-usp-section .sectionUsp ._makeGrid_ ._item_:nth-child(2) {
+    border-right-color: transparent;
+  }
+  .product-usp-section .sectionUsp ._makeGrid_ ._item_:last-child {
+    border-left-color: transparent;
+  }
+}
+
+.product-usp-section .sectionUsp ._makeGrid_ ._item_ {
+  text-align: center;
+  border-right: 1px solid #979797;
+}
+
+@media (max-width: 991px) {
+  .product-usp-section .sectionUsp ._makeGrid_ ._item_ {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 991px) and (max-width: 500px) {
+  .product-usp-section .sectionUsp ._makeGrid_ ._item_ {
+    padding: 10px;
+  }
+}
+
+.product-usp-section .sectionUsp ._makeGrid_ ._item_:last-child {
+  border-right-color: transparent;
+}
+
+.product-usp-section .sectionUsp ._makeGrid_ ._item_ ._icon_ {
+  min-height: 60px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 15px;
+}
+
+.product-usp-section .sectionUsp ._makeGrid_ ._item_ ._icon_ svg {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.product-usp-section .sectionUsp ._makeGrid_ ._item_ ._textContent_ {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.355556px;
+  color: #4A4A4A;
+}
+
+@media (max-width: 550px) {
+  .product-usp-section .sectionUsp ._makeGrid_ ._item_ ._textContent_ {
+    font-size: 14px;
+  }
+}
+/*# sourceMappingURL=product-usp.css.map */

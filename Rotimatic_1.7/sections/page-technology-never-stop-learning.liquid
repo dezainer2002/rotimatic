@@ -1,0 +1,31 @@
+<div class="never-stop-learning">
+<div class="row">
+<div class="col-half">
+<h2>{{ section.settings.main-heading}}</h2>
+<p>{{ section.settings.content-never}}</p>
+</div>
+<div class="col-half"> <img src="{{section.settings.rightimage | img_url: '1024x1024'}}" alt="Never Stops Learning"></div>
+</div>
+</div>
+{% schema %}
+{
+"name": "Never stops learning",
+"class": "never-stops-learning",
+"settings": [
+{
+"type": "text",
+"id": "main-heading",
+"label": "Heading"
+},
+{
+"type": "richtext",
+"id": "content-never",
+"label": "Content"
+},{
+"type": "image_picker",
+"id": "rightimage",
+"label": "Image"
+}
+]
+}
+{% endschema %}

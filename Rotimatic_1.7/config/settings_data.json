@@ -1,0 +1,2689 @@
+{
+  "current": {
+    "pdpPage": false,
+    "color_text": "#3a3a3a",
+    "color_body_text": "#333232",
+    "color_sale_text": "#4a4a4a",
+    "color_button": "#f68945",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#3a3a3a",
+    "color_text_field_text": "#000000",
+    "color_text_field_border": "#cccccc",
+    "color_text_field": "rgba(0,0,0,0)",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#000000",
+    "image_overlay_opacity": 40,
+    "color_borders": "#ebebeb",
+    "color_body_bg": "#ffffff",
+    "type_header_font": "poppins_n6",
+    "type_header_base_size": 26,
+    "type_base_font": "roboto_n4",
+    "type_base_size": 15,
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "share_image": "",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "https:\/\/facebook.com\/rotimatic\/",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/rotimatic\/",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCs-_4XeDBYYz506uu77E7VA",
+    "social_vimeo_link": "",
+    "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/zimplistic-inventions",
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "enable_ajax": true,
+    "flour_data": "Aashirvaad Atta with Multi Grains|Aarshirvaad Multi-G,Aashirvaad Select Whole Wheat Atta|Aashirvaad Select,Aashirvaad Whole Wheat Atta|Aashirvaad,Pillsbury Atta with Multi Grains|Pillsbury Multi-G,Pillsbury Chaki Whole Wheat Atta|Pillsbury,Pillsbury Gold Whole Wheat Atta|Pillsbury Gold,Sujata Chaki Whole Wheat Atta|Sujata,Sujata Gold Whole Wheat Atta|Sujata Gold,Al Baker Chapatti|Al Baker Chapatti,Al Baker Gold|Al Baker Gold,Al Baker Fresh|Al Baker Fresh",
+    "flour_alternative_data": "24Mantra Organic MultiGrain Atta|Pillsbury Multi-G,Arrowhead Mills Organic Spelt Flour|Pillsbury Multi-G,Augason Farms Hard Red Wheat Flour|Aarshirvaad Multi-G,Baker's Roses Enriched Flour|Pillsbury,Berlin Natural Bakery Unbleached White Spelt Flour|Pillsbury,Deep Chakki Whole Wheat Atta|Aarshirvaad Multi-G,Deep Chapatti Flour (Dhrum Atta)|Pillsbury,Nature's Supplement 100% Organic Biologique Spelt|Al Baker Fresh,Nirav Durum Atta|Pillsbury Gold,One Degree Organic Sprouted Spelt|Aarshirvaad Multi-G,Organic Larder Organic Whole Grain Spelt|Pillsbury Multi-G,QFM (Qatar Flour Mills) Chakki Atta|Pillsbury,QFM (Qatar Flour Mills) Chappati|Pillsbury,QFM (Qatar Flour Mills) Whole Wheat|Pillsbury,Royal Gold Chakki Fresh Atta Whole Wheat|Pillsbury Multi-G,Sanjeevani Organics Organic Tandoori|Aarshirvaad Multi-G,Suraj Durum Atta|Pillsbury,Swad Bhalia Chapatti|Aarshirvaad Multi-G,Swad Sharbati Gold Whole Wheat|Aarshirvaad Multi-G,Swad Whole Wheat Atta|Aarshirvaad Multi-G,Swadi Homemade Chakki Fresh Atta Medium|Aarshirvaad Multi-G",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "mlvedaACS_roundDecimal": false,
+    "mlvedaACS_autoSwitch": false,
+    "mlvedaACS_messageContent": "<<shop.name>> process all orders in <<shop.currency>>. While the content of your cart is currently displayed in <<shop.selected_currency>>, you will checkout using <<shop.currency>> at the most current exchange rate.",
+    "mlvedaACS_positionTop": "10px",
+    "mlvedaACS_isCustomized": true,
+    "mlvedaACS_positionRight": "10px",
+    "mlvedaACS_borderLook": true,
+    "mlvedaACS_positionLeft": "10px",
+    "mlvedaACS_defaultCurrency": "USD",
+    "mlvedaACS_textColor": "inherit",
+    "mlvedaACS_flagStyle": "circle",
+    "mlvedaACS_isMessageDisplay": true,
+    "mlvedaACS_positionBottom": "10px",
+    "mlvedaACS_messageBackgroundColor": "inherit",
+    "mlvedaACS_roundDecimalValue": 1,
+    "mlvedaACS_backgroundColor": "#ffffff",
+    "mlvedaACS_position": "inline",
+    "mlvedaACS_messageColor": "inherit",
+    "mlvedaACS_textHoverColor": "inherit",
+    "mlvedaACS_enable": false,
+    "mlvedaACS_supportedCurrencies": "USD AED AUD CAD DKK EUR GBP HKD NOK NZD QAR SAR SEK SGD INR JPY",
+    "mlvedaACS_hideDecimal": false,
+    "mlvedaACS_hoverBackgroundColor": "inherit",
+    "mlvedaACS_currencyFormat": "money_with_currency_format",
+    "mlvedaACS_borderLineColor": "inherit",
+    "mlvedaACS_displayFlag": false,
+    "sections": {
+      "160640852886e7a191": {
+        "type": "gallery",
+        "blocks": {
+          "072e2801-22a3-4278-a414-98305fbdf859": {
+            "type": "main_block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Roti.jpg",
+              "title": "Now anyone can roti!",
+              "text": "<p>Join the crowd! Check out what users have to say about the Rotimatic here.<\/p>",
+              "button_label": "Play Icon",
+              "button_link": "https:\/\/www.youtube.com\/watch?v=ZUq9G_YtJLQ&feature=emb_logo",
+              "show_play_icon": true,
+              "play_icon": "shopify:\/\/shop_images\/Play-Icon.png",
+              "button_popup": true
+            }
+          },
+          "a75a783e-16d4-4927-ada8-e8b3c4ad4f90": {
+            "type": "other_block",
+            "settings": {
+              "other_image": "shopify:\/\/shop_images\/pc-logo.png",
+              "text": "<p>A potential game changer <br\/>for roti-loving households<\/p>",
+              "color": "#363636",
+              "link": "shopify:\/\/pages\/press"
+            }
+          },
+          "1cd2ef45-5819-45b3-8590-fda15cb682e0": {
+            "type": "other_block",
+            "settings": {
+              "other_image": "shopify:\/\/shop_images\/nbc-logo_62234930-f333-4d73-89bf-6935053ec8cb.png",
+              "text": "<p>Long wait, but Rotimatic’s <br\/>a hit with everyone.<\/p>",
+              "color": "#222222",
+              "link": "shopify:\/\/pages\/press"
+            }
+          },
+          "b06d0c9b-a289-41bc-9b7b-2b5469a675ca": {
+            "type": "other_block",
+            "settings": {
+              "other_image": "shopify:\/\/shop_images\/wsj-logo_1b51864d-3e46-47eb-a06b-67ded8429bf8.png",
+              "text": "<p>Best thing since sliced bread.<br\/> A roti making machine<\/p>",
+              "color": "#222222",
+              "link": "shopify:\/\/pages\/press"
+            }
+          },
+          "c2d75081-3a42-4ae6-be00-8c2478a08e38": {
+            "type": "other_block",
+            "settings": {
+              "other_image": "shopify:\/\/shop_images\/ztv-logo.png",
+              "text": "<p>8 years of stubborness to give <br\/>birth to their Roti making robot<\/p>",
+              "color": "#363636",
+              "link": "shopify:\/\/pages\/press"
+            }
+          }
+        },
+        "block_order": [
+          "072e2801-22a3-4278-a414-98305fbdf859",
+          "a75a783e-16d4-4927-ada8-e8b3c4ad4f90",
+          "1cd2ef45-5819-45b3-8590-fda15cb682e0",
+          "b06d0c9b-a289-41bc-9b7b-2b5469a675ca",
+          "c2d75081-3a42-4ae6-be00-8c2478a08e38"
+        ],
+        "settings": {
+          "onViewLoad": true
+        }
+      },
+      "160654454373407275": {
+        "type": "roti-price-range",
+        "disabled": true,
+        "settings": {
+          "title": "Light on your body… and on your wallet",
+          "text": "<p>Calculate how much you can save with Rotimatic by reducing processed rotis, eating out and takeaways.<\/p>",
+          "save_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "title": "Zimplistic",
+              "menu": "footer-zimplistic"
+            }
+          },
+          "0dcd0635-a94a-460c-ad16-537145f696ab": {
+            "type": "link_list",
+            "settings": {
+              "title": "Rotimatic",
+              "menu": "rotimatic"
+            }
+          },
+          "8f28dec6-2c0b-42fe-b4f9-630e0403280d": {
+            "type": "link_list",
+            "settings": {
+              "title": "Owners",
+              "menu": "owners"
+            }
+          },
+          "8bade078-a7b4-4bfb-adb1-fd3b97ee059a": {
+            "type": "social",
+            "settings": {
+              "title": "Follow us"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "0dcd0635-a94a-460c-ad16-537145f696ab",
+          "8f28dec6-2c0b-42fe-b4f9-630e0403280d",
+          "8bade078-a7b4-4bfb-adb1-fd3b97ee059a"
+        ],
+        "settings": {
+          "show_payment_icons": false,
+          "color_footer_bg": "#222222",
+          "color_footer_text": "#827f7f",
+          "show_locale_selector": true,
+          "show_currency_selector": false,
+          "footer_bottom": ""
+        }
+      },
+      "page-technology-never-stop-learning": {
+        "type": "page-technology-never-stop-learning",
+        "settings": {
+          "main-heading": "Never stops learning. Smarter with every use",
+          "content-never": "<p>Powered with Artificial Intelligence and IoT capabilities, Rotimatic keeps getting better with data from every flatbread made. Once connected to WiFi, it upgrades itself with the latest software updates and provides remote troubleshooting capabilities. Rotimatic gets smarter over time and empowers you to do more and get creative.<\/p>",
+          "rightimage": "shopify:\/\/shop_images\/never-stops-learning.png"
+        }
+      },
+      "page-technology-banner": {
+        "type": "page-technology-banner",
+        "settings": {
+          "main-heading": "<p>Taste, powered by technology<\/p>",
+          "sub-heading": "<p>Engineered for perfection. Designed for ease.<\/p>",
+          "main-image": "shopify:\/\/shop_images\/rotimatic-technology.png",
+          "wordwide-lover": "5,681",
+          "delighted-customers": "33"
+        }
+      },
+      "16065924975dfe3451": {
+        "type": "home-products",
+        "settings": {
+          "featured_product": "rotimatic-no",
+          "show_mobile": true,
+          "show_quantity_selector": false,
+          "show_variant_labels": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "full",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "quotes": {
+        "type": "quotes",
+        "blocks": {
+          "quotes-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Life is now really sorted wirh Rotimatic. Even here, far from home I do not miss my home food that much thanks to Rotimatic. Also its healthy. Kudos to the team for a good job!<\/p>",
+              "author": "Fernandes"
+            }
+          },
+          "quotes-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>The option of making tortillas or rotis in a household that enjoys both Mexican and Indian cuisines using the same device is something I never expected to come across! Ever since we’ve been using Rotimatic.<\/p>",
+              "author": "Parera"
+            }
+          },
+          "quotes-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Rotimatic replaces the need to get my hands dirty in the process of kneading and rolling the dough with automation. But more than getting my hands dirty, the automatic roti making machine ensures that contaminants are not there.<\/p>",
+              "author": "Dwiti"
+            }
+          }
+        },
+        "block_order": [
+          "quotes-0",
+          "quotes-1",
+          "quotes-2"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "1588003724094": {
+        "type": "image-bar",
+        "disabled": true,
+        "blocks": {
+          "1588003724094-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Fast-Fresh.jpg",
+              "alignment": "bottom",
+              "image_icon": "shopify:\/\/shop_images\/Icons-freshroti.png",
+              "link": "",
+              "cta_label": "A new <br>definition of <br>fast & fresh",
+              "cta_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+            }
+          },
+          "1588003724094-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Anyone-can-roti.jpg",
+              "alignment": "center",
+              "image_icon": "shopify:\/\/shop_images\/Icons-people.png",
+              "link": "",
+              "cta_label": "The taste of <br>home",
+              "cta_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+            }
+          },
+          "1588003724094-2": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Less-mess-more-food.jpg",
+              "alignment": "center",
+              "image_icon": "shopify:\/\/shop_images\/Icons-food.png",
+              "link": "",
+              "cta_label": "Always up  <br>to date",
+              "cta_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+            }
+          },
+          "cf13451f-5d98-44ea-a1c6-9ba8d2357e5c": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Always-up-to-date.jpg",
+              "alignment": "center",
+              "image_icon": "shopify:\/\/shop_images\/Icons-cloud.png",
+              "link": "",
+              "cta_label": "No huffing, <br>just puffing",
+              "cta_text": "<p>That’s a lot to be spending on frozen rotis. Now you’ve saved enough for a little treat. A day out at the spa? A round of golf? Gift for the kids? Treat yourself!<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1588003724094-0",
+          "1588003724094-1",
+          "1588003724094-2",
+          "cf13451f-5d98-44ea-a1c6-9ba8d2357e5c"
+        ],
+        "settings": {
+          "section_height": "large"
+        }
+      },
+      "product-specifications": {
+        "type": "product-specifications",
+        "blocks": {
+          "122b8089-31f0-4b74-b901-02cffe8c807e": {
+            "type": "product_specifications",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_frequency.png",
+              "title": "Frequency",
+              "text": "<p>50\/60 Hz<\/p>",
+              "see_all_flours": false
+            }
+          },
+          "f56a9bb8-2c9e-4534-9b00-8734ade5a5fc": {
+            "type": "product_specifications",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_voltagea.png",
+              "title": "Voltage",
+              "text": "<p>110V (Canada, USA) 220V (Singapore, UK, Australia, Singapore, Hong Kong, Europe and Middle East)<\/p>",
+              "see_all_flours": false
+            }
+          },
+          "af5f2519-7693-49e7-a109-f279dc0cdbc0": {
+            "type": "product_specifications",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_dimension.png",
+              "title": "Dimensions",
+              "text": "<p>40cm(W) x 40cm(D) x 33cm(H)<\/p>",
+              "see_all_flours": false
+            }
+          },
+          "34b2bae2-ec38-4161-8504-7806300df197": {
+            "type": "product_specifications",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_warranty.png",
+              "title": "Warranty",
+              "text": "<p>1st year free<\/p>",
+              "see_all_flours": false
+            }
+          },
+          "35f889d8-cc54-4184-96cd-74cdffcfa0fc": {
+            "type": "product_specifications",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_phone.png",
+              "title": "Rotimatic App",
+              "text": "<p>iOS, Android<\/p>",
+              "see_all_flours": false
+            }
+          },
+          "b75af96a-242d-4ed6-be22-da90a1538d36": {
+            "type": "product_specifications",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_power.png",
+              "title": "Power",
+              "text": "<p>1.6 – 1.8 kW<\/p>",
+              "see_all_flours": false
+            }
+          },
+          "e3e49d15-d798-46ba-a345-c928c33aa694": {
+            "type": "product_specifications",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_weight.png",
+              "title": "Weight",
+              "text": "<p>20 Kgs \/ 44 Lbs<\/p>",
+              "see_all_flours": false
+            }
+          },
+          "9cde011b-d50e-4a0b-a507-b078669811cc": {
+            "type": "product_specifications",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon_flour.png",
+              "title": "Supported Flour",
+              "text": "<p>Variants of Sujata, Aashirwad, Pilsbury flour<\/p>",
+              "see_all_flours": true
+            }
+          }
+        },
+        "block_order": [
+          "122b8089-31f0-4b74-b901-02cffe8c807e",
+          "f56a9bb8-2c9e-4534-9b00-8734ade5a5fc",
+          "af5f2519-7693-49e7-a109-f279dc0cdbc0",
+          "34b2bae2-ec38-4161-8504-7806300df197",
+          "35f889d8-cc54-4184-96cd-74cdffcfa0fc",
+          "b75af96a-242d-4ed6-be22-da90a1538d36",
+          "e3e49d15-d798-46ba-a345-c928c33aa694",
+          "9cde011b-d50e-4a0b-a507-b078669811cc"
+        ],
+        "settings": {
+          "title": "Specifications"
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "waitlist-left": {
+        "type": "waitlist-left",
+        "settings": {
+          "title": "Be the first in line!",
+          "text": "<p>Join our priority waitlist and be among the first to get your hands on a Rotimatic when orders open in your country<\/p>",
+          "desktop_image": "shopify:\/\/shop_images\/Be-the-first-desktop.png",
+          "mobile_image": "shopify:\/\/shop_images\/Be-the-first-mobile.png"
+        }
+      },
+      "product-template-roti": {
+        "type": "product-template-roti",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "faq": {
+        "type": "faq",
+        "blocks": {
+          "24b612a4-083c-45ee-849c-00814e4cab60": {
+            "type": "category",
+            "settings": {
+              "category-title": "FAQs"
+            }
+          },
+          "a8ece1ff-71b4-43fb-b995-db6473bb4aa1": {
+            "type": "question",
+            "settings": {
+              "question": "What is the price of Rotimatic?",
+              "anwser": "<p>The retail base price of Rotimatic is USD 1299, or it’s equivalent in your local currency excluding any applicable taxes which may\/may not be a part of the price quoted. Shipping and delivery charges are exclusive and may vary depending upon your country location. Scroll to the <a href=\"#MainContent\" title=\"#MainContent\">top of this page<\/a> for detailed pricing, discounts, and offers. You can also check express delivery options.<\/p>"
+            }
+          },
+          "bc66735a-7f62-4652-aa48-f2a0e487de00": {
+            "type": "question",
+            "settings": {
+              "question": "Who is using it right now?",
+              "anwser": "<p>Thousands of proud owners make a million rotis with Rotimatic everyday! <br\/>Health-conscious homes, fussy kids, time-starved couples, foodies, techies, roti-lovers, progressive families and many more. From time to health to convenience to wonder, everyone loves Rotimatic for a different reason. Take a look <a href=\"\/pages\/reviews\" title=\"\/pages\/reviews\">here<\/a><\/p>"
+            }
+          },
+          "6af6908c-136f-482a-a29a-7c1f060ac336": {
+            "type": "question",
+            "settings": {
+              "question": "What makes Rotimatic a ‘smart machine’?",
+              "anwser": "<p>Rotimatic has brought Iot to kitchen tops. Once connected to WiFi, Rotimatic gets smarter with every roti. Masala rotis, pooris, tortillas, pizzas, Rotimatic will allow you to relish a different type of bread every day, all via remote upgrades. The video chat feature on the app, takes the customer support experience to the next level. What’s more? In a matter of time, you will be able to control Rotimatic remotely via the mobile App. <\/p>"
+            }
+          },
+          "cebdaf59-436d-4b6b-ab9e-649c94baa028": {
+            "type": "question",
+            "settings": {
+              "question": "Is it as easy to use as they say?",
+              "anwser": "<p>You bet. Ease of use is at the core of Rotimatic, it’s designed to be simple and intuitive. Once your ingredients are ready, you can make roti with just one touch. Cleaning-up after is also super easy with two removable, dish-washer-friendly parts.<\/p>"
+            }
+          },
+          "17069952-4e62-4ca1-ac38-ecb4cf318019": {
+            "type": "question",
+            "settings": {
+              "question": "Can I see Rotimatic in action?",
+              "anwser": "<p>Yes you can. Join one of our weekly virtual demo sessions by clicking on the link here. See how Rotimatic churns out rotis in minutes and get all your questions answered.<\/p><p>Alternatively, you can also try Rotimatic in the comfort of your home risk-free with our 30-day money back guarantee. If you are not happy with your experience, we will refund you the product price after deducting the return shipping price of U$199. However, we assure you, you will fall in love with it the very first time you get your hands on it.<\/p>"
+            }
+          },
+          "9552ce59-09f1-4d87-a146-e2d924972a2d": {
+            "type": "question",
+            "settings": {
+              "question": "How good are the rotis?",
+              "anwser": "<p>There’s nothing quite like Mummy ke haath ka khana aka mom-made food, right? Our users say that Rotimatic rotis come very close. Because every roti is guaranteed to puff. Discerning mothers and grandmothers themselves nod in approval when they see each roti puff evenly in Rotimatic and are delightfully surprised by the softness and its taste.<\/p><p>Every Rotimatic roti is round, evenly cooked, and puffed with 3 separate layers. Since all the ingredients that go in Rotimatic are chosen by you, the taste and nutrition is as per your preference.<\/p>"
+            }
+          },
+          "0589f850-87f8-4537-bc3a-15838dface29": {
+            "type": "question",
+            "settings": {
+              "question": "What more can I make besides, roti?",
+              "anwser": "<p>Rotimatic is designed as a platform to make any type of flatbread. With remote upgrades, it will enable you to make puris, masala rotis, pizzas and tortillas.<\/p>"
+            }
+          },
+          "f2f01b86-998e-4c34-a949-03839685b905": {
+            "type": "question",
+            "settings": {
+              "question": "Do I really get 24 X 7 support?",
+              "anwser": "<p>Absolutely. Being a smart machine, Rotimatic offers seamless and advanced customer support. <\/p><p>Chat support will be available 24\/7 via the Rotimatic App. We can remotely connect to your machine to troubleshoot and send software fixes via the cloud. Within the warranty period, if you face any hardware problems, we shall either repair or replace your unit free of charge, to ensure you don’t miss the hot, fresh rotis.<\/p>"
+            }
+          },
+          "ab8e817c-2d9c-4c6c-beb3-9570f91243df": {
+            "type": "question",
+            "settings": {
+              "question": "Can I buy Rotimatic from any country?",
+              "anwser": "<p>Not yet. Rotimatic is currently available for retail purchase only in the following regions: Singapore, USA, Canada, New Zealand, Australia, UK, Germany, France, Netherlands, Ireland, Denmark, Sweden, Norway, Hong Kong, UAE, Saudi Arabia, Qatar , Oman , Kuwait and Bahrain. The shipping and delivery cost of Rotimatic may change as per your location<\/p>"
+            }
+          },
+          "17b53e7a-8e2a-406f-9e32-332eaa2f2c77": {
+            "type": "question",
+            "settings": {
+              "question": "Does the warranty cover everything?",
+              "anwser": "<p>Rotimatic comes with a 1-year free warranty valid in the country that the Rotimatic is shipped to. You also enjoy Rotimatic Care for longer if you take an extended warranty on your unit, <a href=\"\/pages\/warranty\" title=\"Warranty\">details here<\/a>.<\/p>"
+            }
+          },
+          "5bc2ab2a-c923-484c-94d4-b3bd7ce2d666": {
+            "type": "question",
+            "settings": {
+              "question": "What if I change my mind and want to cancel my order?",
+              "anwser": "<p>We’ll be sad, but we’ll understand. You’re free to cancel the order before the unit reaches you for any reason, and get a full refund.<br\/>Rotimatic also comes with a 30-day money back guarantee.So after you receive your Rotimatic, if you are unhappy with your Rotimatic experience, you can return it within 30 days and we’ll refund the retail price of the product after deducting the return shipping price of US$199<\/p>"
+            }
+          },
+          "28bcd9aa-5bf9-418f-a08f-d489422d2b3b": {
+            "type": "question",
+            "settings": {
+              "question": "Can I buy Rotimatic from other websites?",
+              "anwser": "<p>Rotimatic is available for purchase only on the <a href=\"https:\/\/rotimatic.com\/\">official Rotimatic website<\/a>.Currently, we do not encourage you to buy Rotimatic from other e-commerce websites.<\/p>"
+            }
+          },
+          "bdb357ee-5512-43ef-bff4-ac3bfc405d03": {
+            "type": "question",
+            "settings": {
+              "question": "Can I order Rotimatic and ship it overseas?",
+              "anwser": "<p>We do not encourage you to ship Rotimatic overseas. The warranty on Rotimatic is applicable only in the country it’s delivered. The voltage of Rotimatic shipped to you will be as per the country it’s delivered in (110 V for US, Canada and 220V for Europe, SG and AU)<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "24b612a4-083c-45ee-849c-00814e4cab60",
+          "a8ece1ff-71b4-43fb-b995-db6473bb4aa1",
+          "bc66735a-7f62-4652-aa48-f2a0e487de00",
+          "6af6908c-136f-482a-a29a-7c1f060ac336",
+          "cebdaf59-436d-4b6b-ab9e-649c94baa028",
+          "17069952-4e62-4ca1-ac38-ecb4cf318019",
+          "9552ce59-09f1-4d87-a146-e2d924972a2d",
+          "0589f850-87f8-4537-bc3a-15838dface29",
+          "f2f01b86-998e-4c34-a949-03839685b905",
+          "ab8e817c-2d9c-4c6c-beb3-9570f91243df",
+          "17b53e7a-8e2a-406f-9e32-332eaa2f2c77",
+          "5bc2ab2a-c923-484c-94d4-b3bd7ce2d666",
+          "28bcd9aa-5bf9-418f-a08f-d489422d2b3b",
+          "bdb357ee-5512-43ef-bff4-ac3bfc405d03"
+        ],
+        "settings": {}
+      },
+      "waitlist-popup": {
+        "type": "waitlist-popup",
+        "settings": {
+          "showHideSec": false
+        }
+      },
+      "product-here-for-you": {
+        "type": "product-here-for-you",
+        "blocks": {
+          "bfa53020-739a-405c-8fae-231f8edaf4d4": {
+            "type": "here_blocks",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Remote-trouleshooting.png",
+              "title": "Remote troubleshooting",
+              "text": "<p>Wifi connectivity allows swift troubleshooting of software issues via Cloud by experts, almost instantly, at the comfort of your home.<\/p>"
+            }
+          },
+          "c0c1751d-7e79-43c6-96fe-1eb1e3b794b9": {
+            "type": "here_blocks",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Service-at-your-door-step.png",
+              "title": "Service at your door step",
+              "text": "<p>Free pickup and delivery. Never an extra dollar for shipping, labour or any advanced support.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "bfa53020-739a-405c-8fae-231f8edaf4d4",
+          "c0c1751d-7e79-43c6-96fe-1eb1e3b794b9"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/We-are-here-for-you.png",
+          "title": "We are here for you",
+          "text": "<p>Get 24\/7 access to our tech support experts via Live chat on the Rotimatic App or speak to our experts with a call back request.<\/p>"
+        }
+      },
+      "maestrooo-instagram": {
+        "type": "maestrooo-instagram",
+        "settings": {
+          "title": "Instagram feed",
+          "subheading": "<p>Write content about your brand<\/p>",
+          "button_text": "Follow Us",
+          "button_link": "https:\/\/www.instagram.com\/weotesting1\/",
+          "layout": "grid",
+          "image_size": "medium",
+          "full_width": true,
+          "add_spacing": true,
+          "rows_count": 3,
+          "show_author": false,
+          "show_caption": true,
+          "show_date": true,
+          "click_action": "open_instagram",
+          "heading_color": "#000000",
+          "subheading_color": "#000000",
+          "button_background": "#3a3a3a",
+          "button_color": "#ffffff",
+          "overlay_color": "#606060",
+          "overlay_text_color": "#ffffff",
+          "overlay_opacity": 65
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_ajax_enable": true,
+          "cart_notes_enable": false
+        }
+      },
+      "16062410432c8fa238": {
+        "type": "recipes-slider",
+        "blocks": {
+          "1ee2e336-dd37-494d-a5a8-d59b89d7a4b3": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/circle-cropped_3.png",
+              "title": "Puri Ladoo",
+              "text": "<p>Make these impressive Ladoos from leftover Puris. Combine them with Jaggery, Ghee, spices and nut powders, which are good fats, to make it a healthy ladoo for kids.<\/p><p><a href=\"https:\/\/web.whatsapp.com\/send?text=Puri%20Ladoo%20https%3A%2F%2Frotimatic.com%2Frecipe%2Fpuri-ladoo%2F\" target=\"_blank\"><br\/><\/a><\/p>",
+              "link": "\/pages\/recipes#puri-ladoo"
+            }
+          },
+          "1d1168df-f9ce-4461-91a8-a38bbd5affdd": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Chaat-Puri.png",
+              "title": "Chaat Puri",
+              "text": "<p><a href=\"https:\/\/rotimaticus.myshopify.com\/pages\/recipes#chaat-puri\" title=\"https:\/\/rotimaticus.myshopify.com\/pages\/recipes#chaat-puri\">A Medley of fried Puri’s, Potatoes, beans, sweet and spicy chutneys, yoghurt, raw onions, spices etc.<\/a><\/p>",
+              "link": "\/pages\/recipes#chaat-puri"
+            }
+          },
+          "942c3f45-f243-471d-b628-661ad31c9868": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/circle-cropped_4.png",
+              "title": "Puran Poli",
+              "text": "<p>Puran Poli is an Indian sweet flatbread, made differently across different states. It goes by different names like Vedmi, Holige, Obbattu, Poli etc<\/p>",
+              "link": "\/pages\/recipes#puran-poli"
+            }
+          },
+          "40b79fda-a468-4dd3-98ae-c6099562ceb3": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Egg-Roti-wrap.png",
+              "title": "Egg Roti wrap",
+              "text": "<p>Roti wrap with fresh veggie salad or  grilled meat and enjoy it with your favourite dip.<\/p>",
+              "link": "\/pages\/recipes#egg-roti-wrap"
+            }
+          },
+          "b3b5d7d0-8138-405e-addb-ff0032610e4b": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/circle-cropped_1.png",
+              "title": "Roti + Burger",
+              "text": "<p>Enjoy this creative Burger made from Rotis, with any stuffing you like to make it a wholesome meal.<\/p>",
+              "link": "\/pages\/recipes#roti-burger"
+            }
+          },
+          "c45204b6-462b-4f2b-80f8-4fa149af382a": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Pumpkin-Pie.png",
+              "title": "Pumpkin Pie",
+              "text": "<p>A yummy dessert with coconut cream and pumpkin pie spices<\/p>",
+              "link": "\/pages\/recipes#pumpkin-pie-cups"
+            }
+          },
+          "84ef0802-bcc6-49c1-ac03-52f8c101e9a3": {
+            "type": "recipes_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/circle-cropped.png",
+              "title": "Samosa",
+              "text": "<p>Say “Samosa”, a triangular snack pops up in one’s mind and you are salivating. This popular snack has travelled from Egypt to Libya to Central Asia to India.<\/p>",
+              "link": "\/pages\/recipes#samosa"
+            }
+          }
+        },
+        "block_order": [
+          "1ee2e336-dd37-494d-a5a8-d59b89d7a4b3",
+          "1d1168df-f9ce-4461-91a8-a38bbd5affdd",
+          "942c3f45-f243-471d-b628-661ad31c9868",
+          "40b79fda-a468-4dd3-98ae-c6099562ceb3",
+          "b3b5d7d0-8138-405e-addb-ff0032610e4b",
+          "c45204b6-462b-4f2b-80f8-4fa149af382a",
+          "84ef0802-bcc6-49c1-ac03-52f8c101e9a3"
+        ],
+        "settings": {
+          "title": "Happiness is homemade",
+          "text": "<p>Rotimatic is designed to make any type of flatbread. It connects to the <br\/>internet and upgrades with features that add more variety to your table and parties.<\/p>",
+          "button_label": "See recipes",
+          "button_link": "shopify:\/\/pages\/recipes"
+        }
+      },
+      "product-rotimatic": {
+        "type": "product-rotimatic",
+        "blocks": {
+          "afbf2927-9227-4364-85d9-0c442513e929": {
+            "type": "product_rotimatic",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Kneading-kit.png",
+              "title": "Rotimatic"
+            }
+          },
+          "cddd6b17-2ea0-4586-9b88-c38d9f7057c8": {
+            "type": "product_rotimatic",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Kneading-kit-1.png",
+              "title": "Kneading kit"
+            }
+          },
+          "af1893cd-85af-4169-bcd9-168cecc99c1d": {
+            "type": "product_rotimatic",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Container-set.png",
+              "title": "Container set"
+            }
+          },
+          "8bf071cd-b439-4b96-83f4-0743c00e9487": {
+            "type": "product_rotimatic",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cleankit_shadow.png",
+              "title": "Cleaning kit"
+            }
+          }
+        },
+        "block_order": [
+          "afbf2927-9227-4364-85d9-0c442513e929",
+          "cddd6b17-2ea0-4586-9b88-c38d9f7057c8",
+          "af1893cd-85af-4169-bcd9-168cecc99c1d",
+          "8bf071cd-b439-4b96-83f4-0743c00e9487"
+        ],
+        "settings": {
+          "title": "Every Rotimatic comes complete with"
+        }
+      },
+      "hero-1": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/videobanner.png",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "large",
+          "text_size": "large",
+          "title": "Effortless rotis in 90 seconds",
+          "text": "<p><em>“The world's most popular food robot”<\/em> –The Spoon<\/p>",
+          "button_label": "How it works",
+          "button_link": "https:\/\/www.youtube.com\/watch?v=1Ds9v_XNdH8",
+          "button_popup": true
+        }
+      },
+      "1606561270dbda9e44": {
+        "type": "map-count",
+        "disabled": true,
+        "settings": {
+          "title": "The world’s most popular robot"
+        }
+      },
+      "featured-product": {
+        "type": "featured-product",
+        "settings": {
+          "featured_product": "1-year-international-warranty",
+          "show_quantity_selector": false,
+          "show_variant_labels": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "settings": {
+          "title": "",
+          "collection": "test",
+          "grid": 4,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 2,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": false
+        }
+      },
+      "product-usp": {
+        "type": "product-usp",
+        "blocks": {
+          "5432e555-4ebc-4a00-a995-d7227fe98145": {
+            "type": "product_usp",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/clock.png",
+              "text": "<p>Fresh rotis in <br\/>90 seconds<\/p>",
+              "terms": false,
+              "terms_text": "<p>Return charges of *price* included<\/p>"
+            }
+          },
+          "f458ed94-d575-4762-ba14-31cfd877852e": {
+            "type": "product_usp",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Content.png",
+              "text": "<p>Customize - thickness, <br\/>roast and oil level<\/p>",
+              "terms": false,
+              "terms_text": "<p>Return charges of *price* included<\/p>"
+            }
+          },
+          "a764b281-a190-4f61-8c64-2cf1612bbadb": {
+            "type": "product_usp",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/callendar.png",
+              "text": "<p>30-day money <br\/>back guarantee<\/p>",
+              "terms": true,
+              "terms_text": "<p>Restocking fee of $199 USD will be applied for returns<\/p>"
+            }
+          },
+          "ae24403e-1baf-4a84-825f-20e9fc50712a": {
+            "type": "product_usp",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/update.png",
+              "text": "<p>Unlimited software <br\/>upgrades<\/p>",
+              "terms": false,
+              "terms_text": "<p>Return charges of *price* included<\/p>"
+            }
+          },
+          "5342b9df-3ed1-4062-bfdb-b2d530b90f38": {
+            "type": "product_usp",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/roti.png",
+              "text": "<p>Make Puris, Pizzas <br\/>and much more <\/p>",
+              "terms": false,
+              "terms_text": "<p>Return charges of *price* included<\/p>"
+            }
+          },
+          "516fdb07-0906-4388-95b8-162962539790": {
+            "type": "product_usp",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Csupport.png",
+              "text": "<p>Always online <br\/>24\/7 support<\/p>",
+              "terms": false,
+              "terms_text": "<p>Return charges of *price* included<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "5432e555-4ebc-4a00-a995-d7227fe98145",
+          "f458ed94-d575-4762-ba14-31cfd877852e",
+          "a764b281-a190-4f61-8c64-2cf1612bbadb",
+          "ae24403e-1baf-4a84-825f-20e9fc50712a",
+          "5342b9df-3ed1-4062-bfdb-b2d530b90f38",
+          "516fdb07-0906-4388-95b8-162962539790"
+        ],
+        "settings": {
+          "title": "One Rotimatic. Endless Possibilities."
+        }
+      },
+      "sidebar-product": {
+        "type": "sidebar-product",
+        "settings": {
+          "terms_link": "",
+          "featured_product": "rotimatic",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "full",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-reviews": {
+        "type": "product-reviews",
+        "blocks": {
+          "f1a7105a-d6c3-47a8-8a3d-a636353674ae": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Lakshmi-Kumar.png",
+              "small_image": "shopify:\/\/shop_images\/Lakshmi-Kumar-Icon.png",
+              "name": "Lakshmi Kumar",
+              "name_id": "@lakshmikumar",
+              "content": "<p>#Rotimatickids Nisshita Marikumar Age: 11 Dish name: Pizza Cannoli Make the pizza base and roll it with aluminum foil inside. Cook in the oven for a few mins. Then take off the aluminum foil and add mozzarella cheese to it and cook in oven 450 degree<\/p>"
+            }
+          },
+          "15bde3d5-059a-49e1-98b3-76d10d2a972b": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cimi-Mathew.png",
+              "small_image": "shopify:\/\/shop_images\/Cimi-Mathew-Icon.png",
+              "name": "Cimi Mathew",
+              "name_id": "@cimimathew",
+              "content": "<p>Chole Puri. Perfect puris with the rotimatic!!;) so easy ( used self radioing flours, pillsbury gold atta,salt, rawa and ajwain ). Just turned a bit oily!<\/p>"
+            }
+          },
+          "dd018e24-e08f-42e5-b10e-ee3a9ff851ab": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Sacpe123.jpg",
+              "small_image": "shopify:\/\/shop_images\/Sacpe123-Icon.png",
+              "name": "Sacpe123",
+              "name_id": "@sacpe123",
+              "content": "<p>You have no idea how much I want a #rotimatic lol I know I know but @rotimatic has made a product I just freaking #adore I #loveroti sooo much!!!! #wantthissobad #Repost @secretsquirrelfood ・・・ Now printing Roti!! 😜 How cool is this machine?! From flour to fresh roti in just 90 seconds!!! It’s the best thing ever!! 😍 (This is not a joke!) @rotimatic<\/p>"
+            }
+          },
+          "a3209ba2-daae-4f3b-8cec-9d797c303549": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Lakshmi-Kumar.png",
+              "small_image": "shopify:\/\/shop_images\/Lakshmi-Kumar-Icon.png",
+              "name": "Lakshmi Kumar",
+              "name_id": "@lakshmikumar",
+              "content": "<p>#Rotimatickids Nisshita Marikumar Age: 11 Dish name: Pizza Cannoli Make the pizza base and roll it with aluminum foil inside. Cook in the oven for a few mins. Then take off the aluminum foil and add mozzarella cheese to it and cook in oven 450 degree<\/p>"
+            }
+          },
+          "639fcc9e-50d4-4686-999d-85f12c546285": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cimi-Mathew.png",
+              "small_image": "shopify:\/\/shop_images\/Cimi-Mathew-Icon.png",
+              "name": "Cimi Mathew",
+              "name_id": "@cimimathew",
+              "content": "<p>Chole Puri. Perfect puris with the rotimatic!!;) so easy ( used self radioing flours, pillsbury gold atta,salt, rawa and ajwain ). Just turned a bit oily!<\/p><p><br\/><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "f1a7105a-d6c3-47a8-8a3d-a636353674ae",
+          "15bde3d5-059a-49e1-98b3-76d10d2a972b",
+          "dd018e24-e08f-42e5-b10e-ee3a9ff851ab",
+          "a3209ba2-daae-4f3b-8cec-9d797c303549",
+          "639fcc9e-50d4-4686-999d-85f12c546285"
+        ],
+        "settings": {
+          "title": "Here’s what Rotimatic owners have to share",
+          "button_label": "View More Reviews",
+          "button_link": "#"
+        }
+      },
+      "pagemachines": {
+        "type": "pagemachines",
+        "settings": {
+          "title": "",
+          "collection": "main-machine",
+          "grid": 3,
+          "rows": 4,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify:\/\/shop_images\/rotimatic-logo-2.png",
+          "logo_max_width": 160,
+          "main_linklist": "main-menu",
+          "message": false,
+          "home_page_only": true,
+          "message_text": "Rotimatic is now on Shopify!!!",
+          "message_link": "",
+          "color_bg": "#3a3a3a",
+          "color_text": "#ffffff",
+          "show_currency_selector": true,
+          "button_label": "Buy Now",
+          "button_link": "shopify:\/\/products\/rotimatic"
+        }
+      },
+      "page-technology-symphony-of-speed": {
+        "type": "page-technology-symphony-of-speed",
+        "blocks": {
+          "1590664619702": {
+            "type": "icon-repeter",
+            "settings": {
+              "title": "300 parts",
+              "iconimage": ""
+            }
+          },
+          "1590664596136": {
+            "type": "icon-repeter",
+            "settings": {
+              "title": "10 active motors",
+              "iconimage": ""
+            }
+          },
+          "1590664612157": {
+            "type": "icon-repeter",
+            "settings": {
+              "title": "15 smart sensors",
+              "iconimage": ""
+            }
+          }
+        },
+        "block_order": [
+          "1590664596136",
+          "1590664612157",
+          "1590664619702"
+        ],
+        "settings": {
+          "main-heading": "The power behind the robot",
+          "content-speed": "<p>From dry flour to freshly puffed flatbread in a minute. This is possible with a 32-bit microprocessor that harmoniously orchestrates 10 motors, 15 sensors and 300 parts in parallel. The 10 motors work together based on the data from 15 different sensors, which measure things like temperature, position and the most complex and important metric, that is, consistency. It manages all processes seamlessly to save every second possible.<\/p>"
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": false,
+          "heading": "You may also like",
+          "show_vendor": false
+        }
+      },
+      "cart-products": {
+        "type": "cart-products",
+        "settings": {
+          "title": "Featured collection",
+          "collection": "cartpage-accessories",
+          "grid": 5
+        }
+      },
+      "feature-columns": {
+        "type": "feature-columns",
+        "blocks": {
+          "feature-columns-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/Load_11db72c0-91b5-428a-bc88-a35e7af593a7.jpg",
+              "title": "LOAD",
+              "text": "<p>fresh ingredients<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature-columns-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/Play.jpg",
+              "title": "PLAY",
+              "text": "<p>customised cooking<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature-columns-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/gifImg.png",
+              "gifImage": "shopify:\/\/shop_images\/puff_31c4e16b-9aae-49b9-b643-59f79098eda8.gif",
+              "title": "PUFF",
+              "text": "<p>hot & fresh rotis<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "feature-columns-0",
+          "feature-columns-1",
+          "feature-columns-2"
+        ],
+        "settings": {
+          "onViewLoad": true,
+          "title": "The smarter way to roti",
+          "text": "<p>Rotimatic is the world's first fully integrated solution<br\/>that measures, mixes, kneads, flattens, cooks, puffs and, delights. All in one!<\/p>",
+          "align_text": "center"
+        }
+      },
+      "16130655952c9d9829": {
+        "type": "three-block",
+        "blocks": {
+          "70e3c458-9109-4531-8bef-d2b2235008cc": {
+            "type": "three_block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Family.jpg",
+              "title": "66000",
+              "text": "<p>Happy families are tasting hot, puffed rotimatic rotis<\/p>"
+            }
+          },
+          "f771c391-8cd7-41b1-b42b-ae8b25454165": {
+            "type": "three_block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/World.jpg",
+              "title": "113",
+              "text": "<p>New rotis were made <br\/>in the last minute<\/p>"
+            }
+          },
+          "ace3aea1-22ad-437b-abe3-ebe5eb7c6e97": {
+            "type": "three_block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Roti-Icon.jpg",
+              "title": "108,389,895",
+              "text": "<p>Real-time data of Rotis served and counting<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "70e3c458-9109-4531-8bef-d2b2235008cc",
+          "f771c391-8cd7-41b1-b42b-ae8b25454165",
+          "ace3aea1-22ad-437b-abe3-ebe5eb7c6e97"
+        ],
+        "settings": {}
+      },
+      "16132252003984e5ef": {
+        "type": "be-boss",
+        "settings": {
+          "onViewLoad": false,
+          "image": "shopify:\/\/shop_images\/be-the-boss.png",
+          "title": "Be the boss of what you eat!",
+          "text": "<p>Don’t leave your health in the hands of processed food, takeaways and restaurants.Take charge by knowing exactly what ingredients you are using, from flour to oil to water. Pick every last ingredient, so everything is fresh!<\/p>",
+          "button_label": "See Compatible Flour brands",
+          "button_link": "#"
+        }
+      },
+      "1613226939a380d59b": {
+        "type": "form-calculate",
+        "settings": {
+          "title": "Light on your body… and on your wallet",
+          "text": "<p>Calculate how much you can save with Rotimatic by reducing processed rotis, eating out and takeaways. The price of Rotimatic includes unlimited new features via software updates.<\/p>"
+        }
+      },
+      "16132344718331c6ec": {
+        "type": "home-product-reviews",
+        "disabled": true,
+        "blocks": {
+          "aea38958-c822-4138-9746-c7d78dc356b7": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cimi-Mathew.png",
+              "small_image": "shopify:\/\/shop_images\/Cimi-Mathew-Icon.png",
+              "name": "Cimi Mathew",
+              "name_id": "@cimimathew",
+              "content": "<p>Chole Puri. Perfect puris with the rotimatic!!;) so easy ( used self radioing flours, pillsbury gold atta,salt, rawa and ajwain ). Just turned a bit oily!<\/p>"
+            }
+          },
+          "c9382b63-f9cc-4b9c-af30-88367f962c56": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Lakshmi-Kumar.png",
+              "small_image": "shopify:\/\/shop_images\/Lakshmi-Kumar-Icon.png",
+              "name": "Lakshmi Kumar",
+              "name_id": "@lakshmikumar",
+              "content": "<p>#Rotimatickids Nisshita Marikumar Age: 11 Dish name: Pizza Cannoli Make the pizza base and roll it with aluminum foil inside. Cook in the oven for a few mins. Then take off the aluminum foil and add mozzarella cheese to it and cook in oven 450 degree<\/p>"
+            }
+          },
+          "154ad8be-d54e-4d6f-883b-70e9af73f101": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Sacpe123.jpg",
+              "small_image": "shopify:\/\/shop_images\/Sacpe123-Icon.png",
+              "name": "Sacpe123",
+              "name_id": "@sacpe123",
+              "content": "<p>You have no idea how much I want a #rotimatic lol I know I know but @rotimatic has made a product I just freaking #adore I #loveroti sooo much!!!! #wantthissobad #Repost @secretsquirrelfood ・・・ Now printing Roti!! 😜 How cool is this machine?! From flour to fresh roti in just 90 seconds!!! It’s the best thing ever!! 😍 (This is not a joke!) @rotimatic<\/p>"
+            }
+          },
+          "aa02b877-725f-49ac-b9b5-b5fa77f3a8bd": {
+            "type": "reviews",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Lakshmi-Kumar.png",
+              "small_image": "shopify:\/\/shop_images\/Lakshmi-Kumar-Icon.png",
+              "name": "",
+              "name_id": "",
+              "content": ""
+            }
+          }
+        },
+        "block_order": [
+          "aea38958-c822-4138-9746-c7d78dc356b7",
+          "c9382b63-f9cc-4b9c-af30-88367f962c56",
+          "154ad8be-d54e-4d6f-883b-70e9af73f101",
+          "aa02b877-725f-49ac-b9b5-b5fa77f3a8bd"
+        ],
+        "settings": {
+          "title": "Here’s what Rotimatic owners have to share",
+          "button_label": "View more reviews",
+          "button_link": "#"
+        }
+      },
+      "1613831075da7aec17": {
+        "type": "taste-endless",
+        "blocks": {
+          "8679f621-65f8-46b8-88de-09c028a3e6ff": {
+            "type": "roti_item",
+            "settings": {
+              "item_image": "shopify:\/\/shop_images\/taste-item-1.jpg"
+            }
+          },
+          "16291a62-dbd0-439c-99c1-4becc1cbc5ef": {
+            "type": "roti_item",
+            "settings": {
+              "item_image": "shopify:\/\/shop_images\/taste-item-2.jpg"
+            }
+          },
+          "2601ba2e-68b4-408c-88d6-59c40091e740": {
+            "type": "roti_item",
+            "settings": {
+              "item_image": "shopify:\/\/shop_images\/taste-item-3.jpg"
+            }
+          },
+          "09c91b94-92a3-4de2-8c87-412906376303": {
+            "type": "roti_item",
+            "settings": {
+              "item_image": "shopify:\/\/shop_images\/taste-item-4.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "8679f621-65f8-46b8-88de-09c028a3e6ff",
+          "16291a62-dbd0-439c-99c1-4becc1cbc5ef",
+          "2601ba2e-68b4-408c-88d6-59c40091e740",
+          "09c91b94-92a3-4de2-8c87-412906376303"
+        ],
+        "settings": {
+          "onViewLoad": true,
+          "title": "Taste the endless possibilities",
+          "content": "<p>Unlimited new features at no additional cost<\/p>",
+          "image": "shopify:\/\/shop_images\/roti_4e4b032e-4bc3-4c1f-94dd-9cf9fea08a07.png"
+        }
+      },
+      "161401225321145879": {
+        "type": "image-bar-hover",
+        "blocks": {
+          "914a56ea-0a38-4fbc-952b-504a3c911e51": {
+            "type": "image_grid_item",
+            "settings": {
+              "hover_image": "shopify:\/\/shop_images\/01.png",
+              "grid_image": "shopify:\/\/shop_images\/IMG_fastfresh.png",
+              "icon_image": "shopify:\/\/shop_images\/Icons-freshroti.png",
+              "cta_label": "Fast & fresh",
+              "caption_text": "<p>Puffy rotis in a jiffy are a thing! Gone are the days when it took 40 minutes to prepare a simple meal.Now you can just tap a button and taste the magic<\/p>"
+            }
+          },
+          "f9ab7d60-0b1c-430e-a998-143afe4f15d1": {
+            "type": "image_grid_item",
+            "settings": {
+              "hover_image": "shopify:\/\/shop_images\/02.png",
+              "grid_image": "shopify:\/\/shop_images\/IMG_anycanroti.png",
+              "icon_image": "shopify:\/\/shop_images\/Icons-people.png",
+              "cta_label": "Anyone <br>can roti",
+              "caption_text": "<p>Did you know that everyone from kids to the visually-impaired are using Rotimatic to make thousands of rotis as we speak?That&#x27;s how easy it is to use.<\/p>"
+            }
+          },
+          "9836fd49-c61c-4d26-a194-9d7404620afc": {
+            "type": "image_grid_item",
+            "settings": {
+              "hover_image": "shopify:\/\/shop_images\/03.png",
+              "grid_image": "shopify:\/\/shop_images\/IMG_uptodate.png",
+              "icon_image": "shopify:\/\/shop_images\/Icons-food.png",
+              "cta_label": "Always up <br>to date",
+              "caption_text": "<p>Rotimatic never stops learning! It connects to the Cloud for new recipes, software updates and remote troubleshooting.It&#x27;s like a new machine each time!<\/p>"
+            }
+          },
+          "69d6f8da-fb4c-4a63-b29d-5013d35589b8": {
+            "type": "image_grid_item",
+            "settings": {
+              "hover_image": "shopify:\/\/shop_images\/04.png",
+              "grid_image": "shopify:\/\/shop_images\/IMG_lessmess.png",
+              "icon_image": "shopify:\/\/shop_images\/Icons-cloud.png",
+              "cta_label": "Less mess, <br>more food",
+              "caption_text": "<p>Think a chaotic Kitchen is an inevitable consequence of cooking? Think again! Rotimatic keeps your tabletop as clean as your eating habits.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "914a56ea-0a38-4fbc-952b-504a3c911e51",
+          "f9ab7d60-0b1c-430e-a998-143afe4f15d1",
+          "9836fd49-c61c-4d26-a194-9d7404620afc",
+          "69d6f8da-fb4c-4a63-b29d-5013d35589b8"
+        ],
+        "settings": {
+          "onViewLoad": true
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_author": true,
+          "blog_show_date": true,
+          "show_share_buttons": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": true,
+          "blog_show_date": true
+        }
+      },
+      "161457957370b680b4": {
+        "type": "custom-content",
+        "disabled": true,
+        "blocks": {
+          "72fdeb36-3c66-4c16-ad55-e256b39172dc": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"shopify-product-reviews\" data-id=\"6006117302426\">{{ product.metafields.spr.reviews }}<\/div>",
+              "width": "100%"
+            }
+          }
+        },
+        "block_order": [
+          "72fdeb36-3c66-4c16-ad55-e256b39172dc"
+        ],
+        "settings": {
+          "title": "Rotimatic Reviews"
+        }
+      },
+      "1614593151f271d31b": {
+        "type": "faq",
+        "disabled": true,
+        "blocks": {
+          "3eaf702b-ca53-4894-8b75-6752ed09701b": {
+            "type": "category",
+            "settings": {
+              "category-title": "Shipping"
+            }
+          },
+          "a1f4ebc8-5372-4d29-800f-3604fd5658d2": {
+            "type": "question",
+            "settings": {
+              "question": "What is the shipping timeline?",
+              "anwser": "<p>14 days<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "3eaf702b-ca53-4894-8b75-6752ed09701b",
+          "a1f4ebc8-5372-4d29-800f-3604fd5658d2"
+        ],
+        "settings": {}
+      },
+      "Hero_careers": {
+        "type": "Hero_careers",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/2018-01-02_-Zimplistic-Interior---_Day2_3720-LowRes_2.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "title": "Straight talk. Good vibes.",
+          "text": "<p>With a bunch oh folks who care<\/p>",
+          "button_label": "See Job Openings",
+          "button_link": "shopify:\/\/pages\/career-opportunities",
+          "button_popup": false
+        }
+      },
+      "161484569471dd3499": {
+        "type": "custom-content",
+        "disabled": true,
+        "blocks": {
+          "ba1dfb27-0c27-456c-b30d-c783b3b13fb0": {
+            "type": "html",
+            "settings": {
+              "code": "<div id=\"flockler-embed-177fc4d108709ec5598db24106b8eb9d\"><\/div>\n<script src=\"https:\/\/plugins.flockler.com\/embed\/177fc2c5e39095c09074bd1ab76f4bf5\/177fc4d108709ec5598db24106b8eb9d\" async=\"\"><\/script>",
+              "width": "100%"
+            }
+          }
+        },
+        "block_order": [
+          "ba1dfb27-0c27-456c-b30d-c783b3b13fb0"
+        ],
+        "settings": {
+          "title": "#RotimaticLife"
+        }
+      },
+      "blog-slider": {
+        "type": "blog-slider",
+        "settings": {
+          "showHide_Slider": true,
+          "blogIs": "rotimatic",
+          "howManyArticlesToDisplay": 5,
+          "linkLabel": "CONTINUE READING"
+        }
+      },
+      "blog-articles": {
+        "type": "blog-articles",
+        "blocks": {
+          "d4315c63-3a45-4eb6-bf7e-f95fe361f93b": {
+            "type": "text",
+            "settings": {
+              "articleIs": "rotimatic\/engineer-cum-entrepreneur-pranoti-nagarkar-s-rotimatic-journey"
+            }
+          },
+          "412888df-9fa5-4a0c-b26b-b8a1a18b7450": {
+            "type": "text",
+            "settings": {
+              "articleIs": "rotimatic\/zimplistic-s-rotimatic-creates-a-unique-business-category-pranoti-nagarkar-and-rishi-israni"
+            }
+          },
+          "3a551457-d430-4f46-a14e-f665573853b3": {
+            "type": "text",
+            "settings": {
+              "articleIs": "rotimatic\/is-it-possible-to-reverse-the-phenomenon-of-unpaid-labour-by-women"
+            }
+          },
+          "ddce80f0-7254-4876-be17-991d7bb84afc": {
+            "type": "text",
+            "settings": {
+              "articleIs": "rotimatic\/rotimatic-and-friends-kitchen-robots-changing-lives"
+            }
+          },
+          "e6a53836-70ed-4493-8e0b-e9dce67133c6": {
+            "type": "text",
+            "settings": {
+              "articleIs": "rotimatic\/chocolatey-delights-for-christmas-2020"
+            }
+          }
+        },
+        "block_order": [
+          "d4315c63-3a45-4eb6-bf7e-f95fe361f93b",
+          "412888df-9fa5-4a0c-b26b-b8a1a18b7450",
+          "3a551457-d430-4f46-a14e-f665573853b3",
+          "ddce80f0-7254-4876-be17-991d7bb84afc",
+          "e6a53836-70ed-4493-8e0b-e9dce67133c6"
+        ],
+        "settings": {
+          "layout": "list",
+          "blog_show_author": true,
+          "blog_show_date": true
+        }
+      },
+      "about_title": {
+        "type": "about_title",
+        "settings": {}
+      },
+      "about_slider": {
+        "type": "about_slider",
+        "settings": {}
+      },
+      "about_founders": {
+        "type": "about_founders",
+        "settings": {}
+      },
+      "about_weAreRotimatic_dynamic": {
+        "type": "about_weAreRotimatic_dynamic",
+        "blocks": {
+          "2b5b5b52-9164-43c1-b78b-4719f73a256e": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_5.png",
+              "title": "2008",
+              "underTitle": "Company\nfounded"
+            }
+          },
+          "fb7d2933-a76d-43d7-9ba9-7559ebdaf8d0": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/employee-icon.png",
+              "title": "50",
+              "underTitle": "Full-time\nemployees"
+            }
+          },
+          "a20a1ad8-dfcd-4e8c-9c29-043d544c1a70": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/rotis-made.png",
+              "title": "120+",
+              "underTitle": "million rotis\nmade so far"
+            }
+          },
+          "cc689656-1541-4dbe-bc3f-343429ded183": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/globe-icon.png",
+              "title": "20",
+              "underTitle": "Countries"
+            }
+          },
+          "c31151b8-58cd-4a2c-a138-40ac064e28ad": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/families-icon.png",
+              "title": "66000+",
+              "underTitle": "Happy\nfamilies"
+            }
+          }
+        },
+        "block_order": [
+          "2b5b5b52-9164-43c1-b78b-4719f73a256e",
+          "fb7d2933-a76d-43d7-9ba9-7559ebdaf8d0",
+          "a20a1ad8-dfcd-4e8c-9c29-043d544c1a70",
+          "cc689656-1541-4dbe-bc3f-343429ded183",
+          "c31151b8-58cd-4a2c-a138-40ac064e28ad"
+        ],
+        "settings": {
+          "showHide_Slider": true,
+          "title": "We are Rotimatic",
+          "content": "We break boundaries. We build delightful intelligent solutions, to help people lead healthier lives."
+        }
+      },
+      "about_bigImage": {
+        "type": "about_bigImage",
+        "settings": {}
+      },
+      "about_content1": {
+        "type": "about_content1",
+        "settings": {}
+      },
+      "about_content2": {
+        "type": "about_content2",
+        "settings": {}
+      },
+      "press_slider": {
+        "type": "press_slider",
+        "blocks": {
+          "fa5a01f6-e327-4940-83d2-f677c864ebef": {
+            "type": "Slide",
+            "settings": {
+              "content": "Long wait, but Rotimatic's a hit with everyone",
+              "icon": "shopify:\/\/shop_images\/ezgif.com-gif-maker_633f40de-04d9-4e18-9802-547a61c37771.jpg"
+            }
+          },
+          "f1d9fdd3-80fc-4914-a15d-1d95fa14fd3a": {
+            "type": "Slide",
+            "settings": {
+              "content": "Eight years of stubbornness to give birth to their roti-maker",
+              "icon": "shopify:\/\/shop_images\/ezgif.com-gif-maker.png"
+            }
+          },
+          "2dee2775-7cf3-4889-a600-ee1210373c1e": {
+            "type": "Slide",
+            "settings": {
+              "content": "A Potential Game-Changer for Roti Loving Households",
+              "icon": "shopify:\/\/shop_images\/ezgif.com-gif-maker_97c9fd75-9b5e-43a6-8e56-4851d26ab5d5.jpg"
+            }
+          },
+          "16efac07-6afc-4936-8c31-6e1ce8d8745c": {
+            "type": "Slide",
+            "settings": {
+              "content": "Best Thing Since Sliced Bread:\nA Roti-Making Machine",
+              "icon": "shopify:\/\/shop_images\/ezgif.com-gif-maker_50951349-03cd-4b1e-97a4-830e3f454afc.png"
+            }
+          }
+        },
+        "block_order": [
+          "fa5a01f6-e327-4940-83d2-f677c864ebef",
+          "f1d9fdd3-80fc-4914-a15d-1d95fa14fd3a",
+          "2dee2775-7cf3-4889-a600-ee1210373c1e",
+          "16efac07-6afc-4936-8c31-6e1ce8d8745c"
+        ],
+        "settings": {
+          "mainImage": "shopify:\/\/shop_images\/ezgif.com-gif-maker.jpg"
+        }
+      },
+      "press_aboutRotimatic": {
+        "type": "press_aboutRotimatic",
+        "blocks": {
+          "821eaf3c-6f04-4853-97c2-b4642636ed2c": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_ddd4b713-554f-482c-b7f0-e594ab1e58df.png",
+              "iconWidth": 100,
+              "content": "Designed for today's working professionals who do not have the time and patience for rolling out fresh roti",
+              "link": "https:\/\/www.nbcnews.com\/news\/asian-america\/automatic-roti-maker-has-72-million-waiting-list-n413716"
+            }
+          },
+          "9937315c-3258-483a-a827-d1234123dd2e": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_1.png",
+              "iconWidth": 100,
+              "content": "Best Thing Since Sliced Bread: A Roti-Making Machine",
+              "link": "http:\/\/blogs.wsj.com\/indiarealtime\/2014\/06\/26\/best-thing-since-sliced-bread-a-roti-making-machine\/"
+            }
+          },
+          "fb4f9300-ad5c-484e-8d12-8aaa95ca4351": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_43256a0b-2783-46e0-bf90-28a48aa20a5c.png",
+              "iconWidth": 115,
+              "content": "I, for one, welcome our new robotic roti-making overlords",
+              "link": "https:\/\/techcrunch.com\/2017\/02\/07\/i-for-one-welcome-our-new-robotic-roti-making-overlords\/"
+            }
+          },
+          "3532aed0-f5e4-4a04-95ff-61e9f0711ff6": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_1_021e60c2-b68a-43b7-9514-9dc305e19c19.png",
+              "iconWidth": 100,
+              "content": "A good chance this Rotimatic flat bread maker could earn a permanent spot on our kitchen counters",
+              "link": "https:\/\/gizmodo.com\/forget-a-bread-maker-this-machine-churns-out-fresh-rot-1452183402"
+            }
+          },
+          "10633749-49ef-4c94-8555-1af0aa883155": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_b7655200-ea0a-45ec-95d4-fe39490472ec.png",
+              "iconWidth": 100,
+              "content": "The Best of CES 2015: the future just got a little more delicious",
+              "link": "http:\/\/sea.pcmag.com\/consumer-electronics-reviews-ratings-comparisons\/519\/news\/the-best-of-ces-2015"
+            }
+          },
+          "e64b90ab-571e-49d3-b384-eecafae9af0e": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_1_b2c695c1-65a5-44a8-b00f-8bc6e11f587c.png",
+              "iconWidth": 100,
+              "content": "Rotimatic maker turns over $20m in its first year",
+              "link": "https:\/\/www.techinasia.com\/zimplistic-year-one-revenue"
+            }
+          },
+          "1ff7d6c8-5408-4446-8d6b-19b6affaafe7": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_911b949a-bb07-43dc-a921-d10fbcefee33.png",
+              "iconWidth": 115,
+              "content": "Zimplistic, company behind Rotimatic, raises S$39.3m in series C funding",
+              "link": "https:\/\/www.channelnewsasia.com\/news\/technology\/zimplistic-company-behind-rotimatic-raises-s-39-3m-in-series-c-10145742"
+            }
+          },
+          "9f7c0401-e23a-4718-b5f5-bb915cdb01a5": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_6134a8df-2839-4ff9-bd1c-9694ed9cbdba.png",
+              "iconWidth": 120,
+              "content": "Flatbread-making robot creator Zimplistic secures US$30m in series C funding.",
+              "link": "http:\/\/www.straitstimes.com\/lifestyle\/food\/a-hit-with-everyone"
+            }
+          },
+          "e1fed156-2528-4059-8179-47c7c884146e": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_8ce54534-7997-424f-867b-38532cfad0ba.png",
+              "iconWidth": 125,
+              "content": "Flatbread-making robot creator Zimplistic secures US$30m in series C funding",
+              "link": "https:\/\/www.businesstimes.com.sg\/technology\/flatbread-making-robot-creator-zimplistic-secures-us30m-in-series-c-funding"
+            }
+          },
+          "7fc4003b-0de2-4104-9fec-e63e957307da": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_9767eaa0-ef67-4f66-b18e-3f7eb2fb8893.png",
+              "iconWidth": 110,
+              "content": "Rotimatic maker Zimplistic raises $30M in Series C funding",
+              "link": "https:\/\/tech.economictimes.indiatimes.com\/news\/startups\/rotimatic-maker-zimplistic-raises-30m-in-series-c-funding\/63796212"
+            }
+          },
+          "48b2b72c-a028-4cab-87f7-15cdad52090f": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_a2b4dd6f-33e6-44e7-81ad-ce53aefccf89.png",
+              "iconWidth": 100,
+              "content": "Zimplistic, creator of flatbread-making robot Rotimatic, secures $30 million in series C funding",
+              "link": "https:\/\/www.businessinsider.sg\/zimplistic-creator-flatbread-making-robot-rotimatic-30-million-series-c-funding\/"
+            }
+          },
+          "280617c7-9646-4095-9a2d-f5748d6c0100": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_1_a1741cb3-b794-4243-8a67-982172d1ac00.png",
+              "iconWidth": 100,
+              "content": "S'pore Firm Behind Roti-Making Robot Earned US$20M Sales In First Year - Now Raised US$30M Funding",
+              "link": "https:\/\/vulcanpost.com\/638231\/singapore-zimplistic-raises-30-m-series-c-funding\/"
+            }
+          },
+          "cdc3a2ec-4421-474d-84ca-750a0c8a4ea8": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_2.png",
+              "iconWidth": 110,
+              "content": "Zimplistic Raises $30M for Robot Roti Maker",
+              "link": "https:\/\/thespoon.tech\/zimplistic-raises-30m-for-robot-roti-maker\/"
+            }
+          },
+          "10ed3023-2ecb-4849-a42b-f2d9c8f6264c": {
+            "type": "blockIs",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker_3.png",
+              "iconWidth": 105,
+              "content": "Rotimatic - World’s first roti maker to foster healthy eating",
+              "link": "http:\/\/www.homecrux.com\/rotimatic-worlds-first-automatic-roti-maker-foster-healthy-eating\/9900\/"
+            }
+          }
+        },
+        "block_order": [
+          "821eaf3c-6f04-4853-97c2-b4642636ed2c",
+          "9937315c-3258-483a-a827-d1234123dd2e",
+          "fb4f9300-ad5c-484e-8d12-8aaa95ca4351",
+          "3532aed0-f5e4-4a04-95ff-61e9f0711ff6",
+          "10633749-49ef-4c94-8555-1af0aa883155",
+          "e64b90ab-571e-49d3-b384-eecafae9af0e",
+          "1ff7d6c8-5408-4446-8d6b-19b6affaafe7",
+          "9f7c0401-e23a-4718-b5f5-bb915cdb01a5",
+          "e1fed156-2528-4059-8179-47c7c884146e",
+          "7fc4003b-0de2-4104-9fec-e63e957307da",
+          "48b2b72c-a028-4cab-87f7-15cdad52090f",
+          "280617c7-9646-4095-9a2d-f5748d6c0100",
+          "cdc3a2ec-4421-474d-84ca-750a0c8a4ea8",
+          "10ed3023-2ecb-4849-a42b-f2d9c8f6264c"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "press_blog": {
+        "type": "press_blog",
+        "blocks": {
+          "df262f0c-6d42-4499-8f36-e7e2eeac1a6c": {
+            "type": "articles",
+            "settings": {
+              "articleIs": "rotimatic\/brian-lara-s-rotimatic-experience-read-here"
+            }
+          },
+          "3e8ab8d4-2796-4989-9bb1-b353ad7ed25b": {
+            "type": "articles",
+            "settings": {
+              "articleIs": "rotimatic\/rotimatic-margheroti-pizza-and-more-roti-recipes-for-your-party"
+            }
+          },
+          "bbf2b11f-080d-4052-b915-ce616004cd26": {
+            "type": "articles",
+            "settings": {
+              "articleIs": "rotimatic\/zimplistic-s-rotimatic-creates-a-unique-business-category-pranoti-nagarkar-and-rishi-israni"
+            }
+          }
+        },
+        "block_order": [
+          "df262f0c-6d42-4499-8f36-e7e2eeac1a6c",
+          "3e8ab8d4-2796-4989-9bb1-b353ad7ed25b",
+          "bbf2b11f-080d-4052-b915-ce616004cd26"
+        ],
+        "settings": {
+          "title": "What's new at Rotimatic Blog",
+          "readAllArticle": "shopify:\/\/blogs\/rotimatic",
+          "textLabel": "Read more articles",
+          "buyNowLink": "shopify:\/\/products\/rotimatic-plus-bh",
+          "buyNowLable": "Buy Now"
+        }
+      },
+      "main-faq": {
+        "type": "main-faq",
+        "blocks": {
+          "e45d0a3e-a737-422b-af3f-968d7fbdaaf0": {
+            "type": "titleIs",
+            "settings": {
+              "title": "A QUICK INTRO: ABOUT ROTIMATIC"
+            }
+          },
+          "2e6a7447-bb3f-4fa3-a297-bc956a619be8": {
+            "type": "question",
+            "settings": {
+              "title": "What is Rotimatic?",
+              "anwser": "<p>Rotimatic is the world’s first robotic kitchen appliance which automates the entire process of roti making. All you need to do is to touch a button, and Rotimatic will do everything else to make fresh puffed rotis within 90 seconds. You can also customize the flour type, thickness, roast level and the oil content for each roti.<\/p><p><br\/><\/p>",
+              "borderBottom": false
+            }
+          },
+          "492bfcb1-aabc-4c08-9803-3383cf595d63": {
+            "type": "question",
+            "settings": {
+              "title": "What are the rotis made by Rotimatic like?",
+              "anwser": "<p>Roti quality is the biggest thing we obsessed about when designing Rotimatic. We wanted every single roti from Rotimatic to meet the 5 criteria: 1. Every roti puffs 2. Every roti is fully cooked both outside and inside 3. Every roti is a perfectly round 4. Every roti feels fresh, soft and homemade. 5. Rotis remain soft when packed for lunch.<br\/>Put rotimatic rotis through this test when you see it in person, or <a href=\"\/pages\/reviews\" title=\"Reviews\">hear directly from our users who are living with Rotimatic<\/a>.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "2d4d5a35-a086-41ee-8109-c2636a05bf21": {
+            "type": "question",
+            "settings": {
+              "title": "What else can it make other than rotis?",
+              "anwser": "<p>Rotimatic is a smart appliance so it continues to evolve via regular software upgrades. Rotis are the core purpose behind the invention but it doesn’t stop there. In the near future, we will be releasing software upgrade to help you in cooking pooris or parathas by making flattened dough. As Rotimatic community grows, we will release more recipes via software upgrades to enable it to make other types of flatbreads from other types of flour other than wholewheat flour.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "0078e493-e01a-4c12-83f4-17f92ca2f2a7": {
+            "type": "question",
+            "settings": {
+              "title": "How many rotis can it make in one go?",
+              "anwser": "<p>Rotimatic can make as many rotis as you like non-stop. However, you need to top-up the ingredients after every 12-14 rotis (Rotimatic will notify you to top up the ingredients when it runs low).<\/p>",
+              "borderBottom": false
+            }
+          },
+          "4b245823-a513-43a0-b77a-d521c5991e2e": {
+            "type": "question",
+            "settings": {
+              "title": "What is the size of Rotimatic?",
+              "anwser": "<p>Rotimatic is designed to fit elegantly in a modern kitchen, about the size of a medium-sized micorwave.<br\/>It weighs about 20 kgs and measures 40cm (width) x 40cm (length) x 32 cm (height).<\/p>",
+              "borderBottom": false
+            }
+          },
+          "86bd5576-4ebe-4da6-adab-0cc633725099": {
+            "type": "titleIs",
+            "settings": {
+              "title": "KNOW IT BETTER: USING ROTIMATIC"
+            }
+          },
+          "1ca075da-39e8-446d-8aa3-e4a244dd1c4e": {
+            "type": "question",
+            "settings": {
+              "title": "How does it work?",
+              "anwser": "<p>Rotimatic automatically measures, dispenses, mixes the ingredients and kneads one dough ball at a time. With the built-in AI technology, it can mimic human judgement to adjust the proportion of flour &amp; water real time to create a perfect dough ball. Once a dough ball is made, it presses the dough into a flat roti and then roasts each roti until puffed deliciously. <a href=\"https:\/\/youtu.be\/5t1AhQL2bXU\">Watch the demo here<\/a>.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "eae667b7-90f1-4447-b10a-0cc051bedd7d": {
+            "type": "question",
+            "settings": {
+              "title": "Is it easy to clean?",
+              "anwser": "<p>Rotimatic is designed to keep cleaning as easy as possible. There are three types of cleaning involved, one is ‘Daily cleaning’, where only 2 small parts which come in contact with the wet dough needs cleaning after each use. They are dishwasher-safe and easily accessible via the side door. Second is the ‘Weekly Cleaning’ which includes cleaning storage (flour, water and oil) containers, flour dispensing tunnel, front door, pan area, behind Kicker and Sweeper. Third is the “Advanced cleaning” which needs to be done bimonthly and it includes using the pipe cleaning feature to keep the water pipe clean.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "43d17bde-c103-4670-9e2e-bb560b27ea0b": {
+            "type": "question",
+            "settings": {
+              "title": "Are the materials used in Rotimatic safe?",
+              "anwser": "<p>To ensure the safety of each roti Rotimatic makes, all plastic materials in contact with food are safe and FDA compliant.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "fb214187-39c5-411b-9aa8-136b90fca072": {
+            "type": "question",
+            "settings": {
+              "title": "What types of flour can I use?",
+              "anwser": "<p>Rotimatic works best with wholewheat and multigrain flour\/atta from selected brands. You can view and select your preferred flour type from the Rotimatic screen. Based on community feedback, we will add new flour types through regular software upgrades.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "cf9a98fb-3340-4091-ab95-c80f08adf0c6": {
+            "type": "question",
+            "settings": {
+              "title": "What is the voltage and power consumption?",
+              "anwser": "<p>The power consumption of Rotimatic is about the same as a large microwave oven.<\/p><p>Power consumption: 1.6kW – 1.8kW<br\/>Voltage for USA, Canada model: 110V<br\/>Voltage for UK, Singapore model: 220V<\/p>",
+              "borderBottom": false
+            }
+          },
+          "30cd4c9c-441a-46a5-8aee-ca3d85268aaf": {
+            "type": "titleIs",
+            "settings": {
+              "title": "SEE IT IN ACTION - WHERE TO TRY & BUY"
+            }
+          },
+          "4b4908d9-318e-4e49-9a39-98c01018cedf": {
+            "type": "question",
+            "settings": {
+              "title": "How can I see & experience the Rotimatic before buying it?",
+              "anwser": "<p>Rotimatic is sold via e-commerce, so we currently don’t have a store for you to go and see the machine in action. You can check out reviews and comments from the current Rotimatic owners online via Youtube &amp; Facebook.<\/p><p>Rotimatic comes with a 30 day money back guarantee, you can now experience Rotimatic at the comfort of your home. If you are not happy with it, you can initiate a return within 30 days and get a refund of the product price. Return shipping fee will be deducted from the refund amount.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "a648a477-1751-4935-9e99-62a79b7e52e0": {
+            "type": "question",
+            "settings": {
+              "title": "How much is it?",
+              "anwser": "<p>The retail price of Rotimatic with one-year base warranty is USD 1299 excluding local taxes and logistics.<\/p><p>The retail price of Rotimatic with two-year base warranty is USD 1598 excluding local taxes and logistics.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "47b55c8f-edd5-4a30-a4a0-ebd45ae9eb29": {
+            "type": "question",
+            "settings": {
+              "title": "Where can I get Rotimatic?",
+              "anwser": "<p>Rotimatic is currently available for order via <a href=\"https:\/\/rotimatic.com\/\">https:\/\/rotimatic.com <\/a>in 20 countries – USA, Canada, U.K., Australia, New Zealand, Singapore, United Arab Emirates, Saudi Arabia, Bahrain, Kuwait, Oman, Qatar, France, Germany, Netherlands, Norway, Denmark, Sweden, Ireland and Hong Kong.<\/p><p><br\/><\/p>",
+              "borderBottom": false
+            }
+          },
+          "9245037a-7cf2-4911-aaca-3fcbbb75cde0": {
+            "type": "question",
+            "settings": {
+              "title": "What if I'm in a country where Rotimatic is not available?",
+              "anwser": "<p>If you’re currently residing in a country where Rotimatic is not yet available, please do sign up on our waitlist at <a href=\"\/pages\/be-the-first-in-line\" title=\"\/pages\/be-the-first-in-line\">https:\/\/rotimatic.com\/pages\/be-the-first-in-line<\/a>. You will be the first to know when Rotimatic becomes available in your country.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "df1da5d9-118c-4f0b-8348-07927fad3e7f": {
+            "type": "question",
+            "settings": {
+              "title": "What’s the return policy?",
+              "anwser": "<p>We have a 30-day money back guarantee. So, for any reason, if the Rotimatic doesn’t live up to your expectations, you can return it within the first 30 days.<\/p><p>We will give you a refund of the product price. Return shipping charge will be deducted from the refund amount.<\/p><p>Please check the Terms of Sale for more details.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "3451482a-d0d4-44c7-9b54-942a1dbd02f7": {
+            "type": "question",
+            "settings": {
+              "title": "I saw Rotimatic advertised by a 3rd party. Is it real?",
+              "anwser": "<p>Rotimatic is the exclusive registered trademark of Zimplistic Pte. Ltd. <a href=\"\/\" title=\"\/\">Rotimatic.com<\/a> and <a href=\"https:\/\/www.amazon.com\/Rotimatic-Automatic-Machine-Official-Listing\/dp\/B079P5SS2W\/ref=sr_1_1?keywords=rotimatic&amp;qid=1567153145&amp;s=gateway&amp;sr=8-1\">our official listing on Amazon<\/a> is the only authorized retail channel for Rotimatic. We are not associated with any third party distributors.<\/p><p>If you were contacted by a third party claiming to be a Zimplistic representative offering you Rotimatic for sale, please contact us immediately as these are fraudulent claims and we take your safety very seriously. You can write to us at moreinfo@zimplistic.com.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "06b8963e-faf0-4a33-857a-6d36ea927d7e": {
+            "type": "titleIs",
+            "settings": {
+              "title": "WE'RE HERE TO HELP: WARRANTY & SUPPORT"
+            }
+          },
+          "79d759ea-db9c-4496-8257-ce0927c5c643": {
+            "type": "question",
+            "settings": {
+              "title": "How long is the warranty?",
+              "anwser": "<p>Each Rotimatic comes with a free 1-year base warranty valid in the country where your machine was purchased to support you in case of breakage related to regular use.<br\/>Please refer to our <a href=\"\/pages\/warranty\" title=\"Warranty\">warranty policy<\/a> for more queries.<\/p><p><br\/><\/p>",
+              "borderBottom": false
+            }
+          },
+          "7bd59ad3-a738-49b1-b90e-a3d055f13423": {
+            "type": "question",
+            "settings": {
+              "title": "How is your support geared up?",
+              "anwser": "<p>Chat support will be available 24\/7 via the Rotimatic App. We can remotely connect to your machine to troubleshoot and send software fixes via the cloud. Within the warranty period, if you face any hardware problems, we shall either repair or replace your unit free of charge, to ensure you don’t miss out on hot fresh rotis.<\/p>",
+              "borderBottom": false
+            }
+          },
+          "63ce766f-4964-45f3-82ac-fddfa1eeded7": {
+            "type": "question",
+            "settings": {
+              "title": "Have more questions?",
+              "anwser": "<p><a href=\"https:\/\/support.rotimatic.com\/\">Visit our Help Center for more detailed FAQs<\/a><\/p>",
+              "borderBottom": true
+            }
+          }
+        },
+        "block_order": [
+          "e45d0a3e-a737-422b-af3f-968d7fbdaaf0",
+          "2e6a7447-bb3f-4fa3-a297-bc956a619be8",
+          "492bfcb1-aabc-4c08-9803-3383cf595d63",
+          "2d4d5a35-a086-41ee-8109-c2636a05bf21",
+          "0078e493-e01a-4c12-83f4-17f92ca2f2a7",
+          "4b245823-a513-43a0-b77a-d521c5991e2e",
+          "86bd5576-4ebe-4da6-adab-0cc633725099",
+          "1ca075da-39e8-446d-8aa3-e4a244dd1c4e",
+          "eae667b7-90f1-4447-b10a-0cc051bedd7d",
+          "43d17bde-c103-4670-9e2e-bb560b27ea0b",
+          "fb214187-39c5-411b-9aa8-136b90fca072",
+          "cf9a98fb-3340-4091-ab95-c80f08adf0c6",
+          "30cd4c9c-441a-46a5-8aee-ca3d85268aaf",
+          "4b4908d9-318e-4e49-9a39-98c01018cedf",
+          "a648a477-1751-4935-9e99-62a79b7e52e0",
+          "47b55c8f-edd5-4a30-a4a0-ebd45ae9eb29",
+          "9245037a-7cf2-4911-aaca-3fcbbb75cde0",
+          "df1da5d9-118c-4f0b-8348-07927fad3e7f",
+          "3451482a-d0d4-44c7-9b54-942a1dbd02f7",
+          "06b8963e-faf0-4a33-857a-6d36ea927d7e",
+          "79d759ea-db9c-4496-8257-ce0927c5c643",
+          "7bd59ad3-a738-49b1-b90e-a3d055f13423",
+          "63ce766f-4964-45f3-82ac-fddfa1eeded7"
+        ],
+        "settings": {
+          "title": "Frequently Asked Questions",
+          "content": "<p>Rotimatic.com is the only authorized retail channel for Rotimatic. We are not associated with any third party distributors.<\/p><p>If you were contacted by a third party claiming to be a Zimplistic representative offering you Rotimatic for sale, please contact us immediately as these are fraudulent claims and we take your safety very seriously.<\/p>"
+        }
+      },
+      "warranty_header": {
+        "type": "warranty_header",
+        "settings": {}
+      },
+      "warranty_api_integration": {
+        "type": "warranty_api_integration",
+        "settings": {}
+      },
+      "warranty_moreAbout_rotimatic": {
+        "type": "warranty_moreAbout_rotimatic",
+        "settings": {}
+      },
+      "warranty_steps": {
+        "type": "warranty_steps",
+        "settings": {}
+      },
+      "warranty_faqs": {
+        "type": "warranty_faqs",
+        "blocks": {
+          "1a41189c-6e6a-427f-a0ce-c1ed46cc4141": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "How long is the Rotimatic warranty?",
+              "anwser": "<p>Every Rotimatic comes with 1-year base warranty. You can extend your base warranty coverage with RotimaticCare+ for another 1-year and continue enjoying your Rotimatic worry-free.<\/p>"
+            }
+          },
+          "f72ddc56-bc9c-4aec-aede-520b1974eff1": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "When can I purchase Rotimatic  extended warranty?",
+              "anwser": "<p>You may choose to purchase an <a href=\"\/pages\/extended-warranty-policy\" title=\"\/pages\/extended-warranty-policy\">extended warranty<\/a> within six (6) month’s from the date of delivery of the Product, which shall be subject to our Extended Warranty Terms and Conditions.<\/p>"
+            }
+          },
+          "263ef0df-aeab-4a85-a4f3-d6188c8d5923": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "Who is using it right now?",
+              "anwser": "<p>Thousands of proud owners make a million rotis with Rotimatic everyday!\nHealth-conscious homes, fussy kids, time-starved couples, foodies, techies, roti-lovers, progressive families and many more. From time to health to convenience to wonder, everyone loves Rotimatic for a different reason. Take a look here<\/p>"
+            }
+          },
+          "73b6528f-b046-4eae-b690-df585dfaa8b9": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "How much is it?",
+              "anwser": "<p>The retail base price of Rotimatic is USD 1299, or it’s equivalent in your local currency excluding any applicable taxes which may\/may not be a part of the price quoted. Shipping and delivery charges are exclusive and may vary depending upon your country location. Scroll to the top of this page for detailed pricing, discounts, and offers. You can also check EMI and express delivery options<\/p>"
+            }
+          },
+          "4cf2bbce-4e19-4615-95fc-244ccc5121cb": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "Can I pay in installments?",
+              "anwser": "<p>Yes<\/p>"
+            }
+          },
+          "dd18951f-25c3-4aa5-9f35-9c4034cea674": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "How and when can I get",
+              "anwser": "<p>Rotimatic is available for purchase only on the official Rotimatic website. Currently, we do not encourage you to buy Rotimatic from other e-commerce websites.<\/p>"
+            }
+          },
+          "e82b80a9-20ca-4c05-9c3b-d9965794fd09": {
+            "type": "q_n_a",
+            "settings": {
+              "title": "What’s the return policy?",
+              "anwser": "<p>Rotimatic comes with a 30-day money back guarantee. So after you receive your Rotimatic, if you are unhappy with your Rotimatic experience, you can return it within 30 days and we’ll refund the full retail price<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1a41189c-6e6a-427f-a0ce-c1ed46cc4141",
+          "f72ddc56-bc9c-4aec-aede-520b1974eff1",
+          "263ef0df-aeab-4a85-a4f3-d6188c8d5923",
+          "73b6528f-b046-4eae-b690-df585dfaa8b9",
+          "4cf2bbce-4e19-4615-95fc-244ccc5121cb",
+          "dd18951f-25c3-4aa5-9f35-9c4034cea674",
+          "e82b80a9-20ca-4c05-9c3b-d9965794fd09"
+        ],
+        "settings": {
+          "title": "FAQs"
+        }
+      },
+      "reviews_blocks": {
+        "type": "reviews_blocks",
+        "blocks": {
+          "1c553fe5-5745-4e67-842d-9c717f10db82": {
+            "type": "review",
+            "settings": {
+              "reviewSnippet": "<div id=\"shopify-product-reviews\" data-id=\"6006117302426\">{{ product.metafields.spr.reviews }}<\/div>"
+            }
+          },
+          "fca708d3-7afc-4be5-b27f-9c7d7a811253": {
+            "type": "sectionID",
+            "settings": {
+              "sectionID": "161484569471dd3499"
+            }
+          }
+        },
+        "block_order": [
+          "1c553fe5-5745-4e67-842d-9c717f10db82",
+          "fca708d3-7afc-4be5-b27f-9c7d7a811253"
+        ],
+        "settings": {
+          "showHideSection": true
+        }
+      },
+      "seo": {
+        "type": "seo",
+        "settings": {}
+      },
+      "shippingRates": {
+        "type": "shippingRates",
+        "blocks": {
+          "62a5871c-676e-4718-a39e-1a01aed29efc": {
+            "type": "shipping_country",
+            "settings": {
+              "title": "United States",
+              "name_1": "3-4 Months",
+              "description_1": "",
+              "price_1": "10000"
+            }
+          }
+        },
+        "block_order": [
+          "62a5871c-676e-4718-a39e-1a01aed29efc"
+        ],
+        "settings": {}
+      },
+      "socialWall__sec": {
+        "type": "socialWall__sec",
+        "blocks": {
+          "bdc96a5f-2930-49db-a94b-659cda30193b": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__01.png",
+              "postLink": "#__01"
+            }
+          },
+          "afe6d152-3b65-42d5-b737-b72c32d3ffc4": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__03.png",
+              "postLink": "#__03"
+            }
+          },
+          "1da5fff3-d345-4c75-9c4c-d8c9188cef15": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__04.png",
+              "postLink": "#__04"
+            }
+          },
+          "e2928fe7-3761-450f-9479-62b652d5d83c": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__05.png",
+              "postLink": "#__05"
+            }
+          },
+          "d4dcec91-fa88-4b3f-9fd5-34d35c72cfaa": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__06.png",
+              "postLink": "#__06"
+            }
+          },
+          "9f800026-26ee-4f39-b034-45f1c360bc28": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__07.png",
+              "postLink": "#__07"
+            }
+          },
+          "4a856dc4-ad03-4507-9323-3acf6b6ded9b": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__09.png",
+              "postLink": "#__09"
+            }
+          },
+          "a6bfbeac-776f-457f-87c2-052bc04f10d0": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__10.png"
+            }
+          },
+          "1d2a523f-26b5-416c-bb68-03a5755ce038": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__11.png"
+            }
+          },
+          "18bd10f5-391d-4ed8-a41f-8c968bb6c102": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__12.png"
+            }
+          },
+          "20e28b8f-8348-4f8a-8cb3-1d03cfb39b75": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__13.png"
+            }
+          },
+          "124c1da6-5bd8-42c8-b6fb-7992fafe73a1": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__14.png"
+            }
+          },
+          "4db7e85c-2c33-4a53-ab77-703635e8af93": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__15.png"
+            }
+          },
+          "cfcf887e-2bf5-4b59-b191-71ad4d64fcc3": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__16.png"
+            }
+          },
+          "92768e49-9feb-4458-99b9-2e1f6a0d1b11": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__17.png"
+            }
+          },
+          "73719ae2-b192-4549-8d80-8ab8d04e2a9d": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__18.png"
+            }
+          },
+          "746797ed-ec75-4ca3-810b-97f0032ea743": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__19.png"
+            }
+          },
+          "b93fa17a-873a-4e4c-bd99-9f47716c3437": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__20.png"
+            }
+          },
+          "c20fba45-2d96-4f84-9401-09e8eddca7c5": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__21.png"
+            }
+          },
+          "974edeab-5239-4cd2-b6c3-264d9fcdb618": {
+            "type": "socialItem",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/socialPost__08.png",
+              "postLink": "#__08"
+            }
+          }
+        },
+        "block_order": [
+          "bdc96a5f-2930-49db-a94b-659cda30193b",
+          "afe6d152-3b65-42d5-b737-b72c32d3ffc4",
+          "1da5fff3-d345-4c75-9c4c-d8c9188cef15",
+          "e2928fe7-3761-450f-9479-62b652d5d83c",
+          "d4dcec91-fa88-4b3f-9fd5-34d35c72cfaa",
+          "9f800026-26ee-4f39-b034-45f1c360bc28",
+          "4a856dc4-ad03-4507-9323-3acf6b6ded9b",
+          "a6bfbeac-776f-457f-87c2-052bc04f10d0",
+          "1d2a523f-26b5-416c-bb68-03a5755ce038",
+          "18bd10f5-391d-4ed8-a41f-8c968bb6c102",
+          "20e28b8f-8348-4f8a-8cb3-1d03cfb39b75",
+          "124c1da6-5bd8-42c8-b6fb-7992fafe73a1",
+          "4db7e85c-2c33-4a53-ab77-703635e8af93",
+          "cfcf887e-2bf5-4b59-b191-71ad4d64fcc3",
+          "92768e49-9feb-4458-99b9-2e1f6a0d1b11",
+          "73719ae2-b192-4549-8d80-8ab8d04e2a9d",
+          "746797ed-ec75-4ca3-810b-97f0032ea743",
+          "b93fa17a-873a-4e4c-bd99-9f47716c3437",
+          "c20fba45-2d96-4f84-9401-09e8eddca7c5",
+          "974edeab-5239-4cd2-b6c3-264d9fcdb618"
+        ],
+        "settings": {
+          "bannerImg": "shopify:\/\/shop_images\/socialBannerWall.png",
+          "bannerText": "See what people are saying about Rotimatic",
+          "bgColor": "#fff6ef",
+          "desktopMargins": 40,
+          "mobileMargins": 30
+        }
+      },
+      "annoucement": {
+        "type": "annoucement",
+        "settings": {
+          "showHideSec": true,
+          "title": "Rotimatic now available with easy monthly instalments!",
+          "link": "\/products\/rotimatic",
+          "closeBtn_showHide": true,
+          "bgColor": "#f8630b",
+          "page_404": false,
+          "page_article": false,
+          "page_blog": false,
+          "page_cart": false,
+          "page_collection": false,
+          "page_index": true,
+          "page_product": false,
+          "page_search": false
+        }
+      }
+    },
+    "content_for_index": [
+      "hero-1",
+      "16065924975dfe3451",
+      "16130655952c9d9829",
+      "feature-columns",
+      "1613831075da7aec17",
+      "16132252003984e5ef",
+      "1613226939a380d59b",
+      "161401225321145879",
+      "16062410432c8fa238",
+      "160640852886e7a191",
+      "161484569471dd3499",
+      "1588003724094",
+      "16132344718331c6ec",
+      "160654454373407275",
+      "1606561270dbda9e44",
+      "161457957370b680b4",
+      "1614593151f271d31b"
+    ]
+  },
+  "presets": {
+    "Light": {
+      "checkout_body_font": "Source Sans Pro",
+      "social_youtube_link": "",
+      "type_header_base_size": 26,
+      "share_twitter": true,
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "color_small_button_text_border": "#162950",
+      "checkout_input_background_color_mode": "white",
+      "social_pinterest_link": "",
+      "color_button": "#DA2F0C",
+      "color_body_text": "#6d6d6d",
+      "checkout_header_image": "",
+      "color_text": "#162950",
+      "social_instagram_link": "",
+      "checkout_error_color": "#ff6d6d",
+      "social_tumblr_link": "",
+      "checkout_body_background_color": "#ffffff",
+      "color_text_field_text": "#162950",
+      "checkout_sidebar_background_image": "",
+      "image_overlay_opacity": 40,
+      "checkout_heading_font": "Roboto",
+      "share_facebook": true,
+      "favicon": "",
+      "social_facebook_link": "",
+      "social_vimeo_link": "",
+      "checkout_accent_color": "#1990c6",
+      "color_sale_text": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "share_pinterest": true,
+      "checkout_body_background_image": "",
+      "type_base_font": "muli_n4",
+      "sections": {
+        "footer": {
+          "settings": {
+            "color_footer_bg": "#f8f8f8",
+            "color_footer_text": "#6d6d6d"
+          },
+          "blocks": {
+            "newsletter": {
+              "settings": {},
+              "type": "newsletter"
+            },
+            "link_list": {
+              "settings": {},
+              "type": "link_list"
+            },
+            "text": {
+              "settings": {},
+              "type": "text"
+            }
+          },
+          "type": "footer",
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ]
+        },
+        "hero": {
+          "settings": {
+            "hero_size": "x-large",
+            "text_size": "large",
+            "alignment": "center"
+          },
+          "type": "hero"
+        },
+        "featured-collections": {
+          "settings": {
+            "show_vendor": true,
+            "grid": 3,
+            "rows": 1,
+            "show_view_all": true
+          },
+          "type": "collection"
+        },
+        "1492033809691": {
+          "settings": {},
+          "type": "map"
+        },
+        "collection-template": {
+          "settings": {
+            "layout": "grid",
+            "tags_enable": true,
+            "show_vendor": false,
+            "grid": 2,
+            "show_collection_image": true,
+            "rows": 2,
+            "sort_enable": true
+          },
+          "type": "collection-template"
+        },
+        "1492033924902": {
+          "settings": {
+            "title": ""
+          },
+          "blocks": {
+            "1492033924902-0": {
+              "settings": {
+                "align_text": "center",
+                "width": "100%",
+                "alignment": "center"
+              },
+              "type": "text"
+            }
+          },
+          "type": "custom-content",
+          "block_order": [
+            "1492033924902-0"
+          ]
+        },
+        "article-template": {
+          "settings": {
+            "show_share_buttons": true,
+            "blog_show_date": true,
+            "blog_show_author": true
+          },
+          "type": "article-template"
+        },
+        "product-template": {
+          "settings": {
+            "enable_video_looping": false,
+            "show_vendor": false,
+            "media_size": "medium",
+            "show_share_buttons": true,
+            "show_variant_labels": true,
+            "enable_image_zoom": true,
+            "show_quantity_selector": false
+          },
+          "type": "product-template"
+        },
+        "blog-template": {
+          "settings": {
+            "layout": "grid",
+            "blog_show_date": false,
+            "blog_show_author": true
+          },
+          "type": "blog-template"
+        },
+        "header": {
+          "settings": {
+            "color_bg": "#162950",
+            "align_logo": "left",
+            "logo_max_width": 135,
+            "color_text": "#ffffff",
+            "logo": "",
+            "message": true,
+            "main_linklist": "main-menu"
+          },
+          "type": "header"
+        },
+        "slideshow": {
+          "settings": {
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5,
+            "slideshow_height": "medium"
+          },
+          "blocks": {
+            "1492095993817": {
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              },
+              "type": "image"
+            },
+            "slideshow-0": {
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              },
+              "type": "image"
+            }
+          },
+          "type": "slideshow",
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ]
+        },
+        "1492096252560": {
+          "settings": {
+            "grid": 3
+          },
+          "blocks": {
+            "1492096252560-1": {
+              "settings": {},
+              "type": "featured_collection"
+            },
+            "1492096252560-0": {
+              "settings": {},
+              "type": "featured_collection"
+            },
+            "1492096252560-2": {
+              "settings": {},
+              "type": "featured_collection"
+            }
+          },
+          "type": "collection-list",
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ]
+        },
+        "cart-template": {
+          "settings": {
+            "cart_notes_enable": false
+          },
+          "type": "cart-template"
+        },
+        "1492033877875": {
+          "settings": {},
+          "blocks": {
+            "1492033877875-0": {
+              "settings": {},
+              "type": "quote"
+            }
+          },
+          "type": "quotes",
+          "block_order": [
+            "1492033877875-0"
+          ]
+        }
+      },
+      "social_snapchat_link": "",
+      "color_body_bg": "#f8f8f8",
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ],
+      "type_base_size": 18,
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "color_text_field_border": "#909090",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "color_borders": "#e4e4e4",
+      "color_text_field": "#ffffff",
+      "checkout_button_color": "#23314e",
+      "type_header_font": "muli_n6",
+      "social_twitter_link": "",
+      "checkout_logo_image": ""
+    },
+    "Default": {
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ],
+      "sections": {
+        "hero-1": {
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          },
+          "type": "hero"
+        },
+        "hero-2": {
+          "settings": {
+            "text_size": "large"
+          },
+          "type": "hero"
+        },
+        "feature-row": {
+          "settings": {},
+          "type": "feature-row"
+        },
+        "footer": {
+          "settings": {
+            "show_payment_icons": true
+          },
+          "blocks": {
+            "footer-1": {
+              "settings": {},
+              "type": "newsletter"
+            },
+            "footer-0": {
+              "settings": {},
+              "type": "link_list"
+            }
+          },
+          "type": "footer",
+          "block_order": [
+            "footer-0",
+            "footer-1"
+          ]
+        },
+        "image-bar": {
+          "settings": {},
+          "blocks": {
+            "image-bar-2": {
+              "settings": {},
+              "type": "image"
+            },
+            "image-bar-1": {
+              "settings": {},
+              "type": "image"
+            },
+            "image-bar-0": {
+              "settings": {},
+              "type": "image"
+            }
+          },
+          "type": "image-bar",
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ]
+        },
+        "header": {
+          "settings": {},
+          "type": "header"
+        },
+        "collection": {
+          "settings": {
+            "grid": 4
+          },
+          "type": "collection"
+        },
+        "feature-columns": {
+          "settings": {
+            "title": ""
+          },
+          "blocks": {
+            "feature-columns-2": {
+              "settings": {},
+              "type": "text_block"
+            },
+            "feature-columns-1": {
+              "settings": {},
+              "type": "text_block"
+            },
+            "feature-columns-0": {
+              "settings": {},
+              "type": "text_block"
+            }
+          },
+          "type": "feature-columns",
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ]
+        },
+        "quotes": {
+          "settings": {
+            "title": ""
+          },
+          "blocks": {
+            "quotes-0": {
+              "settings": {},
+              "type": "quote"
+            },
+            "quotes-1": {
+              "settings": {},
+              "type": "quote"
+            },
+            "quotes-2": {
+              "settings": {},
+              "type": "quote"
+            }
+          },
+          "type": "quotes",
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ]
+        }
+      }
+    }
+  }
+}

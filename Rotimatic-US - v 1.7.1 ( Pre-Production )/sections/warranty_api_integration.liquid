@@ -1,0 +1,230 @@
+<section class="warranty_api_integration">
+  <div class="warranty_api_integration__loader">
+    <svg version="1.1" id="L2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><circle fill="none" stroke="#fff" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48"/><line fill="none" stroke-linecap="round" stroke="#fff" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="85" y2="50.5"><animateTransform attributeName="transform" dur="2s" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite" /></line><line fill="none" stroke-linecap="round" stroke="#fff" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="49.5" y2="74"><animateTransform attributeName="transform" dur="15s" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite" /></line></svg>
+  </div>
+  <div class="setWidth simpleForm">
+    <div class="warranty_api_integration__title">
+      {{ 'pages.warranty.t3' | t }}
+    </div>
+
+    <div class="warranty_api_integration__detail">
+      {{ 'pages.warranty.t4_html' | t }}
+    </div>
+
+    <div class="warranty_api_integration__inputGrid">
+      <input type="text" class="emailorRef" placeholder="Enter email address / Machine number" value="">
+      <button class="warranty_api_integration__btn">{{ 'pages.warranty.t5' | t }}</button>
+
+      <div class="msg"></div>
+    </div>
+
+    <div class="warranty_api_integration__findRotimaticNumber">
+      <a href="javascript://void(0);">
+        {{ 'pages.warranty.t6' | t }}
+      </a>
+    </div>
+  </div>
+
+  <div class="warranty_api_integration__modal">
+    <div class="centerCenter_">
+      <a href="javascript://void('close');" class="_closeIt_ closeModal">
+        <img src="{{ 'close.png' | asset_url }}" alt="close">
+      </a>
+      <div class="_title_">
+        {{ 'pages.warranty.t7' | t }}
+      </div>
+      <div class="_detail_">
+        {{ 'pages.warranty.t8' | t }}
+      </div>
+      <div class="_img_">
+        <img src="{{ 'machineno.png' | asset_url }}" alt="Machine Number">
+      </div>
+
+      <a href="javascript://void('close');" class="_closeBtn_ closeModal">{{ 'pages.warranty.t9' | t }}</a>
+    </div>
+  </div>
+
+  <div class="warranty_api_integration__modal__ordersList">
+    <div class="centerCenter_">
+      <a href="javascript://void('close');" class="_closeIt_ closeModal">
+        <img src="{{ 'close.png' | asset_url }}" alt="close">
+      </a>
+      <div class="_title_">
+        {{ 'pages.warranty.t10' | t }}
+      </div>
+      <div class="_detail_">
+        <span class="totalOrders"></span> {{ 'pages.warranty.t11' | t }} <span class="orderEmail"></span>
+      </div>
+
+      <div class="_ordersList_"></div>
+
+      <a href="javascript://void('show detail');" class="_closeBtn_ showSelectedDetail">{{ 'pages.warranty.t12' | t }}</a>
+    </div>
+  </div>
+
+  <div class="apiResponseLayer">
+    <div class="page-width gotResponse">
+      <div class="_title_">
+        {{ 'pages.warranty.t13' | t }}
+      </div>
+
+      <div class="_machineNoText_">
+        {{ 'pages.warranty.t14' | t }}
+      </div>
+
+      <div class="_machineCode_">{{ 'pages.warranty.t15' | t }}</div>
+
+      <div class="_checkAnotherMachine_">
+        <a href="javascript://void('another');">
+          {{ 'pages.warranty.t16' | t }}
+        </a>
+      </div>
+
+      <div class="_statusGrid_">
+        <div class="_item_ _first_ active">
+          <div class="_item__img">
+            <img src="{{ 'warranty_ifActive.png' | asset_url }}" class="ifActive">
+            <img src="{{ 'warranty_ifInactive.png' | asset_url }}" class="ifInactive">
+            <img src="{{ 'warranty_ifUnavailable.png' | asset_url }}" class="ifUnavailable">
+            <img src="{{ 'warranty_ifExtendable.png' | asset_url }}" class="ifExtendable">
+          </div>
+
+          <div class="_item__status">
+            {{ 'pages.warranty.t17' | t }}
+          </div>
+
+          <div class="_item__title">
+            {{ 'pages.warranty.t18' | t }}
+          </div>
+
+          <div class="_item__dates">
+            {{ 'pages.warranty.t19' | t }} <span class="startsOn">22-07-2020</span><br>
+            {{ 'pages.warranty.t20' | t }} <span class="expiresOn">22-08-2021</span>
+          </div>
+        </div>
+
+        <div class="_item_ _second_ extendable">
+          <div class="_item__img">
+            <img src="{{ 'warranty_ifActive.png' | asset_url }}" class="ifActive">
+            <img src="{{ 'warranty_ifInactive.png' | asset_url }}" class="ifInactive">
+            <img src="{{ 'warranty_ifUnavailable.png' | asset_url }}" class="ifUnavailable">
+            <img src="{{ 'warranty_ifExtendable.png' | asset_url }}" class="ifExtendable">
+          </div>
+
+          <div class="_item__status">
+            {{ 'pages.warranty.t21' | t }}
+          </div>
+
+          <div class="_item__title">
+            {{ 'pages.warranty.t22' | t }}
+          </div>
+
+          <div class="_item__dates">
+            {{ 'pages.warranty.t23' | t }}
+          </div>
+
+          <div class="_item__dates _spacialNote_">
+            {{ 'pages.warranty.t30_html' | t }}
+          </div>
+        </div>
+      </div>
+
+      <div class="_conclusionMsg_">
+        <div class="noteligible__">
+          <div class="noteligible__title">
+            <span msg-type="default">{{ 'pages.warranty.t24' | t }}</span>
+            <span msg-type="maxCoverage">{{ 'pages.warranty.t24_1' | t }}</span>
+          </div>
+
+          <div class="noteligible__detail">
+            {{ 'pages.warranty.t25_html' | t:link:'#__' }}
+          </div>
+
+          <div class="noteligible__terms">
+            <a href="/pages/extended-warranty-policy">
+              {{ 'pages.warranty.t26' | t }}
+            </a>
+          </div>
+        </div>
+
+        <div class="buyWarranty">
+          <div class="buyWarranty__title">
+            {{ 'pages.warranty.t27' | t }}
+          </div>
+
+          {%-liquid
+            assign product   =   all_products['warranty']
+
+            assign isAvailableInCart    =   false
+
+            for variant in product.variants
+              for item in cart.items
+                if item.variant_id == variant.id
+                  assign isAvailableInCart    =   true
+                endif
+              endfor
+            endfor
+          -%}
+
+          <div class="buyWarranty__packages" product-added="{{ isAvailableInCart }}">
+            {%-liquid
+              capture aaa
+                form 'localization'
+                  assign selectedCurrencyIs       =  form.current_currency.iso_code
+                  assign selectedCurrencySymbol   =  form.current_currency.symbol
+                endform
+              endcapture
+            -%}
+
+            {% for variant in product.variants %}
+              {%-liquid
+                assign priceIs    =   variant.price | divided_by: 100
+                assign cartStatus =   ''
+                for item in cart.items
+                  if item.variant_id == variant.id
+                    assign cartStatus =   'added'
+                  endif
+                endfor
+              -%}
+
+              <div class="buyWarranty__item" vid="{{ variant.id }}" i="{{ forloop.index }}">
+                <div class="buyWarranty__yearTitle">
+                  {{ variant.title | remove: ' - R' | remove: ' - P' }}
+                </div>
+
+                <div class="buyWarranty__detail">
+                  {{ 'pages.warranty.international_warranty' | t }}
+                </div>
+
+                <div class="buyWarranty__price">
+                  {{ variant.price | money_with_currency }}
+                </div>
+
+                <div class="buyWarranty__addToCart" cart-status="{{ cartStatus }}">
+                  <a href="javascript://void('add to cart');" class="add2Cart" vid="{{ variant.id }}" warranty-plan="{{ variant.title | remove: ' - R' | remove: ' - P' }}">
+                    {{ 'pages.warranty.addToCart' | t }}
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+
+          </div>
+
+          <div class="buyWarranty__msg">
+            {{ 'pages.warranty.t28' | t }}
+          </div>
+
+          <div class="buyWarranty__msg premium">
+            {{ 'pages.warranty.t28_html' | t }}
+          </div>
+
+          <div class="buyWarranty__terms">
+            <a href="/pages/extended-warranty-policy">
+              {{ 'pages.warranty.t29' | t }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

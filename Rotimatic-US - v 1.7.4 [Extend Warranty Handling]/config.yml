@@ -1,0 +1,8 @@
+development:
+  password: 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
+  theme_id: "126049091738"
+  store: rotimaticus.myshopify.com
+production:
+  password: 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
+  theme_id: "125533847706"
+  store: rotimaticus.myshopify.com

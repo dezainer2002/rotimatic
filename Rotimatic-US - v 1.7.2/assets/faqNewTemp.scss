@@ -1,0 +1,101 @@
+$grid-gutter-mobile: 20px;
+$grid-mobile: 767px;
+$color-black: #222222;
+$color-orange: #F68945;
+
+.faq-section {
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.faq-section-inner {
+  max-width: 715px;
+  margin: 0 auto;
+  padding-left: $grid-gutter-mobile;
+  padding-right: $grid-gutter-mobile;
+}
+
+.faq-tabs {
+  .faq__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: $color-black;
+    text-align: center;
+    margin-bottom: 60px;
+
+    @media only screen and (max-width: $grid-mobile) {
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .tab-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 120%;
+    font-weight: 600;
+    padding-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+    color: #0E0E0E;
+    text-shadow: 0 0 #0E0E0E;
+    padding-right: 25px;
+
+    @media only screen and (max-width: $grid-mobile) {
+      font-size: 14px;
+    }
+
+    &:after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      right: 0;
+      background-image: url('plus_.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @media only screen and (max-width: $grid-mobile) {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &.active {
+      @media only screen and (max-width: $grid-mobile) {
+        color: $color-orange;
+      }
+
+      &:after {
+        background-image: url('minus_.svg');
+      }
+    }
+  }
+
+  .tab-content {
+    display: none;
+    margin-top: 8px;
+    margin-bottom: 40px;
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      color: #6C6C6C;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+
+      @media only screen and (max-width: $grid-mobile) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #E8E8E8;
+    padding: 0 15px 0 10px;
+    margin-bottom: 30px;
+  }
+}

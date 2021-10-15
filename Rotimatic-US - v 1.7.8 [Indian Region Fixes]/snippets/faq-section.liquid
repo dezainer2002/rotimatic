@@ -1,0 +1,15 @@
+{% for block in section.blocks %}
+  {% if block.type == 'category' %}
+    <div class="faq__title">{{ block.settings.category-title }}</div>
+  {% endif %}
+
+  {% if block.type == 'question' %}
+    <div class="faq-item">
+      <div class="tab-title">{{ block.settings.question }}</div>
+
+      <div class="tab-content">  
+        {{ block.settings.anwser }}
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}

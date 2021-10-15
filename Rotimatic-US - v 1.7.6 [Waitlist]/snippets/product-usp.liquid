@@ -1,0 +1,26 @@
+{% for block in section.blocks %}
+    {% if block.type == 'product_usp' %}
+      <div class="product-usp-items">
+        <div class="product-usp-image">
+          <img class="lazyload"
+            src="{{ block.settings.image | img_url: 'master' }}"
+            alt="{{ block.settings.image.alt | escape }}" />
+        </div>
+
+        {% if block.settings.text != blank %}
+          <div class="usp-description">{{ block.settings.text }}</div>
+        {% endif %}
+
+        {% if block.settings.terms %}
+          <div class="terms">
+            <img src="{{ "Info.svg" | asset_url }}" alt="Info" />
+            {% if block.settings.terms_text != blank %}
+              <div class="terms-description">
+                {{ block.settings.terms_text }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+{% endfor %}
