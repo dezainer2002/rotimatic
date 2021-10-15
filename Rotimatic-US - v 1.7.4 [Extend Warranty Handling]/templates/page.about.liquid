@@ -1,0 +1,16 @@
+{%-liquid
+  assign scssFile     =   'page_about.css' | asset_url
+  assign jsFile       =   'page_about.js'       | asset_url
+  echo '<link rel="stylesheet" href="' | append: scssFile | append: '">'
+
+  section 'about_title'
+  section 'about_slider'
+  section 'about_founders'
+  section 'about_weAreRotimatic_dynamic'
+  section 'about_bigImage'
+  section 'about_content1'
+  section 'about_content2'
+
+  echo '<script src="' | append: jsFile | append: '"></script>'
+-%}
+

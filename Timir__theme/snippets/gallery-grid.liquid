@@ -1,0 +1,57 @@
+<div class="gallery-wrapper">
+  <div class="gallery">
+    {% for block in section.blocks %}
+        {% if block.type == 'main_block' %}
+          <div class="gallery-main-block" style="background-image: url({{ block.settings.image | img_url: 'master' }});">
+            <div class="gallery-main-content">
+              {% if block.settings.show_play_icon %}
+				<a
+				{% if block.settings.button_popup %}
+					data-fancybox="" data-options="{"iframe" : {"css" : {"width" : "80%", "height" : "80%"}}}"
+				{% endif %} class="gallery-popup" href="{{ block.settings.button_link }}" aria-label="{{ ariaLabel }}">
+				  <img class="lazyload"
+					src="{{ block.settings.play_icon | img_url: 'master' }}"
+					alt="{{ block.settings.play_icon.alt | escape }}" />
+				</a>
+			  {% endif %}
+              {% if block.settings.title != blank %}
+                <h2 class="h2">{{ block.settings.title | escape }}</h2>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="gallery-description">{{ block.settings.text }}</div>
+              {% endif %}
+			  {% if block.settings.show_play_icon == false %}
+				  {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+					<a href="{{ block.settings.button_link }}"
+					  class="btn btn--secondary">
+					  {{- block.settings.button_label | escape -}}
+					</a>
+				  {% endif %}
+			  {% endif %}
+            </div>
+          </div>
+        {% endif %}
+    {% endfor %}
+
+    <div class="gallery-others">
+      {% for block in section.blocks %}
+        {% if block.type == 'other_block' %}
+          <div class="gallery-other-block" style="background-color: {{ block.settings.color }};">
+            {% if block.settings.other_image != blank %}
+              <div class="gallery-image">
+                <img class="lazyload"
+                  src="{{ block.settings.other_image | img_url: 'master' }}"
+                  alt="{{ block.settings.other_image.alt | escape }}" />
+              </div>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <div class="gallery-description">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

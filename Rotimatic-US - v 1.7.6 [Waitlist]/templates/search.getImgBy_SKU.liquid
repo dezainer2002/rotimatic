@@ -1,0 +1,42 @@
+{%-liquid
+  layout none
+
+  capture getProductID
+    render '__getParam' with { paramStart: 'pid=' }
+  endcapture
+
+  assign results_count    =   0
+
+  paginate search.results by 250
+    if search.performed
+      capture results
+        for item in search.results
+          assign product      =   item
+
+          assign pid          =   product.id | json
+          assign pHandle      =   product.handle | json
+          assign pImg         =   product.featured_image.src | product_img_url: '150x' | json
+
+          if getProductID == pid
+
+            echo '{'
+              echo '"id"          :   ' | append: pid | append: ','
+              echo '"handle"      :   ' | append: pHandle | append: ','
+              echo '"thumbnail"   :   ' | append: pImg
+            echo '}'
+
+            assign results_count    =   results_count | plus: 1
+
+            break
+          endif
+
+        endfor
+      endcapture
+    endif
+  endpaginate
+
+  echo '{'
+    echo '"results_count": ' | append: results_count | append: ','
+    echo '"results": [' | append: results  | append: ']'
+  echo '}'
+-%}

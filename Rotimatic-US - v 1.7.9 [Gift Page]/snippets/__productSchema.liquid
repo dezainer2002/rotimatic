@@ -1,0 +1,41 @@
+{% if product != blank and variant != blank %}
+  {% if productTile contains 'Rotimatic' %}
+    <script type="application/ld+json">
+      {
+        "@context"    :   "https://schema.org/",
+        "@type"       :   "Product",
+        "name"        :   "Rotimatic",
+        "image"       :   "{{ product.featured_image | img_url: '600x'  }}",
+        "description" :   "Rotimatic is the world's first fully integrated solution that measures, mixes, kneads, flattens, cooks, puffs and delights. All in one! LOAD fresh Ingredients.",
+        "brand"       :   "Rotimatic",
+        "sku"         :   "{{ variant.sku }}",
+        "offers"      :   {
+          "@type"         :   "Offer",
+          "url"           :   "https://rotimatic.com/products/rotimatic",
+          "priceCurrency" :   "{{ currentCurrency }}",
+          "price"         :   {{ price | remove: ',' }},
+          "itemCondition" :   "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+  {% elsif productTile contains 'Remanufactured' %}
+    <script type="application/ld+json">
+      {
+        "@context"    :   "https://schema.org/",
+        "@type"       :   "Product",
+        "name"        :   "Rotimatic",
+        "image"       :   "{{ product.featured_image | img_url: '600x'  }}",
+        "description" :   "Rotimatic is the world's first fully integrated solution that measures, mixes, kneads, flattens, cooks, puffs and delights. All in one! LOAD fresh Ingredients.",
+        "brand"       :   "Rotimatic Manufactured",
+        "sku"         :   "{{ variant.sku }}",
+        "offers"      :   {
+          "@type"         :   "Offer",
+          "url"           :   "https://rotimatic.com/products/rotimatic",
+          "priceCurrency" :   "{{ currentCurrency }}",
+          "price"         :   {{ price | remove: ',' }},
+          "itemCondition" :   "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+  {% endif %}
+{% endif %}

@@ -1,0 +1,45 @@
+{{ 'weo-custom.css' | asset_url | stylesheet_tag }}
+
+<div class="page-recipe">
+        {{ page.content }}
+</div>
+{{ "jquery-lib.js" | asset_url | script_tag }}
+{{ "slick.min.js" | asset_url | script_tag }}
+{{ "masonry.pkgd.min.js" | asset_url | script_tag }}
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script>
+        $('#rtp-recipes-slider').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            nav: false,
+            arrows: false,
+            dots: true,
+        });
+
+        $('.grid').isotope({
+            // set itemSelector so .grid-sizer is not used in layout
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            masonry: {
+                // use element for option
+                columnWidth: '.grid-sizer',
+                gutter: 10
+            }
+        })
+
+        // options
+        var $grid = $('.grid').isotope({
+        }); 
+        $('.recipeFilter').on('click', 'a.btn', function () {
+
+            $('.recipeFilter a.btn').removeClass('current');
+            $(this).addClass('current');
+
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({
+                filter: filterValue
+            });
+        });
+    </script>

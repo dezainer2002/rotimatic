@@ -1,0 +1,55 @@
+.homeThreeBlocks .three-blocks-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(0, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .homeThreeBlocks .three-blocks-grid {
+    -ms-grid-columns: (minmax(0, 1fr))[1];
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .homeThreeBlocks .three-blocks-grid {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+
+.homeThreeBlocks .three-blocks-grid .block-grid-item {
+  text-align: center;
+}
+
+.homeThreeBlocks .three-blocks-grid .block-grid-item .block-image img {
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
+}
+
+.homeThreeBlocks .three-blocks-grid .block-grid-item .block-description h2 {
+  color: #222;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  line-height: 30px;
+  text-align: center;
+  padding-top: 7px;
+}
+
+.homeThreeBlocks .three-blocks-grid .block-grid-item .block-description p {
+  color: #4a4a4a;
+  font-size: 20px;
+  letter-spacing: .36px;
+  line-height: 30px;
+  text-align: center;
+  max-width: 274px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*# sourceMappingURL=three-block.css.map */

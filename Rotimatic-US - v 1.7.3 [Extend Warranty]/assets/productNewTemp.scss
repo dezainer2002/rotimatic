@@ -1,0 +1,1579 @@
+$orangeColor: #F68945;
+
+@mixin _galleryWrapper_() {
+  ._galleryWrapper_ {
+    display: grid;
+    grid-template-columns: 80px auto;
+    grid-gap: 20px;
+    height: 100%;
+
+    @media ( max-width: 700px ) {
+      margin-bottom: 30px;
+    }
+
+    ._thumbnails_ {
+      order: 1;
+
+      .thumbnails {
+        text-align: center;
+
+        ._item_ {
+          display: grid;
+          justify-content: center;
+          padding: 10px;
+          margin-bottom: 10px;
+          background-color: #fff;
+          box-sizing: border-box;
+          border-radius: 4px;
+          border: 1px solid #BEBDBD;
+          opacity: 0.5;
+          cursor: pointer;
+
+          &[type="external_video"] {
+            background-color: #000000b9;
+            padding: 15px;
+          }
+
+          &.active {
+            opacity: 1;
+            cursor: default;
+            border: 1px solid $orangeColor;
+          }
+
+          ._img_ {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+
+    ._mainProductImg_ {
+      order: 2;
+      text-align: center;
+      display: grid;
+      height: 650px;
+
+      @media ( max-width: 700px ) {
+        height: 100%;
+      }
+
+      ._mainImg_ {
+        max-width: 100%;
+        align-self: center;
+        object-fit: contain;
+        max-height: 650px;
+        margin-inline: auto;
+      }
+
+      ._mainVideo_ {
+        width: 95%;
+        height: 67%;
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin _variants_() {
+  ._variants_ {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 10px;
+    border-bottom: 1px solid #CCD3DC;
+
+    @media ( max-width: 550px ) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    ._item_ {
+      justify-content: center;
+      color: #000;
+      position: relative;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-right: 1px solid #CCD3DC;
+      cursor: pointer;
+
+      &:last-child {
+        border-right-color: transparent;
+      }
+
+      &.selected {
+        cursor: default;
+
+        &::after {
+          position: absolute;
+          content: '';
+          bottom: 0;
+          left: 50%;
+          width: 60%;
+          height: 4px;
+          background-color: $orangeColor;
+          transform: translateX(-50%);
+        }
+      }
+
+      ._title_ {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 21px;
+        text-align: center;
+        margin-bottom: 3px;
+
+        @media ( max-width: 550px ) {
+          font-size: 14px;
+        }
+      }
+
+      ._price_ {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@mixin prodInfo() {
+  .prodInfo {
+    margin-top: 36px;
+
+    @media ( max-width: 550px ) {
+      text-align: center;
+
+      ._price_ {
+        margin: auto;
+      }
+    }
+
+    h1 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 48px;
+      letter-spacing: 1px;
+      color: #000000;
+      margin-bottom: 12px;
+
+      @media ( max-width: 550px ) {
+        font-size: 24px;
+        line-height: 36px;
+        margin-bottom: 6px;
+      }
+    }
+
+    ._price_ {
+      display: table;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 36px;
+      color: #000;
+
+      @media ( max-width: 550px ) {
+        font-size: 18px;
+      }
+
+      .isoCode {
+        display: table-cell;
+        padding-right: 7px;
+      }
+
+      .money {
+        font-size: 36px;
+        display: table-cell;
+
+        @media ( max-width: 550px ) {
+          font-size: 24px;
+        }
+      }
+    }
+
+  }
+}
+
+@mixin _installment_() {
+  ._installment_ {
+    margin-top: 18px;
+
+    @media ( max-width: 550px ) {
+      text-align: center;
+    }
+
+    .klarnaIcon {
+      position: relative;
+      top: 3px;
+      margin-left: 5px;
+    }
+
+    .splititIcon {
+      position: relative;
+      margin-left: 10px;
+      width: 65px;
+      height: 22px;
+      top: 5px;
+    }
+  }
+}
+
+@mixin bulletContent() {
+  .bulletContent {
+    margin-top: 44px;
+
+    @media ( max-width: 550px ) {
+      margin-top: 30px;
+    }
+
+    .mb_8 {
+      margin-bottom: 8px;
+    }
+
+    ._bold_ {
+      font-weight: bold;
+    }
+
+    ul {
+      margin-left: 15px;
+
+      li {
+        list-style: disc;
+        margin-bottom: 3px;
+        position: relative;
+
+        .helpBlock {
+          position: absolute;
+          top: 3px;
+          margin-left: 3px;
+
+          &:hover {
+            .helpContent {
+              display: block;
+            }
+          }
+
+          .helpIcon {
+          }
+
+          .helpContent {
+            background-color: #FFD5B5;
+            border: 1px solid $orangeColor;
+            box-sizing: border-box;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+            position: absolute;
+            bottom: 35px;
+            padding: 10px;
+            left: -85px;
+            border-radius: 7px;
+            width: 185px;
+            display: none;
+
+            .zIndexAbove {
+              position: relative;
+              z-index: 1;
+              color: #4A4A4A;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              background-color: #ffd5b5;
+              width: 20px;
+              height: 20px;
+              bottom: -11px;
+              left: 50%;
+              transform: translateX(-50%) rotate(45deg);
+              border-right: 1px solid $orangeColor;
+              border-bottom: 1px solid $orangeColor;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+@mixin extendedWarranty() {
+  ._warrantyTitle_ {
+    margin-top: 22px;
+    font-weight: bold;
+    // display: none;
+
+    .extendedIcon {
+      position: relative;
+      margin-left: 5px;
+      margin-right: 5px;
+      top: 4px;
+    }
+
+    .rotimaticCare {
+      position: relative;
+      top: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .extendedWarranty {
+    margin-top: 23px;
+    display: flex;
+    grid-gap: 25px;
+    justify-content: space-between;
+
+    @media ( max-width: 550px ) {
+      grid-gap: 15px;
+      justify-content: space-between;
+    }
+
+    ._warranty_Item_ {
+      grid-gap: 10px;
+      justify-content: center;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      color: #4A4A4A;
+      width: 100%;
+
+      .rotate45 {
+        display: none;
+      }
+
+      @media ( max-width: 550px ) {
+        font-size: 14px;
+        width: 100%;
+
+        ._warrantyItemInner_ {
+          width: 95%;
+        }
+      }
+
+      &.selected {
+
+        ._warrantyItemInner_ {
+          background-color: $orangeColor;
+          color: #fff;
+        }
+      }
+
+      ._warrantyItemInner_ {
+        display: inline-block;
+        margin: auto;
+        padding: 15px 25px;
+        cursor: pointer;
+        background-color: #fff;
+        border: 1px solid #CCD3DC;
+        box-sizing: border-box;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        width: 100%;
+      }
+
+      .protectionPlan {
+        display: none;
+      }
+
+      ._price_ {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@mixin _popupModal_() {
+  ._popupModal_ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #00000031;
+    z-index: 9999;
+    display: none;
+    padding-bottom: 50px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #ddd;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #666;
+    }
+
+    ._centerCenter_ {
+      position: relative;
+      width: calc(100% - 50px);
+      min-height: 50%;
+      max-width: 780px;
+      background-color: #fff;
+      border: 1px solid #fff;
+      box-sizing: border-box;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      padding: 20px 20px 0;
+      margin: 50px auto;
+
+      @media ( max-width: 500px ) {
+        width: calc(100% - 30px);
+      }
+
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #ddd;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #666;
+      }
+
+      ._close_ {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+      }
+
+      ._title_ {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 32px;
+        color: #4A4A4A;
+        margin-top: 30px;
+      }
+
+      ._detail_ {
+        margin-top: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4A4A4A;
+        max-width: 85%;
+
+        @media ( max-width: 500px ) {
+          max-width: 100%;
+        }
+      }
+
+      ._title__ {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 16px;
+        color: #000000;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      ._makeGrid_ {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: -21px;
+          width: calc(100% + 42px);
+          border-bottom: 1px solid #CCD3DC;
+        }
+
+        ._item_ {
+          text-align: center;
+          border-right: 1px solid #CCD3DC;
+          opacity: 0.5;
+          cursor: pointer;
+          position: relative;
+
+          &.selected {
+            opacity: 1;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              height: 6px;
+              width: 50%;
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: #F68945;
+            }
+          }
+
+          &:last-child {
+            border-right-color: transparent;
+          }
+
+          ._icon_ {
+            text-align: center;
+            margin-bottom: 16px;
+            margin-top: 10px;
+          }
+
+          ._text_ {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+            color: #000000;
+            margin-bottom: 26px;
+            max-width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+      }
+
+      ._modelFooter_ {
+        background-color: #F6F6F6;
+        position: relative;
+        left: -21px;
+        width: calc(100% + 42px);
+        padding: 24px;
+        height: 43%;
+        border-radius: 0 0 12px 12px;
+
+        ._tabContainer_ {
+          display: none;
+
+          &[tab="t_1"] {
+            display: block;
+          }
+
+          ul {
+            margin-top: 0px;
+            padding-left: 18px;
+
+            li {
+              list-style-type: disc;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 32px;
+              color: #4A4A4A;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@mixin paymentBtn_Section() {
+  #extend-offer {
+    height: 25px;
+    overflow: hidden;
+  }
+
+  .btn_add2Cart {
+    margin-top: 25px;
+    background-color: $orangeColor;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    color: #fff;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 22px;
+    transition: 0.2s all ease-in-out;
+    border: 0px solid $orangeColor;
+    width: 100%;
+    max-width: 500px;
+
+    &.disabled {
+      background-color: #9d9d9d;
+      cursor: default;
+    }
+
+    &.processing {
+      margin-left: auto;
+      margin-right: auto;
+      width: 54px;
+      padding: 0;
+      cursor: default;
+
+      span {
+        display: none;
+      }
+
+      svg {
+        display: block;
+      }
+    }
+
+    > svg {
+      width: 54px;
+      height: 54px;
+      display: none;
+      margin: auto;
+    }
+  }
+
+}
+
+@mixin _warrantyPopupModal_() {
+  ._warrantyPopupModal_ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #00000031;
+    z-index: 9999;
+    display: none;
+    cursor: default;
+    color: #4A4A4A;
+    padding-bottom: 50px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #ddd;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #666;
+    }
+
+    ._centerCenter_ {
+      position: relative;
+      width: calc(100% - 50px);
+      max-width: 750px;
+      min-height: 80%;
+      background-color: #fff;
+      box-sizing: border-box;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+      margin: 50px auto;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      scrollbar-width: none;
+
+      @media ( max-width: 500px ) {
+        width: calc(100% - 30px);
+        padding: 20px 10px;
+      }
+
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #ddd;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #666;
+      }
+
+      ._logo_ {
+        text-align: left;
+      }
+
+      ._close_ {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+        display: inline-block;
+
+        > svg {
+          display: block;
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      .rotimaticImg {
+        position: absolute;
+        right: 0px;
+        top: 70px;
+        max-width: 260px;
+        image-rendering: pixelated;
+
+        @media ( max-width: 500px ) {
+          opacity: 0.5;
+        }
+      }
+
+      ._content_ {
+        max-width: 75%;
+        position: relative;
+        margin-top: 40px;
+        left: 20px;
+
+        @media ( max-width: 500px ) {
+          max-width: 100%;
+          left: 0px;
+        }
+
+        ._head_ {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 36px;
+          color: #4A4A4A;
+          margin-bottom: 20px;
+          max-width: 80%;
+
+          @media ( max-width: 500px ) {
+            max-width: 100%;
+          }
+        }
+
+        .warrantyDetail {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 24px;
+          color: #4A4A4A;
+          margin-bottom: 40px;
+          max-width: 80%;
+
+          @media ( max-width: 500px ) {
+            max-width: 100%;
+          }
+        }
+
+        .rotimaticCare {
+          position: relative;
+          top: 5px;
+        }
+      }
+
+      .extendedWarranty {
+        margin-top: 23px;
+        display: flex;
+        grid-gap: 25px;
+        margin-bottom: 40px;
+
+        @media ( max-width: 500px ) {
+          display: grid;
+          grid-template-columns: 100%;
+        }
+
+        ._warranty_Item_ {
+          grid-gap: 10px;
+          justify-content: center;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 19px;
+          text-align: center;
+          color: #4A4A4A;
+
+          &.selected {
+
+            ._warrantyItemInner_ {
+              background-color: $orangeColor;
+              color: #fff;
+            }
+          }
+
+          ._warrantyItemInner_ {
+            display: inline-block;
+            margin: auto;
+            padding: 15px 25px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #CCD3DC;
+            box-sizing: border-box;
+            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+          }
+
+          ._title_ {
+            margin-bottom: 7px;
+          }
+
+          ._price_ {
+            font-weight: bold;
+          }
+        }
+      }
+
+      ._btnAddProtection_ {
+        text-align: center;
+
+        a {
+          background-color: #F68945;
+          box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+          border-radius: 999px;
+          display: inline-block;
+          margin: 40px auto;
+          padding: 18px 50px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #fff;
+          max-width: 250px;
+          width: 100%;
+          border: 1px solid #F68945;;
+
+          &:hover {
+            color: #F68945;
+            background-color: #fff;
+          }
+        }
+      }
+
+      .tac {
+        text-align: center;
+
+        a {
+          background-color: transparent;
+          border-radius: 999px;
+          display: inline-block;
+          padding: 18px 50px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          outline: none;
+          color: #F68945;
+          border: 1px solid #F68945;
+          max-width: 250px;
+          width: 100%;
+
+          &:hover {
+            color: #fff;
+            background-color: #F68945;
+          }
+        }
+      }
+
+      .showMoreLessData {
+        &[active-tab] {
+
+          ._makeGrid_ {
+
+            ._item_[tab="t_1"] {
+              opacity: 1;
+            }
+
+            ._item_[tab="t_2"] {
+              opacity: 1;
+            }
+
+            ._item_[tab="t_3"] {
+              opacity: 1;
+            }
+
+          }
+        }
+
+        &[active-tab="t_1"] {
+
+          ._makeGrid_ {
+
+            ._item_[tab="t_1"] {
+              opacity: 1;
+
+              &::after {
+                visibility: visible;
+              }
+            }
+
+            ._item_[tab="t_2"] {
+              opacity: 0.5;
+            }
+
+            ._item_[tab="t_3"] {
+              opacity: 0.5;
+            }
+          }
+
+          ._modelFooter_ {
+
+            ._tabContainer_ {
+              &[tab="t_1"] {
+                display: block;
+              }
+
+              &[tab="t_2"] {
+                display: none;
+              }
+
+              &[tab="t_3"] {
+                display: none;
+              }
+            }
+
+            .showMoreLessLink {
+
+              .showMore {
+                display: none;
+              }
+
+              .showLess {
+                display: block;
+              }
+            }
+          }
+        }
+
+        &[active-tab="t_2"] {
+
+          ._makeGrid_ {
+
+            ._item_[tab="t_1"] {
+              opacity: 0.5;
+            }
+
+            ._item_[tab="t_2"] {
+              opacity: 1;
+
+              &::after {
+                visibility: visible;
+              }
+            }
+
+            ._item_[tab="t_3"] {
+              opacity: 0.5;
+            }
+          }
+
+          ._modelFooter_ {
+
+            ._tabContainer_ {
+
+              &[tab="t_1"] {
+                display: none;
+              }
+
+              &[tab="t_2"] {
+                display: block;
+              }
+
+              &[tab="t_3"] {
+                display: none;
+              }
+            }
+
+            .showMoreLessLink {
+
+              .showMore {
+                display: none;
+              }
+
+              .showLess {
+                display: block;
+              }
+            }
+          }
+        }
+
+        &[active-tab="t_3"] {
+
+          ._makeGrid_ {
+
+            ._item_[tab="t_1"] {
+              opacity: 0.5;
+            }
+
+            ._item_[tab="t_2"] {
+              opacity: 0.5;
+            }
+
+            ._item_[tab="t_3"] {
+              opacity: 1;
+
+              &::after {
+                visibility: visible;
+              }
+            }
+          }
+
+          ._modelFooter_ {
+
+            ._tabContainer_ {
+
+              &[tab="t_1"] {
+                display: none;
+              }
+
+              &[tab="t_2"] {
+                display: none;
+              }
+
+              &[tab="t_3"] {
+                display: block;
+              }
+            }
+
+            .showMoreLessLink {
+
+              .showMore {
+                display: none;
+              }
+
+              .showLess {
+                display: block;
+              }
+            }
+          }
+        }
+
+        ._makeGrid_ {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          position: relative;
+          margin-top: 60px;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -21px;
+            width: calc(100% + 42px);
+            border-bottom: 1px solid #CCD3DC;
+          }
+
+          ._item_ {
+            text-align: center;
+            border-right: 1px solid #CCD3DC;
+            opacity: 0.5;
+            cursor: pointer;
+            position: relative;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              height: 6px;
+              width: 50%;
+              left: 50%;
+              transform: translateX(-50%);
+              background-color: #F68945;
+              visibility: hidden;
+            }
+
+            &:last-child {
+              border-right-color: transparent;
+            }
+
+            ._icon_ {
+              text-align: center;
+              margin-bottom: 16px;
+              margin-top: 10px;
+            }
+
+            ._text_ {
+              font-style: normal;
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 24px;
+              text-align: center;
+              color: #000000;
+              margin-bottom: 26px;
+              max-width: 150px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
+        }
+
+        ._modelFooter_ {
+          padding: 24px;
+
+          ._tabContainer_ {
+            display: none;
+
+            ul {
+              margin-top: 0px;
+              padding-left: 18px;
+
+              li {
+                list-style-type: disc;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 32px;
+                color: #4A4A4A;
+              }
+            }
+          }
+
+          .showMoreLessLink {
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+            color: #F68945;
+
+            .showLess {
+              display: none;
+            }
+          }
+
+        }
+
+      }
+
+    }
+  }
+}
+
+@mixin extend_WarrantyModal_() {
+  .extend_WarrantyModal_ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #00000031;
+    z-index: 9999;
+    display: none;
+    cursor: default;
+    color: #4A4A4A;
+    padding-bottom: 50px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #ddd;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #666;
+    }
+
+    ._centerCenter_ {
+      position: relative;
+      width: calc(100% - 50px);
+      max-width: 630px;
+      background-color: #fff;
+      box-sizing: border-box;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      padding: 4.8rem 4.8rem 5.5rem;
+      text-align: left;
+      margin: 50px auto;
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      scrollbar-width: none;
+
+      @media ( max-width: 750px ) {
+        padding: 3rem;
+      }
+
+      @media ( max-width: 600px ) {
+        padding: 2rem 2rem 4rem;
+      }
+
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #ddd;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #666;
+      }
+
+      ._logo_ {
+        text-align: left;
+
+        .extend-logo {
+          width: 123px;
+        }
+      }
+
+      ._close_ {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+        display: inline-block;
+
+        > svg {
+          display: block;
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      .rotimaticImg {
+        position: absolute;
+        right: 0px;
+        top: 70px;
+        max-width: 260px;
+        image-rendering: pixelated;
+      }
+
+      ._content_ {
+        margin-top: 40px;
+
+        ._head_ {
+          font-style: normal;
+          color: #090637;
+
+          text-align: left;
+          font-size: 1.8rem;
+          font-weight: bold;
+          margin: 2rem 0 1rem 0;
+          line-height: 130%;
+        }
+
+        .warrantyDetail {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 24px;
+          color: #4A4A4A;
+          margin-bottom: 40px;
+        }
+
+        .rotimaticCare {
+          position: relative;
+          top: 5px;
+        }
+      }
+
+      .extendedWarranty {
+        margin-top: 23px;
+        display: flex;
+        grid-gap: 20px;
+        margin-bottom: 40px;
+        justify-content: space-between;
+
+        @media ( max-width: 600px ) {
+          flex-wrap: wrap;
+        }
+
+        ._warranty_Item_ {
+          grid-gap: 10px;
+          justify-content: center;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 19px;
+          text-align: left;
+          color: #4A4A4A;
+          width: 100%;
+          position: relative;
+          overflow: hidden;
+          // display: grid;
+
+          &.selected {
+            ._warrantyItemInner_ {
+              background-color: $orangeColor;
+              color: #fff;
+            }
+
+            .rotate45 {
+              color: $orangeColor;
+              background-color: #fff;
+            }
+
+            .protectionPlan {
+              margin-bottom: 30px;
+            }
+          }
+
+          .rotate45 {
+            transform: rotate(45deg);
+            background-color: $orangeColor;
+            font-size: 0.7rem;
+            position: absolute;
+            width: 70%;
+            top: 17px;
+            right: -26px;
+            color: #fff;
+            display: block;
+            text-align: center;
+            max-width: 100px;
+          }
+
+          ._warrantyItemInner_ {
+            display: inline-block;
+            margin: auto;
+            padding: 15px 15px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #CCD3DC;
+            box-sizing: border-box;
+            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            width: 100%;
+            // align-self: center;
+          }
+
+          ._title_ {
+            margin-bottom: 7px;
+          }
+
+          .protectionPlan {
+            display: block;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+          }
+
+          ._price_ {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .marketing-container {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-gap: 20px;
+        color: #152935;
+
+        @media ( max-width: 600px ) {
+          grid-template-columns: 100%;
+        }
+
+        .marketing-item {
+          display: grid;
+          grid-template-columns: 20px auto;
+          grid-gap: 10px;
+
+          img.marketing-icon {
+            align-self: center;
+          }
+
+          .marketing-text {
+            font-size: 0.8rem;
+            align-self: center;
+          }
+        }
+      }
+
+      ._btnAddProtection_ {
+        text-align: center;
+
+        a {
+          background-color: #F68945;
+          box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+          border-radius: 5px;
+          display: inline-block;
+          margin: 40px auto 10px;
+          padding: 18px 50px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #fff;
+          width: 100%;
+          border: 1px solid #F68945;
+          transition: 0.2s all ease-in-out;
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      .tac {
+        text-align: center;
+
+        a {
+          background-color: transparent;
+          border-radius: 999px;
+          display: inline-block;
+          padding: 18px 50px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          outline: none;
+          color: #000000;
+          width: 100%;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .footerGrid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-gap: 20px;
+        font-size: 0.8rem;
+        position: absolute;
+        width: calc(100% - 9.4rem);
+        bottom: 25px;
+
+        @media ( max-width: 600px ) {
+          width: calc(100% - 4rem);
+        }
+
+        .rightText {
+          text-align: right;
+        }
+      }
+
+    }
+  }
+}
+
+@mixin afterAdd2Cart__Installment() {
+  .afterAdd2Cart__Installment {
+    max-width: 70%;
+
+    @media ( max-width: 550px ) {
+      max-width: 100%;
+    }
+
+    ._InstallmentGrid_ {
+      display: grid;
+      grid-template-columns: 60px auto;
+      grid-gap: 12px;
+      margin-top: 20px;
+
+      ._icon_ {
+        svg {
+          width: 100%;
+          max-width: 60px;
+          max-height: 20px;
+        }
+      }
+
+      ._content_ {
+        // font-style: italic;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 20px;
+        color: #4A4A4A;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+@mixin _productDetail_() {
+  ._productDetail_ {
+
+    @media ( max-width: 991px ) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    [loadingBeforeAfter="true"] {
+      position: relative;
+
+      &::before {
+        background-color: #dfe3e8b0 !important;
+        color: transparent !important;
+        content: '';
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #e6e9ec !important;
+      }
+
+      &::after {
+        background-color: #dfe3e8b0 !important;
+        color: transparent !important;
+      }
+    }
+
+    [loading="true"] {
+      background-color: #dfe3e8b0 !important;
+      color: transparent !important;
+
+      svg {
+        visibility: hidden !important;
+      }
+    }
+
+    @include _variants_();
+
+    @include prodInfo();
+
+    @include _installment_();
+
+    @include bulletContent();
+
+    @include extendedWarranty();
+
+    @include _popupModal_();
+
+    form.addToCartForm {
+      @include paymentBtn_Section();
+    }
+
+    @include _warrantyPopupModal_();
+
+    @include extend_WarrantyModal_();
+
+    @include afterAdd2Cart__Installment();
+
+  }
+}
+
+.pageWidth {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+main.main-content {
+  padding-top: 0px !important;
+}
+
+.newTemp {
+  padding-top: 50px;
+  padding-bottom: 0px;
+  background: linear-gradient(180deg, #F6F6F6 59.78%, #DDE3E9 104.37%);
+  color: #000;
+
+  ._grid_ {
+    display: grid;
+    grid-template-columns: 65% auto;
+
+    @media ( max-width: 991px ) {
+      grid-template-columns: 100%;
+    }
+
+    @include _galleryWrapper_();
+
+    @include _productDetail_();
+  }
+
+
+}
+
+
+// EXTEND WARRANTY
+#extend-offers-modal-iframe {
+  // display: none !important;
+}
