@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAEI,cAFU,CACZ,QAAQ,CACN,eAAe,CAAC;EACd,OAAO,EAAE,KAAK;EACd,WAAW,EAAE,MAAM;EACnB,WAAW,EAAE,qBAAqB;EAClC,WAAW,EAAE,GAAG;EAChB,SAAS,EAAE,IAAI;CAChB;;AAIL,AAAA,GAAG,EAAE,EAAE,CAAC;EACN,cAAc,EAAE,IAAI;CACrB",
-    "sources": [
-        "themeOverwrite.scss"
-    ],
-    "names": [],
-    "file": "themeOverwrite.css"
-}
