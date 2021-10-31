@@ -1,0 +1,75 @@
+{% comment %}
+    Renders a product card using "Grid" style
+    Accepts:
+    - max_height: {Number} Maximum height of the product's image (required)
+    - product: {Object} Product Liquid object (required)
+    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+    Usage:
+    {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+  {% if product.tags contains "New Badge" %}
+  <div class="new-label">New</div>
+  {% endif %}
+  {%- assign preview_image = product.featured_media.preview_image -%}
+  {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+  <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
+    <div class="grid-view-item__image-wrapper product-card__image-wrapper js">
+			<img
+			  class="lazyload"
+			  alt="{{ preview_image.alt }}"
+			  data-src="{{ img_url }}"
+			  data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+			  data-aspectratio="{{ preview_image.aspect_ratio }}"
+			  data-sizes="auto"
+			  data-image>
+    </div>
+    <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
+  </div>
+
+  <noscript>
+    {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+    <img class="grid-view-item__image" src="{{ preview_image | img_url: image_size, scale: 2 }}" alt="{{ preview_image.alt }}" style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;">
+  </noscript>
+
+  <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+
+  <div class="price price--listing">
+    <div class="price__regular">
+      <div class="price-item--regular">
+        <span class="currency">{{ cart.currency.iso_code }}</span> {{ product.price | money_without_currency | remove: '.00' }}
+      </div>
+    </div>
+  </div>
+
+  <form method="post" action="/cart/add">
+    <div class="form-box">
+      <div class="qty-box">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+        <label for="quantity">{{ 'products.product.quantity' | t }}</label>
+        <select id="quantity" name="quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div class="add-cart-button">
+        {% if product.variants.size == 1 %}
+          <input type="submit" value="{{ 'products.product.add_to_cart' | t }}" class="btn" />
+        {% else %}
+          <a href="{{ product.url | within: collection }}">{{ 'products.product.add_to_cart' | t }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </form>
+</div>

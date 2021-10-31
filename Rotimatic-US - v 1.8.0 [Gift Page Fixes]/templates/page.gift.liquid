@@ -1,0 +1,22 @@
+{%-liquid
+  assign ss         =   section.settings
+  assign sb         =   section.blocks
+
+  assign scssFile   =   'gift.scss.css' | asset_url
+  assign jsFile     =   'gift.js' | asset_url
+
+  echo '<link rel="stylesheet" href="' | append: scssFile | append: '">'
+
+  section 'gift__mainBanner'
+
+  section 'goodHealth'
+
+  section '3items'
+
+  section 'gift_tasteEndless'
+
+  section 'faq'
+
+  echo '<script src="' | append: jsFile | append: '"></script>'
+-%}
+
