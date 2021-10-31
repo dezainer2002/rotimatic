@@ -1,0 +1,105 @@
+$mobile: 768px;
+
+.gift__mainBanner {
+  position: relative;
+
+  .gift__mainBanner__img {
+    object-fit: cover;
+    width: 100%;
+    min-height: 450px;
+  }
+
+  .page-width {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+
+    .__content__ {
+      max-width: 538px;
+
+      ._title_ {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 120%;
+        margin-bottom: 30px;
+
+        @media ( max-width: $mobile ) {
+          font-size: 32px;
+          text-align: center;
+        }
+      }
+
+      ._giftTo_ {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 130%;
+
+        @media ( max-width: $mobile ) {
+          font-size: 16px;
+          text-align: center;
+        }
+      }
+
+      ._shipCountryList_ {
+        margin-top: 40px;
+
+        @media ( max-width: $mobile ) {
+          text-align: center;
+        }
+
+        ._countries_ {
+          border-radius: 999px;
+          background-color: #fff;
+          margin-right: 20px;
+          outline: none;
+          padding: 15.5px 30px;
+          width: 250px;
+
+          background-image: url("data:image/svg+xml,%3Csvg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 1L8 9L1 1' stroke='black' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+          -webkit-appearance: none;
+          background-position-x: calc(100% - 20px);
+
+          @media ( max-width: $mobile ) {
+            margin-bottom: 20px;
+            margin-right: 0;
+          }
+        }
+
+        .giftRotimatic {
+          background-color: #7ED321;
+          box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+          border-radius: 30px;
+          padding: 10px 30px;
+          margin-left: 10px;
+
+          &:hover {
+            background-color: #65b60f;
+          }
+
+          @media ( max-width: $mobile ) {
+            width: 250px;
+            padding: 8px 15px;
+            margin-left: 0;
+          }
+
+          > ._text_ {
+            position: relative;
+            margin-left: 13px;
+            top: -2px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0.2px;
+          }
+        }
+      }
+
+    }
+  }
+}
+

@@ -1,0 +1,65 @@
+._3Items_ {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @media ( max-width: 991px ) {
+    padding-bottom: 0;
+  }
+
+  > .dGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 60px;
+
+    @media ( max-width: 991px ) {
+      grid-template-columns: 100%;
+      grid-gap: 60px;
+    }
+
+    ._item_ {
+      border-radius: 10px;
+      overflow: hidden;
+      height: 400px;
+      position: relative;
+
+      ._content_ {
+        padding: 40px;
+        position: relative;
+        z-index: 1;
+        height: 100%;
+
+        ._title_ {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 100%;
+          color: #000000;
+          margin-bottom: 20px;
+        }
+
+        ._detail_ {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 150%;
+          color: #4A4A4A;
+        }
+      }
+
+      .item__btn {
+        position: absolute;
+        bottom: 40px;
+        border-radius: 999px;
+        padding: 10px 40px;
+      }
+
+      .item__img {
+        object-fit: contain;
+        position: absolute;
+        bottom: 0;
+        z-index: 0;
+        width: 100%;
+      }
+    }
+  }
+}
