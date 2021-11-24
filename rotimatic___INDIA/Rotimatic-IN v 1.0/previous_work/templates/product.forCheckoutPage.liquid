@@ -1,0 +1,44 @@
+{%-liquid
+  layout none
+
+  capture dontUse
+    form 'localization'
+      assign currentCurrency  =   form.current_currency.iso_code
+      assign currencySymbol   =   form.current_currency.symbol
+    endform
+  endcapture
+
+  capture getVariants
+
+    for variant in product.variants
+
+      assign priceIs          =   variant.price | money_without_currency
+
+      echo '{'
+        echo '"title"               :   "' | append: variant.option1 | append: '",'
+        echo '"price_withSymbol"    :   "' | append: currencySymbol | append: priceIs | append: '",'
+        echo '"price_withISO"       :   "' | append: currentCurrency | append: priceIs | append: '",'
+        echo '"price_only"          :   "' | append: priceIs | append: '",'
+        echo '"type"                :   "' | append: variant.option2 | append: '"'
+        comment
+        echo '"sku"                 :   "' | append: variant.sku | append: '"'
+        endcomment
+      echo '}'
+
+      unless forloop.last
+        echo ','
+      endunless
+
+    endfor
+
+  endcapture
+
+  capture makeJson
+    echo '{'
+      echo '"product_id"          :   ' | append: product.id | append: ','
+      echo '"variants"            :   [' | append: getVariants | append: ']'
+    echo '}'
+  endcapture
+
+  echo makeJson
+-%}

@@ -1,0 +1,29 @@
+{%-liquid
+  assign ss         =     section.settings
+-%}
+{% if ss.showHideSec %}
+  {% if template == 'index' %}
+    <meta name="google-site-verification" content="sG2xsZNTUB22ImrspFGFFRiw5YEjH0_IWHvFXGcPt08" />
+    <meta name="ahrefs-site-verification" content="60686b049619003656f7de8a619458406768cc666381e4b520757f098ec611b2">
+  {% endif %}
+
+
+  <style>.async-hide { opacity: 0 !important}</style>
+  <!-- Google Tag Manager-->
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "SEO",
+  "class": "seoSec",
+	"settings": [
+		{
+			"type"      :   "checkbox",
+			"id"        :   "showHideSec",
+			"label"     :   "Show / Hide Section",
+			"default"   :   true
+		}
+	]
+}
+{% endschema %}

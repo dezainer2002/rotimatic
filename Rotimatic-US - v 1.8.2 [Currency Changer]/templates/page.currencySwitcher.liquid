@@ -1,0 +1,51 @@
+{%-liquid
+  layout none
+
+  capture noUse
+
+    form 'localization'
+
+      capture listOfCurrencies
+
+        for currency in form.available_currencies
+
+          echo '<li '
+            echo 'iso-code="' | append: urrency.iso_code | append: '"'
+            echo 'class="disclosure-list__item '
+            if currency.iso_code == form.current_currency.iso_code
+              echo ' disclosure-list__item--current'
+            endif
+          echo '">'
+
+            echo '<a '
+              echo 'class="disclosure-list__option '
+                echo currency.iso_code
+              echo '" '
+              echo ' href="javascript://;" '
+              echo ' iso-code="' | append: currency.iso_code | append: '"'
+              if currency.iso_code == form.current_currency.iso_code
+                echo ' aria-current="true" '
+              endif
+            echo '>'
+              echo '<span class="flag ' | append: currency.iso_code | append: '"></span>'
+              echo currency.iso_code
+              if currency.symbol
+                echo currency.symbol
+              endif
+            echo '</a>'
+          echo '</li>'
+
+        endfor
+
+      endcapture
+
+    endform
+
+  endcapture
+
+
+  echo listOfCurrencies
+
+
+-%}
+

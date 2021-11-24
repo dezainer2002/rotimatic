@@ -1,0 +1,14 @@
+#continue_button {
+  &[disabled] {
+    background-color: #7e7e7e;
+  }
+}
+
+button#rzp-button1 {
+  border: 1px solid #f68945;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #f68945;
+  color: #fff;
+}

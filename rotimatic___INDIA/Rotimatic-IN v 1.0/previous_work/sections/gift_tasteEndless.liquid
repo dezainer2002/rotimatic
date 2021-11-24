@@ -1,0 +1,158 @@
+{%-liquid
+	assign ss			    =			section.settings
+	assign sb			    =			section.blocks
+
+  assign scssFile   =     'gift_tasteEndless.scss.css' | asset_url
+
+  echo '<link rel="stylesheet" href="' | append: scssFile | append: '">'
+
+  echo '<div class="gift_tasteEndless">'
+
+    echo '<div class="_dGrid_">'
+
+      assign img__Desktop       =   ss.imgDesktop | img_url: '580x'
+
+      assign img__Mobile        =   ss.imgMobile | img_url: '500x'
+
+      echo '<picture>'
+
+        echo '<source media="(min-width: 768px)" srcset="' | append: img__Desktop | append: '">'
+        echo '<source media="(max-width: 768px)" srcset="' | append: img__Mobile | append: '">'
+
+        echo '<img src="' | append: img__Desktop | append: '" class="gift_tasteEndless__img">'
+
+      echo '</picture>'
+
+      echo '<div class="_content_">'
+
+        echo '<div class="headingPart">'
+
+          echo '<div class="_title_">'
+
+            echo ss.title
+
+          echo '</div>'
+
+          echo '<div class="_detail_">'
+
+            echo ss.detail
+
+          echo '</div>'
+
+        echo '</div>'
+
+        assign itemArr          =   sb | where: 'type', 'item'
+
+        if itemArr.size > 0
+
+          echo '<div class="allItemsWrapper">'
+
+            echo '<div class="allItems">'
+
+              for block in itemArr
+
+                assign b          =   block.settings
+
+                echo '<div class="_item_">'
+
+                  assign item__Img    =   b.itemImg | img_url: '100x'
+
+                  echo '<img src="' | append: item__Img | append: '" class="_item__img">'
+
+                  echo '<div class="_itemTitle_">'
+
+                    echo b.title
+
+                  echo '</div>'
+
+                echo '</div>'
+
+              endfor
+
+            echo '</div>'
+
+            echo '<div class="allItems vHidden">'
+
+              for block in itemArr
+
+                assign b          =   block.settings
+
+                echo '<div class="_item_">'
+
+                  assign item__Img    =   b.itemImg | img_url: '100x'
+
+                  echo '<img src="' | append: item__Img | append: '" class="_item__img">'
+
+                echo '</div>'
+
+              endfor
+
+            echo '</div>'
+
+          echo '</div>'
+
+        endif
+
+      echo '</div>'
+
+    echo '</div>'
+
+  echo '</div>'
+
+-%}
+
+
+{% schema %}
+{
+  "name"        :   "Gift Taste Endless",
+  "settings"    :   [
+		{
+      "type"      :   "image_picker",
+	  	"id"        :   "imgDesktop",
+	  	"label"     :   "Image Desktop"
+		},
+    {
+      "type"      :   "image_picker",
+	  	"id"        :   "imgMobile",
+	  	"label"     :   "Image Mobile"
+		},
+    {
+      "type"      :   "text",
+	  	"id"        :   "title",
+	  	"label"     :   "Heading",
+	  	"default"   :   "Taste the endless possibilities"
+		},
+		{
+      "type"      :   "textarea",
+	  	"id"        :   "detail",
+	  	"label"     :   "Content",
+	  	"default"   :   "Unlimited new features at no additional cost. One hardware limitless potential"
+		}
+  ],
+  "blocks"      :   [
+    {
+      "type"      :   "item",
+	  	"name"      :   "item",
+      "limit"     :   7,
+	  	"settings"    :   [
+        {
+          "type"    :   "image_picker",
+		  		"id"      :   "itemImg",
+		  		"label"   :   "Image"
+				},
+        {
+          "type"    :   "text",
+          "id"      :   "title",
+          "label"   :   "Title"
+        }
+	  	]
+		}
+  ],
+  "presets"     :   [
+    {
+      "category"  :   "Custom Block",
+      "name"      :   "Gift Taste Endless"
+    }
+  ]
+}
+{% endschema %}

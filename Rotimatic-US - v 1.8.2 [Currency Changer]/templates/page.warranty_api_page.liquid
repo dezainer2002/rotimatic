@@ -1,0 +1,16 @@
+{%-liquid
+  assign themeScss      =   'theme_previous.scss.css' | asset_url
+  assign sassFile       =   'warranty.css' | asset_url
+  assign jsFile         =   'warranty.js' | asset_url
+
+  echo '<link rel="stylesheet" href="' | append: themeScss | append: '">'
+  echo '<link rel="stylesheet" href="' | append: sassFile | append: '">'
+
+  section 'warranty_header'
+  section 'warranty_api_integration'
+  section 'warranty_moreAbout_rotimatic'
+  section 'warranty_steps'
+  section 'warranty_faqs'
+
+  echo '<script src="' | append: jsFile | append: '"></script>'
+-%}

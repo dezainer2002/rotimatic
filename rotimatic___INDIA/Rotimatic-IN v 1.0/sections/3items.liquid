@@ -1,0 +1,145 @@
+{%-liquid
+  assign ss             =   section.settings
+  assign sb             =   section.blocks
+
+  assign scssFile       =   '3items.scss.css' | asset_url
+
+  echo '<link rel="stylesheet" href="' | append: scssFile | append: '">'
+
+  echo '<div class="_3Items_">'
+
+    echo '<div class="page-width dGrid">'
+
+      assign itemArr    =   sb | where: 'type', 'item'
+
+      assign collectCss =   ''
+
+      for block in itemArr
+
+        assign b        =   block.settings
+
+        echo '<div class="_item_" bid="' | append: block.id | append: '">'
+
+          echo '<div class="_content_">'
+
+            echo '<div class="_title_">'
+
+              echo b.title
+
+            echo '</div>'
+
+            echo '<div class="_detail_">'
+
+              echo b.detail | newline_to_br
+
+            echo '</div>'
+
+            if b.btnLabel != blank and b.btnLink != blank
+
+              echo '<a href="' | append: b.btnLink | append: '" class="btn item__btn">'
+
+                echo b.btnLabel
+
+              echo '</a>'
+
+            endif
+
+          echo '</div>'
+
+          assign img__  =   b.img | img_url: '400x'
+
+          echo '<img src="' | append: img__ | append: '" class="item__img">'
+
+        echo '</div>'
+
+       capture collectCss
+
+          echo collectCss
+          echo ' ._3Items_ .dGrid ._item_[bid="' | append: block.id | append: '"] {background-image: linear-gradient(296.8deg, ' | append: b.darkBgColor | append: ' 0%, ' | append: b.lightBgColor | append: ' 98.01%);} '
+
+        endcapture
+
+        if forloop.last
+
+          echo '<style>' | append: collectCss | append: '</style>'
+
+        endif
+
+      endfor
+
+    echo '</div>'
+
+  echo '</div>'
+
+-%}
+
+{% schema %}
+{
+  "name"      :   "3 Items",
+  "settings": [
+  ],
+  "blocks"    :   [
+    {
+      "type"    :   "item",
+      "name"    :   "item",
+      "limit"   :   3,
+      "settings":   [
+        {
+          "type"    :   "image_picker",
+          "id"      :   "img",
+          "label"   :   "Upload Image"
+        },
+        {
+          "type"    :   "text",
+          "id"      :   "title",
+          "label"   :   "title",
+          "default" :   "Try it risk free"
+        },
+        {
+          "type"    :   "textarea",
+          "id"      :   "detail",
+          "label"   :   "Detail",
+          "default" :   "We want you to love your Rotimatic experience, and we know it takes time to get used to new diets and lifestyle. So we give you 30 days to try it worry free or get a refund."
+        },
+        {
+          "type"    :   "text",
+          "id"      :   "btnLabel",
+          "label"   :   "Button Text",
+          "default" :   "Learn more"
+        },
+        {
+          "type"    :   "url",
+          "id"      :   "btnLink",
+          "label"   :   "Button Link"
+        },
+        {
+          "type"    :   "color",
+          "id"      :   "lightBgColor",
+          "label"   :   "Light Background color",
+          "default" :   "#FFF3EB"
+        },
+        {
+          "type"    :   "color",
+          "id"      :   "darkBgColor",
+          "label"   :   "Dark Background color",
+          "default" :   "#FFD5B5"
+        }
+      ]
+    }
+  ],
+  "presets" :   [
+    {
+      "category"  :   "image",
+      "name"      :   "3 Items",
+      "blocks"    :   [
+        {
+          "type"    :   "item"
+        },
+        {
+          "type"    :   "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

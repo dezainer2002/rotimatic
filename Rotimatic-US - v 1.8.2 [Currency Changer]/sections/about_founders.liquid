@@ -1,0 +1,95 @@
+
+
+<!-- styles -->
+
+
+<style>
+.profiles_container{
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+}
+
+.profiles_container .profile > * {
+    display: block;
+}
+.profile{
+    flex-basis: 48%;
+    margin: .5rem;
+    max-width: 420px;
+}
+
+@media(max-width: 768px){
+    .profile{
+        flex-basis: 100%;
+        margin: 0;
+    }
+}
+
+.profile_image{
+    height: 289px;
+}
+
+@media(max-width: 768px){
+    .profile_image{
+       width: 100%;
+    }
+}
+
+.profile_name{
+    margin: .6rem 0;
+}
+.profile_designation{
+    color: #f68945;
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+
+}
+.profile_linkedin_image{
+height: 46px;
+margin: .6rem 0;
+}
+.profile_description{
+    font-size: .875rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    margin-top: 1.875rem;
+}
+
+
+</style>
+<!-- html -->
+<div class="about_founders">
+ <div class="page-width">
+   <div class="profiles_container" id="inventor-profile" name="inventor-profile">
+      <div class="profile">
+            <img class="profile_image" src="{{"ceo.jpeg"| asset_url}}" alt="ceo_image">
+            <h4 class="profile_name">Pranoti Nagarkar</h4>
+            <span class="profile_designation">Founder, Inventor, CEO, Rotimatic</span>
+            <img class="profile_linkedin_image" src="{{"linkdin.jpeg" | asset_url}}" />
+            <div class="profile_description">
+                A 4th generation Mechanical Engineer in her family and born with a
+                rebellious streak, Pranoti always wanted to be an inventor. In her junior year at college, she built a
+                prototype of an automatic iron for shirts. After working as a product design engineer and gaining industry experience, 13 years ago, Pranoti embarked on the journey to create Rotimatic.
+                After 8 years of subborness Rotimatic was ready, since 5 years it has changed lives of 75000+ families. 
+                With 37 patents under her belt, she is a frequent
+                panelist at technology entrepreneurship events. A champion for female entrepreneurs everywhere. A person with a
+                spiritual core, when she is not working or chasing her kids around the house, she is an avid reader of
+                literature that inspires gratitude & simplicity in life.
+            </div>
+        </div>
+
+        <div class="profile">
+            <img class="profile_image" src="{{'cto.jpeg' | asset_url}}" alt="ceo_image">
+            <h4 class="profile_name">Rishi Israni</h4>
+            <span class="profile_designation">Founder, Inventor, CTO, Rotimatic</span>
+            <img class="profile_linkedin_image" src="{{ "linkdin.jpeg" | asset_url }}" />
+            <div class="profile_description">
+Rishi is one of those rare leaders who are equal parts technologists and equal parts businessmen. Prior to this, he was Co-founder & CTO of tenCube, a mobile security software company acquired by Intel. A very hands-on CTO, he has steered Zimplistic from the early R&D days to its flagship product Rotimatic becoming a household name in over 20 countries. A futurist at heart, he is adept at bringing technologies and multi-disciplinary teams together to create products that skip innovation curves. A trained cricketer with a cheerful disposition, he sees robotics with a long-term lens and wants to do his part in revolutionizing our kitchens with robotics to simplify cooking for the next generation.
+            </div>
+        </div>
+
+    </div>
+  </div>
+</div>

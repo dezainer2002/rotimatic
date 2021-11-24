@@ -1,0 +1,204 @@
+{% if settings.checkParam %}
+  <script>
+    checkParamAndRedirect();
+    function checkParamAndRedirect() {
+      try {
+
+        const pdpPage_ParamKey            =   `{{ settings.paramKeyIs_ }}`;
+        const pdpPage_ParamVal            =   `{{ settings.paramValIs_ }}`;
+        const pdpPage_RedirectTo          =   `{{ settings.redirectTo_ }}`;
+
+        const getPDP_Param_res            =   getParamPDP( pdpPage_ParamKey );
+
+        if ( typeof getPDP_Param_res !== 'undefined' && getPDP_Param_res && getPDP_Param_res == pdpPage_ParamVal ) {
+
+        } else {
+
+          location.href                   =   pdpPage_RedirectTo;
+
+        }
+
+      }
+      catch ( err ) {
+        console.log( `ERROR checkParamAndRedirect()`, err.message );
+      }
+    }
+    function getParamPDP ( paramIs ) {
+      try {
+
+        const url                     =   location.href;
+        const objURL                  =   new URL(url);
+        const c                       =   objURL.searchParams.get( paramIs );
+        return c;
+
+      }
+      catch ( err ) {
+        console.log ( 'ERROR getParam', err.message );
+      }
+    }
+  </script>
+{% endif %}
+<script async src="https://na-library.klarnaservices.com/lib.js" data-client-id="a84e92d4-0c96-5904-b6ac-633bbd3bcf8b"></script>
+
+<script src="https://sdk.helloextend.com/extend-sdk-client/v1/extend-sdk-client.min.js"></script>
+<script src="https://sdk.helloextend.com/extend-sdk-client-shopify-addon/v1/extend-sdk-client-shopify-addon.min.js"></script>
+<script>Extend.config({ storeId: '2d4fc550-4d7b-4e0a-a098-285a9e4ab60f', environment: 'production' })</script>
+
+<!-- Extend - Render polyfills to enable IE11 support -->
+{% render 'extend-polyfills' %}
+
+<!-- Extend - Render aftermarket integration snippet -->
+{% render 'extend-aftermarket-integration' %}
+<!-- Extend - End Extend code -->
+
+{%-liquid
+  assign scssFile         =   'productNewTemp.scss.css' | asset_url
+  assign giftScssFile     =   'gift.scss.css' | asset_url
+  assign jsFile           =   'productNewTemp.js' | asset_url
+  assign giftJsFile       =   'gift.js' | asset_url
+
+  if settings.pdpPage
+    render '__loading'
+  endif
+
+  echo '<link rel="stylesheet" href="' | append: scssFile | append: '">'
+
+  echo '<link rel="stylesheet" href="' | append: giftScssFile | append: '">'
+
+  capture dontUse
+    form 'localization'
+      assign currentCurrency   =   form.current_currency.iso_code
+    endform
+  endcapture
+
+  section 'gift__mainBanner'
+
+  echo '<div class="newTemp" style="display: none;">'
+
+    echo '<div class="pageWidth">'
+
+      echo '<div class="_grid_">'
+
+        section 'product-imgGallery'
+
+        echo '<div class="_productDetail_">'
+
+          section 'product-variantTabs'
+
+          section 'product-installment'
+
+          section 'product-detail'
+
+          section 'product-warranty'
+
+          section 'product-paymentBtn'
+
+          render '__productNewTemp_installments', viewAs: 'html', currentCurrency: currentCurrency
+
+        echo '</div>'
+
+      echo '</div>'
+
+    echo '</div>'
+
+  echo '</div>'
+
+  section 'product-specifications'
+
+  section 'goodHealth'
+
+  section '3items'
+
+  section 'gift_tasteEndless'
+
+  section 'faq'
+
+-%}
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart   :   {{ 'products.product.add_to_cart' | t | json }},
+    soldOut     :   {{ 'products.product.sold_out' | t | json }},
+    unavailable :   {{ 'products.product.unavailable' | t | json }}
+  }
+
+  {% if settings.pdpPage %}
+    const pdpCheckRedirect    =     true;
+  {% endif %}
+
+  const isGiftPage            =     true;
+</script>
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<script type="application/ld+json">
+  {
+    "@context"    :   "http://schema.org/",
+    "@type"       :   "Product",
+    "name"        :   {{ product.title | json }},
+    "url"         :   {{ shop.url | append: product.url | json }},
+    {%- if product.featured_media -%}
+      {%- assign media_size = product.featured_media.preview_image.width | append: 'x' -%}
+      "image"     :   [
+        {{ product.featured_media | img_url: media_size | prepend: "https:" | json }}
+      ],
+    {%- endif -%}
+    "description" :   {{ product.description | strip_html | json }},
+    {%- if current_variant.sku != blank -%}
+      "sku"       :   {{ current_variant.sku | json }},
+    {%- endif -%}
+    "brand"       :   {
+      "@type"       :   "Thing",
+      "name"        :   {{ product.vendor | json }}
+    },
+    "offers"      :   [
+      {%- for variant in product.variants -%}
+        {
+          "@type"         :   "Offer",
+          {%- if variant.sku != blank -%}
+            "sku"         :   {{ variant.sku | json }},
+          {%- endif -%}
+          "availability"  :   "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price"         :   {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency" :   {{ cart.currency.iso_code | json }},
+          "url"           :   {{ shop.url | append: variant.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+<script src="{{ jsFile }}"></script>
+<script src="{{ giftJsFile }}"></script>
+
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name              :   {{ product.title | json }},
+    ProductID         :   {{ product.id | json }},
+    Categories        :   {{ product.collections | map: 'title' | json }},
+    ImageURL          :   "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL               :   "{{ shop.secure_url }}{{ product.url }}",
+    Brand             :   {{ product.vendor | json }},
+    Price             :   {{ product.price | money | json }},
+    CompareAtPrice    :   {{ product.compare_at_price_max | money | json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title       :   item.Name,
+    ItemId      :   item.ProductID,
+    Categories  :   item.Categories,
+    ImageUrl    :   item.ImageURL,
+    Url         :   item.URL,
+    Metadata    :   {
+      Brand           :   item.Brand,
+      Price           :   item.Price,
+      CompareAtPrice  :   item.CompareAtPrice
+    }
+  }]);
+</script>
