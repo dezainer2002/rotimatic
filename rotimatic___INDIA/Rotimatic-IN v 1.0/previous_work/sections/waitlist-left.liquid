@@ -1,0 +1,53 @@
+<div class="waitlist-left">
+  <div class="waitlist-row">
+    {% if section.settings.title != blank %}
+      <h1 class="h3">{{ section.settings.title | escape }}</h1>
+    {% endif %}
+    {% if section.settings.text != blank %}
+      <div class="content">{{ section.settings.text }}</div>
+    {% endif %}
+
+    <img class="desktop_image lazyload"
+      data-src="{{ section.settings.desktop_image | img_url: 'master' }}"
+      alt="{{ section.settings.desktop_image.alt | escape }}" />
+
+    <img class="mobie_image lazyload"
+      data-src="{{ section.settings.mobile_image | img_url: 'master' }}"
+      alt="{{ section.settings.mobile_image.alt | escape }}" />
+  </div>
+</div>
+
+<div class="waitlist-form">
+  {% render "customer-fields", form_id: "8btnQ7" %}
+</div>
+
+{% schema %}
+{
+  "name": "Waitlist section",
+  "class": "index-section waitlist-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Be the first in line!"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Join our priority waitlist and be among the first to get your hands on a Rotimatic when orders open in your country</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    }
+  ]
+}
+{% endschema %}

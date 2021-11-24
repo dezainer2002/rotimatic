@@ -1,0 +1,352 @@
+{%-liquid
+  assign ss             =     section.settings
+  assign sb             =     section.blocks
+
+  assign restockingFee  =     all_products['restocking-fee'].price
+
+  assign helpIcon       =     '<svg class="helpIcon" width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13.5229C3.41612 13.5229 0.5 10.6073 0.5 7.02295C0.5 3.43857 3.41612 0.522949 7 0.522949C10.5839 0.522949 13.5 3.43857 13.5 7.02295C13.5 10.6073 10.5839 13.5229 7 13.5229Z" fill="#D47337" stroke="#F68945"/><path d="M6.05078 8.51514C6.05078 7.99561 6.11523 7.58154 6.24414 7.27295C6.37305 6.96436 6.62695 6.62646 7.00586 6.25928C7.38867 5.88818 7.63086 5.62451 7.73242 5.46826C7.88867 5.22998 7.9668 4.97217 7.9668 4.69482C7.9668 4.32764 7.875 4.04834 7.69141 3.85693C7.51172 3.66162 7.24609 3.56396 6.89453 3.56396C6.55859 3.56396 6.28711 3.65967 6.08008 3.85107C5.87695 4.03857 5.77539 4.29443 5.77539 4.61865H4.35156C4.35938 3.92725 4.59375 3.38037 5.05469 2.97803C5.51953 2.57568 6.13281 2.37451 6.89453 2.37451C7.67969 2.37451 8.29102 2.57373 8.72852 2.97217C9.16992 3.37061 9.39062 3.92725 9.39062 4.64209C9.39062 5.27881 9.09375 5.90576 8.5 6.52295L7.7793 7.23193C7.52148 7.5249 7.38867 7.95264 7.38086 8.51514H6.05078ZM5.95117 10.3374C5.95117 10.1069 6.02344 9.92139 6.16797 9.78076C6.3125 9.63623 6.50781 9.56396 6.75391 9.56396C7.00391 9.56396 7.20117 9.63818 7.3457 9.78662C7.49023 9.93115 7.5625 10.1147 7.5625 10.3374C7.5625 10.5522 7.49219 10.7319 7.35156 10.8765C7.21094 11.021 7.01172 11.0933 6.75391 11.0933C6.49609 11.0933 6.29688 11.021 6.15625 10.8765C6.01953 10.7319 5.95117 10.5522 5.95117 10.3374Z" fill="white" fill-opacity="0.6"/></svg>'
+
+  capture viewAs
+    render '__getParam' with { paramStart: 'view=' }
+  endcapture
+
+  capture dontUse
+    form 'localization'
+      assign currentCurrency   =   form.current_currency.iso_code
+    endform
+  endcapture
+
+  capture firstSelectedVariant
+    assign vCurrency_Count        =   0
+
+    for variant in product.variants
+
+      assign metaCurrency         =   variant.metafields.global.Currency
+
+      if currentCurrency == metaCurrency
+
+        if vCurrency_Count == 0
+
+          assign v                =   variant
+
+          assign vCurrency_Count  =   vCurrency_Count | plus: 1
+
+        endif
+
+      endif
+
+    endfor
+
+  endcapture
+
+  if ss.showHide
+    if viewAs == 'getDetail'
+
+      assign v                    =     product.selected_or_first_available_variant
+      assign productTitleDownCase =     product.title | downcase
+
+      assign listTextArr          =     sb | where: 'type', 'listText'
+
+      if listTextArr.size > 0
+
+        for block in listTextArr
+          assign b        =     block.settings
+
+          if currentCurrency == 'INR'
+
+            if b.hideForIndia == false
+
+              if productTitleDownCase contains b.productTitle
+
+                echo '<li loading>'
+                  echo b.title
+
+                  if b.helpContent != blank
+                    echo '<span class="helpBlock">'
+                      echo helpIcon
+
+                      echo '<div class="helpContent">'
+                        echo '<div class="zIndexAbove">'
+
+                          if currentCurrency == 'INR' and b.helpContent_forIndia != blank
+                            assign helpContent_   =   b.helpContent_forIndia
+                          else
+                            assign helpContent_   =   b.helpContent
+                          endif
+
+                          if b.helpContent contains '[restockingFee]'
+                            capture returnFee
+                              echo currentCurrency | append: ' '
+                              echo restockingFee | money_without_currency
+                            endcapture
+
+                            assign helpContent_   =   helpContent_ | replace: '[restockingFee]', returnFee
+                          endif
+
+                          echo helpContent_
+
+                        echo '</div>'
+                      echo '</div>'
+                    echo '</span>'
+                  endif
+                echo '</li>'
+
+              endif
+
+            endif
+
+          else
+
+            if productTitleDownCase contains b.productTitle
+
+              echo '<li loading>'
+                echo b.title
+
+                if b.helpContent != blank
+                  echo '<span class="helpBlock">'
+                    echo helpIcon
+
+                    echo '<div class="helpContent">'
+                      echo '<div class="zIndexAbove">'
+
+                        assign helpContent_   =   b.helpContent
+
+                        if b.helpContent contains '[restockingFee]'
+                          capture returnFee
+                            echo currentCurrency | append: ' '
+                            echo restockingFee | money_without_currency
+                          endcapture
+
+                          assign helpContent_   =   helpContent_ | replace: '[restockingFee]', returnFee
+                        endif
+
+                        echo helpContent_
+
+                      echo '</div>'
+                    echo '</div>'
+                  echo '</span>'
+                endif
+              echo '</li>'
+
+            endif
+
+          endif
+
+        endfor
+
+      endif
+
+    else
+
+      assign collection__             =   collections[ss.rotiCollection]
+      assign string__currency__code   =   'currency__' | append: currentCurrency
+      assign vCurrency_Count          =   0
+      assign isSelected               =   ''
+      assign collectionProducts       =   collection__.products | sort: 'title-ascending'
+
+      paginate collection__.products by 250
+        for pro in collectionProducts
+
+          for tag in pro.tags
+
+            if tag contains string__currency__code
+
+              if vCurrency_Count == 0
+                assign selectedProduct    =   pro.title | downcase
+                assign vCurrency_Count    =   vCurrency_Count | plus: 1
+              endif
+
+            endif
+
+          endfor
+
+        endfor
+      endpaginate
+
+      echo '<div class="bulletContent">'
+        assign textArr  =     sb | where: 'type', 'text'
+        for block in textArr
+          assign b        =     block.settings
+
+          assign isBold_  =     ''
+
+          if b.isBold
+            assign isBold_  =     ' _bold_'
+          endif
+
+          echo '<div class="mb_8' | append: isBold_ | append: '" loading>'
+            echo b.title
+          echo '</div>'
+        endfor
+
+        assign listTextArr  =     sb | where: 'type', 'listText'
+
+        if listTextArr.size > 0
+          echo '<ul>'
+            for block in listTextArr
+              assign b        =     block.settings
+
+              if currentCurrency == 'INR'
+
+                if b.hideForIndia == false
+
+                  if selectedProduct contains b.productTitle
+
+                    echo '<li loading>'
+                      echo b.title
+
+                      if b.helpContent != blank
+                        echo '<span class="helpBlock">'
+                          echo helpIcon
+
+                          echo '<div class="helpContent">'
+                            echo '<div class="zIndexAbove">'
+
+                              if currentCurrency == 'INR' and b.helpContent_forIndia != blank
+                                assign helpContent_   =   b.helpContent_forIndia
+                              else
+                                assign helpContent_   =   b.helpContent
+                              endif
+
+                              if b.helpContent contains '[restockingFee]'
+                                capture returnFee
+                                  echo currentCurrency | append: ' '
+                                  echo restockingFee | money_without_currency
+                                endcapture
+
+                                assign helpContent_   =   helpContent_ | replace: '[restockingFee]', returnFee
+                              endif
+
+                              echo helpContent_
+
+                            echo '</div>'
+                          echo '</div>'
+                        echo '</span>'
+                      endif
+                    echo '</li>'
+
+                  endif
+
+                endif
+
+              else
+
+                if selectedProduct contains b.productTitle
+
+                  echo '<li loading>'
+                    echo b.title
+
+                    if b.helpContent != blank
+                      echo '<span class="helpBlock">'
+                        echo helpIcon
+
+                        echo '<div class="helpContent">'
+                          echo '<div class="zIndexAbove">'
+
+                            assign helpContent_   =   b.helpContent
+
+                            if b.helpContent contains '[restockingFee]'
+                              capture returnFee
+                                echo currentCurrency | append: ' '
+                                echo restockingFee | money_without_currency
+                              endcapture
+
+                              assign helpContent_   =   helpContent_ | replace: '[restockingFee]', returnFee
+                            endif
+
+                            echo helpContent_
+
+                          echo '</div>'
+                        echo '</div>'
+                      echo '</span>'
+                    endif
+                  echo '</li>'
+
+                endif
+
+              endif
+
+            endfor
+          echo '</ul>'
+        endif
+      echo '</div>'
+    endif
+  endif
+-%}
+
+{% schema %}
+{
+  "name"      :   "Product Detail",
+  "settings"  :   [
+    {
+      "type"    :   "checkbox",
+      "id"      :   "showHide",
+      "label"   :   "Show / Hide Section",
+      "default" :   true
+    },
+    {
+      "type"    :   "collection",
+      "id"      :   "rotiCollection",
+      "label"   :   "Select Collection"
+    }
+  ],
+  "blocks"    :   [
+    {
+      "type"      :   "text",
+      "name"      :   "Text",
+      "limit"     :   1,
+      "settings"  :   [
+        {
+          "type"    :   "text",
+          "id"      :   "title",
+          "label"   :   "Text",
+          "default" :   "Lorem ipsum dolor sit amet consectetur."
+        },
+        {
+          "type"    :   "checkbox",
+          "id"      :   "isBold",
+          "label"   :   "Is Bold",
+          "default" :   true
+        }
+      ]
+    },
+    {
+      "type"      :   "listText",
+      "name"      :   "Bullet Text",
+      "settings"  :   [
+        {
+          "type"    :   "checkbox",
+          "id"      :   "hideForIndia",
+          "label"   :   "Hide for India",
+          "default" :   false
+        },
+        {
+          "type"    :   "text",
+          "id"      :   "productTitle",
+          "label"   :   "Product Title",
+          "default" :   "ROTIMATIC",
+          "info"    :   "Title should like 'ROTIMATIC' or 'REMANUFACTURED'"
+        },
+        {
+          "type"    :   "text",
+          "id"      :   "title",
+          "label"   :   "Text",
+          "default" :   "Lorem ipsum dolor sit amet consectetur."
+        },
+        {
+          "type"    :   "textarea",
+          "id"      :   "helpContent",
+          "label"   :   "Help Detail",
+          "default" :   "Lorem ipsum dolor sit amet consectetur."
+        },
+        {
+          "type"    :   "textarea",
+          "id"      :   "helpContent_forIndia",
+          "label"   :   "Help Detail for India",
+          "default" :   "Lorem ipsum dolor sit amet consectetur."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

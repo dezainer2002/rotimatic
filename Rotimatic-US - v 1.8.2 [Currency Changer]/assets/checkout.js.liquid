@@ -1,0 +1,493 @@
+{% if settings.customizationActive %}
+
+  $(document).on("page:load page:change",async function() {
+    try {
+
+      if ( Shopify.Checkout.step === "contact_information" ) {
+
+        console.clear();
+
+        getAndSetShippingCountry( `#checkout_shipping_address_country` );
+
+        {% if settings.shippingProd != blank %}
+
+          collectShippingData( `{{ settings.shippingProd }}` );
+
+        {% endif %}
+
+      } else if ( Shopify.Checkout.step === 'shipping_method' ) {
+
+
+        checkAndApply__ShippingMethods();
+
+      } else if ( Shopify.Checkout.step === "payment_method" ) {
+
+        console.clear();
+
+        const getShipCountry      =   localStorage.getItem( `__shipCountry__` );
+
+        if ( getShipCountry === 'India' ) {
+
+          // $( `.content-box .radio-wrapper.content-box__row` ).addClass( `visually-hidden` );
+
+          // $( `.radio-wrapper.content-box__row[data-gateway-name="manual"] label.radio__label__primary.content-box__emphasis` ).text( `{{ settings.codReplaceWith }}` );
+
+          // $( `.radio-wrapper.content-box__row[data-gateway-name="manual"]` )
+          // .removeClass( `visually-hidden` )
+          // .next( `.radio-wrapper.content-box__row.content-box__row--secondary` )
+          // .removeClass( `visually-hidden` )
+          // .find( `.blank-slate p` )
+          // .text( `{{ settings.codReplaceWith }}` )
+          // .html( `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#f68945" stroke="none"><animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform></path></svg><button id="rzp-button1" class="visually-hidden">Razor Pay</button>` );
+
+          // $( `.radio-wrapper.content-box__row[data-gateway-name="manual"] label.radio__label__primary.content-box__emphasis` ).click();
+
+          // $( `.step__footer .shown-if-js #continue_button` ).prop( `disabled`, true );
+
+          // console.log ( 'country is India' );
+          // console.log ( 'Hide all other payment methods and show only Cash on delivery (COD)' );
+          // console.log ( 'Replaced Cash on delivery (COD) to Razor pay' );
+          // console.log ( 'Add loader' );
+
+          // await getRazorInt__();
+
+        }
+
+      }
+
+      // await delay( 2000 );
+      // getTotalPrice();
+    }
+    catch ( err ) {
+      console.log( `ERROR `, err.message );
+    }
+
+  })
+
+  .on('change', '#checkout_shipping_address_country', function() {
+    try {
+
+      getAndSetShippingCountry( this );
+
+    }
+    catch ( err ) {
+      console.log( `ERROR #checkout_shipping_address_country`, err.message );
+    }
+  })
+
+  .on('change', '.section.section--shipping-method .section__content .content-box .content-box__row .radio-wrapper .input-radio', function( e ) {
+    try {
+
+      e.stopImmediatePropagation();
+      getTotalPrice();
+
+    }
+    catch ( err ) {
+      console.log( `ERROR .section.section--shipping-method .section__content .content-box .content-box__row .radio-wrapper .input-radio`, err.message );
+    }
+  })
+  ;
+
+  async function getAndSetShippingCountry( shipAddressSelector ) {
+    try {
+
+      const getShippingCountry    =   $( shipAddressSelector ).val();
+
+      localStorage.setItem( `__shipCountry__`, `${ getShippingCountry }` );
+
+    }
+    catch ( err ) {
+      console.log( `ERROR getAndSetShippingCountry`, err.message );
+    }
+  }
+
+  async function checkClassAvailable( selectorIs, checkClass ) {
+    try {
+
+      let rtn                   =   false;
+
+      var divCheckingInterval   =   setInterval( function() {
+
+        if ( document.querySelector( `${ selectorIs }.${ checkClass }` ) ) {
+
+          clearInterval( divCheckingInterval );
+
+          console.log ( 'chaaaa' );
+
+          return true;
+
+        }
+
+      }, 100);
+
+    }
+    catch ( err ) {
+      console.log( `ERROR checkElement`, err.message );
+    }
+  }
+
+  function checkingIframe( selectorIs ) {
+    try {
+
+      var divCheckingInterval       =   setInterval( function() {
+
+        if ( document.querySelector( selectorIs ) ) {
+
+          clearInterval( divCheckingInterval );
+
+        }
+
+      }, 100);
+
+    }
+    catch ( err ) {
+      console.log( `ERROR checkingIframe`, err.message );
+    }
+  }
+
+{% endif %}
+
+async function collectShippingData( pHandle ) {
+  try {
+
+    await fetch( `/products/${ pHandle }?view=forCheckoutPage` )
+    .then(response => response.json())
+    .then(res => {
+
+      if ( typeof res.variants !== 'undefined' && res.variants ) {
+
+        localStorage.setItem( `__shippingMethods__`, JSON.stringify( res.variants ) );
+
+      }
+
+    });
+
+  }
+  catch ( err ) {
+    console.log( `ERROR collectShippingData`, err.message );
+  }
+}
+
+async function checkAndApply__ShippingMethods() {
+  try {
+
+    // console.clear();
+
+    let getShippingMethods              =   await localStorage.getItem( `__shippingMethods__` );
+    const getShipCountry                =   await localStorage.getItem( `__shipCountry__` );
+    let getTotalAmount                  =   $( `.total-line-table__footer .total-line__price .payment-due__price[data-checkout-payment-due-target]` ).text();
+
+    let getCurrencyOnly                 =   getTotalAmount.replace(/[0-9]/g, '');
+    getCurrencyOnly                     =   getCurrencyOnly.includes( ` ` ) ? getCurrencyOnly.replace(' ', '') : '';
+    getCurrencyOnly                     =   getCurrencyOnly.includes( `.` ) ? getCurrencyOnly.replace('.', '') : '';
+    getCurrencyOnly                     =   getCurrencyOnly.includes( `,` ) ? getCurrencyOnly.replace(',', '') : '';
+
+    if ( typeof getShippingMethods !== 'undefined' && getShippingMethods ) {
+
+      getShippingMethods                =   JSON.parse( getShippingMethods );
+
+      const availableShippingMethods    =   $( `.content-box[data-shipping-methods] .content-box__row` ).length;
+
+      const availableTitles           =   [];
+
+      $( `.content-box[data-shipping-methods] .content-box__row` ).each(function() {
+
+        const getTitle                =   $( this ).find( `label.radio__label .radio__label__primary[data-shipping-method-label-title]` ).attr( `data-shipping-method-label-title` );
+
+        availableTitles.push( getTitle );
+
+      });
+
+      for ( let i = 0; i < getShippingMethods.length; i++ ) {
+
+        const r                       =   getShippingMethods[i];
+
+        let itemPrice                 =   `${ getCurrencyOnly }${ r.price_only }`;
+        itemPrice                     =   itemPrice.replace(/\s/g, '');
+
+        if ( availableTitles.includes( r.title ) ) {
+
+          if ( getShipCountry === 'India' && r.type === 'India_previousPrice' ) {
+
+            $( `.content-box[data-shipping-methods] .content-box__row label.radio__label .radio__label__primary[data-shipping-method-label-title="${ r.title }"]` )
+            .html( `${ r.title } &nbsp; &nbsp;<span style="font-size: 0.75rem; display: inline-block; padding: 3px 10px; background-color: #f68945; border-radius: 999px; color: #fff;">Limited time</span>` )
+            .after( `
+              <span class="radio__label__accessory">
+                <span class="content-box__emphasis" style="text-decoration: line-through; color: gray;">${ itemPrice }</span>
+              </span>
+            ` );
+
+          } else if ( getShipCountry !== 'India' && r.type === 'All_previousPrice' ) {
+
+            $( `.content-box[data-shipping-methods] .content-box__row label.radio__label .radio__label__primary[data-shipping-method-label-title="${ r.title }"]` )
+            .html( `${ r.title } &nbsp; &nbsp;<span style="font-size: 0.75rem; display: inline-block; padding: 3px 10px; background-color: #f68945; border-radius: 999px; color: #fff;">Limited time</span>` )
+            .after( `
+              <span class="radio__label__accessory">
+                <span class="content-box__emphasis" style="text-decoration: line-through; color: gray;">${ itemPrice }</span>
+              </span>
+            ` );
+
+          }
+
+        }
+
+      }
+
+      if ( availableShippingMethods < 3 ) {
+
+        for ( let i = 0; i < getShippingMethods.length; i++ ) {
+
+          const r                       =   getShippingMethods[i];
+
+          let itemPrice                 =   `${ getCurrencyOnly }${ r.price_only }`;
+          itemPrice                     =   itemPrice.replace(/\s/g, '');
+
+          if ( availableTitles.includes( r.title ) === false ) {
+
+            if ( getShipCountry === 'India' && r.type === 'India' ) {
+
+              $( `.content-box[data-shipping-methods]` )
+              .append( `
+                <div class="content-box__row">
+                  <div class="radio-wrapper">
+                    <div class="radio__input">
+                      <input class="input-radio" type="radio" disabled>
+                    </div>
+                    <label class="radio__label">
+                      <span class="radio__label__primary">${ r.title }</span>
+                      <span class="radio__label__accessory">
+                        <span class="content-box__emphasis">Sold out</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              ` );
+
+            } else if ( getShipCountry !== 'India' && r.type === 'All' ) {
+
+              $( `.content-box[data-shipping-methods]` )
+              .append( `
+                <div class="content-box__row">
+                  <div class="radio-wrapper">
+                    <div class="radio__input">
+                      <input class="input-radio" type="radio" disabled>
+                    </div>
+                    <label class="radio__label">
+                      <span class="radio__label__primary">${ r.title }</span>
+                      <span class="radio__label__accessory">
+                        <span class="content-box__emphasis">Sold out</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              ` );
+
+            }
+
+          }
+
+        }
+
+      }
+
+      // console.log ( 'getShippingMethods', getShippingMethods );
+
+    }
+
+  }
+  catch ( err ) {
+    console.log( `ERROR checkAndApply__ShippingMethods`, err.message );
+  }
+}
+
+async function getTotalPrice() {
+  try {
+
+    let getTotalAmount        =   $( `.total-line-table__footer .total-line__price .payment-due__price[data-checkout-payment-due-target]` ).text();
+
+    if ( typeof getTotalAmount !== 'undefined' && getTotalAmount ) {
+
+      // if ( getTotalAmount.includes( ` ` ) ) {
+
+      //   getTotalAmount        =   getTotalAmount.replace( ` `, `` );
+
+      // }
+
+      getTotalAmount          =   getTotalAmount.replace( /^\D+/g, '');
+
+      // if ( getTotalAmount.includes( currencySymbol ) ) {
+
+      //   getTotalAmount        =   getTotalAmount.replace( currencySymbol, `` );
+
+      // }
+
+      // if ( getTotalAmount.includes( currentCurrency ) ) {
+
+      //   getTotalAmount        =   getTotalAmount.replace( currentCurrency, `` );
+
+      // }
+
+      if ( getTotalAmount.includes( `,` ) ) {
+
+        getTotalAmount        =   getTotalAmount.replace( `,`, `` );
+
+      }
+
+      if ( getTotalAmount.includes( `.` ) ) {
+
+        getTotalAmount        =   getTotalAmount.split( `.` )[0];
+
+      }
+
+      sessionStorage.setItem( `__totalAmount__`, getTotalAmount );
+
+    }
+
+  }
+  catch ( err ) {
+    console.log( `ERROR getTotalPrice()`, err.message );
+  }
+}
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
+async function getRazorInt__() {
+  try {
+
+    getTotalPrice()
+
+    const __tokenURL__      =   `https://hwpth0eczl.execute-api.us-east-1.amazonaws.com/staging/shopify/create-razorpay-token`;
+
+    const data2Send = {
+      "order_currency"    :   "INR",
+      "order_total"       :   sessionStorage.getItem( `__totalAmount__` ) * 1,
+      "order_data"        :   orderData,
+      "checkout_data"     :   checkoutData
+    }
+
+    const getReqResponse  =   await postRequest( __tokenURL__, data2Send );
+
+    await $.getScript(`https://checkout.razorpay.com/v1/checkout.js`);
+
+    if ( typeof getReqResponse.order.id !== 'undefined' && getReqResponse.order.id ) {
+
+      await executeRazor( getReqResponse.order.id );
+
+    }
+
+    console.log ( 'Send request to Amol API for order_id' );
+    console.log ( 'Load razor pay checkout javascript file' );
+    console.log ( 'getReqResponse', getReqResponse );
+
+  }
+  catch ( err ) {
+    console.log( `ERROR getRazor`, err.message );
+  }
+}
+
+async function executeRazor( oid ) {
+  try {
+
+    const options           =   {
+      "key"               :   "rzp_test_BoKdGiPPEDIUIk",
+      "amount"            :   "50000",
+      "currency"          :   "INR",
+      "name"              :   "ddAcme Corp",
+      "description"       :   "Test Transaction",
+      "image"             :   "https://cdn.shopify.com/s/files/1/0274/1986/9282/products/01_e7b4c200-15c2-44d4-9df9-21b8d05525c2_small.png?v=1633678661",
+      "order_id"          :   `${ oid }`,
+      "handler"           :   function ( r ) {
+
+        razorPayOrderCompleted( r );
+
+      },
+      "prefill"           :   prefill,
+      "theme"             :   theme
+    };
+
+    const rzp1              =   new Razorpay( options );
+
+    rzp1.on('payment.failed', function ( response ) {
+
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+
+    });
+
+    document.getElementById('rzp-button1').onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    }
+
+    console.log ( 'Initialize Razorpay object' );
+    console.log ( 'Show Razorpay button and hide loader' );
+
+    $( `#rzp-button1` )
+    .removeClass( `visually-hidden` )
+    .prev( `svg` )
+    .addClass( `visually-hidden` );
+
+  }
+  catch ( err ) {
+    console.log( `ERROR executeRazor`, err.message );
+  }
+}
+
+async function postRequest( url, data2Send ) {
+  try {
+
+    let rtn;
+
+    await fetch(`${ url }`, {
+      method: 'POST',
+      headers: {
+        'Content-Type'  :   'application/json',
+        'x-api-key'     :   'Bg6YI8w6QA8N9OWLp45eY9zwplxvHCf33ID3AtjV'
+      },
+      body: JSON.stringify( data2Send )
+    })
+    .then(response => response.json())
+    .then(data => {
+
+      rtn       =   data;
+
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+    return rtn;
+
+  }
+  catch ( err ) {
+    console.log( `ERROR postRequest()`, err.message );
+  }
+}
+
+async function razorPayOrderCompleted( r ) {
+  try {
+
+    sessionStorage.setItem( `__razorResponse__`, JSON.stringify( r ) );
+    console.log ( 'response', r );
+
+    $( `.step__footer .shown-if-js #continue_button` ).prop( `disabled`, false );
+
+    console.log ( 'Above response is from razorpay' );
+    console.log ( 'Enabled Complete Order buttom' );
+    console.log ( 'Added delay for 3 seconds so can read all consoles' );
+
+
+    await delay( 3000 );
+
+    $( `.step__footer .shown-if-js #continue_button` ).click();
+
+  }
+  catch ( err ) {
+    console.log( `ERROR razorPayOrderCompleted`, err.message );
+  }
+}

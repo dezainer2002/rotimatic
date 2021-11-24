@@ -1,0 +1,8 @@
+development:
+  password: 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
+  theme_id: "128626032859"
+  store: rotimaticin.myshopify.com
+production:
+  password: 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
+  theme_id: "128626032859"
+  store: rotimaticin.myshopify.com
